@@ -102,7 +102,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champagne transition-colors'
                                 >
-                                    Home
+                                    Início
                                 </Link>
                             </li>
                             <li>
@@ -114,7 +114,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champagne transition-colors'
                                 >
-                                    Services
+                                    Serviços
                                 </a>
                             </li>
                             <li>
@@ -126,7 +126,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champagne transition-colors'
                                 >
-                                    About
+                                    Sobre
                                 </a>
                             </li>
                             <li>
@@ -136,7 +136,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         isActive ? 'text-champagne font-bold' : 'text-white hover:text-champagne transition-colors'
                                     }
                                 >
-                                    Contact
+                                    Contato
                                 </NavLink>
                             </li>
                         </ul>
@@ -151,7 +151,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                 }}
                                 className="hidden lg:flex bg-champagne text-white px-6 py-2 font-bold uppercase tracking-widest text-xs whitespace-nowrap hover:bg-obsidian hover:border hover:border-champagne transition-colors duration-300 overflow-hidden group"
                             >
-                                BOOK APPOINTMENT
+                                AGENDAR HORÁRIO
                             </a>
 
                             {/* account section */}
@@ -181,9 +181,9 @@ function Header({ bgImage = "bg-transparent" }) {
                                             >
                                                 {/* User Info Section */}
                                                 <div className="px-4 py-3 border-b border-gray-700">
-                                                    <p className="text-champagne font-semibold text-sm uppercase tracking-wide">My Account</p>
-                                                    <p className="text-white text-lg font-medium mt-1">{currentUser?.name || 'User'}</p>
-                                                    <p className="text-gray-400 text-sm">{currentUser?.email || 'user@example.com'}</p>
+                                                    <p className="text-champagne font-semibold text-sm uppercase tracking-wide">Minha Conta</p>
+                                                    <p className="text-white text-lg font-medium mt-1">{currentUser?.name || 'Usuário'}</p>
+                                                    <p className="text-gray-400 text-sm">{currentUser?.email || 'usuario@exemplo.com'}</p>
                                                 </div>
 
                                                 {/* Navigation Section */}

@@ -54,8 +54,8 @@ function Home() {
     const servicesData = [
         {
             icon: <Scissors size={24} strokeWidth={1} />,
-            title: "Classic Haircut",
-            description: "Our stylist can recommend what will work excellent for your hair type and face shape.",
+            title: "Corte Clássico",
+            description: "Nossos estilistas podem recomendar o que funcionará perfeitamente para seu tipo de cabelo e formato de rosto.",
             price: "$30.00",
             image: serviceHaircut
         },
@@ -68,29 +68,29 @@ function Home() {
         },
         {
             icon: <Droplets size={24} strokeWidth={1} />,
-            title: "Facials & Wash",
-            description: "The right hair and skincare treatment with high quality products.",
+            title: "Limpeza Facial e Lavagem",
+            description: "O tratamento certo para cabelo e pele com produtos de alta qualidade.",
             price: "$30.00",
             image: serviceColoring
         },
         {
             icon: <Sparkles size={24} strokeWidth={1} />,
-            title: "Beard Trim",
-            description: "Expert beard sculpting and conditioning to keep your facial hair looking sharp.",
+            title: "Aparo de Barba",
+            description: "Escultura e condicionamento especializado para manter seus pelos faciais impecáveis.",
             price: "$15.00",
             image: serviceShaving
         },
         {
             icon: <Crown size={24} strokeWidth={1} />,
-            title: "Hair Styling",
-            description: "Top-rated salon with talented stylists for the best in customer service.",
+            title: "Estilização de Cabelo",
+            description: "Salão de alto nível com estilistas talentosos para o melhor atendimento ao cliente.",
             price: "$60.00",
             image: serviceTreatment
         },
         {
             icon: <Palette size={24} strokeWidth={1} />,
-            title: "Hair Color",
-            description: "Want to spice up your look with a new color? Allow us to customize!",
+            title: "Coloração",
+            description: "Quer renovar seu visual com uma nova cor? Deixe-nos personalizar!",
             price: "$60.00",
             image: serviceGrooming
         }
@@ -394,7 +394,7 @@ function Home() {
                             <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champagne/50"></div>
                                 <p className="font-sans text-champagne/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
-                                    Est. 2011 — Gentlemen's Grooming
+                                    Desde 2011 — Cuidado Masculino Premium
                                 </p>
                             </div>
 
@@ -402,7 +402,7 @@ function Home() {
                             <div data-hero-heading className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champagne text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
-                                    The Art of
+                                    A Arte do
                                 </h1>
 
                                 {/* Line 2: Massive, dominant */}
