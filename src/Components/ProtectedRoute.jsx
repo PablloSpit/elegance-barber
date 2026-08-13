@@ -15,9 +15,13 @@ function ProtectedRoute({ children, requiredRole }) {
 
     if (requiredRole) {
         const allowed = Array.isArray(requiredRole) ? requiredRole : [requiredRole];
-        const userRole = currentUser?.accountRole || currentUser?.role; // support staff (accountRole) + existing role
+        const userRole = currentUser?.accountRole || currentUser?.role;
+
         if (!userRole || !allowed.includes(userRole)) {
-            return <Navigate to="/login" replace />;
+            // Redirect based on user role if they are logged in but unauthorized for this specific page
+            if (userRole === 'admin') return <Navigate to="/admin/dashboard" replace />;
+            if (userRole === 'staff') return <Navigate to="/staff/dashboard" replace />;
+            return <Navigate to="/" replace />;
         }
     }
 

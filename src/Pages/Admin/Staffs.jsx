@@ -23,7 +23,7 @@ import EditStaffModal from '../../Components/AdminPanel Components/EditStaffModa
 import ConfirmModal from '../../Components/ConfirmModal'
 
 const Staffs = () => {
-    const { staff, removeStaff } = useStaff()
+    const { staff, removeStaff, updateStaff } = useStaff()
     const [searchTerm, setSearchTerm] = useState('')
     const [filterRole, setFilterRole] = useState('All')
     const { showMessage } = useMessage()
@@ -53,18 +53,20 @@ const Staffs = () => {
 
 
     // Helper for Status Badge    // Helper for Status Badge
-    const StatusBadge = ({ status = 'inactive' }) => {
+    const StatusBadge = ({ status = 'inactive', id, onToggle }) => {
         const isActive = status === 'active'
-        const displayStatus = status ? (status.charAt(0).toUpperCase() + status.slice(1)) : 'Inactive'
+        const displayStatus = isActive ? 'Ativo' : 'Inativo'
 
         return (
-            <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-xs font-semibold border ${isActive
-                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/10'
-                : 'bg-rose-500/10 text-rose-400 border-rose-500/10'
-                }`}>
+            <button
+                onClick={() => onToggle?.(id, !isActive)}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-xs font-semibold border transition-colors cursor-pointer ${isActive
+                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/10 hover:bg-emerald-500/20'
+                    : 'bg-rose-500/10 text-rose-400 border-rose-500/10 hover:bg-rose-500/20'
+                    }`}>
                 <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-emerald-400' : 'bg-rose-400'}`}></span>
                 {displayStatus}
-            </span>
+            </button>
         )
     }
 
@@ -84,6 +86,14 @@ const Staffs = () => {
             },
             onCancel: () => setConfirmAction(null)
         })
+    }
+    const handleToggleStatus = async (staffId, newActiveState) => {
+        const result = await updateStaff(staffId, { status: newActiveState ? 'active' : 'inactive' })
+        if (result.success) {
+            showMessage('success', `Status atualizado com sucesso.`)
+        } else {
+            showMessage('error', result.error)
+        }
     }
 
     return (
@@ -210,7 +220,7 @@ const Staffs = () => {
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <StatusBadge status={member.status} />
+                                                <StatusBadge status={member.status} id={member.id} onToggle={handleToggleStatus} />
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex flex-col gap-1">
@@ -275,7 +285,7 @@ const Staffs = () => {
                                     </div>
 
                                     <div className="flex justify-between items-center">
-                                        <StatusBadge status={member.status} />
+                                        <StatusBadge status={member.status} id={member.id} onToggle={handleToggleStatus} />
                                         <div className="flex items-center gap-1 text-champagne font-bold text-xs">
                                             <Star size={12} className="text-champagne fill-current" />
                                             <span>{member.rating}</span>
