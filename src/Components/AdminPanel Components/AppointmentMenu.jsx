@@ -130,7 +130,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         }}
                         className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                     >
-                        <Edit size={14} className="text-champagne" />
+                        <Edit size={14} className="text-champberry" />
                         Edit Details
                     </button>
 

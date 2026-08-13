@@ -179,7 +179,7 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                             }}
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
-                            <Edit size={14} className="text-champagne" />
+                            <Edit size={14} className="text-champberry" />
                             Edit Details
                         </button>
                     )}
@@ -213,7 +213,7 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                             </button>
                             <button
                                 onClick={confirmAction.onConfirm}
-                                className="px-4 py-2 text-sm font-bold text-black bg-champagne hover:bg-champagne-dark rounded-lg shadow-lg hover:shadow-champagne/20 transition-all cursor-pointer"
+                                className="px-4 py-2 text-sm font-bold text-black bg-champberry hover:bg-champberry-dark rounded-lg shadow-lg hover:shadow-champberry/20 transition-all cursor-pointer"
                             >
                                 Yes, Proceed
                             </button>

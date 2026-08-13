@@ -46,7 +46,7 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                 </button>
 
                 {/* Cover / Profile Header */}
-                <div className="h-32 bg-linear-to-r from-champagne to-champagne-dark relative">
+                <div className="h-32 bg-linear-to-r from-champberry to-champberry-dark relative">
                     <div className="absolute -bottom-12 left-6">
                         <div className="w-24 h-24 rounded-full border-4 border-[#121212] bg-obsidian-elevated flex items-center justify-center text-white text-3xl font-black shadow-xl overflow-hidden">
                             {staff.avatar ? (
@@ -64,7 +64,7 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                     {/* Basic Info */}
                     <div>
                         <h2 className="text-xl sm:text-2xl font-black text-white">{staff.name}</h2>
-                        <p className="text-champagne font-bold text-sm tracking-wide uppercase mt-1">{staff.role}</p>
+                        <p className="text-champberry font-bold text-sm tracking-wide uppercase mt-1">{staff.role}</p>
 
                         <div className="flex flex-wrap gap-2 sm:gap-4 mt-4 text-xs sm:text-sm text-gray-400">
                             <div className="flex items-center gap-2 bg-obsidian-elevated px-2 sm:px-3 py-1.5 rounded-lg border border-white/5 truncate">
@@ -81,7 +81,7 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                     {/* Stats Grid */}
                     <div className="grid grid-cols-3 gap-3">
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
-                            <span className="text-champagne-muted text-[10px] uppercase font-bold tracking-wider mb-1">Total Appts</span>
+                            <span className="text-champberry-muted text-[10px] uppercase font-bold tracking-wider mb-1">Total Appts</span>
                             <span className="text-white text-xl font-black">{stats.total}</span>
                         </div>
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
@@ -89,9 +89,9 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                             <span className="text-emerald-400 text-xl font-black">{stats.active}</span>
                         </div>
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
-                            <span className="text-champagne/70 text-[10px] uppercase font-bold tracking-wider mb-1">Rating</span>
-                            <div className="flex items-center gap-1 text-champagne mt-0.5">
-                                <Star size={14} className="text-champagne fill-current" />
+                            <span className="text-champberry/70 text-[10px] uppercase font-bold tracking-wider mb-1">Rating</span>
+                            <div className="flex items-center gap-1 text-champberry mt-0.5">
+                                <Star size={14} className="text-champberry fill-current" />
                                 <span className="text-xl font-black">{staff.rating || 'N/A'}</span>
                             </div>
                         </div>
