@@ -83,7 +83,7 @@ html.lenis body {
 
 /* ── Global Selection ── */
 ::selection {
-  background-color: var(--color-champagne);
+  background-color: var(--color-champberry);
   color: var(--color-obsidian);
 }
 
@@ -97,7 +97,7 @@ html.lenis body {
 }
 
 /* Champagne gold text gradient (reusable) */
-.text-gradient-champagne {
+.text-gradient-champberry {
   background: linear-gradient(135deg, #e8d48b 0%, #d4af37 50%, #b8960f 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -258,5 +258,5 @@ html.lenis body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--color-champagne);
+  background: var(--color-champberry);
 }

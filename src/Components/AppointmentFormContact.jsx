@@ -109,36 +109,36 @@ function AppointmentFormContact() {
     return (
         <form onSubmit={handleSubmit} className="w-full space-y-4 mt-1">
             <div>
-                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="name">Full Name *</label>
-                <input type="text" placeholder="Hassan Waheed Ali" id='name' value={name} onChange={(e) => setName(e.target.value)} className="w-full font-bold border-3  rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5" required />
+                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="name">Full Name *</label>
+                <input type="text" placeholder="Hassan Waheed Ali" id='name' value={name} onChange={(e) => setName(e.target.value)} className="w-full font-bold border-3  rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5" required />
             </div>
             <div>
-                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="email">Email Address *</label>
-                <input type="email" placeholder="hassanwaheedalis@gmail.com" id='email' value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5" required />
+                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="email">Email Address *</label>
+                <input type="email" placeholder="hassanwaheedalis@gmail.com" id='email' value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5" required />
             </div>
             <div>
-                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="phone">Phone Number *</label>
-                <input type="tel" placeholder="0336-3090793" id='phone' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5" required />
+                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="phone">Phone Number *</label>
+                <input type="tel" placeholder="0336-3090793" id='phone' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5" required />
             </div>
             <div className="date-time-section flex flex-col sm:flex-row gap-3 md:gap-5">
                 <div className="flex-1">
-                    <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="date">Date *</label>
-                    <input type="date" placeholder="DATE" id='date' value={date} onChange={(e) => setDate(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#77777786] tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5" required />
+                    <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="date">Date *</label>
+                    <input type="date" placeholder="DATE" id='date' value={date} onChange={(e) => setDate(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#77777786] tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5" required />
                 </div>
                 <div className="flex-1">
-                    <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="time">Time *</label>
-                    <input type="time" placeholder="TIME" id='time' value={time} onChange={(e) => setTime(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#77777786] tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5" required />
+                    <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="time">Time *</label>
+                    <input type="time" placeholder="TIME" id='time' value={time} onChange={(e) => setTime(e.target.value)} className="w-full font-bold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#77777786] tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5" required />
                 </div>
             </div>
             <div className="service-select w-full relative" ref={dropdownRef}>
-                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="service">Select Service *</label>
+                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="service">Select Service *</label>
                 {/* Custom Dropdown */}
                 <div className="relative mt-1.5">
                     {/* Dropdown Button */}
                     <button
                         type="button"
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`w-full font-bold border-3 rounded-md p-2 px-3 md:px-4 py-2 md:py-3 text-sm tracking-tight bg-obsidian text-left flex justify-between items-center transition-colors ${isOpen ? 'border-champagne text-champagne' : 'border-[#454545] text-[#77777786] hover:border-champagne'
+                        className={`w-full font-bold border-3 rounded-md p-2 px-3 md:px-4 py-2 md:py-3 text-sm tracking-tight bg-obsidian text-left flex justify-between items-center transition-colors ${isOpen ? 'border-champberry text-champberry' : 'border-[#454545] text-[#77777786] hover:border-champberry'
                             }`}
                     >
                         <span>
@@ -155,7 +155,7 @@ function AppointmentFormContact() {
                             {services.map((serviceCategory) => (
                                 <div key={serviceCategory.title}>
                                     {/* Category Header */}
-                                    <div className="font-bold text-champagne bg-[#191919] px-3 md:px-4 py-2 text-xs md:text-sm tracking-wide uppercase">
+                                    <div className="font-bold text-champberry bg-[#191919] px-3 md:px-4 py-2 text-xs md:text-sm tracking-wide uppercase">
                                         {serviceCategory.title}
                                     </div>
 
@@ -168,12 +168,12 @@ function AppointmentFormContact() {
                                                 type="button"
                                                 onClick={() => toggleService(service)}
                                                 className={`w-full text-left px-3 md:px-4 py-2 md:py-3 transition-colors font-black tracking-tight text-xs md:text-sm flex items-center justify-between gap-2 ${isSelected
-                                                    ? 'bg-champagne/10 text-champagne'
-                                                    : 'text-[#bfbdbd] hover:bg-champagne/5 hover:text-white'
+                                                    ? 'bg-champberry/10 text-champberry'
+                                                    : 'text-[#bfbdbd] hover:bg-champberry/5 hover:text-white'
                                                     }`}
                                             >
                                                 <span>{service.name} — {service.price}</span>
-                                                <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champagne bg-champagne text-black' : 'border-[#555]'
+                                                <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champberry bg-champberry text-black' : 'border-[#555]'
                                                     }`}>
                                                     {isSelected && '✓'}
                                                 </span>
@@ -192,13 +192,13 @@ function AppointmentFormContact() {
                         {selectedService.map(s => (
                             <span
                                 key={s.name}
-                                className="inline-flex items-center gap-1.5 bg-champagne/15 border border-champagne/40 text-champagne text-xs font-black px-2 py-1 rounded-sm tracking-tight mt-1.5"
+                                className="inline-flex items-center gap-1.5 bg-champberry/15 border border-champberry/40 text-champberry text-xs font-black px-2 py-1 rounded-sm tracking-tight mt-1.5"
                             >
                                 {s.name} — {s.price}
                                 <button
                                     type="button"
                                     onClick={() => toggleService(s)}
-                                    className="text-champagne hover:text-white transition-colors leading-none"
+                                    className="text-champberry hover:text-white transition-colors leading-none"
                                 >
                                     ✕
                                 </button>
@@ -209,17 +209,17 @@ function AppointmentFormContact() {
 
                 {/* Total Price */}
                 {selectedService.length > 0 && (
-                    <div className="mt-2.5 text-left text-xs font-black text-champagne-muted tracking-wide">
-                        TOTAL: <span className="text-champagne">${totalPrice}</span>
+                    <div className="mt-2.5 text-left text-xs font-black text-champberry-muted tracking-wide">
+                        TOTAL: <span className="text-champberry">${totalPrice}</span>
                     </div>
                 )}
             </div>
             <div className="message-area">
-                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champagne-muted ml-0.5" htmlFor="message">Message</label>
-                <textarea placeholder="Please Write Your Message" id='message' value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-semibold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#b5b3b3] tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne mt-1.5 h-24" rows={1} />
+                <label className="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm text-champberry-muted ml-0.5" htmlFor="message">Message</label>
+                <textarea placeholder="Please Write Your Message" id='message' value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-semibold border-3 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-[#b5b3b3] tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5 h-24" rows={1} />
             </div>
             <div className='pt-3'>
-                <button type="submit" className="w-full border-2 border-champagne/50 hover:border-champagne text-champagne font-black p-3 px-6 hover:bg-champagne hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest">Book An Appointment</button>
+                <button type="submit" className="w-full border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 px-6 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest">Book An Appointment</button>
             </div>
         </form >
     )

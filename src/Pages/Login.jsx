@@ -11,7 +11,7 @@ function Login() {
                 <div
                     className="fixed left-0 top-0 w-screen h-screen pointer-events-none z-0"
                     style={{
-                        background: 'linear-gradient(117deg, var(--color-champagne) 1.24%, var(--color-champagne-light) 44.24%, var(--color-champagne-dark) 100.64%)',
+                        background: 'linear-gradient(117deg, var(--color-champberry) 1.24%, var(--color-champberry-light) 44.24%, var(--color-champberry-dark) 100.64%)',
                         clipPath: 'polygon(0 12%, 100% 100%, 0 100%)'
                     }}
                 />

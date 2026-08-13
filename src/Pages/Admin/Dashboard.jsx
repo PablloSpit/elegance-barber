@@ -190,7 +190,7 @@ function Dashboard() {
                                         <h4 className="font-bold text-white text-sm flex items-center gap-2">
                                             <span>{appointment.name}</span>
                                             {appointment.userId == null && (
-                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">Guest</span>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</span>
                                             )}
                                         </h4>
                                         <div className="text-xs text-[#777] flex items-center gap-1 mt-0.5">
@@ -209,7 +209,7 @@ function Dashboard() {
                                         <span className="text-[#333]">|</span>
                                         <span>{appointment.time}</span>
                                     </div>
-                                    <div className="flex items-center gap-1.5 text-xs text-champagne">
+                                    <div className="flex items-center gap-1.5 text-xs text-champberry">
                                         <Scissors size={12} />
                                         <span>{getStylistSummary(appointment)}</span>
                                     </div>
@@ -235,7 +235,7 @@ function Dashboard() {
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center gap-3 sm:gap-4">
                         <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
                             <span className="text-white">Status do</span> Estoque
-                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champagne bg-champagne/10 border border-champagne/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
+                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
                         </h2>
                         <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
                             <Link to="/admin/inventory">Gerenciar Estoque</Link>
@@ -254,7 +254,7 @@ function Dashboard() {
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center">
                         <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
                             <span className="text-white">Agenda da</span> Equipe
-                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champagne bg-champagne/10 border border-champagne/20 px-2 py-1 rounded-md tracking-wider uppercase">Today</span> */}
+                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Today</span> */}
                         </h2>
                         <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
                             <Link to="/admin/staffs">Ver Equipe</Link>

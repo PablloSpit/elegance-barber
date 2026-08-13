@@ -117,10 +117,10 @@ function PriceCard() {
                     onClick={prevSlide}
                     className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 lg:-translate-x-14 z-20
                                w-8 h-8 md:w-12 md:h-12 flex items-center justify-center
-                               rounded-full backdrop-blur-md bg-obsidian-surface/60 border border-champagne/15
-                               text-champagne/80 hover:text-champagne hover:border-champagne/40 hover:bg-obsidian-elevated/80
+                               rounded-full backdrop-blur-md bg-obsidian-surface/60 border border-champberry/15
+                               text-champberry/80 hover:text-champberry hover:border-champberry/40 hover:bg-obsidian-elevated/80
                                shadow-lg shadow-black/30 transition-all duration-300 hover:scale-110 cursor-pointer
-                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne/50"
+                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champberry/50"
                     aria-label="Previous slide"
                 >
                     <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
@@ -130,10 +130,10 @@ function PriceCard() {
                     onClick={nextSlide}
                     className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 lg:translate-x-14 z-20
                                w-8 h-8 md:w-12 md:h-12 flex items-center justify-center
-                               rounded-full backdrop-blur-md bg-obsidian-surface/60 border border-champagne/15
-                               text-champagne/80 hover:text-champagne hover:border-champagne/40 hover:bg-obsidian-elevated/80
+                               rounded-full backdrop-blur-md bg-obsidian-surface/60 border border-champberry/15
+                               text-champberry/80 hover:text-champberry hover:border-champberry/40 hover:bg-obsidian-elevated/80
                                shadow-lg shadow-black/30 transition-all duration-300 hover:scale-110 cursor-pointer
-                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne/50"
+                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champberry/50"
                     aria-label="Next slide"
                 >
                     <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
@@ -171,16 +171,16 @@ function PriceCard() {
                                     >
                                         {/* Card Title — Outside the card for editorial feel */}
                                         <div className="text-center space-y-4">
-                                            <span className="font-sans text-champagne/60 tracking-[0.4em] text-[9px] sm:text-[10px] uppercase block">
+                                            <span className="font-sans text-champberry/60 tracking-[0.4em] text-[9px] sm:text-[10px] uppercase block">
                                                 Menu
                                             </span>
                                             <h2 className="font-sans text-3xl sm:text-3xl font-black uppercase tracking-wider text-white">
                                                 {card.title}
                                             </h2>
                                             <div className="flex items-center justify-center gap-3">
-                                                <div className="w-8 h-px bg-champagne/30"></div>
-                                                <div className="w-2 h-2 rounded-full bg-champagne/50"></div>
-                                                <div className="w-8 h-px bg-champagne/30"></div>
+                                                <div className="w-8 h-px bg-champberry/30"></div>
+                                                <div className="w-2 h-2 rounded-full bg-champberry/50"></div>
+                                                <div className="w-8 h-px bg-champberry/30"></div>
                                             </div>
                                         </div>
 
@@ -214,10 +214,10 @@ function PriceCard() {
                                             {/* Cinematic Gradient Overlay — matches hero treatment */}
                                             <div className="absolute inset-0 z-1 bg-linear-to-t from-black via-black/85 to-black/60 duration-300 group-hover/card:from-black group-hover/card:via-black/80 group-hover/card:to-black/50" />
 
-                                            {/* Subtle champagne glow on hover (top edge) */}
+                                            {/* Subtle champberry glow on hover (top edge) */}
                                             <div className="absolute inset-x-0 top-0 h-px z-2
-                                                            bg-linear-to-r from-transparent via-champagne/0 to-transparent
-                                                            transition-all duration-300 group-hover/card:via-champagne/40" />
+                                                            bg-linear-to-r from-transparent via-champberry/0 to-transparent
+                                                            transition-all duration-300 group-hover/card:via-champberry/40" />
 
                                             {/* Price Items — Staggered entrance */}
                                             <Motion.div
@@ -233,12 +233,12 @@ function PriceCard() {
                                                             variants={itemVariants}
                                                             className="group/item flex justify-between items-center
                                                                        py-6 border-b border-white/6
-                                                                       hover:border-champagne/50 transition-colors duration-300"
+                                                                       hover:border-champberry/50 transition-colors duration-300"
                                                         >
                                                             {/* Service Name */}
                                                             <div className="flex items-center gap-3">
-                                                                <span className="w-1.5 h-1.5 rounded-full bg-champagne/30
-                                                                               group-hover/item:bg-champagne transition-colors duration-300" />
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-champberry/30
+                                                                               group-hover/item:bg-champberry transition-colors duration-300" />
                                                                 <span className="font-sans text-sm md:text-lg font-medium text-white/85
                                                                                group-hover/item:text-white transition-colors duration-300 tracking-wide">
                                                                     {item.name}
@@ -247,11 +247,11 @@ function PriceCard() {
 
                                                             {/* Dotted Spacer — editorial menu style */}
                                                             <div className="flex-1 mx-4 border-b border-dotted border-white/8
-                                                                            group-hover/item:border-champagne/20 transition-colors duration-300" />
+                                                                            group-hover/item:border-champberry/20 transition-colors duration-300" />
 
                                                             {/* Price */}
-                                                            <span className="font-sans text-md md:text-xl font-bold text-champagne-light
-                                                                            group-hover/item:text-champagne transition-colors duration-300">
+                                                            <span className="font-sans text-md md:text-xl font-bold text-champberry-light
+                                                                            group-hover/item:text-champberry transition-colors duration-300">
                                                                 {item.price}
                                                             </span>
                                                         </Motion.div>
@@ -276,9 +276,9 @@ function PriceCard() {
                                 setCurrentIndex(index)
                             }}
                             className={`h-2 rounded-full transition-all duration-500 ease-luxury cursor-pointer
-                                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne/50
+                                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champberry/50
                                         ${index === currentIndex
-                                    ? 'w-8 bg-champagne shadow-md shadow-champagne/30'
+                                    ? 'w-8 bg-champberry shadow-md shadow-champberry/30'
                                     : 'w-2 bg-white/15 hover:bg-white/30'
                                 }`}
                             aria-label={`Go to slide ${index + 1}`}

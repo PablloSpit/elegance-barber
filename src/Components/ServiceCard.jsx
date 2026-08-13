@@ -32,14 +32,14 @@ const ServiceCard = ({ icon, title, description, price, onClick, image }) => {
             <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-black/40 transition-opacity duration-500 group-hover:opacity-90" />
 
             {/* Decorative Top Line */}
-            <div className="absolute left-0 top-0 h-1 w-full bg-linear-to-r from-transparent via-champagne to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute left-0 top-0 h-1 w-full bg-linear-to-r from-transparent via-champberry to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
             {/* Content Container */}
             <div className="relative z-10 flex h-full flex-col p-8 justify-between">
 
                 {/* Icon Circle - Floating effect */}
                 <div className="flex">
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-black/40 border border-white/20 text-champagne transition-[transform,background-color,color,border-color] duration-500 group-hover:scale-110 group-hover:bg-champagne group-hover:text-white group-hover:border-champagne shadow-lg will-change-transform">
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-black/40 border border-white/20 text-champberry transition-[transform,background-color,color,border-color] duration-500 group-hover:scale-110 group-hover:bg-champberry group-hover:text-white group-hover:border-champberry shadow-lg will-change-transform">
                         <span className="text-3xl transition-transform duration-300">
                             {icon}
                         </span>
@@ -52,18 +52,18 @@ const ServiceCard = ({ icon, title, description, price, onClick, image }) => {
                         {title}
                     </h3>
 
-                    <div className="mb-4 h-0.5 w-12 bg-champagne transition-[width] duration-500 group-hover:w-full" />
+                    <div className="mb-4 h-0.5 w-12 bg-champberry transition-[width] duration-500 group-hover:w-full" />
 
-                    <p className="mb-6 text-xs md:text-sm text-champagne-muted line-clamp-3 group-hover:text-white transition-colors duration-300 leading-relaxed font-medium">
+                    <p className="mb-6 text-xs md:text-sm text-champberry-muted line-clamp-3 group-hover:text-white transition-colors duration-300 leading-relaxed font-medium">
                         {description}
                     </p>
 
                     {/* Price and Action */}
                     <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                        <span className="text-xl md:text-2xl font-black text-champagne tracking-wider shadow-black shadow-sm">
+                        <span className="text-xl md:text-2xl font-black text-champberry tracking-wider shadow-black shadow-sm">
                             {price}
                         </span>
-                        <button className="group/btn flex items-center gap-2 rounded-full bg-black/40 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-champagne border border-champagne hover:border-champagne">
+                        <button className="group/btn flex items-center gap-2 rounded-full bg-black/40 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-champberry border border-champberry hover:border-champberry">
                             <span>Book Now</span>
                             <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover/btn:translate-x-1 will-change-transform" />
                         </button>

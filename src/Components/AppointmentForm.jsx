@@ -21,7 +21,7 @@ const Step1Selection = memo(({
                     <button
                         type="button"
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`w-full font-black border-2 md:border-5 p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base tracking-tight bg-obsidian text-left flex justify-between items-center transition-colors ${isOpen ? 'border-champagne text-champagne' : 'border-[#454545] text-champagne-muted hover:border-champagne'
+                        className={`w-full font-black border-2 md:border-5 p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base tracking-tight bg-obsidian text-left flex justify-between items-center transition-colors ${isOpen ? 'border-champberry text-champberry' : 'border-[#454545] text-champberry-muted hover:border-champberry'
                             }`}
                     >
                         <span>
@@ -34,10 +34,10 @@ const Step1Selection = memo(({
 
                     {/* Dropdown Menu */}
                     {isOpen && (
-                        <div className="absolute top-full left-0 w-full bg-[#1b1b1b] border-2 md:border-5 border-champagne z-50 mt-1 max-h-60 md:max-h-70 overflow-y-auto">
+                        <div className="absolute top-full left-0 w-full bg-[#1b1b1b] border-2 md:border-5 border-champberry z-50 mt-1 max-h-60 md:max-h-70 overflow-y-auto">
                             {services.map((serviceCategory) => (
                                 <div key={serviceCategory.title}>
-                                    <div className="font-extrabold text-champagne bg-[#191919] px-3 md:px-4 py-2 text-xs md:text-sm tracking-wide uppercase">
+                                    <div className="font-extrabold text-champberry bg-[#191919] px-3 md:px-4 py-2 text-xs md:text-sm tracking-wide uppercase">
                                         {serviceCategory.title}
                                     </div>
                                     {serviceCategory.items.map((service) => {
@@ -48,12 +48,12 @@ const Step1Selection = memo(({
                                                 type="button"
                                                 onClick={() => toggleService(service)}
                                                 className={`w-full text-left px-3 md:px-4 py-2 md:py-3 transition-colors font-black tracking-tight text-xs md:text-sm flex items-center justify-between gap-2 ${isSelected
-                                                    ? 'bg-champagne/10 text-champagne'
-                                                    : 'text-[#bfbdbd] hover:bg-champagne/5 hover:text-white'
+                                                    ? 'bg-champberry/10 text-champberry'
+                                                    : 'text-[#bfbdbd] hover:bg-champberry/5 hover:text-white'
                                                     }`}
                                             >
                                                 <span>{service.name} — {service.price}</span>
-                                                <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champagne bg-champagne text-black' : 'border-[#555]'
+                                                <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champberry bg-champberry text-black' : 'border-[#555]'
                                                     }`}>
                                                     {isSelected && '✓'}
                                                 </span>
@@ -72,13 +72,13 @@ const Step1Selection = memo(({
                         {selectedService.map(s => (
                             <span
                                 key={s.name}
-                                className="inline-flex items-center gap-1.5 bg-champagne/15 border border-champagne/40 text-champagne text-xs font-black px-2 py-1 rounded-sm tracking-tight"
+                                className="inline-flex items-center gap-1.5 bg-champberry/15 border border-champberry/40 text-champberry text-xs font-black px-2 py-1 rounded-sm tracking-tight"
                             >
                                 {s.name} — {s.price}
                                 <button
                                     type="button"
                                     onClick={(e) => { e.stopPropagation(); toggleService(s) }}
-                                    className="text-champagne hover:text-white transition-colors leading-none"
+                                    className="text-champberry hover:text-white transition-colors leading-none"
                                 >
                                     ✕
                                 </button>
@@ -87,8 +87,8 @@ const Step1Selection = memo(({
                     </div>
                 )}
                 {selectedService.length > 0 && (
-                    <div className="mt-3 text-left text-sm font-black text-champagne-muted tracking-wide">
-                        TOTAL: <span className="text-champagne text-lg">${totalPrice}</span>
+                    <div className="mt-3 text-left text-sm font-black text-champberry-muted tracking-wide">
+                        TOTAL: <span className="text-champberry text-lg">${totalPrice}</span>
                     </div>
                 )}
             </div>
@@ -97,7 +97,7 @@ const Step1Selection = memo(({
                 <button
                     type="button"
                     onClick={onNext}
-                    className="w-full border-2 border-champagne/50 hover:border-champagne text-champagne font-black p-3 px-6 hover:bg-champagne hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest"
+                    className="w-full border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 px-6 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest"
                 >
                     Continue to Schedule
                 </button>
@@ -116,12 +116,12 @@ const Step2Schedule = memo(({
         <div className="flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full relative group">
-                    <label className="absolute -top-3 left-3 bg-obsidian text-champagne px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Select Date</label>
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" required />
+                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Select Date</label>
+                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
                 </div>
                 <div className="w-full relative group">
-                    <label className="absolute -top-3 left-3 bg-obsidian text-champagne px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Choose Time</label>
-                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" required />
+                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Choose Time</label>
+                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
                 </div>
             </div>
 
@@ -136,7 +136,7 @@ const Step2Schedule = memo(({
                 <button
                     type="button"
                     onClick={onNext}
-                    className="w-2/3 border-2 border-champagne/50 hover:border-champagne text-champagne font-black p-3 hover:bg-champagne hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
+                    className="w-2/3 border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
                 >
                     Final Details
                 </button>
@@ -153,10 +153,10 @@ const Step3Details = memo(({
 }) => {
     return (
         <div className="flex flex-col gap-4">
-            <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" required />
-            <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" required />
-            <input type="tel" placeholder="PHONE NUMBER" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" required />
-            <textarea placeholder="ADDITIONAL REQUESTS (OPTIONAL)" value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champagne-muted tracking-tight bg-obsidian hover:border-champagne transition-colors focus:outline-none focus:border-champagne" rows={2} />
+            <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <input type="tel" placeholder="PHONE NUMBER" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <textarea placeholder="ADDITIONAL REQUESTS (OPTIONAL)" value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" rows={2} />
 
             <div className="flex gap-4 mt-2">
                 <button
@@ -169,7 +169,7 @@ const Step3Details = memo(({
                 <button
                     type="submit"
                     onClick={onSubmit}
-                    className="w-2/3 border-5 border-champagne text-white font-black p-3 hover:bg-[#d28127] hover:border-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-sm"
+                    className="w-2/3 border-5 border-champberry text-white font-black p-3 hover:bg-[#d28127] hover:border-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-sm"
                 >
                     Confirm Booking
                 </button>
@@ -317,8 +317,8 @@ function Appointment() {
             <div className="flex items-center gap-2 mb-8">
                 {[1, 2, 3].map((num) => (
                     <div key={num} className="flex-1 flex flex-col gap-2">
-                        <div className={`h-1 w-full transition-colors duration-500 rounded-full ${num <= currentStep ? 'bg-champagne' : 'bg-white/10'}`}></div>
-                        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-500 ${num <= currentStep ? 'text-champagne' : 'text-white/30'}`}>
+                        <div className={`h-1 w-full transition-colors duration-500 rounded-full ${num <= currentStep ? 'bg-champberry' : 'bg-white/10'}`}></div>
+                        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-500 ${num <= currentStep ? 'text-champberry' : 'text-white/30'}`}>
                             Step {num}
                         </span>
                     </div>

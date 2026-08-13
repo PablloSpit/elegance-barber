@@ -31,7 +31,7 @@ const HeroCanvas = () => {
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
         // Particle System Material
-        // Extract champagne color from CSS variable or use exact hex
+        // Extract champberry color from CSS variable or use exact hex
         const particleColor = new THREE.Color('#d9822b'); // Champagne base
         const particlesMaterial = new THREE.PointsMaterial({
             size: 0.015,

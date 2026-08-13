@@ -10,10 +10,10 @@ import {
 import { BarChart2, TrendingUp, Scissors, Users, DollarSign } from 'lucide-react';
 
 const GOLD_SHADES = [
-    '#d9822b', // color-champagne
-    '#f5a34d', // color-champagne-light
-    '#b36b24', // color-champagne-dark
-    '#8a8a8a', // color-champagne-muted
+    '#d9822b', // color-champberry
+    '#f5a34d', // color-champberry-light
+    '#b36b24', // color-champberry-dark
+    '#8a8a8a', // color-champberry-muted
     '#171717', // color-obsidian-elevated
 ];
 
