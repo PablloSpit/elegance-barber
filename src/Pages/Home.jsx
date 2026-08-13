@@ -61,8 +61,8 @@ function Home() {
         },
         {
             icon: <Feather size={24} strokeWidth={1} />,
-            title: "Shaves",
-            description: "Special stylists for men who just want their shave done with precision and comfort.",
+            title: "Barba e Navalha",
+            description: "Estilistas especializados para homens que desejam um barbear feito com precisão e conforto.",
             price: "$20.00",
             image: serviceStyling
         },
