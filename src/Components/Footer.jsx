@@ -43,7 +43,7 @@ function Footer() {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                            isActive ? 'text-champagne font-bold' : 'text-white hover:text-champagne transition-colors duration-500 ease-luxury'
+                            isActive ? 'text-champberry font-bold' : 'text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                         }
                     >
                         Início
@@ -54,14 +54,14 @@ function Footer() {
                             e.preventDefault()
                             goToSection('services')
                         }}
-                        className='text-white hover:text-champagne transition-colors duration-500 ease-luxury'
+                        className='text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                     >
                         Serviços
                     </a>
                     <NavLink
                         to="/contact"
                         className={({ isActive }) =>
-                            isActive ? 'text-champagne font-bold' : 'text-white hover:text-champagne transition-colors duration-500 ease-luxury'
+                            isActive ? 'text-champberry font-bold' : 'text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                         }
                     >
                         Contato
@@ -70,13 +70,13 @@ function Footer() {
                 </div>
                 {/* social */}
                 <div className="social-icons flex items-center gap-6 mt-4 md:mt-3">
-                    <a href="#" className="text-white hover:text-champagne transition-colors duration-500 ease-luxury">
+                    <a href="#" className="text-white hover:text-champberry transition-colors duration-500 ease-luxury">
                         <i className="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" className="text-white hover:text-champagne transition-colors duration-500 ease-luxury">
+                    <a href="#" className="text-white hover:text-champberry transition-colors duration-500 ease-luxury">
                         <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="#" className="text-white hover:text-champagne transition-colors duration-500 ease-luxury">
+                    <a href="#" className="text-white hover:text-champberry transition-colors duration-500 ease-luxury">
                         <i className="fab fa-instagram"></i>
                     </a>
                 </div>

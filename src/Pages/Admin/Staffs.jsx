@@ -102,13 +102,13 @@ const Staffs = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
                 <div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                        Staff <span className="text-champagne">Management</span>
+                        Staff <span className="text-champberry">Management</span>
                     </h1>
                     <p className="text-gray-400 text-xs sm:text-sm mt-1">Manage your team of stylists and professionals</p>
                 </div>
                 <button
                     onClick={() => setIsAddModalOpen(true)}
-                    className="flex items-center gap-1.5 sm:gap-2 cursor-pointer bg-champagne hover:bg-champagne-dark text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-champagne/20 active:scale-95"
+                    className="flex items-center gap-1.5 sm:gap-2 cursor-pointer bg-champberry hover:bg-champberry-dark text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-champberry/20 active:scale-95"
                 >
                     <Plus size={16} />
                     <span>Add New Member</span>
@@ -119,13 +119,13 @@ const Staffs = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-stretch sm:items-center bg-obsidian-surface/50 backdrop-blur-sm border border-white/5 p-3 sm:p-4 rounded-xl">
                 {/* Search */}
                 <div className="relative group w-full sm:w-72">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champagne-muted group-focus-within:text-champagne transition-colors">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted group-focus-within:text-champberry transition-colors">
                         <Search size={16} />
                     </div>
                     <input
                         type="text"
                         placeholder="Search by name, email, or role..."
-                        className="bg-obsidian border border-[#27272a] text-white text-xs sm:text-sm rounded-lg focus:ring-1 focus:ring-champagne focus:border-champagne block w-full pl-9 sm:pl-10 p-2 sm:p-2.5 outline-none transition-all placeholder-gray-600"
+                        className="bg-obsidian border border-[#27272a] text-white text-xs sm:text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-9 sm:pl-10 p-2 sm:p-2.5 outline-none transition-all placeholder-gray-600"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -134,7 +134,7 @@ const Staffs = () => {
                 {/* Role Filter */}
                 <div className="flex items-center gap-2 w-full sm:w-auto">
                     <div className="bg-obsidian border border-[#27272a] rounded-lg px-3 py-2 flex items-center gap-2 w-full sm:w-44 md:w-48">
-                        <Filter size={14} className="text-champagne-muted shrink-0" />
+                        <Filter size={14} className="text-champberry-muted shrink-0" />
                         <select
                             value={filterRole}
                             onChange={(e) => setFilterRole(e.target.value)}
@@ -156,12 +156,12 @@ const Staffs = () => {
                             <User size={48} className="text-[#333]" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">No Staff Members Found</h3>
-                        <p className="text-champagne-muted max-w-sm mx-auto">
+                        <p className="text-champberry-muted max-w-sm mx-auto">
                             We couldn't find any staff matching your search criteria. Try adjusting your filters or add a new team member.
                         </p>
                         <button
                             onClick={() => { setSearchTerm(''); setFilterRole('All') }}
-                            className="mt-6 text-champagne hover:text-champagne-dark text-sm font-bold flex items-center gap-2 transition-colors"
+                            className="mt-6 text-champberry hover:text-champberry-dark text-sm font-bold flex items-center gap-2 transition-colors"
                         >
                             Clear Filters
                         </button>
@@ -185,7 +185,7 @@ const Staffs = () => {
                                         <tr key={member.id} className="hover:bg-white/2 transition-colors group">
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#27272a] to-[#18181b] flex items-center justify-center text-white font-bold text-sm shadow-inner ring-1 ring-white/10 group-hover:ring-champagne/50 transition-all overflow-hidden">
+                                                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-[#27272a] to-[#18181b] flex items-center justify-center text-white font-bold text-sm shadow-inner ring-1 ring-white/10 group-hover:ring-champberry/50 transition-all overflow-hidden">
                                                         {member.avatar ? (
                                                             <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
                                                         ) : (
@@ -203,7 +203,7 @@ const Staffs = () => {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="text-white text-sm font-medium flex items-center gap-1.5">
-                                                    <Briefcase size={12} className="text-champagne-muted" />
+                                                    <Briefcase size={12} className="text-champberry-muted" />
                                                     {member.role}
                                                 </div>
                                                 <div className="flex flex-wrap gap-1 mt-1.5">
@@ -224,11 +224,11 @@ const Staffs = () => {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex flex-col gap-1">
-                                                    <div className="flex items-center gap-1 text-champagne font-bold text-sm">
-                                                        <Star size={12} className="text-champagne fill-current" />
+                                                    <div className="flex items-center gap-1 text-champberry font-bold text-sm">
+                                                        <Star size={12} className="text-champberry fill-current" />
                                                         {member.rating}
                                                     </div>
-                                                    <div className="text-xs text-champagne-muted font-medium">
+                                                    <div className="text-xs text-champberry-muted font-medium">
                                                         {member.experience} exp
                                                     </div>
                                                 </div>
@@ -263,7 +263,7 @@ const Staffs = () => {
                                             </div>
                                             <div>
                                                 <h3 className="font-bold text-white text-sm">{member.name}</h3>
-                                                <p className="text-xs text-champagne-muted">{member.role}</p>
+                                                <p className="text-xs text-champberry-muted">{member.role}</p>
                                             </div>
                                         </div>
                                         <StaffMenu
@@ -286,8 +286,8 @@ const Staffs = () => {
 
                                     <div className="flex justify-between items-center">
                                         <StatusBadge status={member.status} id={member.id} onToggle={handleToggleStatus} />
-                                        <div className="flex items-center gap-1 text-champagne font-bold text-xs">
-                                            <Star size={12} className="text-champagne fill-current" />
+                                        <div className="flex items-center gap-1 text-champberry font-bold text-xs">
+                                            <Star size={12} className="text-champberry fill-current" />
                                             <span>{member.rating}</span>
                                             <span className="text-gray-600 font-normal">({member.experience})</span>
                                         </div>
@@ -297,11 +297,11 @@ const Staffs = () => {
                         </div>
 
                         {/* Pagination/Footer */}
-                        <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champagne-muted">
+                        <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
                             <span>Showing {filteredStaff.length} members</span>
                             <div className="flex gap-1.5 sm:gap-2">
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champagne hover:text-champagne transition-colors disabled:opacity-50 cursor-pointer">Previous</button>
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champagne hover:text-champagne transition-colors disabled:opacity-50 cursor-pointer">Next</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Previous</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Next</button>
                             </div>
                         </div>
                     </>

@@ -15,7 +15,7 @@ const ConfirmModal = ({ message, onConfirm, onCancel }) => {
                     </button>
                     <button
                         onClick={onConfirm}
-                        className="px-4 py-2 text-sm font-bold text-black bg-champagne hover:bg-champagne-dark rounded-lg shadow-lg hover:shadow-champagne/20 transition-all cursor-pointer"
+                        className="px-4 py-2 text-sm font-bold text-black bg-champberry hover:bg-champberry-dark rounded-lg shadow-lg hover:shadow-champberry/20 transition-all cursor-pointer"
                     >
                         Yes, Proceed
                     </button>

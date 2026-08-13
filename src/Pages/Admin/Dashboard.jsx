@@ -78,16 +78,16 @@ function Dashboard() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                 <StatsCard
-                    title="Total Revenue"
-                    value={`$${totalRevenue.toFixed(2)}`}
+                    title="Receita Total"
+                    value={`R$${totalRevenue.toFixed(2)}`}
                     change={totalRevenue > 0 ? `${((totalRevenue - 100) / 100 * 100).toFixed(1)}%` : "0%"}
                     positive={totalRevenue >= 100}
                     icon={<TrendingUp size={24} />}
-                    color="text-champagne"
-                    bg="bg-champagne/10"
+                    color="text-champberry"
+                    bg="bg-champberry/10"
                 />
                 <StatsCard
-                    title="Total Appointments"
+                    title="Total de Agendamentos"
                     value={appointments.length}
                     change={appointments.length > 0 ? `${((appointments.length - 5) / 5 * 100).toFixed(1)}%` : "0%"}
                     positive={appointments.length >= 5}
@@ -96,16 +96,16 @@ function Dashboard() {
                     bg="bg-emerald-500/10"
                 />
                 <StatsCard
-                    title="Low Stock Items"
+                    title="Itens com Estoque Baixo"
                     value="12"
-                    change="-2 Items"
+                    change="-2 Itens"
                     positive={false}
                     icon={<AlertCircle size={24} />}
                     color="text-red-500"
                     bg="bg-red-500/10"
                 />
                 <StatsCard
-                    title="Active Stylists"
+                    title="Barbeiros Ativos"
                     value={getActiveStaff().length}
                     change={getActiveStaff().length > 0 ? `${((getActiveStaff().length - 4) / 4 * 100).toFixed(1)}%` : "0%"}
                     positive={getActiveStaff().length >= 4}
@@ -118,13 +118,13 @@ function Dashboard() {
             {/* Appointments Table Section */}
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
-                    <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-champagne flex items-center gap-2 sm:gap-3">
-                        <span className="text-white">Recent</span> Appointments
-                        <span className="flex items-center justify-center text-[10px] font-bold text-champagne bg-champagne/10 border border-champagne/20 px-2.5 py-1 rounded-md tracking-wider uppercase shadow-[0_0_10px_rgba(251,157,51,0.1)]">Live</span>
+                    <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-champberry flex items-center gap-2 sm:gap-3">
+                        <span className="text-white">Agendamentos</span> Recentes
+                        <span className="flex items-center justify-center text-[10px] font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2.5 py-1 rounded-md tracking-wider uppercase shadow-[0_0_10px_rgba(251,157,51,0.1)]">Ao Vivo</span>
                     </h2>
-                    <button className="px-4 sm:px-6 py-2 border border-champagne/60 bg-transparent text-champagne font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champagne/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champagne hover:text-white hover:border-champagne cursor-pointer">
+                    <button className="px-4 sm:px-6 py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer">
                         <Link to="/admin/appointments" className="flex items-center gap-1">
-                            View All
+                            Ver Todos
                         </Link>
                     </button>
                 </div>
@@ -133,12 +133,12 @@ function Dashboard() {
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-white/2 text-[#555] uppercase text-[11px] font-bold tracking-wider">
                             <tr>
-                                <th className="px-6 py-4">Client</th>
-                                <th className="px-6 py-4">Service</th>
-                                <th className="px-6 py-4">Stylist</th>
-                                <th className="px-6 py-4">Date & Time</th>
+                                <th className="px-6 py-4">Cliente</th>
+                                <th className="px-6 py-4">Serviço</th>
+                                <th className="px-6 py-4">Barbeiro</th>
+                                <th className="px-6 py-4">Data e Hora</th>
                                 <th className="px-6 py-4">Status</th>
-                                <th className="px-6 py-4 text-right">Actions</th>
+                                <th className="px-6 py-4 text-right">Ações</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5">
@@ -150,7 +150,7 @@ function Dashboard() {
                                             <span className="font-semibold text-white text-sm">
                                                 {appointment.name}
                                                 {appointment.userId == null && (
-                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">Guest</span>
+                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-white text-[10px] font-bold uppercase">Convidado</span>
                                                 )}
                                             </span>
                                         </div>
@@ -190,7 +190,7 @@ function Dashboard() {
                                         <h4 className="font-bold text-white text-sm flex items-center gap-2">
                                             <span>{appointment.name}</span>
                                             {appointment.userId == null && (
-                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">Guest</span>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</span>
                                             )}
                                         </h4>
                                         <div className="text-xs text-[#777] flex items-center gap-1 mt-0.5">
@@ -209,13 +209,13 @@ function Dashboard() {
                                         <span className="text-[#333]">|</span>
                                         <span>{appointment.time}</span>
                                     </div>
-                                    <div className="flex items-center gap-1.5 text-xs text-champagne">
+                                    <div className="flex items-center gap-1.5 text-xs text-champberry">
                                         <Scissors size={12} />
                                         <span>{getStylistSummary(appointment)}</span>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 relative">
-                                    <span className="text-white font-bold text-sm">${getTotalPrice(appointment)}</span>
+                                    <span className="text-white font-bold text-sm">R${getTotalPrice(appointment)}</span>
                                     <AppointmentMenu
                                         appointment={appointment}
                                         onEdit={handleEdit}
@@ -233,12 +233,12 @@ function Dashboard() {
                 {/* Inventory Card */}
                 <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden">
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center gap-3 sm:gap-4">
-                        <h2 className="text-lg sm:text-2xl font-extrabold text-champagne flex items-center gap-2">
-                            <span className="text-white">Inventory</span> Status
-                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champagne bg-champagne/10 border border-champagne/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
+                        <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
+                            <span className="text-white">Status do</span> Estoque
+                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
                         </h2>
-                        <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champagne/60 bg-transparent text-champagne font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champagne/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champagne hover:text-white hover:border-champagne cursor-pointer whitespace-nowrap">
-                            Manage Stock
+                        <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
+                            <Link to="/admin/inventory">Gerenciar Estoque</Link>
                         </button>
                     </div>
                     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 flex-1">
@@ -252,12 +252,12 @@ function Dashboard() {
                 {/* Staff List Card */}
                 <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden">
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center">
-                        <h2 className="text-lg sm:text-2xl font-extrabold text-champagne flex items-center gap-2">
-                            <span className="text-white">Staff</span> Scheduling
-                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champagne bg-champagne/10 border border-champagne/20 px-2 py-1 rounded-md tracking-wider uppercase">Today</span> */}
+                        <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
+                            <span className="text-white">Agenda da</span> Equipe
+                            {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Today</span> */}
                         </h2>
-                        <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champagne/60 bg-transparent text-champagne font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champagne/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champagne hover:text-white hover:border-champagne cursor-pointer whitespace-nowrap">
-                            View ALL
+                        <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
+                            <Link to="/admin/staffs">Ver Equipe</Link>
                         </button>
                     </div>
                     <div className="p-4 sm:p-6 space-y-2 flex-1 overflow-y-auto custom-scrollbar">

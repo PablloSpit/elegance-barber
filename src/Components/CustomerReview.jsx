@@ -49,15 +49,15 @@ function CustomerReview({ name, review, image, service }) {
                     {/* Metadata Array */}
                     <div className="review-meta flex flex-col items-start opacity-0 translate-y-4">
                         {/* Service Badge */}
-                        <div className="inline-block px-3 py-1 border border-champagne/30 rounded-full mb-4 backdrop-blur-sm">
-                            <span className="font-sans text-champagne text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold">
+                        <div className="inline-block px-3 py-1 border border-champberry/30 rounded-full mb-4 backdrop-blur-sm">
+                            <span className="font-sans text-champberry text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold">
                                 {service || "Signature Service"}
                             </span>
                         </div>
 
                         {/* Client Name */}
                         <div className="flex items-center gap-4">
-                            <div className="w-8 md:w-12 h-px bg-champagne/50"></div>
+                            <div className="w-8 md:w-12 h-px bg-champberry/50"></div>
                             <h4 className="font-sans font-black text-white text-base md:text-lg lg:text-xl uppercase tracking-widest">
                                 {name}
                             </h4>

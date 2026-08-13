@@ -73,8 +73,8 @@ function Account() {
             <section className="bg-obsidian">
                 <div className="container mx-auto pt-16 pb-18 px-4 flex justify-center items-center flex-col">
                     <div className="section-text text-center space-y-2">
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight"><span className="text-champagne">MANAGE YOUR</span> ACCOUNT</h2>
-                        <p className="text-base sm:text-lg text-champagne-muted">Update your profile, view appointments, and share feedback</p>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight"><span className="text-champberry">MANAGE YOUR</span> ACCOUNT</h2>
+                        <p className="text-base sm:text-lg text-champberry-muted">Update your profile, view appointments, and share feedback</p>
                     </div>
                 </div>
                 <div className="container mx-auto px-4 pb-12 md:pb-18">
@@ -82,7 +82,7 @@ function Account() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
                         <button
                             onClick={() => handleTabChange('profile')}
-                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'profile' ? 'border-champagne/40' : 'border-champagne/10 hover:border-champagne/40'} focus:outline-none focus:ring-2 focus:ring-champagne focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
+                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'profile' ? 'border-champberry/40' : 'border-champberry/10 hover:border-champberry/40'} focus:outline-none focus:ring-2 focus:ring-champberry focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
                         >
                             {/* Animated background glow */}
                             <div className="absolute inset-0 bg-radial-gradient via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
@@ -91,18 +91,18 @@ function Account() {
 
                             <div className="relative flex items-center gap-6">
                                 <div className="shrink-0">
-                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champagne-light to-champagne flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champagne/50 transition-all duration-500 group-hover:scale-110`}>
+                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champberry-light to-champberry flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champberry/50 transition-all duration-500 group-hover:scale-110`}>
                                         <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champagne-light transition-colors duration-300">Profile</h3>
-                                    <p className="text-sm sm:text-base text-champagne-muted group-hover:text-gray-400 transition-colors">Edit your details</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Profile</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Edit your details</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                                    <svg className="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>
@@ -110,7 +110,7 @@ function Account() {
                         </button>
                         <button
                             onClick={() => handleTabChange('feedback')}
-                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'feedback' ? 'border-champagne/40' : 'border-champagne/10 hover:border-champagne/40'} focus:outline-none focus:ring-2 focus:ring-champagne focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
+                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'feedback' ? 'border-champberry/40' : 'border-champberry/10 hover:border-champberry/40'} focus:outline-none focus:ring-2 focus:ring-champberry focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
                         >
                             {/* Animated background glow */}
                             <div className="absolute inset-0 bg-radial-gradient via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
@@ -119,18 +119,18 @@ function Account() {
 
                             <div className="relative flex items-center gap-6">
                                 <div className="shrink-0">
-                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champagne-light to-champagne flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champagne/50 transition-all duration-500 group-hover:scale-110`}>
+                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champberry-light to-champberry flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champberry/50 transition-all duration-500 group-hover:scale-110`}>
                                         <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champagne-light transition-colors duration-300">Feedback</h3>
-                                    <p className="text-sm sm:text-base text-champagne-muted group-hover:text-gray-400 transition-colors">Share your thoughts</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Feedback</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Share your thoughts</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                                    <svg className="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>
@@ -138,7 +138,7 @@ function Account() {
                         </button>
                         <button
                             onClick={() => handleTabChange('appointments')}
-                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'appointments' ? 'border-champagne/40' : 'border-champagne/10 hover:border-champagne/40'} focus:outline-none focus:ring-2 focus:ring-champagne focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
+                            className={`group relative overflow-hidden bg-linear-to-br from-obsidian-elevated to-obsidian p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border ${activeTab === 'appointments' ? 'border-champberry/40' : 'border-champberry/10 hover:border-champberry/40'} focus:outline-none focus:ring-2 focus:ring-champberry focus:ring-offset-2 focus:ring-offset-obsidian cursor-pointer`}
                         >
                             {/* Animated background glow */}
                             <div className="absolute inset-0 bg-radial-gradient via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
@@ -147,18 +147,18 @@ function Account() {
 
                             <div className="relative flex items-center gap-6">
                                 <div className="shrink-0">
-                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champagne-light to-champagne flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champagne/50 transition-all duration-500 group-hover:scale-110`}>
+                                    <div className={`w-14 h-14 rounded-full bg-linear-to-br from-champberry-light to-champberry flex items-center justify-center group-hover:shadow-2xl group-hover:shadow-champberry/50 transition-all duration-500 group-hover:scale-110`}>
                                         <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champagne-light transition-colors duration-300">Bookings</h3>
-                                    <p className="text-sm sm:text-base text-champagne-muted group-hover:text-gray-400 transition-colors">View appointments</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Bookings</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">View appointments</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                                    <svg className="w-5 h-5 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </div>

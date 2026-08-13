@@ -96,7 +96,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                     <h3 className="text-white font-bold text-lg tracking-wide mb-1 flex items-center gap-2">
                         {name}
                         {isGuest && (
-                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">
+                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">
                                 Guest
                             </span>
                         )}
@@ -119,7 +119,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
             <div className="space-y-4 mb-6">
                 <div className="grid grid-cols-2 gap-3">
                     <div className="flex items-center gap-3 p-3 rounded-xl bg-obsidian border border-[#222] group-hover:border-[#333] transition-colors">
-                        <div className="w-8 h-8 rounded-full bg-obsidian-elevated border border-[#333] flex items-center justify-center text-champagne">
+                        <div className="w-8 h-8 rounded-full bg-obsidian-elevated border border-[#333] flex items-center justify-center text-champberry">
                             <Calendar size={14} />
                         </div>
                         <div>
@@ -128,7 +128,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                         </div>
                     </div>
                     <div className="flex items-center gap-3 p-3 rounded-xl bg-obsidian border border-[#222] group-hover:border-[#333] transition-colors">
-                        <div className="w-8 h-8 rounded-full bg-obsidian-elevated border border-[#333] flex items-center justify-center text-champagne">
+                        <div className="w-8 h-8 rounded-full bg-obsidian-elevated border border-[#333] flex items-center justify-center text-champberry">
                             <Clock size={14} />
                         </div>
                         <div>
@@ -140,7 +140,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div className="p-3 rounded-xl bg-obsidian border border-[#222] group-hover:border-[#333] transition-colors">
-                        <div className="flex items-center gap-2 mb-2 text-champagne">
+                        <div className="flex items-center gap-2 mb-2 text-champberry">
                             <Scissors size={14} />
                             <span className="text-[10px] font-bold uppercase tracking-wider text-[#777]">Services</span>
                         </div>
@@ -150,7 +150,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                             ) : (
                                 serviceItems.map((s) => (
                                     <span key={`${s.name}-${s.price}`} className="inline-flex items-center gap-1.5 bg-obsidian-elevated border border-[#333] text-gray-200 text-xs font-semibold px-2 py-1 rounded-lg">
-                                        <span className="text-champagne">{s.name}</span>
+                                        <span className="text-champberry">{s.name}</span>
                                         <span className="text-[#777]">{s.price}</span>
                                     </span>
                                 ))
@@ -159,7 +159,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                     </div>
 
                     <div className="p-3 rounded-xl bg-obsidian border border-[#222] group-hover:border-[#333] transition-colors">
-                        <div className="flex items-center gap-2 mb-2 text-champagne">
+                        <div className="flex items-center gap-2 mb-2 text-champberry">
                             <User size={14} />
                             <span className="text-[10px] font-bold uppercase tracking-wider text-[#777]">Stylists</span>
                         </div>
@@ -169,7 +169,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                             ) : (
                                 stylistItems.map((s) => (
                                     <span key={`${s.id}-${s.name}`} className="inline-flex items-center gap-1.5 bg-obsidian-elevated border border-[#333] text-gray-200 text-xs font-semibold px-2 py-1 rounded-lg">
-                                        <span className="text-champagne">{s.name}</span>
+                                        <span className="text-champberry">{s.name}</span>
                                     </span>
                                 ))
                             )}
@@ -179,7 +179,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
 
                 <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-obsidian border border-[#222]">
                     <span className="text-[10px] text-[#777] font-bold uppercase tracking-wider">Total</span>
-                    <span className="text-sm font-extrabold text-champagne">${displayTotal}</span>
+                    <span className="text-sm font-extrabold text-champberry">${displayTotal}</span>
                 </div>
             </div>
 
@@ -191,7 +191,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                         requestAnimationFrame(() => setIsRescheduling(true))
                     }}
                     disabled={status === 'Cancelled'}
-                    className="flex justify-center items-center py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/5 text-white hover:bg-champagne hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="flex justify-center items-center py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/5 text-white hover:bg-champberry hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                     Reschedule
                 </button>
@@ -210,7 +210,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
             >
                 <div className="flex justify-between items-center">
                     <h4 className="text-white font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                        <Calendar size={14} className="text-champagne" />
+                        <Calendar size={14} className="text-champberry" />
                         New Time
                     </h4>
                     <button
@@ -228,7 +228,7 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                             type="date"
                             value={newDate}
                             onChange={(e) => setNewDate(e.target.value)}
-                            className="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-champagne focus:outline-none transition-colors"
+                            className="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-champberry focus:outline-none transition-colors"
                         />
                     </div>
                     <div>
@@ -237,12 +237,12 @@ function AppointmentCards({ name, date, time, items, totalPrice, status, appoint
                             type="time"
                             value={newTime}
                             onChange={(e) => setNewTime(e.target.value)}
-                            className="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-champagne focus:outline-none transition-colors"
+                            className="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-champberry focus:outline-none transition-colors"
                         />
                     </div>
                     <button
                         onClick={handleschedule}
-                        className="w-full py-3 bg-champagne text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-champagne-dark transition-colors shadow-lg shadow-champagne/20 mt-2 flex justify-center items-center gap-2 cursor-pointer"
+                        className="w-full py-3 bg-champberry text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-champberry-dark transition-colors shadow-lg shadow-champberry/20 mt-2 flex justify-center items-center gap-2 cursor-pointer"
                     >
                         <Check size={14} />
                         Confirm Change

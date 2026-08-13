@@ -392,8 +392,8 @@ function Home() {
 
                             {/* Tagline — horizontal line + text */}
                             <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
-                                <div className="w-8 sm:w-12 hidden md:flex h-px bg-champagne/50"></div>
-                                <p className="font-sans text-champagne/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
+                                <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
+                                <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
                                     Desde 2011 — Cuidado Masculino Premium
                                 </p>
                             </div>
@@ -401,7 +401,7 @@ function Home() {
                             {/* Main Heading — Bold, aggressive spacing */}
                             <div data-hero-heading className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
-                                <h1 className="font-serif font-bold text-champagne text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
+                                <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
                                     A Arte do
                                 </h1>
 
@@ -411,7 +411,7 @@ function Home() {
                                 </h2>
 
                                 {/* Line 3 */}
-                                <h3 className="font-serif font-bold text-champagne text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1]  uppercase">
+                                <h3 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1]  uppercase">
                                     Grooming
                                 </h3>
                             </div>
@@ -428,7 +428,7 @@ function Home() {
                             <div data-hero-cta className="flex flex-row items-center gap-4 sm:gap-6 mb-7 md:mb-12">
                                 <a href="#appointment">
                                     <div data-magnetic className="group relative">
-                                        <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champagne/60 bg-transparent text-champagne font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champagne hover:text-white hover:border-champagne overflow-hidden">
+                                        <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
                                             <span data-magnetic-text className="relative z-10 inline-flex items-center gap-2 sm:gap-3">
                                                 Book Now
                                                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-500 ease-luxury group-hover:translate-x-1" strokeWidth={2} />
@@ -437,7 +437,7 @@ function Home() {
                                     </div>
                                 </a>
 
-                                <a href="#services" className="group inline-flex items-center gap-2 text-white/40 hover:text-champagne font-sans font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] transition-colors duration-500 ease-luxury">
+                                <a href="#services" className="group inline-flex items-center gap-2 text-white/40 hover:text-champberry font-sans font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] transition-colors duration-500 ease-luxury">
                                     Services
                                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-500 ease-luxury group-hover:translate-x-1.5" strokeWidth={2} />
                                 </a>
@@ -466,14 +466,14 @@ function Home() {
                                 <div
                                     data-hero-badge
                                     data-magnetic
-                                    className="absolute bottom-6 -left-6 lg:-left-14 backdrop-blur-xl bg-obsidian/40 border border-champagne/15 rounded-lg px-5 py-3 shadow-2xl"
+                                    className="absolute bottom-6 -left-6 lg:-left-14 backdrop-blur-xl bg-obsidian/40 border border-champberry/15 rounded-lg px-5 py-3 shadow-2xl"
                                 >
-                                    <p data-magnetic-text className="font-sans text-champagne text-xl font-black leading-tight">15+</p>
+                                    <p data-magnetic-text className="font-sans text-champberry text-xl font-black leading-tight">15+</p>
                                     <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">Years of Craft</p>
                                 </div>
 
                                 {/* Accent line */}
-                                <div className="absolute top-12 -right-4 w-px h-20 bg-linear-to-b from-champagne/30 to-transparent"></div>
+                                <div className="absolute top-12 -right-4 w-px h-20 bg-linear-to-b from-champberry/30 to-transparent"></div>
                             </div>
                         </div>
                     </div>
@@ -494,7 +494,7 @@ function Home() {
                                     data-stats-item
                                     className="flex flex-col sm:flex-row items-center sm:items-center px-4 sm:px-2 lg:px-8 py-6 sm:py-8 gap-2 sm:gap-4 text-center sm:text-left"
                                 >
-                                    <span className="font-sans text-champagne text-lg sm:text-2xl lg:text-3xl font-black leading-none">{stat.value}</span>
+                                    <span className="font-sans text-champberry text-lg sm:text-2xl lg:text-3xl font-black leading-none">{stat.value}</span>
                                     <span className="font-sans text-white/30 text-[6px] sm:text-[9px] lg:text-[11px] uppercase tracking-tightest sm:tracking-[0.2em]  sm:mt-0 font-semibold">{stat.label}</span>
                                 </div>
                             ))}
@@ -533,32 +533,32 @@ function Home() {
 
                             {/* Tactile Glassmorphism Detail */}
                             <div className="heritage-card absolute -bottom-6 right-0 md:-right-8 lg:-right-12 backdrop-blur-xl bg-obsidian-card/40 border border-white/10 p-6 shadow-2xl z-20 w-48 rounded-sm">
-                                <p className="font-sans text-champagne text-xs tracking-[0.3em] uppercase mb-2 font-bold">Heritage</p>
+                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">Heritage</p>
                                 <p className="font-serif text-3xl text-white font-light">Est. 2011</p>
-                                <div className="w-12 h-px bg-champagne/30 mt-4"></div>
+                                <div className="w-12 h-px bg-champberry/30 mt-4"></div>
                             </div>
                         </div>
 
                         {/* Right Column: Brand Manifesto */}
                         <div className="md:col-span-12 lg:col-span-6 flex flex-col justify-center mt-12 md:mt-0 md:pl-8 lg:pl-16">
 
-                            <h3 className="manifesto-line font-serif italic text-champagne text-2xl lg:text-3xl font-light mb-6">
+                            <h3 className="manifesto-line font-serif italic text-champberry text-2xl lg:text-3xl font-light mb-6">
                                 Our Philosophy
                             </h3>
 
                             <h2 className="manifesto-line font-sans font-black text-white text-4xl md:text-5xl lg:text-6xl uppercase mb-10">
                                 The Art of <br />
-                                <span className="font-serif block text-transparent bg-clip-text bg-linear-to-r from-white via-champagne to-white/50 text-5xl tracking-tighter">Masculine Grooming</span>
+                                <span className="font-serif block text-transparent bg-clip-text bg-linear-to-r from-white via-champberry to-white/50 text-5xl tracking-tighter">Masculine Grooming</span>
                             </h2>
 
                             {/* Brand Manifesto Text with Drop Cap */}
                             <div className="manifesto-content max-w-xl">
                                 <p className="manifesto-line font-sans font-light text-white/70 text-base md:text-lg leading-[1.8] mb-6 tracking-wide">
-                                    <span className="float-left text-6xl font-serif text-champagne pr-3 pb-2 leading-none mt-1">E</span>
+                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">E</span>
                                     legance has been at the forefront of men's grooming, setting the standard for the style-conscious gentleman in Karachi. Our dedication lies in empowering every individual to look and feel exceptional every day, stepping out with enduring confidence.
                                 </p>
 
-                                <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champagne/30">
+                                <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
                                     We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.
                                 </p>
                             </div>
@@ -566,15 +566,15 @@ function Home() {
                             {/* Lucide Icons Strip */}
                             <div className="manifesto-line flex justify-between md:justify-start lg:gap-38 mt-3">
                                 <div className="flex flex-col items-center group">
-                                    <Scissors className="text-champagne mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
+                                    <Scissors className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
                                     <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">Haircut</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
-                                    <Waves className="text-champagne mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
+                                    <Waves className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
                                     <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Shaving</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
-                                    <Sparkles className="text-champagne mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
+                                    <Sparkles className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
                                     <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Facials</span>
                                 </div>
                             </div>
@@ -599,13 +599,13 @@ function Home() {
                     {/* Section Header — Editorial type pairing */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 lg:mb-24 gap-6">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champagne/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Our Menu</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Our Menu</span>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
                                 Curated{' '}
-                                <span className='font-serif font-black text-champagne normal-case tracking-wide'>Services</span>
+                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>Services</span>
                             </h2>
                         </div>
-                        <p className="font-sans font-light text-champagne-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
+                        <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
                             Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.
                         </p>
                     </div>
@@ -650,13 +650,13 @@ function Home() {
                     {/* Section Header — Editorial type pairing (matches Services section) */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 md:mb-18 gap-6 px-4 md:px-6 lg:px-16 max-w-11/12 mx-auto w-full">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champagne/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">Our Rates</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">Our Rates</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
                                 Price{' '}
-                                <span className='font-serif tracking-wide uppercase font-black text-champagne '>List</span>
+                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>List</span>
                             </h2>
                         </div>
-                        <p className="font-sans font-light text-champagne-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
+                        <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
                             Transparent pricing for every service. Premium quality at fair value.
                         </p>
                     </div>
@@ -670,7 +670,7 @@ function Home() {
                 <div className='pb-8 mx-auto flex flex-col gap-2'>
                     <div className="heading w-full text-center text-3xl lg:text-5xl font-black uppercase">
                         <h1 className='text-white font-serif'>Make</h1>
-                        <h1 className='text-champagne font-sans font-black normal-case text-3xl lg:text-5xl'>An Appointment</h1>
+                        <h1 className='text-champberry font-sans font-black normal-case text-3xl lg:text-5xl'>An Appointment</h1>
                         <hr className='max-w-115 mx-auto border-obsidian-elevated border mt-5' />
                     </div>
                     <div className='mx-auto max-w-7xl w-full px-8 md:px-6 lg:px-8 py-6 md:py-12 mb-8'>
@@ -684,16 +684,16 @@ function Home() {
                 {/* Section Title */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-wide mb-2 font-serif">
-                        Trusted <span className="font-sans font-black text-champagne normal-case">Brands</span>
+                        Trusted <span className="font-sans font-black text-champberry normal-case">Brands</span>
                     </h2>
-                    <p className="font-sans font-light text-champagne-muted text-sm tracking-wide">Premium products for exceptional results</p>
+                    <p className="font-sans font-light text-champberry-muted text-sm tracking-wide">Premium products for exceptional results</p>
                 </div>
 
                 <BrandCarousel />
 
                 {/* Bottom decoration line */}
                 <div className="mt-8 flex justify-center">
-                    <div className="w-32 h-px bg-linear-to-r from-transparent via-champagne/40 to-transparent"></div>
+                    <div className="w-32 h-px bg-linear-to-r from-transparent via-champberry/40 to-transparent"></div>
                 </div>
             </section>
 
@@ -728,9 +728,9 @@ function Home() {
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-11/12">
                     <div className="text-center mb-20">
-                        <span className="font-sans text-champagne/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Masters of the Ritual</span>
+                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Masters of the Ritual</span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                            Meet Our <span className='font-serif text-champagne normal-case tracking-wide'>Artisans</span>
+                            Meet Our <span className='font-serif text-champberry normal-case tracking-wide'>Artisans</span>
                         </h2>
                     </div>
 
@@ -751,7 +751,7 @@ function Home() {
                                 >
                                     <div className="relative aspect-3/4 w-full overflow-hidden bg-[#111]">
                                         {/* Background Tool SVG */}
-                                        <div className="artisan-tool-svg absolute inset-0 flex items-center justify-center p-8 text-champagne opacity-0 scale-80 pointer-events-none z-0">
+                                        <div className="artisan-tool-svg absolute inset-0 flex items-center justify-center p-8 text-champberry opacity-0 scale-80 pointer-events-none z-0">
                                             <ToolIcon className="w-full h-full opacity-50" strokeWidth={1} />
                                         </div>
 
@@ -767,10 +767,10 @@ function Home() {
 
                                         {/* Text Info */}
                                         <div className="absolute flex flex-col items-center justify-end bottom-0 left-0 right-0 p-6 z-30 pointer-events-none">
-                                            <h3 className="font-sans font-black text-2xl uppercase tracking-wider text-white mb-1 group-hover:text-champagne transition-colors duration-500 ease-luxury text-center">
+                                            <h3 className="font-sans font-black text-2xl uppercase tracking-wider text-white mb-1 group-hover:text-champberry transition-colors duration-500 ease-luxury text-center">
                                                 {member.name}
                                             </h3>
-                                            <p className="font-serif text-champagne text-sm lg:text-base italic tracking-wide text-center">
+                                            <p className="font-serif text-champberry text-sm lg:text-base italic tracking-wide text-center">
                                                 {member.role || "Master Artisan"}
                                             </p>
                                         </div>
@@ -786,8 +786,8 @@ function Home() {
             <section className="sample-images bg-obsidian-card overflow-hidden">
                 <div className="mx-auto px-4 sm:px-6 md:px-16 pb-20 md:pb-24">
                     <div className="heading w-full text-center mb-14 mt-12">
-                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>The <span className='font-sans font-black text-champagne normal-case tracking-normal'>Gallery</span></h1>
-                        <hr className='max-w-25 sm:max-w-37.5 mx-auto border-champagne/30 border mt-6 md:mt-8 mb-10' />
+                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>The <span className='font-sans font-black text-champberry normal-case tracking-normal'>Gallery</span></h1>
+                        <hr className='max-w-25 sm:max-w-37.5 mx-auto border-champberry/30 border mt-6 md:mt-8 mb-10' />
                     </div>
                     {/* Responsive Grid: 3 cols mobile, 6 cols desktop */}
                     <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 lg:gap-4 mt-6">

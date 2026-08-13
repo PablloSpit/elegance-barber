@@ -35,12 +35,12 @@ const StaffAppointmentsModal = ({ staff, onClose }) => {
                 {/* Header */}
                 <div className="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b border-white/5 bg-obsidian-surface">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-champagne flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg shrink-0">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-champberry flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg shrink-0">
                             {staff.name.charAt(0)}
                         </div>
                         <div className="min-w-0">
                             <h2 className="text-base sm:text-xl font-bold text-white">Stylist Schedule</h2>
-                            <p className="text-gray-400 text-[10px] sm:text-xs mt-0.5 truncate">Appointments for <span className="text-champagne">{staff.name}</span></p>
+                            <p className="text-gray-400 text-[10px] sm:text-xs mt-0.5 truncate">Appointments for <span className="text-champberry">{staff.name}</span></p>
                         </div>
                     </div>
                     <button
@@ -58,7 +58,7 @@ const StaffAppointmentsModal = ({ staff, onClose }) => {
                             {/* Stats Summary */}
                             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                                 <div className="bg-obsidian-elevated p-3 rounded-xl border border-white/5">
-                                    <h4 className="text-champagne-muted text-xs uppercase font-bold">Total</h4>
+                                    <h4 className="text-champberry-muted text-xs uppercase font-bold">Total</h4>
                                     <p className="text-white text-xl font-black mt-1">{stylistAppointments.length}</p>
                                 </div>
                                 <div className="bg-obsidian-elevated p-3 rounded-xl border border-white/5">
@@ -81,8 +81,8 @@ const StaffAppointmentsModal = ({ staff, onClose }) => {
                                     <div key={app.id} className="bg-obsidian-elevated border border-white/5 rounded-xl p-4 flex flex-col sm:flex-row justify-between gap-4 hover:border-white/10 transition-colors group">
                                         <div className="flex gap-4">
                                             {/* Date Box */}
-                                            <div className="bg-[#222] rounded-lg p-2 flex flex-col items-center justify-center min-w-15 border border-white/5 group-hover:border-champagne/30 transition-colors">
-                                                <span className="text-champagne font-bold text-xs uppercase tracking-wider">{new Date(app.date).toLocaleString('default', { month: 'short' })}</span>
+                                            <div className="bg-[#222] rounded-lg p-2 flex flex-col items-center justify-center min-w-15 border border-white/5 group-hover:border-champberry/30 transition-colors">
+                                                <span className="text-champberry font-bold text-xs uppercase tracking-wider">{new Date(app.date).toLocaleString('default', { month: 'short' })}</span>
                                                 <span className="text-white font-black text-xl">{new Date(app.date).getDate()}</span>
                                             </div>
 
@@ -103,7 +103,7 @@ const StaffAppointmentsModal = ({ staff, onClose }) => {
                                                         <Clock size={12} className="text-[#555]" />
                                                         <span>{app.time}</span>
                                                     </div>
-                                                    <div className="flex items-center gap-1.5 text-champagne">
+                                                    <div className="flex items-center gap-1.5 text-champberry">
                                                         <span className="font-bold">${getStaffTotal(app)}</span>
                                                     </div>
                                                 </div>
@@ -119,7 +119,7 @@ const StaffAppointmentsModal = ({ staff, onClose }) => {
                                 <Calendar size={48} className="text-[#333]" />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-2">No Appointments Yet</h3>
-                            <p className="text-champagne-muted max-w-sm text-sm">Use the 'Add Appointment' feature to schedule bookings for {staff.name}.</p>
+                            <p className="text-champberry-muted max-w-sm text-sm">Use the 'Add Appointment' feature to schedule bookings for {staff.name}.</p>
                         </div>
                     )}
                 </div>

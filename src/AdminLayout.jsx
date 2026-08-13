@@ -80,7 +80,7 @@ function AdminLayout() {
                     <div className="flex items-center gap-6">
                         <button
                             onClick={() => setSidebarOpen(true)}
-                            className="lg:hidden p-2 text-[#a1a1aa] hover:text-champagne hover:bg-white/5 rounded-xl transition-all duration-200 cursor-pointer"
+                            className="lg:hidden p-2 text-[#a1a1aa] hover:text-champberry hover:bg-white/5 rounded-xl transition-all duration-200 cursor-pointer"
                         >
                             <Menu size={20} />
                         </button>
@@ -89,7 +89,7 @@ function AdminLayout() {
                     <div className="flex items-center gap-4">
                         <button className="relative p-2 text-[#a1a1aa] hover:text-white transition-colors cursor-pointer hover:bg-white/5 rounded-full">
                             <Bell size={20} />
-                            <span className="absolute top-2 right-2.5 w-1.5 h-1.5 bg-champagne rounded-full ring-2 ring-obsidian"></span>
+                            <span className="absolute top-2 right-2.5 w-1.5 h-1.5 bg-champberry rounded-full ring-2 ring-obsidian"></span>
                         </button>
                     </div>
                 </header>

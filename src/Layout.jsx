@@ -23,7 +23,7 @@ const Message = ({ type, text, visible, isClosing, onClose }) => {
     const typeStyles = {
         success: 'bg-green-800 text-white border-green-600',
         error: 'bg-red-900 text-white border-red-600',
-        warning: 'bg-champagne text-obsidian border-champagne-dark',
+        warning: 'bg-champberry text-obsidian border-champberry-dark',
         info: 'bg-blue-500 text-white border-blue-600'
     }
 
@@ -77,7 +77,7 @@ function Layout() {
                 className="fixed inset-0 bg-obsidian z-100 pointer-events-none flex items-center justify-center transform translate-y-0"
             >
                 {/* Minimalist loading accent */}
-                <div className="w-12 h-px bg-champagne/30"></div>
+                <div className="w-12 h-px bg-champberry/30"></div>
             </div>
 
             {/* Notification Layer */}

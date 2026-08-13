@@ -104,10 +104,10 @@ function GalleryItem({ img, title, barber, category }) {
             >
                 <div className="flex justify-between items-start mb-2">
                     <h4 className="font-serif italic text-white text-lg md:text-xl leading-tight">{title}</h4>
-                    <span className="font-sans text-champagne text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold shrink-0 ml-2">{category}</span>
+                    <span className="font-sans text-champberry text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold shrink-0 ml-2">{category}</span>
                 </div>
                 <div className="flex items-center gap-2 mt-3">
-                    <div className="w-4 h-px bg-champagne/40"></div>
+                    <div className="w-4 h-px bg-champberry/40"></div>
                     <p className="font-sans font-light text-white/60 text-xs tracking-wider uppercase">{barber}</p>
                 </div>
             </div>

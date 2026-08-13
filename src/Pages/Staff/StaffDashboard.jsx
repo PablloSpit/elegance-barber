@@ -83,7 +83,7 @@ function StaffDashboard() {
             {/* Greeting Header */}
             <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-1 sm:mb-2">Welcome back, {currentUser?.name}</h1>
-                <p className="text-xs sm:text-sm text-champagne-muted">Here's what's happening with your schedule today.</p>
+                <p className="text-xs sm:text-sm text-champberry-muted">Here's what's happening with your schedule today.</p>
             </div>
 
             {/* Stats Grid */}
@@ -103,8 +103,8 @@ function StaffDashboard() {
                     change={pendingJobs > 0 ? "Needs Action" : "All Clear"}
                     positive={pendingJobs === 0}
                     icon={<Scissors size={24} />}
-                    color="text-champagne"
-                    bg="bg-champagne/10"
+                    color="text-champberry"
+                    bg="bg-champberry/10"
                 />
                 <StatsCard
                     title="Completed Jobs"
@@ -129,10 +129,10 @@ function StaffDashboard() {
             {/* Appointments Table Section */}
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
-                    <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-champagne flex items-center gap-2 sm:gap-3">
+                    <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-champberry flex items-center gap-2 sm:gap-3">
                         <span className="text-white">Recent</span> Appointments
                     </h2>
-                    <button className="px-4 sm:px-6 py-2 bg-obsidian text-white border border-[#333] hover:border-champagne hover:text-champagne text-[10px] sm:text-xs font-bold rounded-lg transition-all uppercase tracking-wider shadow-lg cursor-pointer">
+                    <button className="px-4 sm:px-6 py-2 bg-obsidian text-white border border-[#333] hover:border-champberry hover:text-champberry text-[10px] sm:text-xs font-bold rounded-lg transition-all uppercase tracking-wider shadow-lg cursor-pointer">
                         <Link to="/staff/appointments" className="flex items-center gap-1">
                             View All My Appointments
                         </Link>
@@ -164,7 +164,7 @@ function StaffDashboard() {
                                             <span className="font-semibold text-white text-sm">
                                                 {appointment.name}
                                                 {appointment.userId == null && (
-                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">Guest</span>
+                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</span>
                                                 )}
                                             </span>
                                         </div>

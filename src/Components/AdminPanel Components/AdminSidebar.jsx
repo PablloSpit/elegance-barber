@@ -6,7 +6,8 @@ import {
     Settings,
     LogOut,
     PanelLeftClose,
-    PanelLeftOpen
+    PanelLeftOpen,
+    BarChart2
 } from 'lucide-react'
 import NavItem from '../AdminPanel Components/NavItem'
 
@@ -28,17 +29,17 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
                     <div className={`h-20 flex items-center ${collapsed ? 'justify-center' : 'justify-between px-6'} border-b border-white/5 relative`}>
                         {!collapsed && (
                             <h1 className="text-xl font-black uppercase tracking-[0.2em] text-white">
-                                <span className="text-champagne">Elegance</span>
+                                <span className="text-champberry">Elegance</span>
                             </h1>
                         )}
                         {collapsed && (
-                            <span className="text-xl font-black text-champagne bg-champagne/10 rounded-full px-4 py-2">E</span>
+                            <span className="text-xl font-black text-champberry bg-champberry/10 rounded-full px-4 py-2">E</span>
                         )}
 
                         {/* Desktop Collapse Toggle */}
                         <button
                             onClick={() => setCollapsed(!collapsed)}
-                            className={`hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-obsidian-elevated border border-white/10 rounded-full items-center justify-center text-[#777] hover:text-white hover:border-champagne transition-colors z-50 shadow-md ${collapsed ? '-right-3' : '-right-3'}`}
+                            className={`hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-obsidian-elevated border border-white/10 rounded-full items-center justify-center text-[#777] hover:text-white hover:border-champberry transition-colors z-50 shadow-md ${collapsed ? '-right-3' : '-right-3'}`}
                         >
                             {collapsed ? <PanelLeftOpen size={12} /> : <PanelLeftClose size={12} />}
                         </button>
@@ -46,17 +47,18 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
 
                     {/* Navigation */}
                     <nav className={`flex-1 overflow-y-auto py-6 ${collapsed ? 'px-2' : 'px-4'} space-y-2 scrollbar-hide`}>
-                        <NavItem icon={<LayoutDashboard size={20} />} label="Overview" to="/admin/dashboard" collapsed={collapsed} />
-                        <NavItem icon={<Calendar size={20} />} label="Appointments" to="/admin/appointments" collapsed={collapsed} />
-                        <NavItem icon={<Package size={20} />} label="Inventory" to="/admin/inventory" collapsed={collapsed} />
-                        <NavItem icon={<Users size={20} />} label="Staff Management" to="/admin/staffs" collapsed={collapsed} />
+                        <NavItem icon={<LayoutDashboard size={20} />} label="Visão Geral" to="/admin/dashboard" collapsed={collapsed} />
+                        <NavItem icon={<Calendar size={20} />} label="Agendamentos" to="/admin/appointments" collapsed={collapsed} />
+                        <NavItem icon={<BarChart2 size={20} />} label="Relatórios" to="/admin/reports" collapsed={collapsed} />
+                        <NavItem icon={<Package size={20} />} label="Estoque" to="/admin/inventory" collapsed={collapsed} />
+                        <NavItem icon={<Users size={20} />} label="Gestão de Equipe" to="/admin/staffs" collapsed={collapsed} />
 
                         <div className={`pt-6 pb-2 ${collapsed ? 'text-center' : ''}`}>
-                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>Settings</p>
+                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>Configurações</p>
                             {collapsed && <div className="h-px w-8 mx-auto bg-white/5"></div>}
                         </div>
 
-                        <NavItem icon={<Settings size={20} />} label="Configuration" to="/admin/configuration" collapsed={collapsed} />
+                        <NavItem icon={<Settings size={20} />} label="Configuração" to="/admin/configuration" collapsed={collapsed} />
 
                         <button
                             onClick={handleLogout}
@@ -64,14 +66,14 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
                             title={collapsed ? "Logout" : ""}
                         >
                             <LogOut size={18} className="group-hover:scale-110 transition-transform" />
-                            {!collapsed && <span className="font-medium text-sm">Logout</span>}
+                            {!collapsed && <span className="font-medium text-sm">Sair</span>}
                         </button>
                     </nav>
 
                     {/* User Profile Snippet */}
                     <div className={`p-4 border-t border-white/5 bg-white/1 backdrop-blur-sm ${collapsed ? 'flex justify-center' : ''}`}>
                         <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-full bg-linear-to-br from-champagne to-champagne-light flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-champagne/20 shrink-0">
+                            <div className="w-9 h-9 rounded-full bg-linear-to-br from-champberry to-champberry-light flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-champberry/20 shrink-0">
                                 {currentUser?.name?.charAt(0) || 'A'}
                             </div>
                             {!collapsed && (

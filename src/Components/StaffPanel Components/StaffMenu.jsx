@@ -67,7 +67,7 @@ const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => 
                         }}
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors cursor-pointer"
                     >
-                        <Calendar size={14} className="text-champagne" />
+                        <Calendar size={14} className="text-champberry" />
                         Check Appointments
                     </button>
                     <button
