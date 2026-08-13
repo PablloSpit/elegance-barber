@@ -1,8 +1,8 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useAuth } from '../../Context/AuthContext';
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent, CardHeader, CardTitle } from '../../Components/ui/card';
-import { Tabs, TabsList, TabsTrigger } from '../../Components/ui/tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
+import { Tabs, TabsList, TabsTrigger } from '../../components/ui/tabs';
 import {
     BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip,
     ResponsiveContainer, PieChart, Pie, Cell, Legend,
