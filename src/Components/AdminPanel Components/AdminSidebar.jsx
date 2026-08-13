@@ -6,7 +6,8 @@ import {
     Settings,
     LogOut,
     PanelLeftClose,
-    PanelLeftOpen
+    PanelLeftOpen,
+    BarChart2
 } from 'lucide-react'
 import NavItem from '../AdminPanel Components/NavItem'
 
@@ -46,17 +47,18 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
 
                     {/* Navigation */}
                     <nav className={`flex-1 overflow-y-auto py-6 ${collapsed ? 'px-2' : 'px-4'} space-y-2 scrollbar-hide`}>
-                        <NavItem icon={<LayoutDashboard size={20} />} label="Overview" to="/admin/dashboard" collapsed={collapsed} />
-                        <NavItem icon={<Calendar size={20} />} label="Appointments" to="/admin/appointments" collapsed={collapsed} />
-                        <NavItem icon={<Package size={20} />} label="Inventory" to="/admin/inventory" collapsed={collapsed} />
-                        <NavItem icon={<Users size={20} />} label="Staff Management" to="/admin/staffs" collapsed={collapsed} />
+                        <NavItem icon={<LayoutDashboard size={20} />} label="Visão Geral" to="/admin/dashboard" collapsed={collapsed} />
+                        <NavItem icon={<Calendar size={20} />} label="Agendamentos" to="/admin/appointments" collapsed={collapsed} />
+                        <NavItem icon={<BarChart2 size={20} />} label="Relatórios" to="/admin/reports" collapsed={collapsed} />
+                        <NavItem icon={<Package size={20} />} label="Estoque" to="/admin/inventory" collapsed={collapsed} />
+                        <NavItem icon={<Users size={20} />} label="Gestão de Equipe" to="/admin/staffs" collapsed={collapsed} />
 
                         <div className={`pt-6 pb-2 ${collapsed ? 'text-center' : ''}`}>
-                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>Settings</p>
+                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>Configurações</p>
                             {collapsed && <div className="h-px w-8 mx-auto bg-white/5"></div>}
                         </div>
 
-                        <NavItem icon={<Settings size={20} />} label="Configuration" to="/admin/configuration" collapsed={collapsed} />
+                        <NavItem icon={<Settings size={20} />} label="Configuração" to="/admin/configuration" collapsed={collapsed} />
 
                         <button
                             onClick={handleLogout}
@@ -64,7 +66,7 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
                             title={collapsed ? "Logout" : ""}
                         >
                             <LogOut size={18} className="group-hover:scale-110 transition-transform" />
-                            {!collapsed && <span className="font-medium text-sm">Logout</span>}
+                            {!collapsed && <span className="font-medium text-sm">Sair</span>}
                         </button>
                     </nav>
 

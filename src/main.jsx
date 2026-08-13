@@ -21,6 +21,8 @@ const Dashboard = lazy(() => import('./Pages/Admin/Dashboard'));
 const Appointments = lazy(() => import('./Pages/Admin/Appointments'));
 const Staffs = lazy(() => import('./Pages/Admin/Staffs'));
 const Configuration = lazy(() => import('./Pages/Admin/Configuration'));
+const Reports = lazy(() => import('./Pages/Admin/Reports'));
+const Inventory = lazy(() => import('./Pages/Admin/Inventory'));
 const StaffLayout = lazy(() => import('./StaffLayout'));
 const StaffDashboard = lazy(() => import('./Pages/Staff/StaffDashboard'));
 const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
@@ -118,6 +120,20 @@ const Router = createBrowserRouter(
           <Suspense fallback={<LoadingSpinner />}>
             <ProtectedRoute requiredRole="admin">
               <Appointments />
+            </ProtectedRoute>
+          </Suspense>
+        } />
+        <Route path='/admin/reports' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole="admin">
+              <Reports />
+            </ProtectedRoute>
+          </Suspense>
+        } />
+        <Route path='/admin/inventory' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole="admin">
+              <Inventory />
             </ProtectedRoute>
           </Suspense>
         } />
