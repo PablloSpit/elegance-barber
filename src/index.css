@@ -15,10 +15,10 @@
 
   /* ── Champagne Gold Palette (accents) ── */
   /* Refined, less saturated Orange-Gold */
-  --color-champagne: #d9822b; /* Professional, desaturated base orange */
-  --color-champagne-light: #f5a34d; /* Soft highlight orange */
-  --color-champagne-dark: #b36b24; /* Rich, earthy orange for hover states */
-  --color-champagne-muted: #8a8a8a;
+  --color-champberry: #d9822b; /* Renamed to allow global search-replace if needed later, but keeping hex */
+  --color-champberry-light: #f5a34d;
+  --color-champberry-dark: #b36b24;
+  --color-champberry-muted: #8a8a8a;
 
   /* /* ── Typography 121212/ */
   --font-serif: "Sansation", Georgia, "Times New Roman", sans-serif;

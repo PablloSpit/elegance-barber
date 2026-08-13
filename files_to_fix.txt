@@ -1,0 +1,50 @@
+src/Pages/User Panel/Account.jsx
+src/Layout.jsx
+src/Pages/Admin/Reports.jsx
+src/Pages/Admin/Staffs.jsx
+src/index.css
+src/Pages/Login.jsx
+src/Pages/Staff/StaffAppointments.jsx
+src/Pages/Home.jsx
+src/Pages/Register.jsx
+src/Pages/Admin/Dashboard.jsx
+src/Components/UserPanel Components/Profile.jsx
+src/Components/UserPanel Components/Feedback.jsx
+src/Components/UserPanel Components/Booking.jsx
+src/Pages/Staff/StaffDashboard.jsx
+src/Components/AppointmentForm.jsx
+src/Pages/Admin/Configuration.jsx
+src/Components/AppointmentFormContact.jsx
+src/Components/UserPanel Components/AppointmentCards.jsx
+src/Components/CustomerReview.jsx
+src/Components/Footer.jsx
+src/Components/GalleryItem.jsx
+src/Components/RegisterInput.jsx
+src/Components/ConfirmModal.jsx
+src/Pages/Staff/StaffProfile.jsx
+src/Pages/Admin/Appointments.jsx
+src/Pages/Contact.jsx
+src/Components/StaffPanel Components/StaffSidebar.jsx
+src/Components/StaffPanel Components/StaffRow.jsx
+src/Components/StaffPanel Components/StaffMenu.jsx
+src/Components/AdminPanel Components/EditAppointmentModal.jsx
+src/Components/AdminPanel Components/AppointmentMenu.jsx
+src/Components/AdminPanel Components/AdminSidebar.jsx
+src/Components/AdminPanel Components/AddStaffModal.jsx
+src/AdminLayout.jsx
+src/Components/AdminPanel Components/SortableHeader.jsx
+src/Components/AdminPanel Components/NavItem.jsx
+src/Components/AdminPanel Components/EditStaffModal.jsx
+src/Components/AdminPanel Components/StaffDetailsModal.jsx
+src/Components/LoadingSpinner.jsx
+src/Components/HeroCanvas.jsx
+src/Components/Header.jsx
+src/Components/LoginInput.jsx
+src/Components/PriceCard.jsx
+src/Components/ServicesIcons.jsx
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx
+src/Components/AdminPanel Components/ViewAppointmentModal.jsx
+src/Components/ServiceCard.jsx
+src/Components/StaffPanel Components/StaffAppointmentsModal.jsx
+src/Pages/ArtisanProfile.jsx
+src/StaffLayout.jsx
