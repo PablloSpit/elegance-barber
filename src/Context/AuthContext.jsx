@@ -152,12 +152,12 @@ export function AuthProvider({ children }) {
                         localStorage.removeItem('currentUser');
                     }
                     if (typeof showMessage === 'function') {
-                        showMessage('success', 'Logged in successfully');
+                        showMessage('success', 'Login realizado com sucesso');
                     }
                     return { success: true };
                 }
             }
-            throw new Error('Invalid email or password');
+            throw new Error('E-mail ou senha inválidos');
         }
         catch (error) {
             return { success: false, error: error.message };
@@ -170,7 +170,7 @@ export function AuthProvider({ children }) {
         localStorage.removeItem('currentUser');
         sessionStorage.removeItem('currentUser');
         if (typeof showMessage === 'function') {
-            showMessage('success', 'Logged out successfully');
+            showMessage('success', 'Sessão encerrada com sucesso');
         }
     }
 

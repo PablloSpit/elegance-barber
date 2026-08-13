@@ -151,7 +151,7 @@ export function StaffProvider({ children }) {
             ...newMember,
             id: newId,
             accountRole: newMember.accountRole || 'staff',
-            status: "active"
+            status: "active" // active status for staff accounts
         };
 
         const updatedStaff = [...staff, staffToAdd];
