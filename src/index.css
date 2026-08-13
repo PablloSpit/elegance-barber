@@ -1,0 +1,262 @@
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* ═══════════════════════════════════════════════════════════
+   ELEGANCE — "Tactile Obsidian" Design System
+   Tailwind CSS 4 @theme tokens
+   ═══════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Obsidian Palette (backgrounds) ── */
+  --color-obsidian: #0d0d0d;
+  --color-obsidian-card: #090909;
+  --color-obsidian-surface: #111111;
+  --color-obsidian-elevated: #171717;
+
+  /* ── Champagne Gold Palette (accents) ── */
+  /* Refined, less saturated Orange-Gold */
+  --color-champagne: #d9822b; /* Professional, desaturated base orange */
+  --color-champagne-light: #f5a34d; /* Soft highlight orange */
+  --color-champagne-dark: #b36b24; /* Rich, earthy orange for hover states */
+  --color-champagne-muted: #8a8a8a;
+
+  /* /* ── Typography 121212/ */
+  --font-serif: "Sansation", Georgia, "Times New Roman", sans-serif;
+  --font-sans: "Montserrat", "Inter", system-ui, -apple-system, sans-serif;
+
+  /* ── Luxury Easing ── */
+  --ease-luxury: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Base Typography ── */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-obsidian);
+  color: #e5e5e5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CINEMATIC FILM GRAIN OVERLAY
+   Subtle animated noise texture on digital blacks.
+   Uses an inline SVG feTurbulence filter for zero-asset grain.
+   ═══════════════════════════════════════════════════════════ */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ── Smooth Scroll Behavior ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Lenis Smooth Scroll Preparation ── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ── Global Selection ── */
+::selection {
+  background-color: var(--color-champagne);
+  color: var(--color-obsidian);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LUXURY UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Applies the signature luxury easing to all transitions */
+.ease-luxury {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Champagne gold text gradient (reusable) */
+.text-gradient-champagne {
+  background: linear-gradient(135deg, #e8d48b 0%, #d4af37 50%, #b8960f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Message toast fade-in / fade-out */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease-in;
+}
+
+/* Scroll-triggered reveal: slides up from below with opacity */
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Text wipe reveal via clip-path */
+@keyframes reveal-text {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-reveal-text {
+  animation: reveal-text 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Scale-down reveal for images (starts zoomed, settles) */
+@keyframes scale-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-reveal {
+  animation: scale-reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Brand carousel infinite scroll */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* StatsCard shine sweep */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.brand-scroll-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.brand-scroll-track {
+  animation: infinite-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.brand-scroll-wrapper:hover .brand-scroll-track {
+  animation-play-state: paused;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR — Obsidian + Champagne
+   ═══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Custom scrollbar for filter panel and tables */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0d0d0d;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-champagne);
+}
