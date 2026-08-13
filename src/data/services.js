@@ -5,50 +5,50 @@ import serviceTreatment from '../assets/services/service-treatment.webp'
 
 export const services = [
     {
-        title: "Hair Services",
+        title: "Serviços de Cabelo",
         items: [
-            { name: "Haircut", price: "$30" },
-            { name: "Beard Trim", price: "$15" },
-            { name: "Shave", price: "$20" },
-            { name: "Hair Color", price: "$60" },
-            { name: "Mustache Trim", price: "$10" },
-            { name: "Wash & Blowout", price: "$40" }
+            { name: "Corte de Cabelo", price: "R$ 30" },
+            { name: "Aparo de Barba", price: "R$ 15" },
+            { name: "Barbear Clássico", price: "R$ 20" },
+            { name: "Coloração", price: "R$ 60" },
+            { name: "Aparo de Bigode", price: "R$ 10" },
+            { name: "Lavagem e Secagem", price: "R$ 40" }
         ],
         image: serviceHaircut
     },
     {
-        title: "Skin",
+        title: "Pele e Rosto",
         items: [
-            { name: "Bodyshop Facial", price: "$30" },
-            { name: "Janseen Facial", price: "$15" },
-            { name: "Herbal Facial", price: "$20" },
-            { name: "Gold Facial", price: "$60" },
-            { name: "Face Steam", price: "$10" },
-            { name: "Full Body Massage", price: "$40" }
+            { name: "Limpeza Facial Bodyshop", price: "R$ 30" },
+            { name: "Limpeza Facial Janseen", price: "R$ 15" },
+            { name: "Limpeza Facial Herbal", price: "R$ 20" },
+            { name: "Limpeza Facial Gold", price: "R$ 60" },
+            { name: "Vaporização Facial", price: "R$ 10" },
+            { name: "Massagem Corporal", price: "R$ 40" }
         ],
         image: serviceStyling
     },
     {
-        title: "Wax & Threading",
+        title: "Cera e Design",
         items: [
-            { name: "Eyebrow Threading", price: "$12" },
-            { name: "Full Face Threading", price: "$25" },
-            { name: "Chest Wax", price: "$35" },
-            { name: "Back Wax", price: "$40" },
-            { name: "Arm Wax", price: "$30" },
-            { name: "Leg Wax", price: "$45" }
+            { name: "Design de Sobrancelha", price: "R$ 12" },
+            { name: "Depilação Facial Completa", price: "R$ 25" },
+            { name: "Depilação de Peito", price: "R$ 35" },
+            { name: "Depilação de Costas", price: "R$ 40" },
+            { name: "Depilação de Braço", price: "R$ 30" },
+            { name: "Depilação de Perna", price: "R$ 45" }
         ],
         image: serviceColoring
     },
     {
-        title: "Hair Styling",
+        title: "Tratamentos e Estilo",
         items: [
-            { name: "Keratin Treatment", price: "$120" },
-            { name: "Hair Spa", price: "$50" },
-            { name: "Deep Conditioning", price: "$35" },
-            { name: "Scalp Treatment", price: "$40" },
-            { name: "Hair Straightening", price: "$80" },
-            { name: "Special Event Styling", price: "$60" }
+            { name: "Tratamento de Queratina", price: "R$ 120" },
+            { name: "Spa Capilar", price: "R$ 50" },
+            { name: "Condicionamento Profundo", price: "R$ 35" },
+            { name: "Tratamento do Couro Cabeludo", price: "R$ 40" },
+            { name: "Alisamento", price: "R$ 80" },
+            { name: "Penteados Especiais", price: "R$ 60" }
         ],
         image: serviceTreatment
     }

@@ -46,7 +46,7 @@ function Footer() {
                             isActive ? 'text-champagne font-bold' : 'text-white hover:text-champagne transition-colors duration-500 ease-luxury'
                         }
                     >
-                        Home
+                        Início
                     </NavLink>
                     <a
                         href="#"
@@ -56,7 +56,7 @@ function Footer() {
                         }}
                         className='text-white hover:text-champagne transition-colors duration-500 ease-luxury'
                     >
-                        Services
+                        Serviços
                     </a>
                     <NavLink
                         to="/contact"
@@ -64,7 +64,7 @@ function Footer() {
                             isActive ? 'text-champagne font-bold' : 'text-white hover:text-champagne transition-colors duration-500 ease-luxury'
                         }
                     >
-                        Contact
+                        Contato
                     </NavLink>
 
                 </div>
@@ -83,7 +83,7 @@ function Footer() {
             </div>
             <div className="bg-obsidian-card text-white py-10 border-t border-white/10">
                 <div className="container mx-auto text-center">
-                    <p className="text-sm">&copy; {new Date().getFullYear()} Elegance. All rights reserved.</p>
+                    <p className="text-sm">&copy; {new Date().getFullYear()} Elegance. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
