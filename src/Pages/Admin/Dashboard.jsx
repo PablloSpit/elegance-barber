@@ -150,7 +150,7 @@ function Dashboard() {
                                             <span className="font-semibold text-white text-sm">
                                                 {appointment.name}
                                                 {appointment.userId == null && (
-                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champagne text-black text-[10px] font-bold uppercase">Guest</span>
+                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-white text-[10px] font-bold uppercase">Convidado</span>
                                                 )}
                                             </span>
                                         </div>
