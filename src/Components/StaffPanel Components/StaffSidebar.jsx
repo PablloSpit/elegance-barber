@@ -4,8 +4,10 @@ import {
     User,
     LogOut,
     PanelLeftClose,
-    PanelLeftOpen
+    PanelLeftOpen,
+    Globe
 } from 'lucide-react'
+
 import { useTranslation } from 'react-i18next'
 import NavItem from '../AdminPanel Components/NavItem' // Reusing Admin NavItem
 
@@ -49,6 +51,8 @@ const StaffSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
                         <NavItem icon={<LayoutDashboard size={20} />} label={t('nav.dashboard')} to="/staff/dashboard" collapsed={collapsed} />
                         <NavItem icon={<Calendar size={20} />} label={t('nav.my_appointments')} to="/staff/appointments" collapsed={collapsed} />
                         <NavItem icon={<User size={20} />} label={t('nav.profile')} to="/staff/profile" collapsed={collapsed} />
+                        <NavItem icon={<Globe size={20} />} label={t('nav.my_link', 'Meu Link')} to="/staff/link" collapsed={collapsed} />
+
 
                         <div className={`pt-6 pb-2 ${collapsed ? 'text-center' : ''}`}>
                             <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>{t('common.settings')}</p>

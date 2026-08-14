@@ -8,8 +8,10 @@ import {
     PanelLeftClose,
     PanelLeftOpen,
     BarChart2,
-    Scissors
+    Scissors,
+    Globe
 } from 'lucide-react'
+
 import { useTranslation } from 'react-i18next'
 import NavItem from '../AdminPanel Components/NavItem'
 
@@ -56,6 +58,8 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
                         <NavItem icon={<Package size={20} />} label={t('admin.inventory')} to="/admin/inventory" collapsed={collapsed} />
                         <NavItem icon={<Users size={20} />} label={t('admin.team_management')} to="/admin/staffs" collapsed={collapsed} />
                         <NavItem icon={<Scissors size={20} />} label={t('nav.services', 'Serviços')} to="/admin/services" collapsed={collapsed} />
+                        <NavItem icon={<Globe size={20} />} label={t('nav.my_link', 'Meu Link')} to="/admin/configuration#link" collapsed={collapsed} />
+
 
                         <div className={`pt-6 pb-2 ${collapsed ? 'text-center' : ''}`}>
                             <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>{t('common.settings')}</p>

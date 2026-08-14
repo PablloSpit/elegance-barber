@@ -223,6 +223,57 @@ function Configuration() {
                             </div>
                         </div>
 
+                        {/* Admin Link Section */}
+                        <div id="link" className="space-y-6 pt-6 border-t border-[#333]">
+                            <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
+                                <Globe className="text-champberry" size={18} />
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('nav.my_link', 'Meu Link')}</h2>
+                            </div>
+
+                            <div className="bg-obsidian-elevated p-4 sm:p-6 rounded-xl border border-white/5 space-y-4">
+                                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                    <div className="flex-1">
+                                        <h3 className="text-white font-bold text-sm uppercase mb-1">{t('admin.main_booking_link', 'Link Principal de Agendamento')}</h3>
+                                        <p className="text-[#777] text-xs">{t('admin.main_booking_link_desc', 'Este link direciona os clientes para a página inicial com o formulário de agendamento aberto.')}</p>
+                                        
+                                        <div className="mt-4 flex items-center gap-3 bg-obsidian border border-[#333] p-3 rounded-lg">
+                                            <div className="flex-1 truncate text-champberry-muted text-sm font-mono">
+                                                {`${window.location.origin}/#appointment`}
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(`${window.location.origin}/#appointment`);
+                                                    showMessage('success', t('admin.booking_link_copied'));
+                                                }}
+                                                className="p-2 hover:bg-white/5 text-champberry rounded-lg transition-colors cursor-pointer"
+                                            >
+                                                <Copy size={16} />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="p-4 bg-champberry/5 border border-champberry/10 rounded-xl">
+                                    <h4 className="text-champberry text-xs font-bold uppercase mb-2 flex items-center gap-2">
+                                        <Globe size={14} />
+                                        {t('admin.individual_links', 'Links Individuais')}
+                                    </h4>
+                                    <p className="text-champberry-muted text-[10px]">
+                                        {t('admin.individual_links_desc', 'Cada funcionário tem seu próprio link exclusivo. Você pode gerenciá-los na aba "Equipe".')}
+                                    </p>
+                                    <button 
+                                        type="button"
+                                        onClick={() => window.location.href = '/admin/staffs'}
+                                        className="mt-3 text-white text-xs font-bold hover:underline cursor-pointer"
+                                    >
+                                        {t('admin.view_team_links', 'Ver links da equipe')} →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div className="space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <Clock className="text-champberry" size={18} />
