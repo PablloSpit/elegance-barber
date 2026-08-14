@@ -58,21 +58,21 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
     }, [isOpen])
 
     const handleQuickStatusChange = async () => {
-        if (confirm('Are you sure you want to verify this appointment?')) {
+        if (confirm('Tem certeza que deseja confirmar este agendamento?')) {
             await updateAppointment(appointment.id, { status: 'Confirmed' })
             setIsOpen(false)
         }
     }
 
     const handleCancel = async () => {
-        if (confirm('Are you sure you want to cancel this appointment?')) {
+        if (confirm('Tem certeza que deseja cancelar este agendamento?')) {
             await cancelAppointment(appointment.id)
             setIsOpen(false)
         }
     }
 
     const handleDelete = async () => {
-        if (confirm('Are you sure you want to delete this appointment? This action cannot be undone.')) {
+        if (confirm('Tem certeza que deseja excluir este agendamento? Esta ação não pode ser desfeita.')) {
             await deleteAppointment(appointment.id)
             setIsOpen(false)
         }
@@ -106,7 +106,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
                             <CheckCircle2 size={14} className="text-emerald-500" />
-                            Verify Appointment
+                            Confirmar Agendamento
                         </button>
                     )}
 
@@ -119,7 +119,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors"
                     >
                         <Eye size={14} className="text-blue-400" />
-                        View Details
+                        Ver Detalhes
                     </button>
 
                     {/* Edit Details */}
@@ -131,7 +131,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                     >
                         <Edit size={14} className="text-champberry" />
-                        Edit Details
+                        Editar Detalhes
                     </button>
 
                     {/* Danger Zone */}
@@ -141,7 +141,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition-colors"
                         >
                             <XCircle size={14} />
-                            Cancel
+                            Cancelar
                         </button>
                     )}
 
@@ -150,7 +150,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-500/10 flex items-center gap-2 transition-colors"
                     >
                         <Trash2 size={14} />
-                        Delete
+                        Excluir
                     </button>
                 </div>,
                 document.body

@@ -53,7 +53,7 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                 <div className="flex justify-between items-center p-4 sm:p-6 border-b border-[#333] shrink-0">
                     <h2 className="text-base sm:text-xl font-bold text-white flex items-center gap-2">
                         <CheckCircle2 className="text-champberry mt-0.5" size={18} />
-                        Appointment Details
+                        Detalhes do Agendamento
                     </h2>
                     <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                         <X size={20} />
@@ -65,7 +65,7 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                     <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0 flex-1">
                             <h3 className="text-base sm:text-xl font-black text-white">{serviceSummary}</h3>
-                            <p className="text-champberry font-bold text-base sm:text-lg">${totalPrice}</p>
+                            <p className="text-champberry font-bold text-base sm:text-lg">R$ {totalPrice}</p>
                         </div>
                         <div className='mt-0.5'>
                             <StatusBadge status={appointment.status} />
@@ -76,25 +76,25 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                     <div className="grid grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-1">
                             <label className="text-xs font-bold text-champberry-muted uppercase flex items-center gap-1.5">
-                                <Calendar size={12} /> Date
+                                <Calendar size={12} /> Data
                             </label>
                             <p className="text-white font-medium">{appointment.date}</p>
                         </div>
                         <div className="space-y-1">
                             <label className="text-xs font-bold text-champberry-muted uppercase flex items-center gap-1.5">
-                                <Clock size={12} /> Time
+                                <Clock size={12} /> Hora
                             </label>
                             <p className="text-white font-medium">{appointment.time}</p>
                         </div>
                         <div className="space-y-1">
                             <label className="text-xs font-bold text-champberry-muted uppercase flex items-center gap-1.5">
-                                <User size={12} /> Client
+                                <User size={12} /> Cliente
                             </label>
                             <p className="text-white font-medium">{appointment.name}</p>
                         </div>
                         <div className="space-y-1">
                             <label className="text-xs font-bold text-champberry-muted uppercase flex items-center gap-1.5">
-                                <Scissors size={12} /> Stylists
+                                <Scissors size={12} /> Profissionais
                             </label>
                             <p className="text-white font-medium">{stylistSummary}</p>
                         </div>
@@ -104,11 +104,11 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                     <div className="bg-obsidian-elevated p-3 sm:p-4 rounded-xl border border-[#333] space-y-3">
                         <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
                             <Mail size={16} className="text-champberry-muted" />
-                            <span className="text-gray-300">{appointment.email || 'No email provided'}</span>
+                            <span className="text-gray-300">{appointment.email || 'E-mail não informado'}</span>
                         </div>
                         <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
                             <Phone size={16} className="text-champberry-muted" />
-                            <span className="text-gray-300">{appointment.phone || 'No phone provided'}</span>
+                            <span className="text-gray-300">{appointment.phone || 'Telefone não informado'}</span>
                         </div>
                     </div>
 
@@ -116,7 +116,7 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                     {appointment.message && (
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-champberry-muted uppercase flex items-center gap-1.5">
-                                <StickyNote size={12} /> Notes
+                                <StickyNote size={12} /> Observações
                             </label>
                             <div className="bg-obsidian-elevated p-3 rounded-lg border border-[#333] text-sm text-gray-400 italic">
                                 "{appointment.message}"
@@ -130,7 +130,7 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                         onClick={onClose}
                         className="px-6 py-2 bg-obsidian-elevated hover:bg-[#222] text-white border border-[#333] rounded-lg text-sm font-bold transition-colors cursor-pointer"
                     >
-                        Close
+                        Fechar
                     </button>
                 </div>
             </div>

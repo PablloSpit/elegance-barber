@@ -209,7 +209,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4">
             <div className="bg-obsidian-surface border border-[#333] w-full max-w-lg rounded-2xl shadow-2xl animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col">
                 <div className="flex justify-between items-center p-4 sm:p-6 border-b border-[#333] shrink-0">
-                    <h2 className="text-base sm:text-xl font-bold text-white">Edit Appointment</h2>
+                    <h2 className="text-base sm:text-xl font-bold text-white">Editar Agendamento</h2>
                     <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                         <X size={20} />
                     </button>
@@ -218,7 +218,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                 <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 overflow-y-auto">
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Date</label>
+                            <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Data</label>
                             <input
                                 type="date"
                                 name="date"
@@ -228,7 +228,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                             />
                         </div>
                         <div>
-                            <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Time</label>
+                            <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Hora</label>
                             <input
                                 type="time"
                                 name="time"
@@ -240,7 +240,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                     </div>
 
                     <div>
-                        <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Client Name</label>
+                        <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Nome do Cliente</label>
                         <input
                             type="text"
                             name="name"
@@ -251,7 +251,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                     </div>
 
                     <div ref={dropdownRef} className="relative">
-                        <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Services</label>
+                        <label className="block text-xs font-bold uppercase text-champberry-muted mb-1">Serviços</label>
                         <button
                             type="button"
                             onClick={() => setIsOpen(!isOpen)}
@@ -260,8 +260,8 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                         >
                             <span>
                                 {formData.items.length === 0
-                                    ? 'Select services'
-                                    : `${formData.items.length} service${formData.items.length > 1 ? 's' : ''} selected`}
+                                    ? 'Selecionar serviços'
+                                    : `${formData.items.length} serviço${formData.items.length > 1 ? 's' : ''} selecionado${formData.items.length > 1 ? 's' : ''}`}
                             </span>
                             <span className={`text-xs transition-transform ${isOpen ? 'rotate-180' : ''}`}>▼</span>
                         </button>
@@ -311,13 +311,13 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
 
                         {formData.items.length > 0 && (
                             <div className="mt-2 text-xs text-gray-400">
-                                Stylists: <span className="text-white font-semibold">{formData.items.map(item => item.stylist?.name).filter(Boolean).join(', ')}</span>
+                                Profissionais: <span className="text-white font-semibold">{formData.items.map(item => item.stylist?.name).filter(Boolean).join(', ')}</span>
                             </div>
                         )}
 
                         {formData.items.length > 0 && (
                             <div className="mt-2 text-xs text-gray-400">
-                                Total: <span className="text-champberry font-bold">${totalPrice}</span>
+                                Total: <span className="text-champberry font-bold">R$ {totalPrice}</span>
                             </div>
                         )}
                     </div>
@@ -329,11 +329,12 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                             onChange={handleChange}
                             className="w-full bg-obsidian-elevated border border-[#333] rounded-lg p-2.5 text-white text-sm focus:border-champberry outline-none transition-colors"
                         >
-                            <option value="Pending">Pending</option>
-                            <option value="Confirmed">Confirmed</option>
-                            <option value="Awaiting Confirmation">Awaiting Confirmation</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Cancelled">Cancelled</option>
+                            <option value="Pending">Pendente</option>
+                            <option value="Confirmed">Confirmado</option>
+                            <option value="Awaiting Confirmation">Aguardando Confirmação</option>
+                            <option value="Completed">Finalizado</option>
+                            <option value="Cancelled">Cancelado</option>
+                            <option value="Faltou">Faltou</option>
                         </select>
                     </div>
 
@@ -343,14 +344,14 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                             onClick={onClose}
                             className="px-4 py-2 bg-transparent border border-[#333] text-gray-400 hover:text-white rounded-lg text-sm font-bold transition-colors cursor-pointer order-2 sm:order-1"
                         >
-                            Cancel
+                            Cancelar
                         </button>
                         <button
                             type="submit"
                             disabled={loading}
                             className="px-4 py-2 bg-champberry hover:bg-champberry-dark text-white rounded-lg text-sm font-bold transition-colors disabled:opacity-50 cursor-pointer order-1 sm:order-2"
                         >
-                            {loading ? 'Saving...' : 'Save Changes'}
+                            {loading ? 'Salvando...' : 'Salvar Alterações'}
                         </button>
                     </div>
                 </form>

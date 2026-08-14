@@ -155,7 +155,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Profile Picture Upload */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Profile Picture (Optional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Foto de Perfil (Opcional)</label>
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16 rounded-full overflow-hidden bg-obsidian-elevated border-2 border-dashed border-[#333] flex items-center justify-center shrink-0 group">
                                     {avatarPreview ? (
@@ -170,7 +170,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         onClick={() => fileInputRef.current?.click()}
                                         className="text-xs font-bold text-champberry hover:text-champberry-dark transition-colors cursor-pointer"
                                     >
-                                        {avatarPreview ? 'Change Photo' : 'Upload Photo'}
+                                        {avatarPreview ? 'Alterar Foto' : 'Enviar Foto'}
                                     </button>
                                     {avatarPreview && (
                                         <button
@@ -178,10 +178,10 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                            Remove
+                                            Remover
                                         </button>
                                     )}
-                                    <p className="text-[#555] text-[10px]">WebP format only (.webp)</p>
+                                    <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>
                                 </div>
                                 <input
                                     ref={fileInputRef}
@@ -196,7 +196,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Name and Role Row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Full Name</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nome Completo</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <User size={16} />
@@ -213,7 +213,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Role / Position</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Cargo / Posição</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Briefcase size={16} />
@@ -224,12 +224,12 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         onChange={handleChange}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                     >
-                                        <option value="" disabled>Select Role</option>
-                                        <option value="Senior Stylist">Senior Stylist</option>
-                                        <option value="Color Specialist">Color Specialist</option>
-                                        <option value="Junior Barber">Junior Barber</option>
-                                        <option value="Makeup Artist">Makeup Artist</option>
-                                        <option value="Receptionist">Receptionist</option>
+                                        <option value="" disabled>Selecionar Cargo</option>
+                                        <option value="Senior Stylist">Barbeiro Sênior</option>
+                                        <option value="Color Specialist">Especialista em Cor</option>
+                                        <option value="Junior Barber">Barbeiro Júnior</option>
+                                        <option value="Makeup Artist">Maquiador(a)</option>
+                                        <option value="Receptionist">Recepcionista</option>
                                     </select>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Contact Info Row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Email Address</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Endereço de E-mail</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Mail size={16} />
@@ -255,7 +255,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Phone Number</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Número de Telefone</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Phone size={16} />
@@ -275,7 +275,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Password (for staff login) */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Account Password</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Senha da Conta</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Lock size={16} />
@@ -285,7 +285,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         name="password"
                                         value={formData.password}
                                         onChange={handleChange}
-                                        placeholder="Set a password for staff login"
+                                        placeholder="Defina uma senha para o login do profissional"
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                     />
                                 </div>
@@ -294,7 +294,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
                         {/* Specialties */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Specialties (Comma separated)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades (Separadas por vírgula)</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                     <Scissors size={16} />
@@ -304,16 +304,16 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                     name="specialties"
                                     value={formData.specialties}
                                     onChange={handleChange}
-                                    placeholder="Haircut, Beard Trim, Styling..."
+                                    placeholder="Corte, Barba, Estilização..."
                                     className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                 />
                             </div>
-                            <p className="text-[#555] text-xs ml-1">Example: Haircut, Color, Styling</p>
+                            <p className="text-[#555] text-xs ml-1">Exemplo: Corte, Cor, Barba</p>
                         </div>
 
                         {/* Experience */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experience (Optional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experiência (Opcional)</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                     <Briefcase size={16} />
@@ -324,13 +324,13 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                     onChange={handleChange}
                                     className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                 >
-                                    <option value="">Use default (New)</option>
-                                    <option value="1 year">1 year</option>
-                                    <option value="2 years">2 years</option>
-                                    <option value="3 years">3 years</option>
-                                    <option value="5 years">5 years</option>
-                                    <option value="7 years">7 years</option>
-                                    <option value="10+ years">10+ years</option>
+                                     <option value="">Usar padrão (Novo)</option>
+                                     <option value="1 year">1 ano</option>
+                                     <option value="2 years">2 anos</option>
+                                     <option value="3 years">3 anos</option>
+                                     <option value="5 years">5 anos</option>
+                                     <option value="7 years">7 anos</option>
+                                    <option value="10+ years">10+ anos</option>
                                 </select>
                             </div>
                         </div>
@@ -340,19 +340,19 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
                                 <div className="flex items-center gap-2">
                                     <Clock size={16} className="text-champberry-muted" />
-                                    <span className="text-gray-400 text-xs font-bold uppercase">Timing (Optional)</span>
+                                    <span className="text-gray-400 text-xs font-bold uppercase">Horário (Opcional)</span>
                                 </div>
-                                <span className="text-[11px] text-champberry-muted group-open:text-champberry">Toggle</span>
+                                <span className="text-[11px] text-champberry-muted group-open:text-champberry">Alternar</span>
                             </summary>
                             <div className="px-3 pb-3 pt-2 space-y-3">
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Weekdays</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Dias Úteis</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                             <input
                                                 type="time"
                                                 name="weekdayStart"
@@ -362,7 +362,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                             <input
                                                 type="time"
                                                 name="weekdayEnd"
@@ -375,12 +375,12 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                 </details>
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Saturday</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Sábado</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                             <input
                                                 type="time"
                                                 name="saturdayStart"
@@ -390,7 +390,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                             <input
                                                 type="time"
                                                 name="saturdayEnd"
@@ -403,8 +403,8 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                 </details>
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Sunday</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Domingo</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 space-y-3">
                                         <label className="flex items-center gap-2 text-xs text-champberry-muted">
@@ -415,11 +415,11 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                                 onChange={handleChange}
                                                 className="accent-champberry"
                                             />
-                                            Enable Sunday timing
+                                            Habilitar horário de domingo
                                         </label>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                                 <input
                                                     type="time"
                                                     name="sundayStart"
@@ -430,7 +430,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                                 />
                                             </div>
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                                 <input
                                                     type="time"
                                                     name="sundayEnd"
@@ -443,7 +443,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         </div>
                                     </div>
                                 </details>
-                                <p className="text-[#555] text-xs">Leave fields empty to keep default timing. Sunday stays off unless enabled. Default Timings: <br></br> Weekdays: (9:00AM TO 17:00PM) <br /> Saturday: (10:00AM TO 16:00PM) <br /> Sunday Off</p>
+                                <p className="text-[#555] text-xs">Deixe os campos vazios para manter o horário padrão. Domingo permanece desativado a menos que habilitado. Horários Padrão: <br></br> Dias Úteis: (09:00 ÀS 17:00) <br /> Sábado: (10:00 ÀS 16:00) <br /> Domingo: Fechado</p>
                             </div>
                         </details>
                     </form>
@@ -456,14 +456,14 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         onClick={onClose}
                         className="px-4 py-2 bg-[#222] hover:bg-[#333] text-white text-sm font-medium rounded-lg transition-colors cursor-pointer"
                     >
-                        Cancel
+                        Cancelar
                     </button>
                     <button
                         onClick={handleSubmit}
                         className="px-4 py-2 bg-champberry hover:bg-champberry-dark text-white text-sm font-bold rounded-lg transition-colors shadow-lg hover:shadow-champberry/20 flex items-center gap-2 cursor-pointer"
                     >
                         <Save size={16} />
-                        Save Member
+                        Salvar Membro
                     </button>
                 </div>
 

@@ -177,7 +177,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                         </div>
                         <div>
                             <h2 className="text-base sm:text-xl font-bold text-white">{t('admin.edit_staff_title', 'Editar Barbeiro')}</h2>
-                            <p className="text-[10px] sm:text-xs text-champberry-muted">{t('admin.update_staff_subtitle', 'Atualizar informações do profissional')}</p>
+                            <p className="text-[10px] sm:text-xs text-champberry-muted">Atualizar informações do profissional</p>
                         </div>
 
                     </div>
@@ -200,7 +200,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Profile Picture Upload */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Profile Picture (Optional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Foto de Perfil (Opcional)</label>
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16 rounded-full overflow-hidden bg-obsidian-elevated border-2 border-dashed border-[#333] flex items-center justify-center shrink-0 group">
                                     {avatarPreview ? (
@@ -215,7 +215,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                         onClick={() => fileInputRef.current?.click()}
                                         className="text-xs font-bold text-champberry hover:text-champberry-dark transition-colors cursor-pointer"
                                     >
-                                        {avatarPreview ? 'Change Photo' : 'Upload Photo'}
+                                        {avatarPreview ? 'Alterar Foto' : 'Enviar Foto'}
                                     </button>
                                     {avatarPreview && (
                                         <button
@@ -223,10 +223,10 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                            Remove
+                                             Remover
                                         </button>
                                     )}
-                                    <p className="text-[#555] text-[10px]">WebP format only (.webp)</p>
+                                    <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>
                                 </div>
                                 <input
                                     ref={fileInputRef}
@@ -240,10 +240,10 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                         {/* Basic Info */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Personal Details</h3>
+                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Dados Pessoais</h3>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Full Name *</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nome Completo *</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <User size={16} />
@@ -277,7 +277,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Phone *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Telefone *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Phone size={16} />
@@ -299,11 +299,11 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                         {/* Professional Info */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Professional Info</h3>
+                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Informações Profissionais</h3>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Role *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Cargo *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Briefcase size={16} />
@@ -314,19 +314,19 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onChange={handleChange}
                                             className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                         >
-                                            <option value="">Select Role</option>
-                                            <option value="Senior Stylist">Senior Stylist</option>
-                                            <option value="Junior Barber">Junior Barber</option>
-                                            <option value="Color Specialist">Color Specialist</option>
-                                            <option value="Makeup Artist">Makeup Artist</option>
-                                            <option value="Nail Technician">Nail Technician</option>
-                                            <option value="Esthetician">Esthetician</option>
+                                             <option value="">Selecionar Cargo</option>
+                                             <option value="Senior Stylist">Barbeiro Sênior</option>
+                                             <option value="Junior Barber">Barbeiro Júnior</option>
+                                             <option value="Color Specialist">Especialista em Cor</option>
+                                             <option value="Makeup Artist">Maquiador(a)</option>
+                                             <option value="Nail Technician">Manicure/Pedicure</option>
+                                             <option value="Esthetician">Esteticista</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Commission (0.0 - 1.0)</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Comissão (0.0 - 1.0)</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <BriefcaseBusiness size={16} />
@@ -348,7 +348,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {/* Experience */}
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experience</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experiência</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Briefcase size={16} />
@@ -359,20 +359,20 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onChange={handleChange}
                                             className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                         >
-                                            <option value="">Use default (New)</option>
-                                            <option value="1 year">1 year</option>
-                                            <option value="2 years">2 years</option>
-                                            <option value="3 years">3 years</option>
-                                            <option value="4 years">4 years</option>
-                                            <option value="5 years">5 years</option>
-                                            <option value="7 years">7 years</option>
-                                            <option value="10+ years">10+ years</option>
+                                             <option value="">Usar padrão (Novo)</option>
+                                             <option value="1 year">1 ano</option>
+                                             <option value="2 years">2 anos</option>
+                                             <option value="3 years">3 anos</option>
+                                             <option value="4 years">4 anos</option>
+                                             <option value="5 years">5 anos</option>
+                                             <option value="7 years">7 anos</option>
+                                             <option value="10+ years">10+ anos</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Rating</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Avaliação</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Star size={16} />
@@ -392,7 +392,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Specialties * (comma separated)</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades * (separadas por vírgula)</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Scissors size={16} />
@@ -402,11 +402,11 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                         name="specialties"
                                         value={formData.specialties}
                                         onChange={handleChange}
-                                        placeholder="Haircut, Color, Styling..."
+                                        placeholder="Corte, Barba, Cor..."
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-700"
                                     />
                                 </div>
-                                <p className="text-[#555] text-xs ml-1">Example: Haircut, Color, Styling</p>
+                                <p className="text-[#555] text-xs ml-1">Exemplo: Corte, Cor, Barba</p>
                             </div>
                         </div>
 
@@ -414,11 +414,11 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                         {/* Schedule Section */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Schedule Configuration</h3>
+                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Configuração de Horários</h3>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Weekdays Start</label>
+                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início (Dias Úteis)</label>
                                     <input
                                         type="time"
                                         name="weekdayStart"
@@ -428,7 +428,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                     />
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Weekdays End</label>
+                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim (Dias Úteis)</label>
                                     <input
                                         type="time"
                                         name="weekdayEnd"
@@ -439,7 +439,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Saturday Start</label>
+                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início (Sábado)</label>
                                     <input
                                         type="time"
                                         name="saturdayStart"
@@ -449,7 +449,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                     />
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Saturday End</label>
+                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim (Sábado)</label>
                                     <input
                                         type="time"
                                         name="saturdayEnd"
@@ -469,13 +469,13 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                         onChange={handleChange}
                                         className="accent-champberry"
                                     />
-                                    Enable Sunday Working Hours
+                                    Habilitar Horário de Domingo
                                 </label>
 
                                 {formData.sundayEnabled && (
                                     <div className="grid grid-cols-2 gap-4 animate-fade-in">
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                             <input
                                                 type="time"
                                                 name="sundayStart"
@@ -485,7 +485,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                             <input
                                                 type="time"
                                                 name="sundayEnd"
@@ -507,7 +507,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                         onClick={onClose}
                         className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors cursor-pointer"
                     >
-                        Cancel
+                        Cancelar
                     </button>
                     <button
                         onClick={handleSubmit}
@@ -515,7 +515,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                         className="px-6 py-2 bg-champberry hover:bg-champberry-dark text-white text-sm font-bold rounded-xl shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Save size={16} />
-                        Update Stylist
+                        Atualizar Profissional
                     </button>
                 </div>
 
