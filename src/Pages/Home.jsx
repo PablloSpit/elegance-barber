@@ -568,15 +568,15 @@ function Home() {
                             <div className="manifesto-line flex justify-between md:justify-start lg:gap-38 mt-3">
                                 <div className="flex flex-col items-center group">
                                     <Scissors className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">Haircut</span>
+                                    <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">{t('home.haircut')}</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
                                     <Waves className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Shaving</span>
+                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.shaving')}</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
                                     <Sparkles className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Facials</span>
+                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.facials')}</span>
                                 </div>
                             </div>
 
