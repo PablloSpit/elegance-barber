@@ -241,12 +241,12 @@ const Staffs = () => {
                                                 <div className="flex items-center justify-end gap-2">
                                                     <button 
                                                         onClick={() => {
-                                                            const url = `${window.location.origin}/book?staff=${member.id}`;
+                                                            const url = `${window.location.origin}/?staff=${member.id}#appointment`;
                                                             navigator.clipboard.writeText(url);
-                                                            showMessage('success', 'Link de agendamento copiado!');
+                                                            showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
                                                         }}
                                                         className="p-2 text-champberry hover:bg-champberry/10 rounded-lg transition-all"
-                                                        title="Copiar Link de Agendamento"
+                                                        title={t('admin.copy_booking_link', 'Copiar Link de Agendamento')}
                                                     >
                                                         <Globe size={16} />
                                                     </button>
