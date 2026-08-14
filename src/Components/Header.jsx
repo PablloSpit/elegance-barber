@@ -197,7 +197,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                         >
                                                             <i className="fas fa-tachometer-alt w-5"></i>
-                                                            <span>Admin Dashboard</span>
+                                                            <span>{t('nav.admin', 'Admin Dashboard')}</span>
                                                         </Link>
                                                     )}
                                                     {isStaff && (
@@ -208,21 +208,21 @@ function Header({ bgImage = "bg-transparent" }) {
                                                                 className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                             >
                                                                 <i className="fas fa-tachometer-alt w-5"></i>
-                                                                <span>Staff Dashboard</span>
+                                                                <span>{t('nav.staff', 'Staff Dashboard')}</span>
                                                             </Link>
                                                             <Link
                                                                 to="/staff/appointments"
                                                                 className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                             >
                                                                 <i className="fas fa-calendar-alt w-5"></i>
-                                                                <span>My Appointments</span>
+                                                                <span>{t('nav.my_appointments', 'My Appointments')}</span>
                                                             </Link>
                                                             <Link
                                                                 to="/staff/profile"
                                                                 className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                             >
                                                                 <i className="fas fa-user w-5"></i>
-                                                                <span>My Profile</span>
+                                                                <span>{t('nav.my_profile', 'My Profile')}</span>
                                                             </Link>
                                                         </>
                                                     )}
@@ -234,14 +234,14 @@ function Header({ bgImage = "bg-transparent" }) {
                                                                 className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                             >
                                                                 <i className="fas fa-user w-5"></i>
-                                                                <span>My Profile</span>
+                                                                <span>{t('nav.my_profile', 'My Profile')}</span>
                                                             </Link>
                                                             <Link
                                                                 to="/account?tab=appointments"
                                                                 className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors"
                                                             >
                                                                 <i className="fas fa-calendar-alt w-5"></i>
-                                                                <span>My Appointments</span>
+                                                                <span>{t('nav.my_appointments', 'My Appointments')}</span>
                                                             </Link>
                                                             <a
                                                                 href="#services"
@@ -262,7 +262,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-red-400 hover:bg-gray-900/3 transition-colors w-full text-left cursor-pointer"
                                                         >
                                                             <i className="fas fa-sign-out-alt w-5"></i>
-                                                            <span>Logout</span>
+                                                        <span>{t('nav.logout', 'Logout')}</span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -387,7 +387,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                         className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                     >
                                                         <i className="fas fa-tachometer-alt w-5"></i>
-                                                        <span>Admin Dashboard</span>
+                                                        <span>{t('nav.admin', 'Admin Dashboard')}</span>
                                                     </Link>
                                                 )}
                                                 {isStaff && (
@@ -398,7 +398,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                         >
                                                             <i className="fas fa-tachometer-alt w-5"></i>
-                                                            <span>Staff Dashboard</span>
+                                                            <span>{t('nav.staff', 'Staff Dashboard')}</span>
                                                         </Link>
                                                         <Link
                                                             to="/staff/appointments"
@@ -406,7 +406,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                         >
                                                             <i className="fas fa-calendar-alt w-5"></i>
-                                                            <span>My Appointments</span>
+                                                            <span>{t('nav.my_appointments', 'My Appointments')}</span>
                                                         </Link>
                                                         <Link
                                                             to="/staff/profile"
@@ -414,7 +414,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                         >
                                                             <i className="fas fa-user w-5"></i>
-                                                            <span>My Profile</span>
+                                                            <span>{t('nav.my_profile', 'My Profile')}</span>
                                                         </Link>
                                                     </>
                                                 )}
@@ -426,7 +426,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                         >
                                                             <i className="fas fa-user w-5"></i>
-                                                            <span>My Profile</span>
+                                                            <span>{t('nav.my_profile', 'My Profile')}</span>
                                                         </Link>
                                                         <Link
                                                             to="/account?tab=appointments"
@@ -434,7 +434,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                             className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/30 transition-colors rounded-lg"
                                                         >
                                                             <i className="fas fa-calendar-alt w-5"></i>
-                                                            <span>My Appointments</span>
+                                                            <span>{t('nav.my_appointments', 'My Appointments')}</span>
                                                         </Link>
                                                     </>
                                                 )}
@@ -447,7 +447,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                         className="flex items-center gap-3 px-3 py-3 text-gray-300 hover:text-red-400 hover:bg-gray-900/30 transition-colors rounded-lg w-full text-left"
                                                     >
                                                         <i className="fas fa-sign-out-alt w-5"></i>
-                                                        <span>Logout</span>
+                                                        <span>{t('nav.logout', 'Logout')}</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -466,8 +466,8 @@ function Header({ bgImage = "bg-transparent" }) {
                                                     </svg>
                                                 </div>
                                                 <div className="flex-1">
-                                                    <p className="text-white font-semibold text-sm uppercase tracking-wide group-hover:text-champberry transition-colors">My Account</p>
-                                                    <p className="text-gray-400 text-xs">Login / Register</p>
+                                                    <p className="text-white font-semibold text-sm uppercase tracking-wide group-hover:text-champberry transition-colors">{t('nav.my_account', 'My Account')}</p>
+                                                    <p className="text-gray-400 text-xs">{t('nav.login_register', 'Login / Register')}</p>
                                                 </div>
                                                 <i className="fas fa-chevron-right text-champberry-muted group-hover:text-champberry group-hover:translate-x-1 transition-all"></i>
                                             </div>
@@ -477,7 +477,7 @@ function Header({ bgImage = "bg-transparent" }) {
 
                                 {/* Contact Info */}
                                 <div className="mt-4 pt-4 border-t border-gray-800 text-center">
-                                    <p className="text-gray-400 text-xs mb-2">BOOK APPOINTMENT</p>
+                                    <p className="text-gray-400 text-xs mb-2">{t('nav.book_appointment_short', 'BOOK APPOINTMENT')}</p>
                                     <a href="tel:+1234567890" className="text-champberry font-semibold hover:text-champberry-light transition-colors">
                                         +1 (234) 567-890
                                     </a>

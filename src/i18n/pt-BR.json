@@ -27,7 +27,12 @@
     "admin": "Painel Admin",
     "staff": "Painel Staff",
     "logout": "Sair",
-    "book_now": "AGENDAR HORÁRIO"
+    "book_now": "AGENDAR HORÁRIO",
+    "my_profile": "Meu Perfil",
+    "my_appointments": "Meus Agendamentos",
+    "my_account": "Minha Conta",
+    "login_register": "Entrar / Cadastrar",
+    "book_appointment_short": "AGENDAR"
   },
   "admin": {
     "dashboard": "Dashboard",
