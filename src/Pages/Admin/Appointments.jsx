@@ -30,7 +30,7 @@ const parseStoredDate = (dateStr) => {
     return new Date(dateStr)
 }
 
-const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed']
+const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Faltou']
 
 function Appointments() {
     const { appointments } = useAppointment()
@@ -240,9 +240,9 @@ function Appointments() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
                 <div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                        Appointments <span className="text-champberry">Manager</span>
+                        Gestão de <span className="text-champberry">Agendamentos</span>
                     </h1>
-                    <p className="text-gray-400 text-xs sm:text-sm mt-1">View and manage all client bookings</p>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-1">Visualize e gerencie todas as reservas de clientes</p>
                 </div>
 
                 {/* Action Toolbar */}
@@ -254,7 +254,7 @@ function Appointments() {
                         </div>
                         <input
                             type="text"
-                            placeholder="Search client, service, ID..."
+                            placeholder="Buscar cliente, serviço, ID..."
                             className="bg-obsidian-surface border border-[#333] text-white text-xs sm:text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full sm:w-52 md:w-64 pl-9 sm:pl-10 p-2 sm:p-2.5 transition-all outline-none"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -288,7 +288,7 @@ function Appointments() {
                                 } text-xs sm:text-sm rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2 hover:border-champberry hover:text-champberry transition-all outline-none w-full sm:w-auto justify-center font-medium cursor-pointer`}
                         >
                             <Filter size={16} />
-                            <span>Filters</span>
+                            <span>Filtros</span>
                             {hasActiveFilters && (
                                 <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-champberry text-black text-xs font-black rounded-full flex items-center justify-center shadow-lg">
                                     {activeFilterCount}
@@ -301,12 +301,12 @@ function Appointments() {
                             <div className="absolute top-full mt-2 right-0 left-0 sm:left-auto w-full sm:w-80 bg-obsidian-surface border border-[#333] rounded-lg shadow-2xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
                                 {/* Panel Header */}
                                 <div className="bg-obsidian-surface px-4 py-3 border-b border-[#333] flex justify-between items-center">
-                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">Filter Appointments</h3>
+                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">Filtrar Agendamentos</h3>
                                     <button
                                         onClick={clearAllFilters}
                                         className="text-xs text-champberry hover:text-white transition-colors font-bold uppercase tracking-wide"
                                     >
-                                        Clear All
+                                        Limpar Tudo
                                     </button>
                                 </div>
 
@@ -315,7 +315,7 @@ function Appointments() {
                                     {/* Quick Date Presets */}
                                     <div>
                                         <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">
-                                            Quick Filter
+                                            Filtro Rápido
                                         </label>
                                         <div className="grid grid-cols-2 gap-2">
                                             {['Today', 'Tomorrow', 'This Week', 'This Month'].map(preset => (
@@ -327,7 +327,7 @@ function Appointments() {
                                                         : 'bg-obsidian border-[#333] text-gray-400 hover:border-champberry hover:text-champberry'
                                                         }`}
                                                 >
-                                                    {preset}
+                                                    {preset === 'Today' ? 'Hoje' : preset === 'Tomorrow' ? 'Amanhã' : preset === 'This Week' ? 'Esta Semana' : 'Este Mês'}
                                                 </button>
                                             ))}
                                         </div>
@@ -336,7 +336,7 @@ function Appointments() {
                                     {/* Custom Date Range */}
                                     <div>
                                         <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">
-                                            Date Range
+                                            Intervalo de Datas
                                         </label>
                                         <div className="space-y-2">
                                             <div className="relative">
