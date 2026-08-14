@@ -32,16 +32,20 @@ const parseStoredDate = (dateStr) => {
 }
 
 const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Checked In', 'Missed']
-const categoryMap = {
-    'All': 'appointments.status.all',
-    'Confirmed': 'appointments.status.confirmed',
-    'Pending': 'appointments.status.pending',
-    'Awaiting Confirmation': 'appointments.status.awaiting_confirmation',
-    'Cancelled': 'appointments.status.cancelled',
-    'Completed': 'appointments.status.completed',
-    'Checked In': 'appointments.status.checked_in',
-    'Missed': 'appointments.status.missed'
+const getCategoryLabel = (cat, t) => {
+    const categoryMap = {
+        'All': 'appointments.status.all',
+        'Confirmed': 'appointments.status.confirmed',
+        'Pending': 'appointments.status.pending',
+        'Awaiting Confirmation': 'appointments.status.awaiting_confirmation',
+        'Cancelled': 'appointments.status.cancelled',
+        'Completed': 'appointments.status.completed',
+        'Checked In': 'appointments.status.checked_in',
+        'Missed': 'appointments.status.missed'
+    }
+    return t(categoryMap[cat], cat)
 }
+
 
 function Appointments() {
     const { t } = useTranslation()
@@ -284,7 +288,7 @@ function Appointments() {
                             onChange={(e) => setStatusFilter(e.target.value)}
                         >
                             {categories.map(cat => (
-                                <option key={cat} value={cat}>{t(categoryMap[cat], cat)}</option>
+                                <option key={cat} value={cat}>{getCategoryLabel(cat, t)}</option>
                             ))}
                         </select>
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-champberry-muted">

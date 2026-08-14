@@ -19,20 +19,20 @@ function RegisterInput() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (password !== confirmPassword) {
-            showMessage('error', 'As senhas não coincidem.');
+            showMessage('error', t('auth.password_mismatch', 'As senhas não coincidem.'));
             return
         }
         if (phone.length < 10) {
-            showMessage('error', 'O número de telefone deve ter pelo menos 10 dígitos.');
+            showMessage('error', t('auth.phone_min_length', 'O número de telefone deve ter pelo menos 10 dígitos.'));
             return
         }
         if (password.length < 6) {
-            showMessage('error', 'A senha deve ter pelo menos 6 caracteres.');
+            showMessage('error', t('admin.password_min_length', 'A senha deve ter pelo menos 6 caracteres.'));
             return
         }
         const result = await register({ fullname, email, phone, password });
         if (result.success) {
-            showMessage('success', 'Cadastro realizado com sucesso! Você já pode fazer login.')
+            showMessage('success', t('auth.register_success', 'Cadastro realizado com sucesso! Você já pode fazer login.'))
             setFullname('')
             setEmail('')
             setPhone('')
@@ -40,7 +40,7 @@ function RegisterInput() {
             setConfirmPassword('')
         }
         else {
-            showMessage('error', result.error || 'Erro ao realizar cadastro.')
+            showMessage('error', result.error || t('auth.register_error', 'Erro ao realizar cadastro.'))
         }
     }
     return (

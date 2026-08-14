@@ -23,7 +23,7 @@ function Booking() {
     return (
         <div ref={appointmentSectionRef} className="bg-obsidian-surface px-6 sm:px-8 pb-12 sm:pb-14 shadow-lg rounded-lg transition-all duration-500" id='appoinments'>
             <div className="head-background bg-obsidian-elevated w-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] -mx-6 sm:-mx-8 -mt-8 px-6 sm:px-8 py-6 sm:py-8 mb-6 rounded-t-lg">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-champberry mt-1"><span className="text-white">My</span> Appointments</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-champberry mt-1"><span className="text-white">{t('nav.my', 'My')}</span> {t('admin.appointments', 'Appointments')}</h2>
             </div>
             {userappointments.length === 0 ? (
                 <div className="bg-[#0F0F0F] border border-[#333333] rounded-lg p-6 sm:p-8 text-center">
@@ -36,12 +36,12 @@ function Booking() {
                             <path d="M7 15h5" />
                         </svg>
                     </div>
-                    <h3 className="text-white text-lg font-semibold mb-2">No appointments found</h3>
-                    <p className="text-champberry-muted text-sm">No appointments found that match your current list.</p>
+                    <h3 className="text-white text-lg font-semibold mb-2">{t('home.no_appointments_assigned', 'No appointments found')}</h3>
+                    <p className="text-champberry-muted text-sm">{t('home.no_appointments_subtitle', 'No appointments found that match your current list.')}</p>
                 </div>
             ) : (
                 <>
-                    <p className="text-champberry-muted mb-8 px-1">View your upcoming and past bookings</p>
+                    <p className="text-champberry-muted mb-8 px-1">{t('home.booking_desc', 'View your upcoming and past bookings')}</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         {userappointments.map((appointment) => (

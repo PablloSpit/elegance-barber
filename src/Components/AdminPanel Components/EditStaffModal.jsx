@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, BriefcaseBusiness, Star, ImagePlus, Edit as EditIcon } from 'lucide-react';
 import { useStaff } from '../../Context/StaffContext';
 
+
 const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
     const { t } = useTranslation();
+
     const { updateStaff } = useStaff();
     const [formData, setFormData] = useState({
         name: '',
@@ -82,7 +86,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
         // Validate WebP format
         if (file.type !== 'image/webp') {
-            setError('Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.');
+            setError(t('admin.error_webp_only', 'Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.'));
             e.target.value = '';
             return;
         }
@@ -114,7 +118,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
         setIsLoading(true);
 
         if (!formData.name || !formData.email || !formData.phone || !formData.role || !formData.specialties) {
-            setError('Por favor, preencha todos os campos obrigatórios');
+            setError(t('admin.fill_all_fields', 'Por favor, preencha todos os campos obrigatórios'));
             setIsLoading(false);
             return;
         }
@@ -202,7 +206,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Profile Picture Upload */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Foto de Perfil (Opcional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.profile_picture', 'Foto de Perfil')} (Opcional)</label>
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16 rounded-full overflow-hidden bg-obsidian-elevated border-2 border-dashed border-[#333] flex items-center justify-center shrink-0 group">
                                     {avatarPreview ? (
@@ -217,7 +221,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                         onClick={() => fileInputRef.current?.click()}
                                         className="text-xs font-bold text-champberry hover:text-champberry-dark transition-colors cursor-pointer"
                                     >
-                                        {avatarPreview ? 'Alterar Foto' : 'Enviar Foto'}
+                                        {avatarPreview ? t('common.change_photo', 'Alterar Foto') : t('common.upload_photo', 'Enviar Foto')}
                                     </button>
                                     {avatarPreview && (
                                         <button
@@ -228,7 +232,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             {t('common.remove', 'Remover')}
                                         </button>
                                     )}
-                                    <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>
+                                    <p className="text-[#555] text-[10px]">{t('admin.webp_only_hint', 'Apenas formato WebP (.webp)')}</p>
                                 </div>
                                 <input
                                     ref={fileInputRef}
@@ -242,10 +246,10 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                         {/* Basic Info */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Dados Pessoais</h3>
+                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">{t('admin.personal_details', 'Dados Pessoais')}</h3>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nome Completo *</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name', 'Nome Completo')} *</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <User size={16} />
@@ -263,7 +267,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Email *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.email', 'Email')} *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Mail size={16} />
@@ -279,7 +283,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Telefone *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number', 'Telefone')} *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Phone size={16} />
@@ -301,11 +305,11 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
                         {/* Professional Info */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">Informações Profissionais</h3>
+                            <h3 className="text-xs font-bold text-champberry uppercase tracking-wider mb-2">{t('admin.professional_info', 'Informações Profissionais')}</h3>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Cargo *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.role', 'Cargo')} *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Briefcase size={16} />
@@ -316,19 +320,20 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onChange={handleChange}
                                             className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                         >
-                                             <option value="">Selecionar Cargo</option>
-                                             <option value="Senior Stylist">Barbeiro Sênior</option>
-                                             <option value="Junior Barber">Barbeiro Júnior</option>
-                                             <option value="Color Specialist">Especialista em Cor</option>
-                                             <option value="Makeup Artist">Maquiador(a)</option>
-                                             <option value="Nail Technician">Manicure/Pedicure</option>
-                                             <option value="Esthetician">Esteticista</option>
+                                             <option value="">{t('admin.select_role', 'Selecionar Cargo')}</option>
+                                             <option value="Senior Stylist">{t('admin.roles.senior_barber', 'Barbeiro Sênior')}</option>
+                                             <option value="Junior Barber">{t('admin.roles.junior_barber', 'Barbeiro Júnior')}</option>
+                                             <option value="Color Specialist">{t('admin.roles.color_specialist', 'Especialista em Cor')}</option>
+                                             <option value="Makeup Artist">{t('admin.roles.makeup_artist', 'Maquiador(a)')}</option>
+                                             <option value="Nail Technician">{t('admin.roles.receptionist', 'Manicure/Pedicure')}</option>
+                                             <option value="Esthetician">{t('admin.roles.receptionist', 'Esteticista')}</option>
+
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Comissão (0.0 - 1.0)</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.commission', 'Comissão')} (0.0 - 1.0)</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <BriefcaseBusiness size={16} />

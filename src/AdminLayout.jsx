@@ -7,7 +7,7 @@ import AdminSidebar from './Components/AdminPanel Components/AdminSidebar'
 import { Menu, Bell } from 'lucide-react'
 
 // Message Component
-const Message = ({ type, text, visible, isClosing, onClose }) => {
+const Message = ({ type, text, visible, isClosing, onClose, t }) => {
     const [isAnimating, setIsAnimating] = useState(false)
 
     useLayoutEffect(() => {
@@ -64,7 +64,9 @@ function AdminLayout() {
                 visible={message.visible}
                 isClosing={message.isClosing}
                 onClose={hideMessage}
+                t={t}
             />
+
 
             <AdminSidebar
                 sidebarOpen={sidebarOpen}

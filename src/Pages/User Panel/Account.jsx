@@ -69,7 +69,7 @@ function Account() {
                             WebkitTextFillColor: 'transparent',
                             color: 'transparent'
                         }}
-                    >Minha Conta</h1>
+                    >{t('nav.my_account')}</h1>
                 </div>
             </main>
             <section className="bg-obsidian">
