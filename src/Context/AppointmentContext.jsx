@@ -97,18 +97,9 @@ export function AppointmentProvider({ children }) {
             await localStorage.setItem("Appointments", JSON.stringify(updatedAppointments))
 
             // Trigger notification
-            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
-            if (config.alertSounds !== false) {
-                try {
-                    const audio = new Audio('/notification.mp3');
-                    audio.play().catch(() => {});
-                } catch (e) {}
-            }
-            window.dispatchEvent(new CustomEvent('new-appointment', { detail: newAppointment }));
+            const notificationConfig = JSON.parse(localStorage.getItem('admin_config') || '{}');
 
-            // Trigger notification
-            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
-            if (config.alertSounds !== false) {
+            if (notificationConfig.alertSounds !== false) {
                 try {
                     const audio = new Audio('/notification.mp3');
                     audio.play().catch(() => {});
