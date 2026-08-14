@@ -10,7 +10,8 @@
     "search": "Buscar...",
     "actions": "Ações",
     "close": "Fechar",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "date_time": "Data e Hora"
   },
   "nav": {
     "home": "Início",
@@ -29,15 +30,32 @@
     "inventory": "Estoque",
     "reports": "Relatórios",
     "staff": "Equipe",
+    "staff_management": "Gestão da Equipe",
+    "staff_active": "Barbeiros Ativos",
+    "view_team": "Ver Equipe",
+    "add_member": "Adicionar Novo Membro",
+    "manage_team_subtitle": "Gerencie sua equipe de estilistas e profissionais",
+    "search_staff": "Buscar por nome, e-mail ou cargo...",
+    "no_staff_found": "Nenhum membro da equipe encontrado",
+    "no_staff_subtitle": "Não encontramos nenhum membro da equipe que corresponda aos seus critérios de busca.",
+    "clear_filters": "Limpar Filtros",
+    "staff_member": "Membro da Equipe",
+    "role_expertise": "Cargo e Especialidade",
+    "performance": "Desempenho",
+    "schedule": "Agenda da",
+    "recent": "Recentes",
+    "manage_inventory": "Gerenciar Estoque",
     "config": "Configuração",
     "overview": "Visão Geral",
     "team_management": "Gestão de Equipe",
     "recent_appointments": "Agendamentos Recentes",
     "live": "Ao Vivo",
-    "view_all": "Ver Todos"
+    "view_all": "Ver Todos",
+    "management": "Gestão"
   },
   "inventory": {
     "title": "Controle de Estoque",
+    "status": "Status do",
     "subtitle": "Gerencie seus produtos e insumos",
     "new_product": "Novo Produto",
     "total_items": "Itens em Estoque",
@@ -50,7 +68,9 @@
     "quantity": "Qtd",
     "cost": "Custo",
     "sale": "Venda",
-    "no_products": "Nenhum produto encontrado"
+    "no_products": "Nenhum produto encontrado",
+    "customer": "Cliente",
+    "service": "Serviço"
   },
   "reports": {
     "title": "Relatórios Financeiros",
