@@ -78,7 +78,7 @@ function Dashboard() {
         appointment.items?.map(item => item.service.name).join(', ') || appointment.service || '—'
 
     const getStylistSummary = (appointment) =>
-        appointment.items?.map(item => item.stylist?.name).filter(Boolean).join(', ') || appointment.stylistName || 'Unassigned'
+        appointment.items?.map(item => item.stylist?.name).filter(Boolean).join(', ') || appointment.stylistName || 'Não atribuído'
 
     // Calculate Total Revenue
     useEffect(() => {
@@ -204,7 +204,7 @@ function Dashboard() {
                                         <h4 className="font-bold text-white text-sm flex items-center gap-2">
                                             <span>{appointment.name}</span>
                                             {appointment.userId == null && (
-                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</span>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Convidado</span>
                                             )}
                                         </h4>
                                         <div className="text-xs text-[#777] flex items-center gap-1 mt-0.5">
@@ -256,10 +256,10 @@ function Dashboard() {
                         </button>
                     </div>
                     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 flex-1">
-                        <InventoryItem name="Premium Shampoo" stock={85} max={100} image="https://placehold.co/100x100/222/FFF?text=S" />
-                        <InventoryItem name="Matte Wax" stock={35} max={100} image="https://placehold.co/100x100/222/FFF?text=W" />
-                        <InventoryItem name="Beard Oil" stock={12} max={100} low image="https://placehold.co/100x100/222/FFF?text=O" />
-                        <InventoryItem name="Hair Color Dye" stock={5} max={100} critical image="https://placehold.co/100x100/222/FFF?text=D" />
+                        <InventoryItem name="Shampoo Premium" stock={85} max={100} image="https://placehold.co/100x100/222/FFF?text=S" />
+                        <InventoryItem name="Pomada Matte" stock={35} max={100} image="https://placehold.co/100x100/222/FFF?text=W" />
+                        <InventoryItem name="Óleo de Barba" stock={12} max={100} low image="https://placehold.co/100x100/222/FFF?text=O" />
+                        <InventoryItem name="Tinta de Cabelo" stock={5} max={100} critical image="https://placehold.co/100x100/222/FFF?text=D" />
                     </div>
                 </div>
 

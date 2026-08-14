@@ -13,7 +13,7 @@ const InventoryItem = ({ name, stock, max, image, low, critical }) => {
                 <div className="flex justify-between mb-1.5">
                     <span className="text-white font-semibold text-sm tracking-wide">{name}</span>
                     <span className={`text-[10px] font-bold ${critical ? 'text-rose-500' : low ? 'text-yellow-500' : 'text-[#777]'}`}>
-                        {stock}/{max} Units
+                        {stock}/{max} Unidades
                     </span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
