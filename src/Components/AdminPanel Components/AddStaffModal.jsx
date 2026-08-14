@@ -330,7 +330,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                      <option value="3 years">3 anos</option>
                                      <option value="5 years">5 anos</option>
                                      <option value="7 years">7 anos</option>
-                                    <option value="10+ years">10+ years</option>
+                                    <option value="10+ years">10+ anos</option>
                                 </select>
                             </div>
                         </div>
@@ -340,19 +340,19 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
                                 <div className="flex items-center gap-2">
                                     <Clock size={16} className="text-champberry-muted" />
-                                    <span className="text-gray-400 text-xs font-bold uppercase">Timing (Optional)</span>
+                                    <span className="text-gray-400 text-xs font-bold uppercase">Horário (Opcional)</span>
                                 </div>
-                                <span className="text-[11px] text-champberry-muted group-open:text-champberry">Toggle</span>
+                                <span className="text-[11px] text-champberry-muted group-open:text-champberry">Alternar</span>
                             </summary>
                             <div className="px-3 pb-3 pt-2 space-y-3">
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Weekdays</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Dias Úteis</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                             <input
                                                 type="time"
                                                 name="weekdayStart"
@@ -362,7 +362,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                             <input
                                                 type="time"
                                                 name="weekdayEnd"
@@ -375,12 +375,12 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                 </details>
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Saturday</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Sábado</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                             <input
                                                 type="time"
                                                 name="saturdayStart"
@@ -390,7 +390,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                             <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                             <input
                                                 type="time"
                                                 name="saturdayEnd"
@@ -403,8 +403,8 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                 </details>
                                 <details className="rounded-lg border border-white/5 bg-obsidian-surface">
                                     <summary className="flex items-center justify-between cursor-pointer list-none px-3 py-2">
-                                        <span className="text-gray-400 text-[11px] font-bold uppercase">Sunday</span>
-                                        <span className="text-[11px] text-champberry-muted">Set</span>
+                                         <span className="text-gray-400 text-[11px] font-bold uppercase">Domingo</span>
+                                         <span className="text-[11px] text-champberry-muted">Definir</span>
                                     </summary>
                                     <div className="px-3 pb-3 pt-2 space-y-3">
                                         <label className="flex items-center gap-2 text-xs text-champberry-muted">
@@ -415,11 +415,11 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                                 onChange={handleChange}
                                                 className="accent-champberry"
                                             />
-                                            Enable Sunday timing
+                                            Habilitar horário de domingo
                                         </label>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Início</label>
                                                 <input
                                                     type="time"
                                                     name="sundayStart"
@@ -430,7 +430,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                                 />
                                             </div>
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Fim</label>
                                                 <input
                                                     type="time"
                                                     name="sundayEnd"
@@ -443,7 +443,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         </div>
                                     </div>
                                 </details>
-                                <p className="text-[#555] text-xs">Leave fields empty to keep default timing. Sunday stays off unless enabled. Default Timings: <br></br> Weekdays: (9:00AM TO 17:00PM) <br /> Saturday: (10:00AM TO 16:00PM) <br /> Sunday Off</p>
+                                <p className="text-[#555] text-xs">Deixe os campos vazios para manter o horário padrão. Domingo permanece desativado a menos que habilitado. Horários Padrão: <br></br> Dias Úteis: (09:00 ÀS 17:00) <br /> Sábado: (10:00 ÀS 16:00) <br /> Domingo: Fechado</p>
                             </div>
                         </details>
                     </form>
@@ -456,14 +456,14 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         onClick={onClose}
                         className="px-4 py-2 bg-[#222] hover:bg-[#333] text-white text-sm font-medium rounded-lg transition-colors cursor-pointer"
                     >
-                        Cancel
+                        Cancelar
                     </button>
                     <button
                         onClick={handleSubmit}
                         className="px-4 py-2 bg-champberry hover:bg-champberry-dark text-white text-sm font-bold rounded-lg transition-colors shadow-lg hover:shadow-champberry/20 flex items-center gap-2 cursor-pointer"
                     >
                         <Save size={16} />
-                        Save Member
+                        Salvar Membro
                     </button>
                 </div>
 
