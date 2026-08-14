@@ -180,7 +180,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                            Remover
+                                            {t('common.remove', 'Remover')}
                                         </button>
                                     )}
                                     <p className="text-[#555] text-[10px]">{t('admin.webp_only_hint', 'Apenas formato WebP (.webp)')}</p>

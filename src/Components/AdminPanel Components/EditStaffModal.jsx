@@ -225,7 +225,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                             Remover
+                                            {t('common.remove', 'Remover')}
                                         </button>
                                     )}
                                     <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>
