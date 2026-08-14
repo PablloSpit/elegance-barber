@@ -30,6 +30,8 @@ const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
 const StaffProfile = lazy(() => import('./Pages/Staff/StaffProfile'));
 
 
+const Services = lazy(() => import('./Pages/Admin/Services'));
+
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
