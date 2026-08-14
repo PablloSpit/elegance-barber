@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import {
     Search,
@@ -20,6 +20,18 @@ import ViewAppointmentModal from '../../Components/AdminPanel Components/ViewApp
 import { useStaff } from '../../Context/StaffContext'
 
 function Dashboard() {
+    const [inventoryStats, setInventoryStats] = useState({ totalItems: 0, lowStock: 0 });
+
+    useEffect(() => {
+        const storedProducts = localStorage.getItem('inventory_products');
+        if (storedProducts) {
+            const products = JSON.parse(storedProducts);
+            const totalItems = products.reduce((acc, p) => acc + p.stock, 0);
+            const lowStock = products.filter(p => p.stock <= p.min_stock).length;
+            setInventoryStats({ totalItems, lowStock });
+        }
+    }, []);
+
     const { appointments } = useAppointment()
     const { staff, getActiveStaff } = useStaff()
 
@@ -97,8 +109,8 @@ function Dashboard() {
                 />
                 <StatsCard
                     title="Itens com Estoque Baixo"
-                    value="12"
-                    change="-2 Itens"
+                    value={inventoryStats.lowStock}
+                    change={`${inventoryStats.totalItems} Itens Total`}
                     positive={false}
                     icon={<AlertCircle size={24} />}
                     color="text-red-500"

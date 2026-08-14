@@ -48,6 +48,7 @@ function buildMonthBuckets(months) {
 }
 
 const Reports = () => {
+    const { t } = useTranslation();
     const { currentUser } = useAuth();
     const [period, setPeriod] = useState('30d');
     const [loading, setLoading] = useState(false);
@@ -142,9 +143,9 @@ const Reports = () => {
                 <div>
                     <h1 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-2">
                         <BarChart2 className="h-6 w-6 text-champberry" />
-                        Relatórios <span className="text-champberry">Financeiros</span>
+                        {t('reports.title', 'Relatórios Financeiros').split(' ')[0]} <span className="text-champberry">{t('reports.title').split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-sm text-gray-400 mt-0.5">Analise o desempenho da sua barbearia</p>
+                    <p className="text-sm text-gray-400 mt-0.5">{t('reports.subtitle')}</p>
                 </div>
                 <Tabs value={period} onValueChange={v => setPeriod(v)}>
                     <TabsList className="bg-obsidian-surface border border-white/5">
@@ -157,10 +158,10 @@ const Reports = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
-                    { label: 'Receita Total', value: formatCurrency(totalRevenue), icon: DollarSign, color: 'text-champberry' },
-                    { label: 'Atendimentos', value: totalCompleted, icon: Scissors, color: 'text-champberry' },
-                    { label: 'Ticket Médio', value: formatCurrency(avgTicket), icon: TrendingUp, color: 'text-emerald-500' },
-                    { label: 'Serviços Únicos', value: serviceRanking.length, icon: Users, color: 'text-gray-400' },
+                    { label: t('reports.revenue'), value: formatCurrency(totalRevenue), icon: DollarSign, color: 'text-champberry' },
+                    { label: t('reports.appointments'), value: totalCompleted, icon: Scissors, color: 'text-champberry' },
+                    { label: t('reports.avg_ticket'), value: formatCurrency(avgTicket), icon: TrendingUp, color: 'text-emerald-500' },
+                    { label: t('reports.unique_services'), value: serviceRanking.length, icon: Users, color: 'text-gray-400' },
                 ].map(({ label, value, icon: Icon, color }) => (
                     <Card key={label} className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                         <CardContent className="p-4">
@@ -176,7 +177,7 @@ const Reports = () => {
 
             <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                 <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">Receita ao Longo do Tempo</CardTitle>
+                    <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('reports.revenue_over_time')}</CardTitle>
                     <p className="text-[10px] text-gray-500 uppercase tracking-widest">Valores em {period === '90d' ? 'Meses' : 'Dias'}</p>
                 </CardHeader>
                 <CardContent>
@@ -200,7 +201,7 @@ const Reports = () => {
                 <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                     <CardHeader className="pb-2">
                         <CardTitle className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                            <Scissors className="h-4 w-4 text-champberry" /> Top Serviços
+                            <Scissors className="h-4 w-4 text-champberry" /> {t('reports.top_services')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -231,7 +232,7 @@ const Reports = () => {
                 <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                     <CardHeader className="pb-2">
                         <CardTitle className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                            <Users className="h-4 w-4 text-champberry" /> Ranking de Equipe
+                            <Users className="h-4 w-4 text-champberry" /> {t('reports.staff_ranking')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -263,7 +264,7 @@ const Reports = () => {
             <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                 <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                        <TrendingUp className="h-4 w-4 text-champberry" /> Comparação Mensal
+                        <TrendingUp className="h-4 w-4 text-champberry" /> {t('reports.monthly_comparison')}
                     </CardTitle>
                     <p className="text-[10px] text-gray-500 uppercase tracking-widest">Mês atual vs Anterior</p>
                 </CardHeader>

@@ -1,17 +1,27 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { Search, Plus, Package, TrendingDown, AlertTriangle, ArrowUpDown, Trash2, Edit2, Check, X } from 'lucide-react';
 
 const Inventory = () => {
+    const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [isAdding, setIsAdding] = useState(false);
-    const [products, setProducts] = useState([
-        { id: '1', name: 'Pomada Efeito Matte 80g', stock: 15, min_stock: 5, cost_price: 25, sale_price: 45, category: 'Finalizadores' },
-        { id: '2', name: 'Óleo de Barba 30ml', stock: 8, min_stock: 3, cost_price: 30, sale_price: 55, category: 'Cuidados' },
-        { id: '3', name: 'Shampoo Mentolado 250ml', stock: 2, min_stock: 5, cost_price: 18, sale_price: 35, category: 'Higiene' },
-    ]);
+    const [products, setProducts] = useState(() => {
+        const stored = localStorage.getItem('inventory_products');
+        return stored ? JSON.parse(stored) : [
+            { id: '1', name: 'Pomada Efeito Matte 80g', stock: 15, min_stock: 5, cost_price: 25, sale_price: 45, category: 'Finalizadores' },
+            { id: '2', name: 'Óleo de Barba 30ml', stock: 8, min_stock: 3, cost_price: 30, sale_price: 55, category: 'Cuidados' },
+            { id: '3', name: 'Shampoo Mentolado 250ml', stock: 2, min_stock: 5, cost_price: 18, sale_price: 35, category: 'Higiene' },
+        ];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('inventory_products', JSON.stringify(products));
+    }, [products]);
+
 
     const [newProduct, setNewProduct] = useState({ name: '', stock: 0, min_stock: 0, cost_price: 0, sale_price: 0, category: '' });
 
@@ -48,24 +58,24 @@ const Inventory = () => {
                 <div>
                     <h1 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-2">
                         <Package className="h-6 w-6 text-champberry" />
-                        Controle de <span className="text-champberry">Estoque</span>
+                        {t('inventory.title', 'Controle de Estoque').split(' ')[0]} <span className="text-champberry">{t('inventory.title').split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-sm text-gray-400 mt-0.5">Gerencie seus produtos e insumos</p>
+                    <p className="text-sm text-gray-400 mt-0.5">{t('inventory.subtitle')}</p>
                 </div>
                 <Button 
                     onClick={() => setIsAdding(true)}
                     className="bg-champberry hover:bg-champberry-dark text-white font-bold uppercase tracking-wider text-xs px-6 py-5 shadow-lg shadow-champberry/20 transition-all hover:scale-[1.02]"
                 >
-                    <Plus className="mr-2 h-4 w-4" /> Novo Produto
+                    <Plus className="mr-2 h-4 w-4" /> {t('inventory.new_product')}
                 </Button>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {[
-                    { label: 'Itens em Estoque', value: stats.totalItems, icon: Package, color: 'text-champberry' },
-                    { label: 'Estoque Baixo', value: stats.lowStock, icon: AlertTriangle, color: stats.lowStock > 0 ? 'text-amber-500' : 'text-gray-500' },
-                    { label: 'Valor de Custo', value: formatCurrency(stats.totalValue), icon: ArrowUpDown, color: 'text-gray-400' },
-                    { label: 'Lucro Projetado', value: formatCurrency(stats.projectedProfit), icon: TrendingDown, color: 'text-emerald-500' },
+                    { label: t('inventory.total_items'), value: stats.totalItems, icon: Package, color: 'text-champberry' },
+                    { label: t('inventory.low_stock'), value: stats.lowStock, icon: AlertTriangle, color: stats.lowStock > 0 ? 'text-amber-500' : 'text-gray-500' },
+                    { label: t('inventory.cost_value'), value: formatCurrency(stats.totalValue), icon: ArrowUpDown, color: 'text-gray-400' },
+                    { label: t('inventory.projected_profit'), value: formatCurrency(stats.projectedProfit), icon: TrendingDown, color: 'text-emerald-500' },
                 ].map(({ label, value, icon: Icon, color }) => (
                     <Card key={label} className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                         <CardContent className="p-4 text-center sm:text-left">
@@ -82,11 +92,11 @@ const Inventory = () => {
             <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                 <CardHeader className="pb-2 border-b border-white/5">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">Catálogo de Produtos</CardTitle>
+                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('inventory.catalog')}</CardTitle>
                         <div className="relative w-full sm:w-64">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                             <Input 
-                                placeholder="Buscar produto..." 
+                                placeholder={t('common.search')} 
                                 className="pl-9 bg-obsidian-elevated border-white/5 text-white placeholder:text-gray-700 h-9"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -99,12 +109,12 @@ const Inventory = () => {
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="bg-white/5 text-[10px] font-black uppercase text-champberry tracking-widest">
-                                    <th className="px-6 py-4">Produto</th>
-                                    <th className="px-4 py-4">Categoria</th>
-                                    <th className="px-4 py-4 text-center">Qtd</th>
-                                    <th className="px-4 py-4">Custo</th>
-                                    <th className="px-4 py-4">Venda</th>
-                                    <th className="px-6 py-4 text-right">Ações</th>
+                                    <th className="px-6 py-4">{t('inventory.product')}</th>
+                                    <th className="px-4 py-4">{t('inventory.category')}</th>
+                                    <th className="px-4 py-4 text-center">{t('inventory.quantity')}</th>
+                                    <th className="px-4 py-4">{t('inventory.cost')}</th>
+                                    <th className="px-4 py-4">{t('inventory.sale')}</th>
+                                    <th className="px-6 py-4 text-right">{t('common.actions')}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">
@@ -153,7 +163,7 @@ const Inventory = () => {
                                 {filteredProducts.length === 0 && !isAdding && (
                                     <tr>
                                         <td colSpan={6} className="text-center py-20 text-gray-600 text-xs uppercase font-bold tracking-widest">
-                                            Nenhum produto encontrado
+                                            {t('inventory.no_products')}
                                         </td>
                                     </tr>
                                 )}
