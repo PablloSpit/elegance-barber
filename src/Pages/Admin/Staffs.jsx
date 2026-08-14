@@ -231,9 +231,10 @@ const Staffs = () => {
                                                         {member.rating}
                                                     </div>
                                                     <div className="text-xs text-champberry-muted font-medium">
-                                                        {member.experience} exp
+                                                        {member.experience} · {member.commission * 100}% comissão
                                                     </div>
                                                 </div>
+
                                             </td>
                                             <td className="px-6 py-4 text-right relative">
                                                 <StaffMenu

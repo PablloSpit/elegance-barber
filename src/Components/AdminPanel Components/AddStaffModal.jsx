@@ -134,7 +134,8 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
                 {/* Header */}
                 <div className="flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 border-b border-white/5 bg-obsidian-surface">
-                    <h2 className="text-base sm:text-xl font-bold text-white">Add New Staff Member</h2>
+                    <h2 className="text-base sm:text-xl font-bold text-white">{t('admin.add_staff_title', 'Adicionar Novo Barbeiro')}</h2>
+
                     <button
                         onClick={onClose}
                         className="text-gray-400 hover:text-white p-2 hover:bg-white/10 rounded-full transition-all cursor-pointer"

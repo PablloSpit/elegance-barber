@@ -176,9 +176,10 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                             <EditIcon size={18} className="text-champberry" />
                         </div>
                         <div>
-                            <h2 className="text-base sm:text-xl font-bold text-white">Edit Stylist</h2>
-                            <p className="text-[10px] sm:text-xs text-champberry-muted">Update staff member information</p>
+                            <h2 className="text-base sm:text-xl font-bold text-white">{t('admin.edit_staff_title', 'Editar Barbeiro')}</h2>
+                            <p className="text-[10px] sm:text-xs text-champberry-muted">{t('admin.update_staff_subtitle', 'Atualizar informações do profissional')}</p>
                         </div>
+
                     </div>
                     <button
                         onClick={onClose}
