@@ -206,7 +206,7 @@ function Appointment() {
     const [time, setTime] = useState('')
     const [message, setMessage] = useState('')
 
-    const totalPrice = selectedService.reduce((sum, s) => sum + parseFloat(s.price.replace('R$ ', '')), 0)
+    const totalPrice = selectedService.reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '') || 0)), 0)
 
     const toggleService = (service) => {
         setSelectedService(prev => {
