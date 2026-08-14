@@ -241,7 +241,8 @@ const Staffs = () => {
                                                 <div className="flex items-center justify-end gap-2">
                                                     <button 
                                                         onClick={() => {
-                                                            const url = `${window.location.origin}/?staff=${member.id}#appointment`;
+                                                            const slug = member.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-')
+                                                            const url = `${window.location.origin}/agendar/${slug}`;
                                                             navigator.clipboard.writeText(url);
                                                             showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
                                                         }}

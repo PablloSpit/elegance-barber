@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -98,9 +99,18 @@ function Home() {
         }
     ]
 
+    const { staffSlug } = useParams()
+
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        if (staffSlug) {
+            const appointmentSection = document.getElementById('appointment');
+            if (appointmentSection) {
+                appointmentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [staffSlug]);
 
     useGSAP(() => {
         // Register the CustomEase for the exact luxury curve mapping
