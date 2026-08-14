@@ -1,8 +1,10 @@
 import { createPortal } from "react-dom";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { MoreVertical, Calendar, User, Trash2, Edit } from "lucide-react";
 
 const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);

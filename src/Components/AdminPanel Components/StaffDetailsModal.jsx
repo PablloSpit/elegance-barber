@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAppointment } from '../../Context/AppointmentContext';
 import { X, Calendar, Briefcase, Mail, Phone, Star, TrendingUp } from 'lucide-react';
 import StatusBadge from './StatusBadge';
 
 const StaffDetailsModal = ({ staff, onClose }) => {
+    const { t } = useTranslation();
     const { appointments } = useAppointment();
 
     // Stats calculations

@@ -1,9 +1,11 @@
 import { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, Lock, ImagePlus } from 'lucide-react';
 import { useStaff } from '../../Context/StaffContext';
 
 const AddStaffModal = ({ onClose, onStaffAdded }) => {
+    const { t } = useTranslation()
     const { addNewStaff } = useStaff()
     const [formData, setFormData] = useState({
         name: '',
