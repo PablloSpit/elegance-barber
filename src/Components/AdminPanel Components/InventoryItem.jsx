@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next'
+
 const InventoryItem = ({ name, stock, max, image, low, critical }) => {
+    const { t } = useTranslation()
     const percentage = (stock / max) * 100
     let color = 'bg-emerald-500'
     if (low) color = 'bg-yellow-500'
@@ -13,7 +16,7 @@ const InventoryItem = ({ name, stock, max, image, low, critical }) => {
                 <div className="flex justify-between mb-1.5">
                     <span className="text-white font-semibold text-sm tracking-wide">{name}</span>
                     <span className={`text-[10px] font-bold ${critical ? 'text-rose-500' : low ? 'text-yellow-500' : 'text-[#777]'}`}>
-                        {stock}/{max} Unidades
+                        {stock}/{max} {t('common.entries', 'entradas')}
                     </span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
