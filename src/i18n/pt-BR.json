@@ -31,6 +31,7 @@
     "dashboard": "Dashboard",
     "appointments": "Agendamentos",
     "inventory": "Estoque",
+    "inventory_status": "Status do Estoque",
     "reports": "Relatórios",
     "staff": "Equipe",
     "staff_management": "Gestão da Equipe",
@@ -60,6 +61,7 @@
     "schedule": "Agenda da",
     "recent": "Recentes",
     "manage_inventory": "Gerenciar Estoque",
+    "inventory_status_label": "Status do",
     "config": "Configuração",
     "overview": "Visão Geral",
     "team_management": "Gestão de Equipe",
@@ -147,6 +149,31 @@
     "unavailable": "Indisponível",
     "mastery_suffix": "de Maestria",
     "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno."
+  },
+  "appointments": {
+    "status": {
+      "all": "Todos",
+      "confirmed": "Confirmado",
+      "pending": "Pendente",
+      "awaiting_confirmation": "Aguardando Confirmação",
+      "cancelled": "Cancelado",
+      "completed": "Finalizado",
+      "missed": "Faltou"
+    },
+    "placeholders": {
+      "search": "Buscar cliente, serviço, ID..."
+    },
+    "filters": {
+      "title": "Filtros",
+      "panel_title": "Filtrar Agendamentos",
+      "clear_all": "Limpar Tudo",
+      "quick_filter": "Filtro Rápido",
+      "today": "Hoje",
+      "tomorrow": "Amanhã",
+      "this_week": "Esta Semana",
+      "this_month": "Este Mês",
+      "date_range": "Intervalo de Datas"
+    }
   },
   "contact": {
     "title": "Contato",
