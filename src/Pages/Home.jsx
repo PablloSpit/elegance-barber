@@ -56,44 +56,44 @@ function Home() {
     const servicesData = [
         {
             icon: <Scissors size={24} strokeWidth={1} />,
-            title: "Corte Clássico",
-            description: "Nossos estilistas podem recomendar o que funcionará perfeitamente para seu tipo de cabelo e formato de rosto.",
-            price: "$30.00",
+            title: t('services.items.haircut_standard', "Corte Clássico"),
+            description: t('home.service_haircut_desc', "Nossos estilistas podem recomendar o que funcionará perfeitamente para seu tipo de cabelo e formato de rosto."),
+            price: "R$ 30,00",
             image: serviceHaircut
         },
         {
             icon: <Feather size={24} strokeWidth={1} />,
-            title: "Barba e Navalha",
-            description: "Estilistas especializados para homens que desejam um barbear feito com precisão e conforto.",
-            price: "$20.00",
+            title: t('services.items.classic_shave', "Barba e Navalha"),
+            description: t('home.service_shave_desc', "Estilistas especializados para homens que desejam um barbear feito com precisão e conforto."),
+            price: "R$ 20,00",
             image: serviceStyling
         },
         {
             icon: <Droplets size={24} strokeWidth={1} />,
-            title: "Limpeza Facial e Lavagem",
-            description: "O tratamento certo para cabelo e pele com produtos de alta qualidade.",
-            price: "$30.00",
+            title: t('services.items.facial_bodyshop', "Limpeza Facial e Lavagem"),
+            description: t('home.service_facial_desc', "O tratamento certo para cabelo e pele com produtos de alta qualidade."),
+            price: "R$ 30,00",
             image: serviceColoring
         },
         {
             icon: <Sparkles size={24} strokeWidth={1} />,
-            title: "Aparo de Barba",
-            description: "Escultura e condicionamento especializado para manter seus pelos faciais impecáveis.",
-            price: "$15.00",
+            title: t('services.items.beard_trim', "Aparo de Barba"),
+            description: t('home.service_beard_desc', "Escultura e condicionamento especializado para manter seus pelos faciais impecáveis."),
+            price: "R$ 15,00",
             image: serviceShaving
         },
         {
             icon: <Crown size={24} strokeWidth={1} />,
-            title: "Estilização de Cabelo",
-            description: "Salão de alto nível com estilistas talentosos para o melhor atendimento ao cliente.",
-            price: "$60.00",
+            title: t('services.items.hair_spa', "Estilização de Cabelo"),
+            description: t('home.service_styling_desc', "Salão de alto nível com estilistas talentosos para o melhor atendimento ao cliente."),
+            price: "R$ 60,00",
             image: serviceTreatment
         },
         {
             icon: <Palette size={24} strokeWidth={1} />,
-            title: "Coloração",
-            description: "Quer renovar seu visual com uma nova cor? Deixe-nos personalizar!",
-            price: "$60.00",
+            title: t('services.items.coloring', "Coloração"),
+            description: t('home.service_coloring_desc', "Quer renovar seu visual com uma nova cor? Deixe-nos personalizar!"),
+            price: "R$ 60,00",
             image: serviceGrooming
         }
     ]
