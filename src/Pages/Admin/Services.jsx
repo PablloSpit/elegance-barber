@@ -49,25 +49,25 @@ const Services = () => {
                 <div>
                     <h1 className="text-2xl font-black text-white uppercase tracking-tight flex items-center gap-2">
                         <Scissors className="h-6 w-6 text-champberry" />
-                        Gestão de <span className="text-champberry">Serviços</span>
+                        {t('admin.management', 'Gestão')} de <span className="text-champberry">{t('nav.services', 'Serviços')}</span>
                     </h1>
                 </div>
                 <Button 
                     onClick={() => setIsAdding(true)}
                     className="bg-champberry hover:bg-champberry-dark text-white font-bold uppercase tracking-wider text-xs px-6 py-5 shadow-lg shadow-champberry/20 transition-all hover:scale-[1.02]"
                 >
-                    <Plus className="mr-2 h-4 w-4" /> Novo Serviço
+                    <Plus className="mr-2 h-4 w-4" /> {t('admin.new_service', 'Novo Serviço')}
                 </Button>
             </div>
 
             <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                 <CardHeader className="pb-2 border-b border-white/5">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">Catálogo de Serviços</CardTitle>
+                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('admin.catalog_services', 'Catálogo de Serviços')}</CardTitle>
                         <div className="relative w-full sm:w-64">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                             <Input 
-                                placeholder="Buscar..." 
+                                placeholder={t('common.search', 'Buscar...')} 
                                 className="pl-9 bg-obsidian-elevated border-white/5 text-white placeholder:text-gray-700 h-9"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -80,18 +80,18 @@ const Services = () => {
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="bg-white/5 text-[10px] font-black uppercase text-champberry tracking-widest">
-                                    <th className="px-6 py-4">Serviço</th>
-                                    <th className="px-4 py-4">Categoria</th>
-                                    <th className="px-4 py-4 text-center">Duração (min)</th>
-                                    <th className="px-4 py-4">Preço</th>
-                                    <th className="px-6 py-4 text-right">Ações</th>
+                                    <th className="px-6 py-4">{t('admin.service_name', 'Serviço')}</th>
+                                    <th className="px-4 py-4">{t('inventory.category', 'Categoria')}</th>
+                                    <th className="px-4 py-4 text-center">{t('admin.duration_min', 'Duração (min)')}</th>
+                                    <th className="px-4 py-4">{t('inventory.sale', 'Preço')}</th>
+                                    <th className="px-6 py-4 text-right">{t('common.actions', 'Ações')}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">
                                 {isAdding && (
                                     <tr className="bg-champberry/5 animate-pulse">
-                                        <td className="px-6 py-3"><Input placeholder="Nome" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, name: e.target.value})} /></td>
-                                        <td className="px-4 py-3"><Input placeholder="Cat" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, category: e.target.value})} /></td>
+                                        <td className="px-6 py-3"><Input placeholder={t('admin.full_name', 'Nome')} className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, name: e.target.value})} /></td>
+                                        <td className="px-4 py-3"><Input placeholder={t('inventory.category', 'Cat')} className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, category: e.target.value})} /></td>
                                         <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-16 mx-auto" onChange={e => setNewService({...newService, duration: parseInt(e.target.value)})} /></td>
                                         <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewService({...newService, price: parseFloat(e.target.value)})} /></td>
                                         <td className="px-6 py-3 text-right">
