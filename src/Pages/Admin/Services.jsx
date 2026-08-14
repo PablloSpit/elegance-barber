@@ -104,14 +104,14 @@ const Services = () => {
                                 )}
                                 {filteredServices.map((s) => (
                                     <tr key={s.id} className="hover:bg-white/5 transition-colors group">
-                                        <td className="px-6 py-4 text-sm font-bold text-white uppercase">{s.name}</td>
-                                        <td className="px-4 py-4"><span className="px-2 py-0.5 bg-white/5 rounded text-[10px] font-bold text-gray-400 uppercase">{s.category}</span></td>
+                                        <td className="px-6 py-4 text-sm font-bold text-white uppercase">{t(`services.items.${s.name}`, s.name)}</td>
+                                        <td className="px-4 py-4"><span className="px-2 py-0.5 bg-white/5 rounded text-[10px] font-bold text-gray-400 uppercase">{t(`services.categories.${s.category}`, s.category)}</span></td>
                                         <td className="px-4 py-4 text-center text-sm text-gray-400">{s.duration} min</td>
                                         <td className="px-4 py-4 text-sm font-bold text-champberry">{formatCurrency(s.price)}</td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-gray-400 hover:bg-white/5"><Edit2 size={14}/></Button>
-                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-rose-500 hover:bg-rose-500/10" onClick={() => handleDelete(s.id)}><Trash2 size={14}/></Button>
+                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-gray-400 hover:bg-white/5" title={t('common.edit')}><Edit2 size={14}/></Button>
+                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-rose-500 hover:bg-rose-500/10" onClick={() => handleDelete(s.id)} title={t('common.delete')}><Trash2 size={14}/></Button>
                                             </div>
                                         </td>
                                     </tr>
