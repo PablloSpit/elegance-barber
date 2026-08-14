@@ -471,7 +471,7 @@ function Home() {
                                     className="absolute bottom-6 -left-6 lg:-left-14 backdrop-blur-xl bg-obsidian/40 border border-champberry/15 rounded-lg px-5 py-3 shadow-2xl"
                                 >
                                     <p data-magnetic-text className="font-sans text-champberry text-xl font-black leading-tight">15+</p>
-                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">Years of Craft</p>
+                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">{t('home.years_of_craft', 'Years of Craft')}</p>
                                 </div>
 
                                 {/* Accent line */}
