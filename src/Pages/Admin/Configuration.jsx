@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../Context/AuthContext'
 import { useMessage } from '../../Context/MessageContext'
-import { Save, User, Mail, Phone, Clock } from 'lucide-react'
+import { Save, User, Mail, Phone, Clock, Calendar, Bell, Globe } from 'lucide-react'
 
 function Configuration() {
     const { currentUser, updatedUser } = useAuth()
@@ -103,9 +103,9 @@ function Configuration() {
         <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6 lg:space-y-8 px-0 sm:px-2 lg:px-8 py-2 sm:py-4 lg:py-0">
             <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                    My <span className="text-champberry">Profile</span>
+                    {t('nav.account')} e <span className="text-champberry">Configurações</span>
                 </h1>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1">Manage your account information and security</p>
+                <p className="text-gray-400 text-xs sm:text-sm mt-1">Gerencie as informações da sua barbearia e regras de negócio</p>
             </div>
 
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
@@ -116,12 +116,12 @@ function Configuration() {
                         <div className="space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <User className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Personal Information</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.personal_details', 'Informações Pessoais')}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Full Name *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name', 'Nome Completo')} *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <User size={16} />
@@ -151,12 +151,11 @@ function Configuration() {
                                             disabled
                                         />
                                     </div>
-                                    <p className="text-xs text-champberry-muted ml-1">Contact support to change email.</p>
                                 </div>
-
                             </div>
+
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Phone *</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number', 'Telefone')} *</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Phone size={16} />
@@ -172,48 +171,70 @@ function Configuration() {
                             </div>
                         </div>
 
-                        <div className="space-y-6">
+                        {/* Business Rules Section */}
+                        <div className="space-y-6 pt-6 border-t border-[#333]">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
-                                <Clock className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Security</h2>
+                                <Globe className="text-champberry" size={18} />
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Regras de Negócio</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Current Password</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Modo Feriado</label>
+                                    <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
+                                        <Calendar className="text-champberry-muted" size={20} />
+                                        <div className="flex-1">
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode', 'Modo Feriado')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc', 'Bloqueia todos os agendamentos no período selecionado')}</p>
+                                        </div>
+                                        <input type="checkbox" className="w-5 h-5 accent-champberry cursor-pointer" />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1.5">
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Notificações</label>
+                                    <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
+                                        <Bell className="text-champberry-muted" size={20} />
+                                        <div className="flex-1">
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds', 'Sons de Alerta')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc', 'Reproduz som ao receber novos agendamentos')}</p>
+                                        </div>
+                                        <input type="checkbox" defaultChecked className="w-5 h-5 accent-champberry cursor-pointer" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
+                                <Clock className="text-champberry" size={18} />
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.professional_info', 'Segurança')}</h2>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-1.5">
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Senha Atual</label>
                                     <input
                                         type="password"
                                         name="currentPassword"
                                         value={passwordData.currentPassword}
                                         onChange={handlePasswordChange}
-                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-champberry-muted/70 mt-1"
-                                        placeholder="Enter current password"
+                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-gray-700"
+                                        placeholder="Digite a senha atual"
                                     />
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">New Password</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nova Senha</label>
                                     <input
                                         type="password"
                                         name="newPassword"
                                         value={passwordData.newPassword}
                                         onChange={handlePasswordChange}
-                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-champberry-muted/70 mt-1"
-                                        placeholder="Enter new password"
+                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-gray-700"
+                                        placeholder="Digite a nova senha"
                                     />
                                 </div>
-
-                            </div>
-                            <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Confirm Password</label>
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    value={passwordData.confirmPassword}
-                                    onChange={handlePasswordChange}
-                                    className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-champberry-muted/70 mt-1"
-                                    placeholder="Confirm new password"
-                                />
                             </div>
                         </div>
 
@@ -224,7 +245,7 @@ function Configuration() {
                                 className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 border-champberry/60 bg-transparent text-champberry font-sans border font-black rounded-xl shadow-lg hover:shadow-champberry/20 active:scale-95 cursor-pointer disabled:opacity-50 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry text-sm"
                             >
                                 <Save size={16} />
-                                {isLoading ? 'Saving...' : 'Save Changes'}
+                                {isLoading ? t('common.loading') : t('common.save')}
                             </button>
                         </div>
                     </form>

@@ -67,14 +67,14 @@ function Account() {
                             WebkitTextFillColor: 'transparent',
                             color: 'transparent'
                         }}
-                    >My Account</h1>
+                    >Minha Conta</h1>
                 </div>
             </main>
             <section className="bg-obsidian">
                 <div className="container mx-auto pt-16 pb-18 px-4 flex justify-center items-center flex-col">
                     <div className="section-text text-center space-y-2">
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight"><span className="text-champberry">MANAGE YOUR</span> ACCOUNT</h2>
-                        <p className="text-base sm:text-lg text-champberry-muted">Update your profile, view appointments, and share feedback</p>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight"><span className="text-champberry">GERENCIAR SUA</span> CONTA</h2>
+                        <p className="text-base sm:text-lg text-champberry-muted">Atualize seu perfil, veja agendamentos e compartilhe feedback</p>
                     </div>
                 </div>
                 <div className="container mx-auto px-4 pb-12 md:pb-18">
@@ -98,8 +98,8 @@ function Account() {
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Profile</h3>
-                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Edit your details</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Perfil</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Edite seus detalhes</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
                                     <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,8 +126,8 @@ function Account() {
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Feedback</h3>
-                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Share your thoughts</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Avaliações</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Compartilhe sua opinião</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
                                     <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,8 +154,8 @@ function Account() {
                                     </div>
                                 </div>
                                 <div className="flex-1 text-left">
-                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Bookings</h3>
-                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">View appointments</p>
+                                    <h3 className="font-bold text-base sm:text-lg text-white uppercase tracking-wider mb-0.5 group-hover:text-champberry-light transition-colors duration-300">Agenda</h3>
+                                    <p className="text-sm sm:text-base text-champberry-muted group-hover:text-gray-400 transition-colors">Ver meus agendamentos</p>
                                 </div>
                                 <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
                                     <svg className="w-5 h-5 text-champberry" fill="none" stroke="currentColor" viewBox="0 0 24 24">

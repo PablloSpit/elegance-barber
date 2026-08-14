@@ -1,14 +1,24 @@
 import { useState } from 'react'
 import { useAuth } from '../../Context/AuthContext.jsx'
 
+import { useTranslation } from 'react-i18next'
+
 function Profile() {
+    const { t } = useTranslation()
     const { currentUser, updatedUser } = useAuth()
 
     // Profile form state
     const [profileData, setProfileData] = useState({
         name: currentUser?.name || '',
         email: currentUser?.email || '',
-        phone: currentUser?.phone || ''
+        phone: currentUser?.phone || '',
+        bio: currentUser?.bio || ''
+    })
+
+    const [passwordData, setPasswordData] = useState({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
     })
 
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -23,7 +33,6 @@ function Profile() {
         setIsSubmitted(true)
         setIsFadingOut(false)
 
-        // Start fade-out animation 2.5 seconds in, then hide completely at 3 seconds
         setTimeout(() => setIsFadingOut(true), 2500)
         setTimeout(() => {
             setIsSubmitted(false)
@@ -40,114 +49,146 @@ function Profile() {
         }))
     }
 
+    const handlePasswordChange = (e) => {
+        const { name, value } = e.target
+        setPasswordData(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
     // Handle profile submit
     const handleProfileSubmit = async (e) => {
         e.preventDefault()
 
         if (!currentUser) return
-        if (profileData.name === currentUser.name && profileData.phone === currentUser.phone) {
-            showMessage('No changes made to profile', 'error')
-            return
-        }
-
-        const phonePattern = /^(03\d{2}-\d{7}|\+923\d{9})$/
-        if (!phonePattern.test(profileData.phone)) {
-            showMessage('Please enter a valid Pakistani phone number (e.g., 0336-3090793 or +9233363090793).', 'error')
-            return
-        }
-        if (profileData.phone.length < 11) {
-            showMessage('Phone number must be at least 11 digits', 'error')
-            return
-        }
-
+        
         try {
             const updatedUserData = {
                 ...currentUser,
                 name: profileData.name,
-                phone: profileData.phone
+                phone: profileData.phone,
+                bio: profileData.bio
             }
             const result = await updatedUser(updatedUserData)
 
             if (result.success) {
-                showMessage('Profile updated successfully!', 'success')
+                showMessage(t('common.success_update', 'Perfil atualizado com sucesso!'), 'success')
             } else {
-                showMessage('Error updating profile: ' + result.error, 'error')
+                showMessage(t('common.error_update', 'Erro ao atualizar perfil: ') + result.error, 'error')
             }
         } catch (error) {
-            showMessage('Error updating profile: ' + error.message, 'error')
+            showMessage(t('common.error_update', 'Erro ao atualizar perfil: ') + error.message, 'error')
         }
     }
 
     return (
         <div className="bg-obsidian-surface px-6 sm:px-8 pb-12 sm:pb-14 shadow-lg rounded-lg transition-all duration-500" id='profile'>
             <div className="head-background bg-obsidian-elevated w-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] -mx-6 sm:-mx-8 -mt-8 px-6 sm:px-8 py-6 sm:py-8 mb-6 rounded-t-lg">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-champberry mt-1"><span className="text-white">Profile</span> Settings</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-champberry mt-1"><span className="text-white">{t('nav.account')}</span> e Configurações</h2>
             </div>
 
             <form onSubmit={handleProfileSubmit} className="space-y-8">
-                {/* Name Field */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='name'>Full Name</label>
+                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='name'>{t('admin.full_name', 'Nome Completo')}</label>
                         <input
                             type="text"
                             name="name"
                             value={profileData.name}
                             onChange={handleProfileChange}
                             className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
-                            placeholder="Enter your full name"
+                            placeholder={t('admin.full_name', 'Nome Completo')}
                             id='name'
                         />
                     </div>
 
-                    {/* Email Field */}
                     <div>
-                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='email'>Email Address</label>
+                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='email'>Email</label>
                         <input
                             type="email"
                             name="email"
                             value={profileData.email}
-                            onChange={handleProfileChange}
                             className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5 cursor-not-allowed"
-                            placeholder="Enter your email"
                             id='email'
                             readOnly
                         />
                     </div>
                 </div>
 
-                {/* Phone Field */}
-                <div>
-                    <label className="block text-champberry-muted font-semibold mb-1" htmlFor='phone'>Phone Number</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        value={profileData.phone}
-                        onChange={handleProfileChange}
-                        className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
-                        placeholder="Enter your phone number"
-                        id='phone'
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='phone'>{t('admin.phone_number', 'Telefone')}</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            value={profileData.phone}
+                            onChange={handleProfileChange}
+                            className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
+                            placeholder="(00) 00000-0000"
+                            id='phone'
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='bio'>Bio / Recado</label>
+                        <input
+                            type="text"
+                            name="bio"
+                            value={profileData.bio}
+                            onChange={handleProfileChange}
+                            className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
+                            placeholder="Sua bio curta"
+                            id='bio'
+                        />
+                    </div>
                 </div>
 
-                {/* Submit Button */}
+                <div className="border-t border-[#454545] pt-8">
+                    <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{t('admin.professional_info', 'Segurança')}</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label className="block text-champberry-muted font-semibold mb-1">Senha Atual</label>
+                            <input
+                                type="password"
+                                name="currentPassword"
+                                value={passwordData.currentPassword}
+                                onChange={handlePasswordChange}
+                                className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-champberry-muted font-semibold mb-1">Nova Senha</label>
+                            <input
+                                type="password"
+                                name="newPassword"
+                                value={passwordData.newPassword}
+                                onChange={handlePasswordChange}
+                                className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-champberry-muted font-semibold mb-1">Confirmar Senha</label>
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                value={passwordData.confirmPassword}
+                                onChange={handlePasswordChange}
+                                className="w-full font-bold border-4 rounded-md border-[#454545] px-2 md:px-3 py-2 md:py-3 text-sm text-white tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry mt-1.5"
+                            />
+                        </div>
+                    </div>
+                </div>
+
                 <div className="flex gap-4 pt-4">
                     <button
                         type="submit"
-                        className="px-8 py-4 bg-obsidian hover:bg-yellow-600 text-white border-5 border-[#454545] hover:border-white font-extrabold rounded-md text-sm md:text-base transition-colors cursor-pointer focus:outline-none"
+                        className="px-8 py-4 bg-obsidian hover:bg-champberry text-white border-5 border-[#454545] hover:border-white font-extrabold rounded-md text-sm md:text-base transition-colors cursor-pointer focus:outline-none"
                     >
-                        Save Changes
-                    </button>
-                    <button
-                        type="button"
-                        className="px-8 py-4 bg-obsidian text-white border-5 border-[#454545] hover:border-red-600 font-extrabold rounded-md text-sm md:text-base transition-colors cursor-pointer focus:outline-none"
-                    >
-                        Cancel
+                        {t('common.save')}
                     </button>
                 </div>
             </form>
 
-            {/* Success/Error Message */}
             {isSubmitted && (
                 <div className={`mt-6 p-4 rounded-lg border transition-all duration-500 ease-out transform ${isFadingOut
                     ? 'opacity-0 -translate-y-2.5'
@@ -172,7 +213,7 @@ function Profile() {
                         <div className="transition-all duration-300">
                             <h3 className={`font-semibold transition-colors duration-300 ${messageType === 'success' ? 'text-green-400' : 'text-red-400'
                                 }`}>
-                                {messageType === 'success' ? 'Success!' : 'Error'}
+                                {messageType === 'success' ? 'Sucesso!' : 'Erro'}
                             </h3>
                             <p className={`text-sm transition-colors duration-300 ${messageType === 'success' ? 'text-green-300' : 'text-red-300'
                                 }`}>
@@ -183,6 +224,10 @@ function Profile() {
                 </div>
             )}
         </div>
+    )
+}
+
+export default Profile
     )
 }
 

@@ -30,6 +30,8 @@ const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
 const StaffProfile = lazy(() => import('./Pages/Staff/StaffProfile'));
 
 
+const Services = lazy(() => import('./Pages/Admin/Services'));
+
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -149,6 +151,13 @@ const Router = createBrowserRouter(
           <Suspense fallback={<LoadingSpinner />}>
             <ProtectedRoute requiredRole="admin">
               <Configuration />
+            </ProtectedRoute>
+          </Suspense>
+        } />
+        <Route path='/admin/services' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole="admin">
+              <Services />
             </ProtectedRoute>
           </Suspense>
         } />
