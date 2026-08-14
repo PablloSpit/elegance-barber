@@ -252,7 +252,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                                                 className='flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-champberry hover:bg-gray-900/3 transition-colors'
                                                             >
                                                                 <i className="fas fa-plus-circle w-5"></i>
-                                                                <span>Book Appointment</span>
+                                                                <span>{t('nav.book_appointment', 'Agendar Horário')}</span>
                                                             </a>
                                                         </>
                                                     )}
@@ -309,7 +309,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         >
                                             <span className="flex items-center gap-3">
                                                 <i className="fas fa-home w-5"></i>
-                                                Home
+                                                {t('nav.home', 'Início')}
                                             </span>
                                         </a>
                                     </li>
@@ -325,7 +325,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         >
                                             <span className="flex items-center gap-3">
                                                 <i className="fas fa-cut w-5"></i>
-                                                Services
+                                                {t('nav.services', 'Serviços')}
                                             </span>
                                         </a>
                                     </li>
@@ -341,7 +341,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         >
                                             <span className="flex items-center gap-3">
                                                 <i className="fas fa-info-circle w-5"></i>
-                                                About
+                                                {t('nav.about', 'Sobre')}
                                             </span>
                                         </a>
                                     </li>
@@ -357,7 +357,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         >
                                             <span className="flex items-center gap-3">
                                                 <i className="fas fa-plus-circle w-5"></i>
-                                                Book Appointment
+                                                {t('nav.book_appointment', 'Agendar Horário')}
                                             </span>
                                         </a>
                                     </li>
@@ -372,7 +372,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                             {/* User Info Section */}
                                             <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-700">
                                                 <div className="flex-1">
-                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">My Account</p>
+                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">{t('nav.my_account', 'Minha Conta')}</p>
                                                     <p className="text-white text-lg font-medium">{currentUser?.name || 'User'}</p>
                                                     <p className="text-gray-400 text-sm">{currentUser?.email || 'user@example.com'}</p>
                                                 </div>
