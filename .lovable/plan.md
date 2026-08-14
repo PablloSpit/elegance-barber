@@ -1,43 +1,45 @@
-# Plano de Integração: Barber's Center -> Elegance Salon
+# Plano de Implementação: Links Únicos, Gestão de Comissões e Notificações
 
-Este plano detalha a implementação das funcionalidades extraídas das 23 imagens de referência, consolidando o sistema com tradução completa para Português (BR), moeda em Reais (R$) e novas funcionalidades administrativas.
+Este plano detalha a implementação de links de agendamento únicos por funcionário, melhorias no painel de administração (filtros e cálculos de comissão), restrições no painel do funcionário (apenas dados próprios) e ativação do sistema de notificações.
 
-## 🎨 UI/UX & Design System
-- **Tema:** Manter o "Tactile Obsidian" (Dark, elegante, acentos em dourado/champberry).
-- **Responsividade:** Garantir que todos os novos modais e tabelas sejam mobile-first.
-- **Feedback Visual:** Implementar Toast notifications para todas as ações (sucesso/erro).
+## 1. Links de Agendamento Únicos
 
-## 🛠️ Funcionalidades Admin (Barber's Center)
+*   **Objetivo:** Permitir que cada funcionário tenha um link direto (ex: `/book?staff=ID`) que pré-seleciona o profissional no formulário de agendamento.
+*   **Ações:**
+    *   Modificar `src/Components/AppointmentForm.jsx` para capturar o parâmetro `staff` da URL usando `useSearchParams`.
+    *   Se o parâmetro estiver presente, filtrar os funcionários disponíveis para garantir que apenas o profissional do link seja selecionado para os serviços.
+    *   Atualizar o componente `StaffRow.jsx` ou `StaffDetailsModal.jsx` para exibir/copiar o link único do funcionário.
 
-### 1. Gestão de Equipe (Staff)
-- **Campos Adicionais:** Adicionar campo de "Comissão (%)" nos modais de Criar/Editar Barbeiro.
-- **Persistência:** Atualizar `StaffContext.jsx` para suportar comissões e persistir no `localStorage`.
+## 2. Melhorias no Painel Administrativo
 
-### 2. Gestão de Serviços
-- **Nova Página:** Criar `src/Pages/Admin/Services.jsx`.
-- **CRUD:** Listagem, criação e edição de serviços (Nome, Preço R$, Duração min).
-- **Modal:** Criar `AddServiceModal.jsx` e `EditServiceModal.jsx`.
+*   **Objetivo:** Visibilidade total, filtros por funcionário e cálculo de faturamento/comissão.
+*   **Ações:**
+    *   **Filtros:** Aprimorar o filtro de "Stylist" em `src/Pages/Admin/Appointments.jsx` para ser mais proeminente.
+    *   **Cálculos em Reports:** Atualizar `src/Pages/Admin/Reports.jsx` para calcular:
+        *   Faturamento Total Bruto.
+        *   Valor devido a cada funcionário (baseado no campo `commission` de cada um).
+        *   Lucro líquido da barbearia.
+    *   **Dashboard:** Garantir que o `Dashboard.jsx` administrativo reflita esses números consolidados.
 
-### 3. Agenda Avançada
-- **Visualização:** Implementar a visualização diária com status (Pendente, Finalizado, Cancelado, Em andamento, Faltou).
-- **Agendamento Manual:** Modal para o administrador agendar horários diretamente.
+## 3. Restrições no Painel do Funcionário
 
-### 4. Configurações de Negócio
-- **Página de Perfil:** Adicionar campos de bio, telefone e link de agendamento ("Meu Link").
-- **Regras de Negócio:** Configurar horários de abertura, intervalos e modo feriado (bloqueio de datas).
+*   **Objetivo:** Garantir privacidade e foco nos dados do próprio profissional.
+*   **Ações:**
+    *   Revisar `src/Pages/Staff/StaffDashboard.jsx` e `src/Pages/Staff/StaffAppointments.jsx`.
+    *   Implementar filtros forçados para que o `currentUser.id` (do tipo staff) limite todos os resultados exibidos.
+    *   Adicionar visualização de produtos vendidos e faturamento individual (comissões realizadas).
 
-### 5. Estoque & Relatórios
-- **Estoque:** Refinar a listagem de produtos com busca e alertas de estoque baixo.
-- **Relatórios:** Dashboard financeiro com Receita Total, Ticket Médio e Ranking de Barbeiros.
+## 4. Ativação do Sistema de Notificações
 
-## 🌎 Internacionalização (i18n)
-- **Tradução 100%:** Mapear todos os textos restantes em inglês para o `src/i18n/pt-BR.json`.
-- **Moeda:** Garantir que todos os valores usem `Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })`.
+*   **Objetivo:** Alertas visuais e sonoros para novos agendamentos.
+*   **Ações:**
+    *   Integrar a configuração de "Alert Sounds" em `Configuration.jsx` com o `AppointmentContext`.
+    *   No `AppointmentContext.jsx`, disparar uma notificação (via `MessageContext` e opcionalmente um som HTML5) sempre que a lista de agendamentos aumentar.
+    *   Implementar uma central de notificações (Toast ou Bell icon) que liste eventos recentes.
 
-## 🛡️ Segurança & Proteção
-- **Senhas:** Implementar a troca de senha na página de Configurações.
-- **Privacidade:** Garantir que apenas administradores vejam relatórios financeiros.
+## Detalhes Técnicos
 
-## 📐 Detalhes Técnicos
-- **Stack:** React 18, Tailwind 4, Lucide Icons, Recharts (para relatórios).
-- **Estado:** Context API + localStorage (estratégia atual do projeto).
+*   **Persistência:** Continuaremos usando `localStorage` conforme o padrão atual do projeto.
+*   **Cálculo de Comissão:** `Faturamento_Item * staff.commission`.
+*   **Roteamento:** Uso de `URLSearchParams` para os links de agendamento.
+*   **Internacionalização:** Todas as novas labels e mensagens serão adicionadas ao `pt-BR.json`.
