@@ -362,8 +362,9 @@ function Home() {
             <section
                 ref={heroRef}
                 data-scroll-section
-                className="relative min-h-fit overflow-hidden bg-obsidian pt-6 md:pt-0"
+                className="relative min-h-[90vh] md:min-h-screen overflow-hidden bg-obsidian pt-6 md:pt-0"
                 id="main-hero"
+
             >
                 {/* Background Image Layer (Base) */}
                 {/* SWAP: Replace Landing with hero-visual.webp when available */}

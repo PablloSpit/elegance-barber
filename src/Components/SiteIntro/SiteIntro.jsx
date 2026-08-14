@@ -33,10 +33,13 @@ const SiteIntro = () => {
 
     const tl = gsap.timeline({
       onComplete: () => {
-        // Only cleanup if we are still showing (prevents race conditions)
         setShow(false);
         document.body.style.overflow = '';
         sessionStorage.setItem('site-intro-seen', 'true');
+        // Ensure ScrollTrigger is aware of the new layout height
+        gsap.delayedCall(0.1, () => {
+          window.dispatchEvent(new Event('resize'));
+        });
       }
     });
 
