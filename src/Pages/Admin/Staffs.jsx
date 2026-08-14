@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
     Search,
     Plus,
@@ -23,6 +24,7 @@ import EditStaffModal from '../../Components/AdminPanel Components/EditStaffModa
 import ConfirmModal from '../../Components/ConfirmModal'
 
 const Staffs = () => {
+    const { t } = useTranslation()
     const { staff, removeStaff, updateStaff } = useStaff()
     const [searchTerm, setSearchTerm] = useState('')
     const [filterRole, setFilterRole] = useState('All')
@@ -102,16 +104,16 @@ const Staffs = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
                 <div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                        Staff <span className="text-champberry">Management</span>
+                        {t('admin.staff')} <span className="text-champberry">{t('admin.management', 'Gestão')}</span>
                     </h1>
-                    <p className="text-gray-400 text-xs sm:text-sm mt-1">Manage your team of stylists and professionals</p>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('admin.manage_team_subtitle')}</p>
                 </div>
                 <button
                     onClick={() => setIsAddModalOpen(true)}
                     className="flex items-center gap-1.5 sm:gap-2 cursor-pointer bg-champberry hover:bg-champberry-dark text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-champberry/20 active:scale-95"
                 >
                     <Plus size={16} />
-                    <span>Add New Member</span>
+                    <span>{t('admin.add_member')}</span>
                 </button>
             </div>
 
@@ -124,7 +126,7 @@ const Staffs = () => {
                     </div>
                     <input
                         type="text"
-                        placeholder="Search by name, email, or role..."
+                        placeholder={t('admin.search_staff')}
                         className="bg-obsidian border border-[#27272a] text-white text-xs sm:text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-9 sm:pl-10 p-2 sm:p-2.5 outline-none transition-all placeholder-gray-600"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -155,15 +157,15 @@ const Staffs = () => {
                         <div className="bg-obsidian-elevated p-4 rounded-full mb-4 ring-1 ring-white/5">
                             <User size={48} className="text-[#333]" />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">No Staff Members Found</h3>
+                        <h3 className="text-xl font-bold text-white mb-2">{t('admin.no_staff_found')}</h3>
                         <p className="text-champberry-muted max-w-sm mx-auto">
-                            We couldn't find any staff matching your search criteria. Try adjusting your filters or add a new team member.
+                            {t('admin.no_staff_subtitle')}
                         </p>
                         <button
                             onClick={() => { setSearchTerm(''); setFilterRole('All') }}
                             className="mt-6 text-champberry hover:text-champberry-dark text-sm font-bold flex items-center gap-2 transition-colors"
                         >
-                            Clear Filters
+                            {t('admin.clear_filters')}
                         </button>
                     </div>
                 ) : (
@@ -173,11 +175,11 @@ const Staffs = () => {
                             <table className="w-full text-left border-collapse">
                                 <thead className="bg-obsidian-surface text-[#777] uppercase text-[11px] font-bold tracking-wider border-b border-[#333]">
                                     <tr>
-                                        <th className="px-6 py-5">Staff Member</th>
-                                        <th className="px-6 py-5">Role & Expertise</th>
+                                        <th className="px-6 py-5">{t('admin.staff_member')}</th>
+                                        <th className="px-6 py-5">{t('admin.role_expertise')}</th>
                                         <th className="px-6 py-5">Status</th>
-                                        <th className="px-6 py-5">Performance</th>
-                                        <th className="px-6 py-5 text-right">Actions</th>
+                                        <th className="px-6 py-5">{t('admin.performance')}</th>
+                                        <th className="px-6 py-5 text-right">{t('common.actions')}</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/5">
