@@ -122,9 +122,9 @@ const Inventory = () => {
                                     <tr className="bg-champberry/5 animate-pulse">
                                         <td className="px-6 py-3"><Input placeholder="Nome" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewProduct({...newProduct, name: e.target.value})} /></td>
                                         <td className="px-4 py-3"><Input placeholder="Categoria" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewProduct({...newProduct, category: e.target.value})} /></td>
-                                        <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-16 mx-auto" onChange={e => setNewProduct({...newProduct, stock: parseInt(e.target.value)})} /></td>
-                                        <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, cost_price: parseFloat(e.target.value)})} /></td>
-                                        <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, sale_price: parseFloat(e.target.value)})} /></td>
+                                        <td className="px-4 py-3"><Input type="number" placeholder="Estoque" className="bg-transparent border-white/10 text-xs h-8 w-16 mx-auto" onChange={e => setNewProduct({...newProduct, stock: parseInt(e.target.value) || 0, min_stock: 5})} /></td>
+                                        <td className="px-4 py-3"><Input type="number" placeholder="Custo" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, cost_price: parseFloat(e.target.value) || 0})} /></td>
+                                        <td className="px-4 py-3"><Input type="number" placeholder="Venda" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, sale_price: parseFloat(e.target.value) || 0})} /></td>
                                         <td className="px-6 py-3 text-right">
                                             <div className="flex justify-end gap-2">
                                                 <Button size="icon" variant="ghost" className="h-8 w-8 text-emerald-500 hover:bg-emerald-500/10" onClick={handleAdd}><Check size={16}/></Button>
