@@ -24,6 +24,12 @@ export function AppointmentProvider({ children }) {
 
     const bookAppointment = async (appointmentData) => {
         try {
+            // Check Holiday Mode
+            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
+            if (config.holidayMode) {
+                return { success: false, error: "O salão está em modo de feriado. Agendamentos temporariamente suspensos." }
+            }
+
             const selectedServices = appointmentData.selectedService // array of { name, price }
 
             // Check if a stylist is already booked at this exact date+time in existing appointments
