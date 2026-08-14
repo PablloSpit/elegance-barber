@@ -4,6 +4,7 @@ import AppointmentFormContact from "../Components/AppointmentFormContact"
 import { useState, useEffect } from "react"
 
 function Contact() {
+    const { t } = useTranslation();
     const { t } = useTranslation()
     const [scrollY, setScrollY] = useState(0)
 

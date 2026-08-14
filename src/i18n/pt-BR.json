@@ -87,12 +87,13 @@
   },
   "home": {
     "since": "Desde 2011 — Cuidado Masculino Premium",
-    "hero_title_1": "A Arte do",
-    "hero_title_2": "Cuidado",
-    "hero_desc": "Mestres da precisão e estilo. Elevando a arte do cuidado masculino através de atenção meticulosa aos detalhes e paixão por técnicas clássicas misturadas com estilo moderno.",
-    "about_title": "O Legado da",
-    "about_title_2": "Excelência",
-    "about_desc": "Não somos apenas uma barbearia; somos os guardiões de uma tradição atemporal. Nosso compromisso com a arte do cuidado masculino define cada serviço que prestamos.",
+    "hero_title_1": "Barbearia",
+    "hero_title_2": "Masculina",
+    "hero_title_3": "Premium",
+    "hero_desc": "Onde a precisão encontra a sofisticação. Arte tradicional, estilo moderno.",
+    "about_title": "Nossa Filosofia",
+    "about_title_2": "A Essência do Refinamento",
+    "about_desc": "Elegância tem estado na vanguarda do cuidado masculino, definindo o padrão para o cavalheiro consciente do estilo. Nossa dedicação reside em capacitar cada indivíduo a parecer e se sentir excepcional todos os dias.",
     "experience": "Experiência",
     "mastery": "de Maestria",
     "artisans_title": "Mestres do",
@@ -107,6 +108,21 @@
     "testimonials_title": "Vozes do",
     "testimonials_title_2": "Legado",
     "testimonials_subtitle": "Depoimentos de Clientes"
+  },
+  "profile": {
+    "experience": "Experiência",
+    "ritual": "Ritual",
+    "legacy": "Seu Legado",
+    "mastery_suffix": "de Maestria",
+    "expert_services": "Serviços Especialistas",
+    "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno."
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Estamos prontos para elevar sua experiência de cuidado pessoal.",
+    "find_us": "Onde Estamos",
+    "hours": "Horários",
+    "send_message": "Enviar Mensagem"
   },
   "profile": {
     "experience": "Experiência",
