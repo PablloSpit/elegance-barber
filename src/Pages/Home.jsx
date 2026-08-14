@@ -486,10 +486,10 @@ function Home() {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-12">
                         <div className="grid grid-cols-4">
                             {[
-                                { value: '15+', label: 'Years Experience' },
-                                { value: '5K+', label: 'Gentlemen Served' },
-                                { value: '100+', label: '5-Star Reviews' },
-                                { value: '10', label: 'Expert Stylists' }
+                                { value: '15+', label: t('home.experience_years', 'Anos de Experiência') },
+                                { value: '5K+', label: t('home.clients_served', 'Clientes Atendidos') },
+                                { value: '100+', label: t('home.five_star_reviews', 'Avaliações 5 Estrelas') },
+                                { value: '10', label: t('home.expert_stylists', 'Estilistas Especialistas') }
                             ].map((stat, i) => (
                                 <div
                                     key={i}
