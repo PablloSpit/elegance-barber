@@ -14,6 +14,7 @@ import {
 import StatusBadge from './StatusBadge'
 
 const ViewAppointmentModal = ({ appointment, onClose }) => {
+    const { t } = useTranslation()
     useEffect(() => {
         if (!appointment) return undefined
         const handleClickOutside = (event) => {
@@ -130,7 +131,7 @@ const ViewAppointmentModal = ({ appointment, onClose }) => {
                         onClick={onClose}
                         className="px-6 py-2 bg-obsidian-elevated hover:bg-[#222] text-white border border-[#333] rounded-lg text-sm font-bold transition-colors cursor-pointer"
                     >
-                        Fechar
+                        {t('common.close', 'Fechar')}
                     </button>
                 </div>
             </div>

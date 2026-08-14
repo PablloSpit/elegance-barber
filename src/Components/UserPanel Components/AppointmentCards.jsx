@@ -1,4 +1,5 @@
 import { Calendar, Clock, Scissors, User, X, Check, AlertCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useAppointment } from '../../Context/AppointmentContext.jsx'
 import { useMessage } from '../../Context/MessageContext.jsx'
 import { useState, useEffect } from 'react'
@@ -19,6 +20,7 @@ const toInputDate = (dateStr) => {
 }
 
 function AppointmentCards({ name, date, time, items, totalPrice, status, appointmentId, isGuest }) {
+    const { t } = useTranslation()
     const { cancelAppointment, rescheduleAppointment } = useAppointment()
     const { showMessage } = useMessage()
 

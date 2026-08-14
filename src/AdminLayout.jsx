@@ -43,6 +43,7 @@ const Message = ({ type, text, visible, isClosing, onClose }) => {
 }
 
 function AdminLayout() {
+    const { t } = useTranslation()
     const { message, hideMessage } = useMessage()
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [collapsed, setCollapsed] = useState(false)

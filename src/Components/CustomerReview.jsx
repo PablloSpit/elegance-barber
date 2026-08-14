@@ -1,6 +1,8 @@
 import customerFallback from '../assets/reviews/customer-1.webp'
+import { useTranslation } from 'react-i18next'
 
 function CustomerReview({ name, review, image, service }) {
+    const { t } = useTranslation()
     // Utility to split text into words wrapped in spans for staggering
     const splitTextToSpans = (text) => {
         return text.split(' ').map((word, index) => (

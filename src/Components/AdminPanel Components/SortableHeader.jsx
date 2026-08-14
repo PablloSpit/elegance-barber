@@ -1,6 +1,8 @@
 import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const SortableHeader = ({ field, currentSort, onSort, children }) => {
+    const { t } = useTranslation()
     const isActive = currentSort.field === field
     const isAsc = isActive && currentSort.direction === 'asc'
     const isDesc = isActive && currentSort.direction === 'desc'

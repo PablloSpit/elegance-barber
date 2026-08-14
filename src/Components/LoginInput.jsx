@@ -3,6 +3,7 @@ import { useAuth } from "../Context/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 
 function LoginInput() {
+    const { t } = useTranslation()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [rememberMe, setRememberMe] = useState(false)

@@ -3,6 +3,7 @@ import { useAuth } from '../../Context/AuthContext.jsx'
 import { useMessage } from '../../Context/MessageContext.jsx'
 
 function Feedback() {
+    const { t } = useTranslation()
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
 

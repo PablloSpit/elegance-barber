@@ -5,6 +5,7 @@ import { useAppointment } from '../Context/AppointmentContext.jsx'
 import { useAuth } from '../Context/AuthContext.jsx'
 
 function AppointmentFormContact() {
+    const { t } = useTranslation()
     const { currentUser } = useAuth()
 
     const [isOpen, setIsOpen] = useState(false)

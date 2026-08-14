@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAppointment } from '../../Context/AppointmentContext';
 import { X, Calendar, User, Clock } from 'lucide-react';
 import StatusBadge from '../AdminPanel Components/StatusBadge';
 
 const StaffAppointmentsModal = ({ staff, onClose }) => {
+    const { t } = useTranslation();
     const { appointments } = useAppointment();
 
     // Filter appointments for this stylist
