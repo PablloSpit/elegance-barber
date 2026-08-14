@@ -11,7 +11,9 @@
     "actions": "Ações",
     "close": "Fechar",
     "settings": "Configurações",
-    "date_time": "Data e Hora"
+    "date_time": "Data e Hora",
+    "user": "Usuário",
+    "all_rights_reserved": "Todos os direitos reservados."
   },
   "nav": {
     "home": "Início",
@@ -115,32 +117,20 @@
   },
   "profile": {
     "experience": "Experiência",
-    "ritual": "Ritual",
-    "legacy": "Seu Legado",
-    "mastery_suffix": "de Maestria",
-    "expert_services": "Serviços Especialistas",
-    "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno."
-  },
-  "contact": {
-    "title": "Entre em Contato",
-    "subtitle": "Estamos prontos para elevar sua experiência de cuidado pessoal.",
-    "find_us": "Onde Estamos",
-    "hours": "Horários",
-    "send_message": "Enviar Mensagem"
-  },
-  "profile": {
-    "experience": "Experiência",
     "mastery": "de Maestria",
     "expert_services": "Serviços Especializados",
     "ritual": "O Ritual",
     "availability": "Disponibilidade Semanal",
     "legacy": "O Legado",
     "testimonials": "Depoimentos de Clientes",
-    "unavailable": "Indisponível"
+    "unavailable": "Indisponível",
+    "mastery_suffix": "de Maestria",
+    "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno."
   },
   "contact": {
     "title": "Contato",
     "ready": "PRONTO PARA UM",
+    "ready_for": "PRONTO PARA",
     "new_look": "NOVO VISUAL",
     "subtitle": "Agende seu horário ou envie-nos uma mensagem",
     "make_appointment": "Fazer um Agendamento",
@@ -155,4 +145,3 @@
     "chat_now": "Conversar Agora"
   }
 }
-
