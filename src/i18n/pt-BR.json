@@ -22,7 +22,8 @@
     "account": "Minha Conta",
     "admin": "Painel Admin",
     "staff": "Painel Staff",
-    "logout": "Sair"
+    "logout": "Sair",
+    "book_now": "AGENDAR HORÁRIO"
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -83,5 +84,55 @@
     "top_services": "Top Serviços",
     "staff_ranking": "Ranking de Equipe",
     "monthly_comparison": "Comparação Mensal"
+  },
+  "home": {
+    "since": "Desde 2011 — Cuidado Masculino Premium",
+    "hero_title_1": "A Arte do",
+    "hero_title_2": "Cuidado",
+    "hero_desc": "Mestres da precisão e estilo. Elevando a arte do cuidado masculino através de atenção meticulosa aos detalhes e paixão por técnicas clássicas misturadas com estilo moderno.",
+    "about_title": "O Legado da",
+    "about_title_2": "Excelência",
+    "about_desc": "Não somos apenas uma barbearia; somos os guardiões de uma tradição atemporal. Nosso compromisso com a arte do cuidado masculino define cada serviço que prestamos.",
+    "experience": "Experiência",
+    "mastery": "de Maestria",
+    "artisans_title": "Mestres do",
+    "artisans_title_2": "Ritual",
+    "artisans_subtitle": "Conheça nossos profissionais",
+    "rituals_title": "Nossos",
+    "rituals_title_2": "Rituais",
+    "rituals_subtitle": "Serviços Premium",
+    "gallery_title": "A Galeria da",
+    "gallery_title_2": "Precisão",
+    "gallery_subtitle": "Nosso Trabalho",
+    "testimonials_title": "Vozes do",
+    "testimonials_title_2": "Legado",
+    "testimonials_subtitle": "Depoimentos de Clientes"
+  },
+  "profile": {
+    "experience": "Experiência",
+    "mastery": "de Maestria",
+    "expert_services": "Serviços Especializados",
+    "ritual": "O Ritual",
+    "availability": "Disponibilidade Semanal",
+    "legacy": "O Legado",
+    "testimonials": "Depoimentos de Clientes",
+    "unavailable": "Indisponível"
+  },
+  "contact": {
+    "title": "Contato",
+    "ready": "PRONTO PARA UM",
+    "new_look": "NOVO VISUAL",
+    "subtitle": "Agende seu horário ou envie-nos uma mensagem",
+    "make_appointment": "Fazer um Agendamento",
+    "visit_store": "Visite Nossa Loja",
+    "address": "Endereço",
+    "hours": "Horário de Funcionamento",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "whatsapp": "Whatsapp",
+    "quick_response": "Resposta Rápida",
+    "support_24": "Suporte 24/7",
+    "chat_now": "Conversar Agora"
   }
 }
+
