@@ -74,7 +74,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
         setFormData({ ...formData, [name]: value })
     }
 
-    const totalPrice = formData.items.reduce((sum, item) => sum + parseFloat(item.service.price?.replace('$', '') || 0), 0)
+    const totalPrice = formData.items.reduce((sum, item) => sum + (typeof item.service.price === 'number' ? item.service.price : parseFloat(item.service.price?.toString().replace('R$ ', '') || 0)), 0)
 
     const toggleService = (service) => {
         setFormData(prev => {
@@ -287,7 +287,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                                                         : 'text-gray-300 hover:bg-white/5 hover:text-white'
                                                         }`}
                                                 >
-                                                    <span>{service.name} — {service.price}</span>
+                                                    <span>{service.name} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(service.price)}</span>
                                                     <span className={`w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] ${isSelected ? 'border-champberry bg-champberry text-black' : 'border-[#555]'
                                                         }`}>
                                                         {isSelected && '✓'}
@@ -304,7 +304,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
                             <div className="mt-2 flex flex-wrap gap-2">
                                 {formData.items.map((item, i) => (
                                     <span key={`${item.service.name}-${i}`} className="inline-flex items-center gap-1.5 bg-champberry/10 border border-champberry/30 text-champberry text-xs font-bold px-2 py-1 rounded-md">
-                                        {item.service.name} — {item.service.price}
+                                        {item.service.name} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.service.price)}
                                         <button type="button" onClick={() => toggleService(item.service)} className="hover:text-white">✕</button>
                                     </span>
                                 ))}
