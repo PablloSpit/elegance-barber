@@ -154,6 +154,13 @@ const Router = createBrowserRouter(
             </ProtectedRoute>
           </Suspense>
         } />
+        <Route path='/admin/services' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole="admin">
+              <Services />
+            </ProtectedRoute>
+          </Suspense>
+        } />
       </Route>
     </>
   )

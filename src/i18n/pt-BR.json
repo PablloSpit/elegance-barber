@@ -66,7 +66,12 @@
     "recent_appointments": "Agendamentos Recentes",
     "live": "Ao Vivo",
     "view_all": "Ver Todos",
-    "management": "Gestão"
+    "management": "Gestão",
+    "services_management": "Gestão de Serviços",
+    "new_service": "Novo Serviço",
+    "catalog_services": "Catálogo de Serviços",
+    "service_name": "Nome do Serviço",
+    "duration_min": "Duração (min)"
   },
   "inventory": {
     "title": "Controle de Estoque",
