@@ -1,0 +1,32 @@
+src/Pages/Contact.jsx
+src/Pages/Staff/StaffLink.jsx
+src/Components/Header.jsx
+src/Pages/ArtisanProfile.jsx
+src/Components/UserPanel Components/Profile.jsx
+src/Components/PriceCard.jsx
+src/Components/StaffPanel Components/StaffSidebar.jsx
+src/Components/Footer.jsx
+src/Components/ServiceCard.jsx
+src/Pages/Staff/StaffProfile.jsx
+src/Components/StaffPanel Components/StaffMenu.jsx
+src/Pages/Staff/StaffDashboard.jsx
+src/Pages/Staff/StaffAppointments.jsx
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx
+src/Pages/Home.jsx
+src/Components/AppointmentForm.jsx
+src/Pages/Admin/Staffs.jsx
+src/Components/AdminPanel Components/ViewAppointmentModal.jsx
+src/Pages/Admin/Appointments.jsx
+src/Pages/Admin/Services.jsx
+src/Pages/Admin/Reports.jsx
+src/Components/AdminPanel Components/StatusBadge.jsx
+src/Pages/Admin/Inventory.jsx
+src/Pages/Admin/Configuration.jsx
+src/Components/AdminPanel Components/EditAppointmentModal.jsx
+src/Components/AdminPanel Components/AdminSidebar.jsx
+src/Components/AdminPanel Components/AddStaffModal.jsx
+src/Components/AdminPanel Components/AppointmentMenu.jsx
+src/Components/AdminPanel Components/InventoryItem.jsx
+src/Pages/Admin/Dashboard.jsx
+src/Components/AdminPanel Components/EditStaffModal.jsx
+src/Components/AdminPanel Components/StaffDetailsModal.jsx
