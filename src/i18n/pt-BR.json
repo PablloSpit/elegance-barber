@@ -48,6 +48,8 @@
     "book_now": "AGENDAR HORÁRIO",
     "book_appointment": "Agendar Horário",
     "my_profile": "Meu Perfil",
+    "my_link": "Meu Link",
+    "link": "Link",
     "my_appointments": "Meus Agendamentos",
     "my_account": "Minha Conta",
     "login_register": "Entrar / Cadastrar",
@@ -55,6 +57,7 @@
     "dashboard": "Dashboard",
     "profile": "Perfil"
   },
+
   "admin": {
     "dashboard": "Dashboard",
     "appointments": "Agendamentos",
@@ -114,6 +117,12 @@
     "staff_added_success": "{{name}} foi adicionado(a) à equipe.",
     "copy_booking_link": "Copiar Link de Agendamento",
     "booking_link_copied": "Link de agendamento copiado!",
+    "main_booking_link": "Link Principal de Agendamento",
+    "main_booking_link_desc": "Este link direciona os clientes para a página inicial com o formulário de agendamento aberto.",
+    "individual_links": "Links Individuais",
+    "individual_links_desc": "Cada funcionário tem seu próprio link exclusivo. Você pode gerenciá-los na aba 'Equipe'.",
+    "view_team_links": "Ver links da equipe",
+
     "fill_all_fields": "Por favor, preencha todos os campos obrigatórios",
     "fill_password_fields": "Por favor, preencha os campos de senha",
     "incorrect_current_password": "Senha atual incorreta",
@@ -266,8 +275,15 @@
     "update_availability_desc": "Atualize seu horário de trabalho padrão. Isso afeta quando os clientes podem agendar com você.",
     "profile_updated_success": "Perfil atualizado com sucesso",
     "contact_admin_email": "Contate o administrador para alterar o e-mail.",
-    "booking_link_desc": "Use este link para receber agendamentos diretamente para você."
+    "booking_link_desc": "Use este link para receber agendamentos diretamente para você.",
+    "share_link": "Compartilhe seu Perfil",
+    "share_link_instruction": "Envie este link para seus clientes para que eles possam agendar serviços diretamente com você. O sistema identificará automaticamente sua disponibilidade.",
+    "automatic_id": "Identificação Automática",
+    "automatic_id_desc": "O link contém seu ID único, garantindo que o agendamento seja vinculado a você.",
+    "direct_access": "Acesso Direto",
+    "direct_access_desc": "O link rola automaticamente para a seção de agendamento na página inicial."
   },
+
   "appointments": {
     "select_services": "SELECIONAR SERVIÇOS",
     "service_selected_singular": "SERVIÇO SELECIONADO",

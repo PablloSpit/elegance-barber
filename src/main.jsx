@@ -28,6 +28,8 @@ const StaffLayout = lazy(() => import('./StaffLayout'));
 const StaffDashboard = lazy(() => import('./Pages/Staff/StaffDashboard'));
 const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
 const StaffProfile = lazy(() => import('./Pages/Staff/StaffProfile'));
+const StaffLink = lazy(() => import('./Pages/Staff/StaffLink'));
+
 
 
 const Services = lazy(() => import('./Pages/Admin/Services'));
@@ -101,7 +103,15 @@ const Router = createBrowserRouter(
             </ProtectedRoute>
           </Suspense>
         } />
+        <Route path='/staff/link' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <ProtectedRoute requiredRole="staff">
+              <StaffLink />
+            </ProtectedRoute>
+          </Suspense>
+        } />
       </Route>
+
 
       {/* Admin pages without footer */}
       <Route path='/admin' element={<AdminLayout />} >
