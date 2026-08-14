@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../Context/AuthContext'
 import { useMessage } from '../../Context/MessageContext'
-import { Save, User, Mail, Phone, Clock, Calendar, Bell, Globe } from 'lucide-react'
+import { Save, User, Mail, Phone, Clock, Calendar, Bell, Globe, Copy } from 'lucide-react'
 
 function Configuration() {
     const { t } = useTranslation()
