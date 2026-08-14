@@ -141,7 +141,7 @@ function StaffAppointments() {
     }, [getAssignedServices])
 
     const getAssignedTotal = useCallback((appointment) =>
-        getAssignedServices(appointment).reduce((sum, s) => sum + parseFloat(s.price?.replace('$', '') || 0), 0),
+        getAssignedServices(appointment).reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '').replace('$', '') || 0)), 0),
         [getAssignedServices])
 
     // Enhanced filter and sort logic - optimized with useMemo

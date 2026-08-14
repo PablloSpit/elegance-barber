@@ -71,7 +71,7 @@ function Dashboard() {
         if (Number.isFinite(Number(appointment.totalPrice))) {
             return Number(appointment.totalPrice)
         }
-        return appointment.items?.reduce((sum, item) => sum + parseFloat(item.service.price?.replace('$', '') || 0), 0) || 0
+        return appointment.items?.reduce((sum, item) => sum + (typeof item.service.price === 'number' ? item.service.price : parseFloat(item.service.price?.toString().replace('R$ ', '').replace('$', '') || 0)), 0) || 0
     }
 
     const getServiceSummary = (appointment) =>

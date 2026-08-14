@@ -35,7 +35,7 @@ function StaffDashboard() {
     }, [currentUser])
 
     const getAssignedTotal = useCallback((appointment) =>
-        getAssignedServices(appointment).reduce((sum, s) => sum + parseFloat(s.price?.replace('$', '') || 0), 0),
+        getAssignedServices(appointment).reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '').replace('$', '') || 0)), 0),
         [getAssignedServices])
 
     const getAssignedServiceText = useCallback((appointment) => {
@@ -56,7 +56,7 @@ function StaffDashboard() {
                 return stylist && (stylist.id === currentUser.id || stylist.email?.toLowerCase() === currentUser.email?.toLowerCase())
             })
             const sumForAppointment = assignedItems.reduce((sub, item) => {
-                const price = parseFloat(item.service.price?.toString().replace('$', '') || 0)
+                const price = typeof item.service.price === 'number' ? item.service.price : parseFloat(item.service.price?.toString().replace('R$ ', '').replace('$', '') || 0)
                 const commission = parseFloat(item.stylist?.commission || currentUser?.commission || 0)
                 return sub + (price * commission)
             }, 0)
