@@ -44,7 +44,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
         // Validate WebP format
         if (file.type !== 'image/webp') {
-            setError('Only WebP format images are supported. Please select a .webp file.');
+            setError('Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.');
             e.target.value = '';
             return;
         }
@@ -76,7 +76,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
         // Basic validation
         if (!formData.name || !formData.email || !formData.phone || !formData.role || !formData.specialties || !formData.password) {
-            setError('Please fill in all required fields (password required for staff accounts)');
+            setError('Por favor, preencha todos os campos obrigatórios (senha é necessária para contas de equipe)');
             return;
         }
 
@@ -206,7 +206,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="e.g. John Doe"
+                                        placeholder="Ex: João Silva"
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                     />
                                 </div>
@@ -265,7 +265,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        placeholder="+1 234 567 8900"
+                                        placeholder="+55 (00) 00000-0000"
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                     />
                                 </div>
