@@ -143,7 +143,14 @@
     "testimonials_subtitle": "Depoimentos de Clientes",
     "haircut": "Corte de Cabelo",
     "shaving": "Barba",
-    "facials": "Limpeza Facial"
+    "facials": "Limpeza Facial",
+    "appointment_title": "Fazer um",
+    "appointment_subtitle": "Agendamento",
+    "brands_title": "Marcas de",
+    "brands_title_2": "Confiança",
+    "brands_desc": "Produtos premium para resultados excepcionais",
+    "gallery_main_title": "A",
+    "gallery_main_span": "Galeria"
   },
   "profile": {
     "experience": "Experiência",
