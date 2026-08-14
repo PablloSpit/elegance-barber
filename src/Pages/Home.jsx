@@ -397,7 +397,7 @@ function Home() {
                             <div className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
                                 <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
-                                    {t('home.since')}
+                                    {t('home.since', 'Desde 2011 — Cuidado Masculino Premium')}
                                 </p>
                             </div>
 
@@ -405,12 +405,12 @@ function Home() {
                             <div className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
-                                    {t('home.hero_title_1')}
+                                    {t('home.hero_title_1', 'Barbearia')}
                                 </h1>
 
                                 {/* Line 2: Massive, dominant */}
                                 <h2 className="font-sans font-black text-white text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] 2xl:text-[7rem] uppercase leading-[0.9] -tracking-[0.02em] my-2 sm:my-3 md:my-4">
-                                    {t('home.hero_title_2')}
+                                    {t('home.hero_title_2', 'Masculina')}
                                 </h2>
 
                                 {/* Line 3 */}
@@ -423,7 +423,7 @@ function Home() {
                             <p
                                 className="font-sans font-light text-white/50 text-xs sm:text-sm md:text-base max-w-sm leading-relaxed tracking-wide text-center lg:text-left mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0"
                             >
-                                {t('home.hero_desc')}
+                                {t('home.hero_desc', 'Onde a precisão encontra a sofisticação. Arte tradicional, estilo moderno.')}
                             </p>
 
                             {/* CTA Row */}
@@ -432,7 +432,7 @@ function Home() {
                                     <div data-magnetic className="group relative">
                                         <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
                                             <span data-magnetic-text className="relative z-10 inline-flex items-center gap-2 sm:gap-3">
-                                                {t('nav.book_now')}
+                                                {t('nav.book_now', 'AGENDAR HORÁRIO')}
                                                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-500 ease-luxury group-hover:translate-x-1" strokeWidth={2} />
                                             </span>
                                         </button>
@@ -440,7 +440,7 @@ function Home() {
                                 </a>
 
                                 <a href="#services" className="group inline-flex items-center gap-2 text-white/40 hover:text-champberry font-sans font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] transition-colors duration-500 ease-luxury">
-                                    {t('nav.services')}
+                                    {t('nav.services', 'SERVIÇOS')}
                                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-500 ease-luxury group-hover:translate-x-1.5" strokeWidth={2} />
                                 </a>
                             </div>
@@ -471,7 +471,7 @@ function Home() {
                                     className="absolute bottom-6 -left-6 lg:-left-14 backdrop-blur-xl bg-obsidian/40 border border-champberry/15 rounded-lg px-5 py-3 shadow-2xl"
                                 >
                                     <p data-magnetic-text className="font-sans text-champberry text-xl font-black leading-tight">15+</p>
-                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">Years of Craft</p>
+                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">{t('home.years_of_craft', 'Years of Craft')}</p>
                                 </div>
 
                                 {/* Accent line */}
@@ -535,7 +535,7 @@ function Home() {
 
                             {/* Tactile Glassmorphism Detail */}
                             <div className="heritage-card absolute -bottom-6 right-0 md:-right-8 lg:-right-12 backdrop-blur-xl bg-obsidian-card/40 border border-white/10 p-6 shadow-2xl z-20 w-48 rounded-sm">
-                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">{t('home.experience')}</p>
+                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">{t('home.experience', 'Experiência')}</p>
                                 <p className="font-serif text-3xl text-white font-light">Est. 2011</p>
                                 <div className="w-12 h-px bg-champberry/30 mt-4"></div>
                             </div>
@@ -545,11 +545,11 @@ function Home() {
                         <div className="md:col-span-12 lg:col-span-6 flex flex-col justify-center mt-12 md:mt-0 md:pl-8 lg:pl-16">
 
                             <h3 className="manifesto-line font-serif italic text-champberry text-2xl lg:text-3xl font-light mb-6">
-                                {t('home.about_title')}
+                                {t('home.about_title', 'Nossa Filosofia')}
                             </h3>
 
                             <h2 className="manifesto-line font-sans font-black text-white text-4xl md:text-5xl lg:text-6xl uppercase mb-10">
-                                {t('home.about_title_2')}
+                                {t('home.about_title_2', 'A Essência do Refinamento')}
                             </h2>
 
                             {/* Brand Manifesto Text with Drop Cap */}
@@ -560,7 +560,7 @@ function Home() {
                                 </p>
 
                                 <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
-                                    We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.
+                                    {t('home.about_desc_2', 'We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.')}
                                 </p>
                             </div>
 
@@ -568,15 +568,15 @@ function Home() {
                             <div className="manifesto-line flex justify-between md:justify-start lg:gap-38 mt-3">
                                 <div className="flex flex-col items-center group">
                                     <Scissors className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">Haircut</span>
+                                    <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">{t('home.haircut')}</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
                                     <Waves className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Shaving</span>
+                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.shaving')}</span>
                                 </div>
                                 <div className="flex flex-col items-center group">
                                     <Sparkles className="text-champberry mb-3 transition-transform duration-500 ease-luxury group-hover:scale-110" size={40} strokeWidth={1} />
-                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">Facials</span>
+                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.facials')}</span>
                                 </div>
                             </div>
 
@@ -600,14 +600,14 @@ function Home() {
                     {/* Section Header — Editorial type pairing */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 lg:mb-24 gap-6">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.rituals_subtitle')}</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.rituals_subtitle', 'Serviços Premium')}</span>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                {t('home.rituals_title')}{' '}
-                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>{t('home.rituals_title_2')}</span>
+                                {t('home.rituals_title', 'Nossos')}{' '}
+                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>{t('home.rituals_title_2', 'Rituais')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.
+                            {t('home.rituals_desc', 'Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.')}
                         </p>
                     </div>
 
@@ -651,14 +651,14 @@ function Home() {
                     {/* Section Header — Editorial type pairing (matches Services section) */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 md:mb-18 gap-6 px-4 md:px-6 lg:px-16 max-w-11/12 mx-auto w-full">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">{t('home.gallery_subtitle')}</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">{t('home.gallery_subtitle', 'Nosso Trabalho')}</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                {t('home.gallery_title')}{' '}
-                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>{t('home.gallery_title_2')}</span>
+                                {t('home.gallery_title', 'A Galeria da')}{' '}
+                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>{t('home.gallery_title_2', 'Precisão')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            Transparent pricing for every service. Premium quality at fair value.
+                            {t('home.gallery_desc', 'Transparent pricing for every service. Premium quality at fair value.')}
                         </p>
                     </div>
 
