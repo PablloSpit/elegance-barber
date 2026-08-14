@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../Context/AuthContext'
 import { useMessage } from '../../Context/MessageContext'
-import { Save, User, Mail, Phone, Clock } from 'lucide-react'
+import { Save, User, Mail, Phone, Clock, Calendar, Bell, Globe } from 'lucide-react'
 
 function Configuration() {
     const { currentUser, updatedUser } = useAuth()
