@@ -376,7 +376,7 @@ function Appointment() {
         <div className="w-full relative" ref={containerRef}>
             {/* Step Progress Indicators */}
             <div className="flex items-center gap-2 mb-8">
-                {[1, 2, 3].map((num) => (
+                {[1, 2, 3, 4].map((num) => (
                     <div key={num} className="flex-1 flex flex-col gap-2">
                         <div className={`h-1 w-full transition-colors duration-500 rounded-full ${num <= currentStep ? 'bg-champberry' : 'bg-white/10'}`}></div>
                         <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-500 ${num <= currentStep ? 'text-champberry' : 'text-white/30'}`}>
@@ -387,32 +387,78 @@ function Appointment() {
             </div>
 
             {/* GSAP Animated Step Container */}
-            <form onSubmit={(e) => e.preventDefault()} className="relative">
+            <div className="relative">
+                {/* Step 1: Personal Details */}
+                <div className="form-step hidden w-full">
+                    <div className="flex flex-col gap-4">
+                        <input type="text" placeholder={t('appointments.placeholders.name', 'NOME')} value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+                        <input type="email" placeholder={t('appointments.placeholders.email', 'E-MAIL')} value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+                        <input type="tel" placeholder={t('appointments.placeholders.phone', 'TELEFONE')} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+                        
+                        <button
+                            type="button"
+                            onClick={handleNextStep1}
+                            className="w-full mt-2 border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-sm"
+                        >
+                            {t('appointments.continue_services', 'Continuar para Serviços')}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Step 2: Service Selection */}
                 <div className="form-step hidden w-full">
                     <Step1Selection
                         selectedService={selectedService} toggleService={toggleService}
                         isOpen={isOpen} setIsOpen={setIsOpen}
                         totalPrice={totalPrice} dropdownRef={dropdownRef}
-                        onNext={handleNextStep1}
+                        onNext={handleNextStep2}
                     />
                 </div>
 
+                {/* Step 3: Schedule */}
                 <div className="form-step hidden w-full">
                     <Step2Schedule
                         date={date} setDate={setDate} time={time} setTime={setTime}
-                        onPrev={() => setCurrentStep(1)} onNext={handleNextStep2}
+                        onPrev={() => setCurrentStep(2)} onNext={handleNextStep3}
                     />
                 </div>
 
+                {/* Step 4: Final Summary */}
                 <div className="form-step hidden w-full">
-                    <Step3Details
-                        name={name} setName={setName} email={email} setEmail={setEmail}
-                        phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber}
-                        message={message} setMessage={setMessage}
-                        onPrev={() => setCurrentStep(2)} onSubmit={handleSubmit}
-                    />
+                    <div className="flex flex-col gap-4">
+                        <div className="bg-[#191919] p-4 border border-champberry/20">
+                            <h4 className="text-white font-black text-sm mb-2 uppercase tracking-widest">{t('appointments.summary', 'Resumo do Agendamento')}</h4>
+                            <div className="space-y-1 text-xs md:text-sm">
+                                <p><span className="text-champberry-muted">{t('appointments.client', 'Cliente')}:</span> <span className="text-white">{name}</span></p>
+                                <p><span className="text-champberry-muted">{t('appointments.professional', 'Profissional')}:</span> <span className="text-champberry font-bold">{forcedStaff?.name || t('appointments.any_professional', 'Qualquer Profissional')}</span></p>
+                                <p><span className="text-champberry-muted">{t('appointments.date', 'Data')}:</span> <span className="text-white">{date} às {time}</span></p>
+                                <p><span className="text-champberry-muted">{t('appointments.services', 'Serviços')}:</span> <span className="text-white">{selectedService.map(s => t(`services.items.${s.name}`, s.name)).join(', ')}</span></p>
+                                <p className="pt-2 border-t border-white/5 mt-2 flex justify-between">
+                                    <span className="text-white font-black">{t('appointments.total', 'TOTAL')}:</span>
+                                    <span className="text-champberry font-black">R$ {totalPrice}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-4">
+                            <button
+                                type="button"
+                                onClick={() => setCurrentStep(3)}
+                                className="w-1/3 border-2 border-[#454545] hover:border-white text-white/50 hover:text-white font-black p-3 transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
+                            >
+                                {t('common.back', 'Voltar')}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleSubmit}
+                                className="w-2/3 border-5 border-champberry text-white font-black p-3 hover:bg-[#d28127] hover:border-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-sm"
+                            >
+                                {t('appointments.confirm_booking', 'Confirmar Agendamento')}
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     )
 }
