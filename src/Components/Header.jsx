@@ -1,8 +1,10 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../Context/AuthContext.jsx'
 
 function Header({ bgImage = "bg-transparent" }) {
+    const { t } = useTranslation()
     const navigate = useNavigate()
 
     const { currentUser, isAuthenticated, logout } = useAuth()
@@ -102,7 +104,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champberry transition-colors'
                                 >
-                                    Início
+                                    {t('nav.home')}
                                 </Link>
                             </li>
                             <li>
@@ -114,7 +116,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champberry transition-colors'
                                 >
-                                    Serviços
+                                    {t('nav.services')}
                                 </a>
                             </li>
                             <li>
@@ -126,7 +128,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                     }}
                                     className='text-white hover:text-champberry transition-colors'
                                 >
-                                    Sobre
+                                    {t('nav.about')}
                                 </a>
                             </li>
                             <li>
@@ -136,7 +138,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                         isActive ? 'text-champberry font-bold' : 'text-white hover:text-champberry transition-colors'
                                     }
                                 >
-                                    Contato
+                                    {t('nav.contact')}
                                 </NavLink>
                             </li>
                         </ul>
@@ -151,7 +153,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                 }}
                                 className="hidden lg:flex bg-champberry text-white px-6 py-2 font-bold uppercase tracking-widest text-xs whitespace-nowrap hover:bg-obsidian hover:border hover:border-champberry transition-colors duration-300 overflow-hidden group"
                             >
-                                AGENDAR HORÁRIO
+                                {t('nav.book_now')}
                             </a>
 
                             {/* account section */}
@@ -181,8 +183,8 @@ function Header({ bgImage = "bg-transparent" }) {
                                             >
                                                 {/* User Info Section */}
                                                 <div className="px-4 py-3 border-b border-gray-700">
-                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">Minha Conta</p>
-                                                    <p className="text-white text-lg font-medium mt-1">{currentUser?.name || 'Usuário'}</p>
+                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">{t('nav.account')}</p>
+                                                    <p className="text-white text-lg font-medium mt-1">{currentUser?.name || t('common.user', 'Usuário')}</p>
                                                     <p className="text-gray-400 text-sm">{currentUser?.email || 'usuario@exemplo.com'}</p>
                                                 </div>
 
