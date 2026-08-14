@@ -560,7 +560,7 @@ function Home() {
                                 </p>
 
                                 <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
-                                    We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.
+                                    {t('home.about_desc_2', 'We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.')}
                                 </p>
                             </div>
 
