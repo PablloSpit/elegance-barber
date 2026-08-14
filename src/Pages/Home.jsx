@@ -421,14 +421,13 @@ function Home() {
 
                             {/* Description */}
                             <p
-                                data-hero-description
                                 className="font-sans font-light text-white/50 text-xs sm:text-sm md:text-base max-w-sm leading-relaxed tracking-wide text-center lg:text-left mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0"
                             >
                                 {t('home.hero_desc')}
                             </p>
 
                             {/* CTA Row */}
-                            <div data-hero-cta className="flex flex-row items-center gap-4 sm:gap-6 mb-7 md:mb-12 opacity-0 translate-y-[15px]">
+                            <div className="flex flex-row items-center gap-4 sm:gap-6 mb-7 md:mb-12">
                                 <a href="#appointment">
                                     <div data-magnetic className="group relative">
                                         <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
