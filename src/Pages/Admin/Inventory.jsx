@@ -121,7 +121,7 @@ const Inventory = () => {
                                 {isAdding && (
                                     <tr className="bg-champberry/5 animate-pulse">
                                         <td className="px-6 py-3"><Input placeholder="Nome" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewProduct({...newProduct, name: e.target.value})} /></td>
-                                        <td className="px-4 py-3"><Input placeholder="Cat" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewProduct({...newProduct, category: e.target.value})} /></td>
+                                        <td className="px-4 py-3"><Input placeholder="Categoria" className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewProduct({...newProduct, category: e.target.value})} /></td>
                                         <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-16 mx-auto" onChange={e => setNewProduct({...newProduct, stock: parseInt(e.target.value)})} /></td>
                                         <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, cost_price: parseFloat(e.target.value)})} /></td>
                                         <td className="px-4 py-3"><Input type="number" className="bg-transparent border-white/10 text-xs h-8 w-20" onChange={e => setNewProduct({...newProduct, sale_price: parseFloat(e.target.value)})} /></td>
