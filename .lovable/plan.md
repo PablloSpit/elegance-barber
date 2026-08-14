@@ -1,26 +1,43 @@
-# Plano de Integração: Barbearia "Tactile Obsidian"
+# Plano de Integração: Barber's Center -> Elegance Salon
 
-Este plano detalha a implementação das funcionalidades de gestão de equipe, serviços e configurações baseadas nas referências visuais do "Barber's Center", mantendo a estética "Tactile Obsidian" e a localização em Português (BR).
+Este plano detalha a implementação das funcionalidades extraídas das 23 imagens de referência, consolidando o sistema com tradução completa para Português (BR), moeda em Reais (R$) e novas funcionalidades administrativas.
 
-## 1. Gestão de Equipe (Staff)
-*   **Modais de Adição/Edição:** Atualizar `AddStaffModal.jsx` e `EditStaffModal.jsx` para incluir o campo "Comissão (%)" visível nas imagens, garantindo que o valor seja persistido no `StaffContext`.
-*   **Listagem de Equipe:** Refinar `Staffs.jsx` para exibir a comissão e o status de forma mais proeminente, seguindo o layout mobile das imagens.
-*   **Tradução:** Garantir que todos os campos nos modais (Nome completo, Email, Telefone, Comissão) estejam traduzidos no `pt-BR.json`.
+## 🎨 UI/UX & Design System
+- **Tema:** Manter o "Tactile Obsidian" (Dark, elegante, acentos em dourado/champberry).
+- **Responsividade:** Garantir que todos os novos modais e tabelas sejam mobile-first.
+- **Feedback Visual:** Implementar Toast notifications para todas as ações (sucesso/erro).
 
-## 2. Gestão de Serviços
-*   **Página de Serviços:** Implementar `src/Pages/Admin/Services.jsx` (que estava ausente) para listar os serviços com Preço (R$) e Duração (minutos).
-*   **Modal de Novo Serviço:** Criar `src/Components/AdminPanel Components/AddServiceModal.jsx` com os campos: Nome do Serviço, Preço (R$) e Duração (minutos), conforme a referência.
+## 🛠️ Funcionalidades Admin (Barber's Center)
 
-## 3. Painel do Cliente e Configurações
-*   **Minha Conta:** Atualizar `Account.jsx` e seu componente `Profile.jsx` para incluir a seção de "Segurança" (Alterar Senha) conforme a imagem de preferências.
-*   **Configurações do Sistema:** Implementar campos de "Identidade da Barbearia" e "Regras de Negócio" (Horário de funcionamento, Intervalos) em `Configuration.jsx`.
+### 1. Gestão de Equipe (Staff)
+- **Campos Adicionais:** Adicionar campo de "Comissão (%)" nos modais de Criar/Editar Barbeiro.
+- **Persistência:** Atualizar `StaffContext.jsx` para suportar comissões e persistir no `localStorage`.
 
-## 4. Funcionalidades Avançadas (Fase 2)
-*   **Modo Feriado:** Adicionar funcionalidade de bloqueio de datas no calendário em `Configuration.jsx`.
-*   **Link de Agendamento:** Exibir o link personalizado do barbeiro no painel do staff.
-*   **Webhooks e Assinaturas:** Preparar a estrutura para integração de gateways de pagamento futuros.
+### 2. Gestão de Serviços
+- **Nova Página:** Criar `src/Pages/Admin/Services.jsx`.
+- **CRUD:** Listagem, criação e edição de serviços (Nome, Preço R$, Duração min).
+- **Modal:** Criar `AddServiceModal.jsx` e `EditServiceModal.jsx`.
 
-## Detalhes Técnicos
-*   **Design Tokens:** Uso estrito de `text-champberry`, `bg-obsidian-surface` e `border-white/5`.
-*   **Persistência:** `localStorage` via `StaffContext` e `AuthContext`.
-*   **I18n:** Uso centralizado de `pt-BR.json`.
+### 3. Agenda Avançada
+- **Visualização:** Implementar a visualização diária com status (Pendente, Finalizado, Cancelado, Em andamento, Faltou).
+- **Agendamento Manual:** Modal para o administrador agendar horários diretamente.
+
+### 4. Configurações de Negócio
+- **Página de Perfil:** Adicionar campos de bio, telefone e link de agendamento ("Meu Link").
+- **Regras de Negócio:** Configurar horários de abertura, intervalos e modo feriado (bloqueio de datas).
+
+### 5. Estoque & Relatórios
+- **Estoque:** Refinar a listagem de produtos com busca e alertas de estoque baixo.
+- **Relatórios:** Dashboard financeiro com Receita Total, Ticket Médio e Ranking de Barbeiros.
+
+## 🌎 Internacionalização (i18n)
+- **Tradução 100%:** Mapear todos os textos restantes em inglês para o `src/i18n/pt-BR.json`.
+- **Moeda:** Garantir que todos os valores usem `Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })`.
+
+## 🛡️ Segurança & Proteção
+- **Senhas:** Implementar a troca de senha na página de Configurações.
+- **Privacidade:** Garantir que apenas administradores vejam relatórios financeiros.
+
+## 📐 Detalhes Técnicos
+- **Stack:** React 18, Tailwind 4, Lucide Icons, Recharts (para relatórios).
+- **Estado:** Context API + localStorage (estratégia atual do projeto).
