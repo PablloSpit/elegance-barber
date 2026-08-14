@@ -670,8 +670,8 @@ function Home() {
             <section className="appoinment-section bg-obsidian-card text-white py-8 md:py-4" id='appointment'>
                 <div className='pb-8 mx-auto flex flex-col gap-2'>
                     <div className="heading w-full text-center text-3xl lg:text-5xl font-black uppercase">
-                        <h1 className='text-white font-serif'>Make</h1>
-                        <h1 className='text-champberry font-sans font-black normal-case text-3xl lg:text-5xl'>An Appointment</h1>
+                        <h1 className='text-white font-serif'>{t('home.appointment_title', 'Fazer um')}</h1>
+                        <h1 className='text-champberry font-sans font-black normal-case text-3xl lg:text-5xl'>{t('home.appointment_subtitle', 'Agendamento')}</h1>
                         <hr className='max-w-115 mx-auto border-obsidian-elevated border mt-5' />
                     </div>
                     <div className='mx-auto max-w-7xl w-full px-8 md:px-6 lg:px-8 py-6 md:py-12 mb-8'>
@@ -685,9 +685,9 @@ function Home() {
                 {/* Section Title */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-wide mb-2 font-serif">
-                        Trusted <span className="font-sans font-black text-champberry normal-case">Brands</span>
+                        {t('home.brands_title', 'Marcas de')} <span className="font-sans font-black text-champberry normal-case">{t('home.brands_title_2', 'Confiança')}</span>
                     </h2>
-                    <p className="font-sans font-light text-champberry-muted text-sm tracking-wide">Premium products for exceptional results</p>
+                    <p className="font-sans font-light text-champberry-muted text-sm tracking-wide">{t('home.brands_desc', 'Produtos premium para resultados excepcionais')}</p>
                 </div>
 
                 <BrandCarousel />
@@ -787,7 +787,7 @@ function Home() {
             <section className="sample-images bg-obsidian-card overflow-hidden">
                 <div className="mx-auto px-4 sm:px-6 md:px-16 pb-20 md:pb-24">
                     <div className="heading w-full text-center mb-14 mt-12">
-                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>The <span className='font-sans font-black text-champberry normal-case tracking-normal'>Gallery</span></h1>
+                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>{t('home.gallery_main_title', 'A')} <span className='font-sans font-black text-champberry normal-case tracking-normal'>{t('home.gallery_main_span', 'Galeria')}</span></h1>
                         <hr className='max-w-25 sm:max-w-37.5 mx-auto border-champberry/30 border mt-6 md:mt-8 mb-10' />
                     </div>
                     {/* Responsive Grid: 3 cols mobile, 6 cols desktop */}
