@@ -13,7 +13,10 @@
     "settings": "Configurações",
     "date_time": "Data e Hora",
     "user": "Usuário",
-    "all_rights_reserved": "Todos os direitos reservados."
+    "all_rights_reserved": "Todos os direitos reservados.",
+    "step": "Passo",
+    "login": "Entrar",
+    "back": "Voltar"
   },
   "nav": {
     "home": "Início",
@@ -25,7 +28,12 @@
     "admin": "Painel Admin",
     "staff": "Painel Staff",
     "logout": "Sair",
-    "book_now": "AGENDAR HORÁRIO"
+    "book_now": "AGENDAR HORÁRIO",
+    "my_profile": "Meu Perfil",
+    "my_appointments": "Meus Agendamentos",
+    "my_account": "Minha Conta",
+    "login_register": "Entrar / Cadastrar",
+    "book_appointment_short": "AGENDAR"
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -150,7 +158,8 @@
     "brands_title_2": "Confiança",
     "brands_desc": "Produtos premium para resultados excepcionais",
     "gallery_main_title": "A",
-    "gallery_main_span": "Galeria"
+    "gallery_main_span": "Galeria",
+    "mens_salon": "Barbearia Masculina"
   },
   "profile": {
     "experience": "Experiência",
@@ -166,6 +175,31 @@
     "security": "Segurança"
   },
   "appointments": {
+    "select_services": "SELECIONAR SERVIÇOS",
+    "service_selected_singular": "SERVIÇO SELECIONADO",
+    "services_selected_plural": "SERVIÇOS SELECIONADOS",
+    "continue_schedule": "Continuar para Agenda",
+    "select_date": "Selecionar Data",
+    "choose_time": "Escolher Horário",
+    "final_details": "Detalhes Finais",
+    "confirm_booking": "Confirmar Agendamento",
+    "success_msg": "Agendamento confirmado! {{summary}}",
+    "placeholders": {
+      "search": "Buscar cliente, serviço, ID...",
+      "name": "NOME",
+      "email": "E-MAIL",
+      "phone": "TELEFONE",
+      "requests": "PEDIDOS ADICIONAIS (OPCIONAL)"
+    },
+    "errors": {
+      "select_service": "Por favor, selecione pelo menos um serviço para continuar.",
+      "choose_datetime": "Por favor, escolha uma data e hora válidas.",
+      "past_date": "Por favor, selecione uma data futura.",
+      "outside_hours": "Por favor, selecione um horário entre 11:00 e 20:00.",
+      "sunday": "Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.",
+      "details_required": "Dados pessoais são obrigatórios.",
+      "invalid_phone": "Por favor, insira um número de telefone válido."
+    },
     "status": {
       "all": "Todos",
       "confirmed": "Confirmado",
@@ -174,9 +208,6 @@
       "cancelled": "Cancelado",
       "completed": "Finalizado",
       "missed": "Faltou"
-    },
-    "placeholders": {
-      "search": "Buscar cliente, serviço, ID..."
     },
     "filters": {
       "title": "Filtros",
@@ -188,6 +219,40 @@
       "this_week": "Esta Semana",
       "this_month": "Este Mês",
       "date_range": "Intervalo de Datas"
+    }
+  },
+  "services": {
+    "categories": {
+      "haircut_services": "Serviços de Cabelo",
+      "skin_face": "Pele e Rosto",
+      "wax_design": "Cera e Design",
+      "treatment_style": "Tratamentos e Estilo"
+    },
+    "items": {
+      "haircut_standard": "Corte de Cabelo",
+      "beard_trim": "Aparo de Barba",
+      "classic_shave": "Barbear Clássico",
+      "coloring": "Coloração",
+      "mustache_trim": "Aparo de Bigode",
+      "wash_dry": "Lavagem e Secagem",
+      "facial_bodyshop": "Limpeza Facial Bodyshop",
+      "facial_janseen": "Limpeza Facial Janseen",
+      "facial_herbal": "Limpeza Facial Herbal",
+      "facial_gold": "Limpeza Facial Gold",
+      "facial_steaming": "Vaporização Facial",
+      "body_massage": "Massagem Corporal",
+      "eyebrow_design": "Design de Sobrancelha",
+      "full_face_wax": "Depilação Facial Completa",
+      "chest_wax": "Depilação de Peito",
+      "back_wax": "Depilação de Costas",
+      "arm_wax": "Depilação de Braço",
+      "leg_wax": "Depilação de Perna",
+      "keratin_treatment": "Tratamento de Queratina",
+      "hair_spa": "Spa Capilar",
+      "deep_conditioning": "Condicionamento Profundo",
+      "scalp_treatment": "Tratamento do Couro Cabeludo",
+      "hair_straightening": "Alisamento",
+      "special_hairstyles": "Penteados Especiais"
     }
   },
   "contact": {
