@@ -303,21 +303,6 @@ function Appointment() {
         }
         setCurrentStep(4)
     }
-        if (date < new Date().toISOString().split('T')[0]) {
-            showMessage('error', t('appointments.errors.past_date', 'Por favor, selecione uma data futura.'))
-            return
-        }
-        if (time < '11:00' || time > '20:00') {
-            showMessage('error', t('appointments.errors.outside_hours', 'Por favor, selecione um horário entre 11:00 e 20:00.'))
-            return
-        }
-        const selectedDate = new Date(date)
-        if (selectedDate.getDay() === 0) {
-            showMessage('error', t('appointments.errors.sunday', 'Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.'))
-            return
-        }
-        setCurrentStep(3)
-    }
 
     // Final Submission Logic (Strictly maintains existing footprint)
     const handleSubmit = async (e) => {
