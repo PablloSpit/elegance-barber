@@ -71,7 +71,11 @@
     "new_service": "Novo Serviço",
     "catalog_services": "Catálogo de Serviços",
     "service_name": "Nome do Serviço",
-    "duration_min": "Duração (min)"
+    "duration_min": "Duração (min)",
+    "holiday_mode": "Modo Feriado",
+    "holiday_mode_desc": "Bloqueia todos os agendamentos no período selecionado",
+    "alert_sounds": "Sons de Alerta",
+    "alert_sounds_desc": "Reproduz som ao receber novos agendamentos"
   },
   "inventory": {
     "title": "Controle de Estoque",

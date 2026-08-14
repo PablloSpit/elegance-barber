@@ -184,8 +184,8 @@ function Configuration() {
                                     <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
                                         <Calendar className="text-champberry-muted" size={20} />
                                         <div className="flex-1">
-                                            <p className="text-xs text-white font-bold uppercase">Ativar Modo Feriado</p>
-                                            <p className="text-[10px] text-gray-500">Bloqueia todos os agendamentos no período selecionado</p>
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode', 'Modo Feriado')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc', 'Bloqueia todos os agendamentos no período selecionado')}</p>
                                         </div>
                                         <input type="checkbox" className="w-5 h-5 accent-champberry cursor-pointer" />
                                     </div>
@@ -196,8 +196,8 @@ function Configuration() {
                                     <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
                                         <Bell className="text-champberry-muted" size={20} />
                                         <div className="flex-1">
-                                            <p className="text-xs text-white font-bold uppercase">Sons de Alerta</p>
-                                            <p className="text-[10px] text-gray-500">Reproduz som ao receber novos agendamentos</p>
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds', 'Sons de Alerta')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc', 'Reproduz som ao receber novos agendamentos')}</p>
                                         </div>
                                         <input type="checkbox" defaultChecked className="w-5 h-5 accent-champberry cursor-pointer" />
                                     </div>
