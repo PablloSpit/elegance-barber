@@ -30,10 +30,10 @@ const Inventory = () => {
     }, [products, searchTerm]);
 
     const stats = useMemo(() => {
-        const totalItems = products.reduce((acc, p) => acc + p.stock, 0);
-        const lowStock = products.filter(p => p.stock <= p.min_stock).length;
-        const totalValue = products.reduce((acc, p) => acc + (p.stock * p.cost_price), 0);
-        const projectedProfit = products.reduce((acc, p) => acc + (p.stock * (p.sale_price - p.cost_price)), 0);
+        const totalItems = products.reduce((acc, p) => acc + (Number(p.stock) || 0), 0);
+        const lowStock = products.filter(p => (Number(p.stock) || 0) <= (Number(p.min_stock) || 0)).length;
+        const totalValue = products.reduce((acc, p) => acc + ((Number(p.stock) || 0) * (Number(p.cost_price) || 0)), 0);
+        const projectedProfit = products.reduce((acc, p) => acc + ((Number(p.stock) || 0) * ((Number(p.sale_price) || 0) - (Number(p.cost_price) || 0))), 0);
         return { totalItems, lowStock, totalValue, projectedProfit };
     }, [products]);
 
