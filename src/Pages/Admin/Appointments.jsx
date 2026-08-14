@@ -511,12 +511,12 @@ function Appointments() {
                                             Stylist
                                         </SortableHeader>
                                         <SortableHeader field="date" currentSort={sortConfig} onSort={handleSort}>
-                                            Date & Time
+                                            Data e Hora
                                         </SortableHeader>
                                         <SortableHeader field="status" currentSort={sortConfig} onSort={handleSort}>
                                             Status
                                         </SortableHeader>
-                                        <th className="px-6 py-5 text-right">Actions</th>
+                                        <th className="px-6 py-5 text-right">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/5">
@@ -535,18 +535,18 @@ function Appointments() {
                                                             <div className="flex items-center gap-2">
                                                                 <div className="font-bold text-white text-sm">{appointment.name}</div>
                                                                 {appointment.userId == null && (
-                                                                    <div className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</div>
+                                                                    <div className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Visitante</div>
                                                                 )}
                                                             </div>
                                                             <div className="text-[#777] text-xs flex items-center gap-1 mt-0.5">
-                                                                {appointment.phone || "No Phone"}
+                                                                {appointment.phone || "Sem Telefone"}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className="px-6 py-4">
                                                     <div className="text-gray-300 text-sm font-medium">{getServiceText(appointment) || '—'}</div>
-                                                    <div className="text-champberry text-xs font-bold mt-1">${getTotalPrice(appointment)}</div>
+                                                    <div className="text-champberry text-xs font-bold mt-1">R$ {getTotalPrice(appointment)}</div>
                                                 </td>
                                                 <td className="px-6 py-4">
                                                     {getStylistText(appointment) ? (
@@ -554,7 +554,7 @@ function Appointments() {
                                                             <User size={12} /> {getStylistText(appointment)}
                                                         </span>
                                                     ) : (
-                                                        <span className="text-[#555] text-xs italic">Unassigned</span>
+                                                        <span className="text-[#555] text-xs italic">Não atribuído</span>
                                                     )}
                                                 </td>
                                                 <td className="px-6 py-4">
@@ -584,18 +584,18 @@ function Appointments() {
                                             <td colSpan="7" className="px-6 py-12 text-center">
                                                 <div className="flex flex-col items-center gap-3">
                                                     <Search size={48} className="text-[#333]" />
-                                                    <h3 className="text-white font-bold text-lg">No appointments found</h3>
+                                                    <h3 className="text-white font-bold text-lg">Nenhum agendamento encontrado</h3>
                                                     <p className="text-champberry-muted max-w-md text-sm">
                                                         {hasActiveFilters
-                                                            ? "Try adjusting your filters or search terms to find what you're looking for."
-                                                            : "No appointments match your search criteria."}
+                                                            ? "Tente ajustar seus filtros ou termos de busca para encontrar o que procura."
+                                                            : "Nenhum agendamento corresponde aos seus critérios de busca."}
                                                     </p>
                                                     {hasActiveFilters && (
                                                         <button
                                                             onClick={clearAllFilters}
                                                             className="mt-2 px-6 py-2.5 bg-champberry hover:bg-champberry-dark text-white cursor-pointer font-bold rounded-lg text-sm transition-colors uppercase tracking-wide shadow-lg"
                                                         >
-                                                            Clear All Filters
+                                                            Limpar Todos os Filtros
                                                         </button>
                                                     )}
                                                 </div>
@@ -622,7 +622,7 @@ function Appointments() {
                                                             <h4 className="font-bold text-white text-sm truncate">{appointment.name}</h4>
                                                             <span className="text-[#555] font-mono text-[10px]">#{appointment.id}</span>
                                                             {appointment.userId == null && (
-                                                                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-champberry/20 text-champberry text-[9px] font-bold uppercase">Guest</span>
+                                                                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-champberry/20 text-champberry text-[9px] font-bold uppercase">Visitante</span>
                                                             )}
                                                         </div>
                                                         <p className="text-[#777] text-xs truncate mt-0.5">{getServiceText(appointment) || '—'}</p>
@@ -641,11 +641,11 @@ function Appointments() {
                                                     </div>
                                                     <div className="flex items-center gap-1.5 text-xs text-[#777]">
                                                         <User size={11} className="shrink-0" />
-                                                        <span className="truncate">{getStylistText(appointment) || 'Unassigned'}</span>
+                                                        <span className="truncate">{getStylistText(appointment) || 'Não atribuído'}</span>
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-2 shrink-0">
-                                                    <span className="text-champberry font-bold text-sm">${getTotalPrice(appointment)}</span>
+                                                    <span className="text-champberry font-bold text-sm">R$ {getTotalPrice(appointment)}</span>
                                                     <AppointmentMenu
                                                         appointment={appointment}
                                                         onEdit={handleEdit}
@@ -659,18 +659,18 @@ function Appointments() {
                             ) : (
                                 <div className="flex flex-col items-center gap-3 py-12 px-4 text-center">
                                     <Search size={40} className="text-[#333]" />
-                                    <h3 className="text-white font-bold text-base">No appointments found</h3>
+                                    <h3 className="text-white font-bold text-base">Nenhum agendamento encontrado</h3>
                                     <p className="text-champberry-muted text-xs max-w-sm">
                                         {hasActiveFilters
-                                            ? "Try adjusting your filters or search terms."
-                                            : "No appointments match your search criteria."}
+                                            ? "Tente ajustar seus filtros ou termos de busca."
+                                            : "Nenhum agendamento corresponde aos seus critérios de busca."}
                                     </p>
                                     {hasActiveFilters && (
                                         <button
                                             onClick={clearAllFilters}
                                             className="mt-2 px-4 py-2 bg-champberry hover:bg-champberry-dark text-white cursor-pointer font-bold rounded-lg text-xs transition-colors uppercase tracking-wide shadow-lg"
                                         >
-                                            Clear All Filters
+                                            Limpar Todos os Filtros
                                         </button>
                                     )}
                                 </div>
@@ -679,10 +679,10 @@ function Appointments() {
 
                         {/* Footer / Pagination Placeholder */}
                         <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
-                            <span>Showing <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> of <span className="text-white font-bold">{appointments.length}</span></span>
+                            <span>Exibindo <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> de <span className="text-white font-bold">{appointments.length}</span></span>
                             <div className="flex gap-1.5 sm:gap-2">
-                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Prev</button>
-                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length > 10 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Next</button>
+                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Anterior</button>
+                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length > 10 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Próximo</button>
                             </div>
                         </div>
                     </>
