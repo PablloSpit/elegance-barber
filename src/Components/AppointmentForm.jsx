@@ -473,7 +473,6 @@ function Appointment() {
         </div>
         </div>
     )
-    )
 }
 
 export default Appointment
