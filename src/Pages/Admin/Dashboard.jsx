@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
     Search,
     Bell,
@@ -20,6 +21,7 @@ import ViewAppointmentModal from '../../Components/AdminPanel Components/ViewApp
 import { useStaff } from '../../Context/StaffContext'
 
 function Dashboard() {
+    const { t } = useTranslation()
     const [inventoryStats, setInventoryStats] = useState({ totalItems: 0, lowStock: 0 });
 
     useEffect(() => {
@@ -90,7 +92,7 @@ function Dashboard() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                 <StatsCard
-                    title="Receita Total"
+                    title={t('reports.revenue')}
                     value={`R$${totalRevenue.toFixed(2)}`}
                     change={totalRevenue > 0 ? `${((totalRevenue - 100) / 100 * 100).toFixed(1)}%` : "0%"}
                     positive={totalRevenue >= 100}
@@ -99,7 +101,7 @@ function Dashboard() {
                     bg="bg-champberry/10"
                 />
                 <StatsCard
-                    title="Total de Agendamentos"
+                    title={t('admin.appointments')}
                     value={appointments.length}
                     change={appointments.length > 0 ? `${((appointments.length - 5) / 5 * 100).toFixed(1)}%` : "0%"}
                     positive={appointments.length >= 5}
@@ -108,7 +110,7 @@ function Dashboard() {
                     bg="bg-emerald-500/10"
                 />
                 <StatsCard
-                    title="Itens com Estoque Baixo"
+                    title={t('inventory.low_stock')}
                     value={inventoryStats.lowStock}
                     change={`${inventoryStats.totalItems} Itens Total`}
                     positive={false}
@@ -117,7 +119,7 @@ function Dashboard() {
                     bg="bg-red-500/10"
                 />
                 <StatsCard
-                    title="Barbeiros Ativos"
+                    title={t('admin.staff_active', 'Barbeiros Ativos')}
                     value={getActiveStaff().length}
                     change={getActiveStaff().length > 0 ? `${((getActiveStaff().length - 4) / 4 * 100).toFixed(1)}%` : "0%"}
                     positive={getActiveStaff().length >= 4}
@@ -131,12 +133,12 @@ function Dashboard() {
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
                     <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-champberry flex items-center gap-2 sm:gap-3">
-                        <span className="text-white">Agendamentos</span> Recentes
-                        <span className="flex items-center justify-center text-[10px] font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2.5 py-1 rounded-md tracking-wider uppercase shadow-[0_0_10px_rgba(251,157,51,0.1)]">Ao Vivo</span>
+                        <span className="text-white">{t('admin.appointments')}</span> {t('admin.recent', 'Recentes')}
+                        <span className="flex items-center justify-center text-[10px] font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2.5 py-1 rounded-md tracking-wider uppercase shadow-[0_0_10px_rgba(251,157,51,0.1)]">{t('admin.live')}</span>
                     </h2>
                     <button className="px-4 sm:px-6 py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer">
                         <Link to="/admin/appointments" className="flex items-center gap-1">
-                            Ver Todos
+                            {t('admin.view_all')}
                         </Link>
                     </button>
                 </div>
@@ -145,10 +147,10 @@ function Dashboard() {
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-white/2 text-[#555] uppercase text-[11px] font-bold tracking-wider">
                             <tr>
-                                <th className="px-6 py-4">Cliente</th>
-                                <th className="px-6 py-4">Serviço</th>
-                                <th className="px-6 py-4">Barbeiro</th>
-                                <th className="px-6 py-4">Data e Hora</th>
+                                <th className="px-6 py-4">{t('inventory.customer', 'Cliente')}</th>
+                                <th className="px-6 py-4">{t('inventory.service', 'Serviço')}</th>
+                                <th className="px-6 py-4">{t('admin.staff', 'Barbeiro')}</th>
+                                <th className="px-6 py-4">{t('common.date_time', 'Data e Hora')}</th>
                                 <th className="px-6 py-4">Status</th>
                                 <th className="px-6 py-4 text-right">Ações</th>
                             </tr>
@@ -246,11 +248,11 @@ function Dashboard() {
                 <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden">
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center gap-3 sm:gap-4">
                         <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
-                            <span className="text-white">Status do</span> Estoque
+                            <span className="text-white">{t('inventory.status', 'Status do')}</span> {t('inventory.title', 'Estoque')}
                             {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
                         </h2>
                         <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
-                            <Link to="/admin/inventory">Gerenciar Estoque</Link>
+                            <Link to="/admin/inventory">{t('admin.manage_inventory', 'Gerenciar Estoque')}</Link>
                         </button>
                     </div>
                     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 flex-1">
@@ -265,11 +267,11 @@ function Dashboard() {
                 <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden">
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center">
                         <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
-                            <span className="text-white">Agenda da</span> Equipe
+                            <span className="text-white">{t('admin.schedule', 'Agenda da')}</span> {t('admin.staff', 'Equipe')}
                             {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Today</span> */}
                         </h2>
                         <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">
-                            <Link to="/admin/staffs">Ver Equipe</Link>
+                            <Link to="/admin/staffs">{t('admin.view_team', 'Ver Equipe')}</Link>
                         </button>
                     </div>
                     <div className="p-4 sm:p-6 space-y-2 flex-1 overflow-y-auto custom-scrollbar">
