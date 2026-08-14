@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { services } from '../data/services.js'
 import { useAppointment } from '../Context/AppointmentContext.jsx'
 import { useAuth } from '../Context/AuthContext.jsx'
@@ -13,6 +14,7 @@ const Step1Selection = memo(({
     selectedService, toggleService, isOpen, setIsOpen,
     totalPrice, dropdownRef, onNext
 }) => {
+    const { t } = useTranslation()
     return (
         <div className="flex flex-col gap-4">
             <div className="w-full relative" ref={dropdownRef}>
@@ -74,7 +76,7 @@ const Step1Selection = memo(({
                                 key={s.name}
                                 className="inline-flex items-center gap-1.5 bg-champberry/15 border border-champberry/40 text-champberry text-xs font-black px-2 py-1 rounded-sm tracking-tight"
                             >
-                                {s.name} — {s.price}
+                                {t(`services.items.${s.name}`, s.name)} — {s.price}
                                 <button
                                     type="button"
                                     onClick={(e) => { e.stopPropagation(); toggleService(s) }}
@@ -88,7 +90,7 @@ const Step1Selection = memo(({
                 )}
                 {selectedService.length > 0 && (
                     <div className="mt-3 text-left text-sm font-black text-champberry-muted tracking-wide">
-                        TOTAL: <span className="text-champberry text-lg">${totalPrice}</span>
+                        TOTAL: <span className="text-champberry text-lg">R$ {totalPrice}</span>
                     </div>
                 )}
             </div>
@@ -99,7 +101,7 @@ const Step1Selection = memo(({
                     onClick={onNext}
                     className="w-full border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 px-6 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest"
                 >
-                    Continue to Schedule
+                    {t('appointments.continue_schedule', 'Continuar para Agenda')}
                 </button>
             </div>
         </div>
@@ -112,15 +114,16 @@ const Step1Selection = memo(({
 const Step2Schedule = memo(({
     date, setDate, time, setTime, onPrev, onNext
 }) => {
+    const { t } = useTranslation()
     return (
         <div className="flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full relative group">
-                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Select Date</label>
+                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">{t('appointments.select_date', 'Selecionar Data')}</label>
                     <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
                 </div>
                 <div className="w-full relative group">
-                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">Choose Time</label>
+                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">{t('appointments.choose_time', 'Escolher Horário')}</label>
                     <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 md:py-4 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
                 </div>
             </div>
@@ -131,14 +134,14 @@ const Step2Schedule = memo(({
                     onClick={onPrev}
                     className="w-1/3 border-2 border-[#454545] hover:border-white text-white/50 hover:text-white font-black p-3 transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
                 >
-                    Back
+                    {t('common.back', 'Voltar')}
                 </button>
                 <button
                     type="button"
                     onClick={onNext}
                     className="w-2/3 border-2 border-champberry/50 hover:border-champberry text-champberry font-black p-3 hover:bg-champberry hover:text-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
                 >
-                    Final Details
+                    {t('appointments.final_details', 'Detalhes Finais')}
                 </button>
             </div>
         </div>
@@ -151,12 +154,13 @@ const Step2Schedule = memo(({
 const Step3Details = memo(({
     name, setName, email, setEmail, phoneNumber, setPhoneNumber, message, setMessage, onPrev, onSubmit
 }) => {
+    const { t } = useTranslation()
     return (
         <div className="flex flex-col gap-4">
-            <input type="text" placeholder="NAME" value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
-            <input type="email" placeholder="EMAIL" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
-            <input type="tel" placeholder="PHONE NUMBER" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
-            <textarea placeholder="ADDITIONAL REQUESTS (OPTIONAL)" value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" rows={2} />
+            <input type="text" placeholder={t('appointments.placeholders.name', 'NOME')} value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <input type="email" placeholder={t('appointments.placeholders.email', 'E-MAIL')} value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <input type="tel" placeholder={t('appointments.placeholders.phone', 'TELEFONE')} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+            <textarea placeholder={t('appointments.placeholders.requests', 'PEDIDOS ADICIONAIS (OPCIONAL)')} value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" rows={2} />
 
             <div className="flex gap-4 mt-2">
                 <button
@@ -164,14 +168,14 @@ const Step3Details = memo(({
                     onClick={onPrev}
                     className="w-1/3 border-2 border-[#454545] hover:border-white text-white/50 hover:text-white font-black p-3 transition-all duration-300 cursor-pointer uppercase tracking-widest text-xs"
                 >
-                    Back
+                    {t('common.back', 'Voltar')}
                 </button>
                 <button
                     type="submit"
                     onClick={onSubmit}
                     className="w-2/3 border-5 border-champberry text-white font-black p-3 hover:bg-[#d28127] hover:border-white transition-all duration-300 cursor-pointer uppercase tracking-widest text-sm"
                 >
-                    Confirm Booking
+                    {t('appointments.confirm_booking', 'Confirmar Agendamento')}
                 </button>
             </div>
         </div>
@@ -182,6 +186,7 @@ const Step3Details = memo(({
  *  MAIN COMPONENT (State Machine & GSAP Animations)
  *  ========================================================================= */
 function Appointment() {
+    const { t } = useTranslation()
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
@@ -201,7 +206,7 @@ function Appointment() {
     const [time, setTime] = useState('')
     const [message, setMessage] = useState('')
 
-    const totalPrice = selectedService.reduce((sum, s) => sum + parseFloat(s.price.replace('$', '')), 0)
+    const totalPrice = selectedService.reduce((sum, s) => sum + parseFloat(s.price.replace('R$ ', '')), 0)
 
     const toggleService = (service) => {
         setSelectedService(prev => {
@@ -237,7 +242,7 @@ function Appointment() {
     // Step Validation Handlers
     const handleNextStep1 = () => {
         if (selectedService.length === 0) {
-            showMessage('warning', 'Please select at least one service to continue.')
+            showMessage('warning', t('appointments.errors.select_service', 'Por favor, selecione pelo menos um serviço para continuar.'))
             return
         }
         setCurrentStep(2)
@@ -245,20 +250,20 @@ function Appointment() {
 
     const handleNextStep2 = () => {
         if (!date || !time) {
-            showMessage('warning', 'Please choose a valid date and time.')
+            showMessage('warning', t('appointments.errors.choose_datetime', 'Por favor, escolha uma data e hora válidas.'))
             return
         }
         if (date < new Date().toISOString().split('T')[0]) {
-            showMessage('error', 'Please select a correct upcoming date.')
+            showMessage('error', t('appointments.errors.past_date', 'Por favor, selecione uma data futura.'))
             return
         }
         if (time < '11:00' || time > '20:00') {
-            showMessage('error', 'Please select a time between 11:00 AM and 8:00 PM.')
+            showMessage('error', t('appointments.errors.outside_hours', 'Por favor, selecione um horário entre 11:00 e 20:00.'))
             return
         }
         const selectedDate = new Date(date)
         if (selectedDate.getDay() === 0) {
-            showMessage('error', 'Appointments cannot be booked on Sundays. Please select another day.')
+            showMessage('error', t('appointments.errors.sunday', 'Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.'))
             return
         }
         setCurrentStep(3)
@@ -269,12 +274,12 @@ function Appointment() {
         e.preventDefault()
 
         if (!name || !email || !phoneNumber) {
-            showMessage('error', 'Personal details are required.')
+            showMessage('error', t('appointments.errors.details_required', 'Dados pessoais são obrigatórios.'))
             return
         }
-        const phonePattern = /^(03\d{2}-\d{7}|\+923\d{9})$/
-        if (!phonePattern.test(phoneNumber)) {
-            showMessage('error', 'Please enter a valid Pakistani phone number (e.g., 0336-3090793).')
+        const phonePattern = /^(\d{2})?\d{9}$/ // Basic Brazilian-friendly pattern
+        if (!phonePattern.test(phoneNumber.replace(/\D/g, ''))) {
+            showMessage('error', t('appointments.errors.invalid_phone', 'Por favor, insira um número de telefone válido.'))
             return
         }
 
@@ -287,7 +292,7 @@ function Appointment() {
             const assignmentSummary = result.assignments
                 .map(a => `${a.service} → ${a.stylist}`)
                 .join(', ')
-            showMessage('success', `Booking confirmed! ${assignmentSummary}`)
+            showMessage('success', t('appointments.success_msg', { summary: assignmentSummary }))
 
             // Reset form completely & return to Step 1
             setSelectedService([])
@@ -319,7 +324,7 @@ function Appointment() {
                     <div key={num} className="flex-1 flex flex-col gap-2">
                         <div className={`h-1 w-full transition-colors duration-500 rounded-full ${num <= currentStep ? 'bg-champberry' : 'bg-white/10'}`}></div>
                         <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-500 ${num <= currentStep ? 'text-champberry' : 'text-white/30'}`}>
-                            Step {num}
+                            {t('common.step', 'Passo')} {num}
                         </span>
                     </div>
                 ))}

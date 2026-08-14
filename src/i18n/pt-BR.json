@@ -13,7 +13,9 @@
     "settings": "Configurações",
     "date_time": "Data e Hora",
     "user": "Usuário",
-    "all_rights_reserved": "Todos os direitos reservados."
+    "all_rights_reserved": "Todos os direitos reservados.",
+    "step": "Passo",
+    "back": "Voltar"
   },
   "nav": {
     "home": "Início",
