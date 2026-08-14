@@ -78,7 +78,7 @@ function Dashboard() {
         appointment.items?.map(item => item.service.name).join(', ') || appointment.service || '—'
 
     const getStylistSummary = (appointment) =>
-        appointment.items?.map(item => item.stylist?.name).filter(Boolean).join(', ') || appointment.stylistName || 'Unassigned'
+        appointment.items?.map(item => item.stylist?.name).filter(Boolean).join(', ') || appointment.stylistName || 'Não atribuído'
 
     // Calculate Total Revenue
     useEffect(() => {
@@ -204,7 +204,7 @@ function Dashboard() {
                                         <h4 className="font-bold text-white text-sm flex items-center gap-2">
                                             <span>{appointment.name}</span>
                                             {appointment.userId == null && (
-                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Guest</span>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Convidado</span>
                                             )}
                                         </h4>
                                         <div className="text-xs text-[#777] flex items-center gap-1 mt-0.5">

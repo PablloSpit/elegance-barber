@@ -112,8 +112,8 @@ const Inventory = () => {
                                     <th className="px-6 py-4">{t('inventory.product')}</th>
                                     <th className="px-4 py-4">{t('inventory.category')}</th>
                                     <th className="px-4 py-4 text-center">{t('inventory.quantity')}</th>
-                                    <th className="px-4 py-4">{t('inventory.cost')}</th>
-                                    <th className="px-4 py-4">{t('inventory.sale')}</th>
+                                    <th className="px-4 py-4">Custo</th>
+                                    <th className="px-4 py-4">Venda</th>
                                     <th className="px-6 py-4 text-right">{t('common.actions')}</th>
                                 </tr>
                             </thead>
