@@ -197,6 +197,17 @@ function Appointment() {
     const staffIdParam = staffSlug 
         ? staff.find(s => s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-') === staffSlug)?.id
         : searchParams.get('staff')
+    
+    const [forcedStaff, setForcedStaff] = useState(null)
+    
+    useEffect(() => {
+        if (staffIdParam) {
+            const foundStaff = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString())
+            if (foundStaff) {
+                setForcedStaff(foundStaff)
+            }
+        }
+    }, [staffIdParam, staff])
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
