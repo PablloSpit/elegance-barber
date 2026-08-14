@@ -409,12 +409,12 @@ function Home() {
 
                                 {/* Line 2: Massive, dominant */}
                                 <h2 className="font-sans font-black text-white text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] 2xl:text-[7rem] uppercase leading-[0.9] -tracking-[0.02em] my-2 sm:my-3 md:my-4">
-                                    Masculine
+                                    {t('home.hero_title_2')}
                                 </h2>
 
                                 {/* Line 3 */}
                                 <h3 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1]  uppercase">
-                                    Grooming
+                                    {t('home.hero_title_3', 'Premium')}
                                 </h3>
                             </div>
 
@@ -423,7 +423,7 @@ function Home() {
                                 data-hero-description
                                 className="font-sans font-light text-white/50 text-xs sm:text-sm md:text-base max-w-sm leading-relaxed tracking-wide text-center lg:text-left mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0"
                             >
-                                Where precision meets sophistication. Traditional craft, modern edge.
+                                {t('home.hero_desc')}
                             </p>
 
                             {/* CTA Row */}
@@ -432,7 +432,7 @@ function Home() {
                                     <div data-magnetic className="group relative">
                                         <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
                                             <span data-magnetic-text className="relative z-10 inline-flex items-center gap-2 sm:gap-3">
-                                                Book Now
+                                                {t('nav.book_now')}
                                                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-500 ease-luxury group-hover:translate-x-1" strokeWidth={2} />
                                             </span>
                                         </button>
@@ -440,7 +440,7 @@ function Home() {
                                 </a>
 
                                 <a href="#services" className="group inline-flex items-center gap-2 text-white/40 hover:text-champberry font-sans font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] transition-colors duration-500 ease-luxury">
-                                    Services
+                                    {t('nav.services')}
                                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-500 ease-luxury group-hover:translate-x-1.5" strokeWidth={2} />
                                 </a>
                             </div>
@@ -545,19 +545,18 @@ function Home() {
                         <div className="md:col-span-12 lg:col-span-6 flex flex-col justify-center mt-12 md:mt-0 md:pl-8 lg:pl-16">
 
                             <h3 className="manifesto-line font-serif italic text-champberry text-2xl lg:text-3xl font-light mb-6">
-                                Our Philosophy
+                                {t('home.about_title')}
                             </h3>
 
                             <h2 className="manifesto-line font-sans font-black text-white text-4xl md:text-5xl lg:text-6xl uppercase mb-10">
-                                The Art of <br />
-                                <span className="font-serif block text-transparent bg-clip-text bg-linear-to-r from-white via-champberry to-white/50 text-5xl tracking-tighter">Masculine Grooming</span>
+                                {t('home.about_title_2')}
                             </h2>
 
                             {/* Brand Manifesto Text with Drop Cap */}
                             <div className="manifesto-content max-w-xl">
                                 <p className="manifesto-line font-sans font-light text-white/70 text-base md:text-lg leading-[1.8] mb-6 tracking-wide">
-                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">E</span>
-                                    legance has been at the forefront of men's grooming, setting the standard for the style-conscious gentleman in Karachi. Our dedication lies in empowering every individual to look and feel exceptional every day, stepping out with enduring confidence.
+                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">{t('home.about_desc').charAt(0)}</span>
+                                    {t('home.about_desc').substring(1)}
                                 </p>
 
                                 <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
