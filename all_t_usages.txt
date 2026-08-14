@@ -1,0 +1,434 @@
+src/Components/AdminPanel Components/AddStaffModal.jsx:            setError(t('admin.error_webp_only', 'Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.'));
+src/Components/AdminPanel Components/AddStaffModal.jsx:            setError(t('admin.fill_all_fields'));
+src/Components/AdminPanel Components/AddStaffModal.jsx:                    <h2 className="text-base sm:text-xl font-bold text-white">{t('admin.add_staff_title', 'Adicionar Novo Barbeiro')}</h2>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.profile_picture', 'Foto de Perfil')} (Opcional)</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        {avatarPreview ? t('common.change_photo', 'Alterar Foto') : t('common.upload_photo', 'Enviar Foto')}
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                            {t('common.remove', 'Remover')}
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                    <p className="text-[#555] text-[10px]">{t('admin.webp_only_hint', 'Apenas formato WebP (.webp)')}</p>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name')}</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.select_role')}</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="" disabled>{t('admin.select_role')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="Senior Stylist">{t('admin.roles.senior_barber', 'Barbeiro Sênior')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="Color Specialist">{t('admin.roles.color_specialist', 'Especialista em Cor')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="Junior Barber">{t('admin.roles.junior_barber', 'Barbeiro Júnior')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="Makeup Artist">{t('admin.roles.makeup_artist', 'Maquiador(a)')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        <option value="Receptionist">{t('admin.roles.receptionist', 'Recepcionista')}</option>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number')}</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.account_password')}</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                        placeholder={t('admin.password_hint', 'Defina uma senha para o login do profissional')}
+src/Components/AdminPanel Components/AddStaffModal.jsx:                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades ({t('common.separated_by_comma', 'Separadas por vírgula')})</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                            <p className="text-[#555] text-xs ml-1">{t('common.example', 'Exemplo')}: {t('admin.specialties_placeholder')}</p>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('profile.experience')} (Opcional)</label>
+src/Components/AdminPanel Components/AddStaffModal.jsx:                                      <option value="">{t('common.default_new', 'Usar padrão (Novo)')}</option>
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<LayoutDashboard size={20} />} label={t('admin.overview')} to="/admin/dashboard" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Calendar size={20} />} label={t('admin.appointments')} to="/admin/appointments" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<BarChart2 size={20} />} label={t('admin.reports')} to="/admin/reports" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Package size={20} />} label={t('admin.inventory')} to="/admin/inventory" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Users size={20} />} label={t('admin.team_management')} to="/admin/staffs" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Scissors size={20} />} label={t('nav.services', 'Serviços')} to="/admin/services" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Globe size={20} />} label={t('nav.my_link', 'Meu Link')} to="/admin/configuration#link" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>{t('common.settings')}</p>
+src/Components/AdminPanel Components/AdminSidebar.jsx:                        <NavItem icon={<Settings size={20} />} label={t('admin.config')} to="/admin/configuration" collapsed={collapsed} />
+src/Components/AdminPanel Components/AdminSidebar.jsx:                            {!collapsed && <span className="font-medium text-sm">{t('nav.logout')}</span>}
+src/Components/AdminPanel Components/AppointmentMenu.jsx:        if (confirm(t('appointments.actions.confirm_status_change', { status: t('appointments.status.confirmed').toLowerCase() }))) {
+src/Components/AdminPanel Components/AppointmentMenu.jsx:        if (confirm(t('appointments.actions.confirm_cancel'))) {
+src/Components/AdminPanel Components/AppointmentMenu.jsx:        if (confirm(t('appointments.actions.confirm_delete'))) {
+src/Components/AdminPanel Components/AppointmentMenu.jsx:                            {t('appointments.status.confirmed')}
+src/Components/AdminPanel Components/AppointmentMenu.jsx:                        {t('common.view_details')}
+src/Components/AdminPanel Components/AppointmentMenu.jsx:                        {t('appointments.actions.edit_details')}
+src/Components/AdminPanel Components/AppointmentMenu.jsx:                            {t('appointments.actions.cancel')}
+src/Components/AdminPanel Components/AppointmentMenu.jsx:                        {t('common.delete')}
+src/Components/AdminPanel Components/EditAppointmentModal.jsx:                showMessage('success', t('common.update_success', 'Atualizado com sucesso'))
+src/Components/AdminPanel Components/EditStaffModal.jsx:                            <h2 className="text-base sm:text-xl font-bold text-white">{t('admin.edit_staff_title', 'Editar Barbeiro')}</h2>
+src/Components/AdminPanel Components/EditStaffModal.jsx:                                            {t('common.remove', 'Remover')}
+src/Components/AdminPanel Components/InventoryItem.jsx:                        {stock}/{max} {t('common.entries', 'entradas')}
+src/Components/AdminPanel Components/StaffDetailsModal.jsx:                             <span className="text-champberry-muted text-[10px] uppercase font-bold tracking-wider mb-1">{t('reports.appointments')}</span>
+src/Components/AdminPanel Components/StaffDetailsModal.jsx:                            <span className="text-emerald-500/70 text-[10px] uppercase font-bold tracking-wider mb-1">{t('home.active')}</span>
+src/Components/AdminPanel Components/StaffDetailsModal.jsx:                                <TrendingUp size={14} /> {t('admin.performance')}
+src/Components/AdminPanel Components/StaffDetailsModal.jsx:                                <span className="text-gray-400">{t('admin.experience_years')}</span>
+src/Components/AdminPanel Components/StaffDetailsModal.jsx:                                <span className="text-gray-400">{t('admin.commission')}</span>
+src/Components/AdminPanel Components/StatusBadge.jsx:        Completed: t('appointments.status.completed'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        Pending: t('appointments.status.pending'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        Cancelled: t('appointments.status.cancelled'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        Confirmed: t('appointments.status.confirmed'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        "Awaiting Confirmation": t('appointments.status.awaiting_confirmation'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        "Checked In": t('appointments.status.checked_in'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        "Missed": t('appointments.status.missed'),
+src/Components/AdminPanel Components/StatusBadge.jsx:        "Faltou": t('appointments.status.missed'),
+src/Components/AdminPanel Components/ViewAppointmentModal.jsx:                        {t('common.close', 'Fechar')}
+src/Components/AppointmentForm.jsx:                                ? t('appointments.select_services', 'SELECIONAR SERVIÇOS')
+src/Components/AppointmentForm.jsx:                                : `${selectedService.length} ${selectedService.length > 1 ? t('appointments.services_selected_plural', 'SERVIÇOS SELECIONADOS') : t('appointments.service_selected_singular', 'SERVIÇO SELECIONADO')}`}
+src/Components/AppointmentForm.jsx:                                        {t(`services.categories.${serviceCategory.title}`, serviceCategory.title)}
+src/Components/AppointmentForm.jsx:                                                <span>{t(`services.items.${service.name}`, service.name)} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(service.price)}</span>
+src/Components/AppointmentForm.jsx:                                {t(`services.items.${s.name}`, s.name)} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(s.price)}
+src/Components/AppointmentForm.jsx:                    {t('appointments.continue_schedule', 'Continuar para Agenda')}
+src/Components/AppointmentForm.jsx:                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">{t('appointments.select_date', 'Selecionar Data')}</label>
+src/Components/AppointmentForm.jsx:                    <label className="absolute -top-3 left-3 bg-obsidian text-champberry px-1 text-[10px] font-bold uppercase tracking-widest z-10 transition-colors group-hover:text-white">{t('appointments.choose_time', 'Escolher Horário')}</label>
+src/Components/AppointmentForm.jsx:                    {t('common.back', 'Voltar')}
+src/Components/AppointmentForm.jsx:                    {t('appointments.final_details', 'Detalhes Finais')}
+src/Components/AppointmentForm.jsx:            <input type="text" placeholder={t('appointments.placeholders.name', 'NOME')} value={name} onChange={(e) => setName(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+src/Components/AppointmentForm.jsx:            <input type="email" placeholder={t('appointments.placeholders.email', 'E-MAIL')} value={email} onChange={(e) => setEmail(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+src/Components/AppointmentForm.jsx:            <input type="tel" placeholder={t('appointments.placeholders.phone', 'TELEFONE')} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" required />
+src/Components/AppointmentForm.jsx:            <textarea placeholder={t('appointments.placeholders.requests', 'PEDIDOS ADICIONAIS (OPCIONAL)')} value={message} onChange={(e) => setMessage(e.target.value)} className="w-full font-black border-2 md:border-5 border-[#454545] p-2 px-3 md:px-4 py-3 text-sm md:text-base text-champberry-muted tracking-tight bg-obsidian hover:border-champberry transition-colors focus:outline-none focus:border-champberry" rows={2} />
+src/Components/AppointmentForm.jsx:                    {t('common.back', 'Voltar')}
+src/Components/AppointmentForm.jsx:                    {t('appointments.confirm_booking', 'Confirmar Agendamento')}
+src/Components/AppointmentForm.jsx:            showMessage('warning', t('appointments.errors.select_service', 'Por favor, selecione pelo menos um serviço para continuar.'))
+src/Components/AppointmentForm.jsx:            showMessage('warning', t('appointments.errors.choose_datetime', 'Por favor, escolha uma data e hora válidas.'))
+src/Components/AppointmentForm.jsx:            showMessage('error', t('appointments.errors.past_date', 'Por favor, selecione uma data futura.'))
+src/Components/AppointmentForm.jsx:            showMessage('error', t('appointments.errors.outside_hours', 'Por favor, selecione um horário entre 11:00 e 20:00.'))
+src/Components/AppointmentForm.jsx:            showMessage('error', t('appointments.errors.sunday', 'Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.'))
+src/Components/AppointmentForm.jsx:            showMessage('error', t('appointments.errors.details_required', 'Dados pessoais são obrigatórios.'))
+src/Components/AppointmentForm.jsx:            showMessage('error', t('appointments.errors.invalid_phone', 'Por favor, insira um número de telefone válido.'))
+src/Components/AppointmentForm.jsx:            showMessage('success', t('appointments.success_msg', { summary: assignmentSummary }))
+src/Components/AppointmentForm.jsx:                            {t('common.step', 'Passo')} {num}
+src/Components/Footer.jsx:                        {t('nav.home')}
+src/Components/Footer.jsx:                        {t('nav.services')}
+src/Components/Footer.jsx:                        {t('nav.contact')}
+src/Components/Footer.jsx:                    <p className="text-sm">&copy; {new Date().getFullYear()} Elegance. {t('common.all_rights_reserved', 'Todos os direitos reservados.')}</p>
+src/Components/Header.jsx:                                    {t('nav.home')}
+src/Components/Header.jsx:                                    {t('nav.services')}
+src/Components/Header.jsx:                                    {t('nav.about')}
+src/Components/Header.jsx:                                    {t('nav.contact')}
+src/Components/Header.jsx:                                {t('nav.book_now')}
+src/Components/Header.jsx:                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">{t('nav.account')}</p>
+src/Components/Header.jsx:                                                    <p className="text-white text-lg font-medium mt-1">{currentUser?.name || t('common.user', 'Usuário')}</p>
+src/Components/Header.jsx:                                                            <span>{t('nav.admin', 'Admin Dashboard')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.staff', 'Staff Dashboard')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.my_appointments', 'My Appointments')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.my_profile', 'My Profile')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.my_profile', 'My Profile')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.my_appointments', 'My Appointments')}</span>
+src/Components/Header.jsx:                                                                <span>{t('nav.book_appointment', 'Agendar Horário')}</span>
+src/Components/Header.jsx:                                                        <span>{t('nav.logout', 'Logout')}</span>
+src/Components/Header.jsx:                                        <span className="text-xs font-bold tracking-widest uppercase">{t('common.login', 'Entrar')}</span>
+src/Components/Header.jsx:                                <p className="text-champberry text-sm uppercase tracking-widest">{t('home.mens_salon', 'Barbearia Masculina')}</p>
+src/Components/Header.jsx:                                                {t('nav.home', 'Início')}
+src/Components/Header.jsx:                                                {t('nav.services', 'Serviços')}
+src/Components/Header.jsx:                                                {t('nav.about', 'Sobre')}
+src/Components/Header.jsx:                                                {t('nav.book_appointment', 'Agendar Horário')}
+src/Components/Header.jsx:                                                    <p className="text-champberry font-semibold text-sm uppercase tracking-wide">{t('nav.my_account', 'Minha Conta')}</p>
+src/Components/Header.jsx:                                                        <span>{t('nav.admin', 'Admin Dashboard')}</span>
+src/Components/Header.jsx:                                                            <span>{t('nav.staff', 'Staff Dashboard')}</span>
+src/Components/Header.jsx:                                                            <span>{t('nav.my_appointments', 'My Appointments')}</span>
+src/Components/Header.jsx:                                                            <span>{t('nav.my_profile', 'My Profile')}</span>
+src/Components/Header.jsx:                                                            <span>{t('nav.my_profile', 'My Profile')}</span>
+src/Components/Header.jsx:                                                            <span>{t('nav.my_appointments', 'My Appointments')}</span>
+src/Components/Header.jsx:                                                        <span>{t('nav.logout', 'Logout')}</span>
+src/Components/Header.jsx:                                                    <p className="text-white font-semibold text-sm uppercase tracking-wide group-hover:text-champberry transition-colors">{t('nav.my_account', 'My Account')}</p>
+src/Components/Header.jsx:                                                    <p className="text-gray-400 text-xs">{t('nav.login_register', 'Login / Register')}</p>
+src/Components/Header.jsx:                                    <p className="text-gray-400 text-xs mb-2">{t('nav.book_appointment_short', 'BOOK APPOINTMENT')}</p>
+src/Components/PriceCard.jsx:                                                {t(`services.categories.${card.title}`, card.title)}
+src/Components/PriceCard.jsx:                                                                    {t(`services.items.${item.name}`, item.name)}
+src/Components/ServiceCard.jsx:                            <span>{t('nav.book_appointment_short', 'AGENDAR')}</span>
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:            message: t('appointments.actions.confirm_status_change', { status: t(`appointments.status.${newStatus.toLowerCase().replace(/ /g, '_')}`).toLowerCase() }),
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                    showMessage('success', t(`appointments.actions.${newStatus.toLowerCase().replace(/ /g, '_')}_success`))
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:            message: t('appointments.actions.confirm_cancel'),
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                    showMessage('success', t('appointments.actions.cancel_success'))
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            onClick={() => handleStatusChange('Checked In', t('appointments.actions.check_in_success'))}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            {t('appointments.actions.check_in')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            onClick={() => handleStatusChange('Completed', t('appointments.actions.completed_success'))}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            {t('appointments.actions.mark_completed')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            {t('common.view_details')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            {t('appointments.actions.edit_details')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                            {t('appointments.actions.cancel')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                        <h3 className="text-white font-bold text-lg mb-2">{t('common.confirm_action')}</h3>
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                                {t('common.no_keep_it')}
+src/Components/StaffPanel Components/StaffAppointmentMenu.jsx:                                {t('common.yes_proceed')}
+src/Components/StaffPanel Components/StaffMenu.jsx:                        {t('admin.check_appointments')}
+src/Components/StaffPanel Components/StaffMenu.jsx:                        {t('common.view_details')}
+src/Components/StaffPanel Components/StaffMenu.jsx:                        {t('admin.edit_stylist')}
+src/Components/StaffPanel Components/StaffMenu.jsx:                        {t('common.delete')}
+src/Components/StaffPanel Components/StaffSidebar.jsx:                        <NavItem icon={<LayoutDashboard size={20} />} label={t('nav.dashboard')} to="/staff/dashboard" collapsed={collapsed} />
+src/Components/StaffPanel Components/StaffSidebar.jsx:                        <NavItem icon={<Calendar size={20} />} label={t('nav.my_appointments')} to="/staff/appointments" collapsed={collapsed} />
+src/Components/StaffPanel Components/StaffSidebar.jsx:                        <NavItem icon={<User size={20} />} label={t('nav.profile')} to="/staff/profile" collapsed={collapsed} />
+src/Components/StaffPanel Components/StaffSidebar.jsx:                        <NavItem icon={<Globe size={20} />} label={t('nav.my_link', 'Meu Link')} to="/staff/link" collapsed={collapsed} />
+src/Components/StaffPanel Components/StaffSidebar.jsx:                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>{t('common.settings')}</p>
+src/Components/StaffPanel Components/StaffSidebar.jsx:                            title={collapsed ? t('nav.logout') : ""}
+src/Components/StaffPanel Components/StaffSidebar.jsx:                            {!collapsed && <span className="font-medium text-sm">{t('nav.logout')}</span>}
+src/Components/UserPanel Components/Profile.jsx:                showMessage(t('common.success_update', 'Perfil atualizado com sucesso!'), 'success')
+src/Components/UserPanel Components/Profile.jsx:                showMessage(t('common.error_update', 'Erro ao atualizar perfil: ') + result.error, 'error')
+src/Components/UserPanel Components/Profile.jsx:            showMessage(t('common.error_update', 'Erro ao atualizar perfil: ') + error.message, 'error')
+src/Components/UserPanel Components/Profile.jsx:                <h2 className="text-2xl sm:text-3xl font-extrabold text-champberry mt-1"><span className="text-white">{t('nav.account')}</span> e Configurações</h2>
+src/Components/UserPanel Components/Profile.jsx:                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='name'>{t('admin.full_name', 'Nome Completo')}</label>
+src/Components/UserPanel Components/Profile.jsx:                            placeholder={t('admin.full_name', 'Nome Completo')}
+src/Components/UserPanel Components/Profile.jsx:                        <label className="block text-champberry-muted font-semibold mb-1" htmlFor='phone'>{t('admin.phone_number', 'Telefone')}</label>
+src/Components/UserPanel Components/Profile.jsx:                    <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">{t('admin.professional_info', 'Segurança')}</h3>
+src/Components/UserPanel Components/Profile.jsx:                        {t('common.save')}
+src/Pages/Admin/Appointments.jsx:                            placeholder={t('appointments.placeholders.search', 'Buscar cliente, serviço, ID...')}
+src/Pages/Admin/Appointments.jsx:                                <option key={cat} value={cat}>{t(categoryMap[cat], cat)}</option>
+src/Pages/Admin/Appointments.jsx:                            <span>{t('appointments.filters.title', 'Filtros')}</span>
+src/Pages/Admin/Appointments.jsx:                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">{t('appointments.filters.panel_title', 'Filtrar Agendamentos')}</h3>
+src/Pages/Admin/Appointments.jsx:                                        {t('appointments.filters.clear_all', 'Limpar Tudo')}
+src/Pages/Admin/Appointments.jsx:                                            {t('appointments.filters.quick_filter', 'Filtro Rápido')}
+src/Pages/Admin/Appointments.jsx:                                                    {preset === 'Today' ? t('appointments.filters.today', 'Hoje') : preset === 'Tomorrow' ? t('appointments.filters.tomorrow', 'Amanhã') : preset === 'This Week' ? t('appointments.filters.this_week', 'Esta Semana') : t('appointments.filters.this_month', 'Este Mês')}
+src/Pages/Admin/Appointments.jsx:                                            {t('appointments.filters.date_range', 'Intervalo de Datas')}
+src/Pages/Admin/Appointments.jsx:                            <span>{t('common.showing')} <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> {t('common.of')} <span className="text-white font-bold">{appointments.length}</span></span>
+src/Pages/Admin/Appointments.jsx:                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>{t('common.previous')}</button>
+src/Pages/Admin/Appointments.jsx:                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length > 10 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>{t('common.next')}</button>
+src/Pages/Admin/Configuration.jsx:            showMessage('error', t('admin.fill_all_fields', 'Por favor, preencha todos os campos obrigatórios'))
+src/Pages/Admin/Configuration.jsx:                showMessage('error', t('admin.fill_password_fields', 'Por favor, preencha os campos de senha'))
+src/Pages/Admin/Configuration.jsx:                showMessage('error', t('admin.incorrect_current_password', 'Senha atual incorreta'))
+src/Pages/Admin/Configuration.jsx:                showMessage('error', t('admin.password_min_length', 'A nova senha deve ter pelo menos 6 caracteres'))
+src/Pages/Admin/Configuration.jsx:                showMessage('success', t('common.success_update', 'Configurações atualizadas com sucesso!'))
+src/Pages/Admin/Configuration.jsx:                showMessage('error', result?.error || t('common.error_update', 'Falha ao atualizar configurações'))
+src/Pages/Admin/Configuration.jsx:                    {t('nav.account')} e <span className="text-champberry">{t('admin.config')}</span>
+src/Pages/Admin/Configuration.jsx:                <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('admin.manage_salon_info')}</p>
+src/Pages/Admin/Configuration.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.personal_details', 'Informações Pessoais')}</h2>
+src/Pages/Admin/Configuration.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name', 'Nome Completo')} *</label>
+src/Pages/Admin/Configuration.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number', 'Telefone')} *</label>
+src/Pages/Admin/Configuration.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.business_rules')}</h2>
+src/Pages/Admin/Configuration.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.holiday_mode')}</label>
+src/Pages/Admin/Configuration.jsx:                                        <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode')}</p>
+src/Pages/Admin/Configuration.jsx:                                        <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc')}</p>
+src/Pages/Admin/Configuration.jsx:                                        <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds')}</p>
+src/Pages/Admin/Configuration.jsx:                                        <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc')}</p>
+src/Pages/Admin/Configuration.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('nav.my_link', 'Meu Link')}</h2>
+src/Pages/Admin/Configuration.jsx:                                        <h3 className="text-white font-bold text-sm uppercase mb-1">{t('admin.main_booking_link', 'Link Principal de Agendamento')}</h3>
+src/Pages/Admin/Configuration.jsx:                                        <p className="text-[#777] text-xs">{t('admin.main_booking_link_desc', 'Este link direciona os clientes para a página inicial com o formulário de agendamento aberto.')}</p>
+src/Pages/Admin/Configuration.jsx:                                                    showMessage('success', t('admin.booking_link_copied'));
+src/Pages/Admin/Configuration.jsx:                                        {t('admin.individual_links', 'Links Individuais')}
+src/Pages/Admin/Configuration.jsx:                                        {t('admin.individual_links_desc', 'Cada funcionário tem seu próprio link exclusivo. Você pode gerenciá-los na aba "Equipe".')}
+src/Pages/Admin/Configuration.jsx:                                        {t('admin.view_team_links', 'Ver links da equipe')} →
+src/Pages/Admin/Configuration.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('profile.security', 'Segurança')}</h2>
+src/Pages/Admin/Configuration.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.current_password')}</label>
+src/Pages/Admin/Configuration.jsx:                                        placeholder={t('admin.enter_current_password')}
+src/Pages/Admin/Configuration.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.new_password')}</label>
+src/Pages/Admin/Configuration.jsx:                                        placeholder={t('admin.enter_new_password')}
+src/Pages/Admin/Configuration.jsx:                                {isLoading ? t('common.loading') : t('common.save')}
+src/Pages/Admin/Dashboard.jsx:                    title={t('reports.revenue')}
+src/Pages/Admin/Dashboard.jsx:                    title={t('admin.appointments')}
+src/Pages/Admin/Dashboard.jsx:                    title={t('inventory.low_stock')}
+src/Pages/Admin/Dashboard.jsx:                    title={t('admin.staff_active', 'Barbeiros Ativos')}
+src/Pages/Admin/Dashboard.jsx:                        <span className="text-white">{t('admin.appointments')}</span> {t('admin.recent', 'Recentes')}
+src/Pages/Admin/Dashboard.jsx:                        <span className="flex items-center justify-center text-[10px] font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2.5 py-1 rounded-md tracking-wider uppercase shadow-[0_0_10px_rgba(251,157,51,0.1)]">{t('admin.live')}</span>
+src/Pages/Admin/Dashboard.jsx:                            {t('admin.view_all')}
+src/Pages/Admin/Dashboard.jsx:                                <th className="px-6 py-4">{t('inventory.customer', 'Cliente')}</th>
+src/Pages/Admin/Dashboard.jsx:                                <th className="px-6 py-4">{t('inventory.service', 'Serviço')}</th>
+src/Pages/Admin/Dashboard.jsx:                                <th className="px-6 py-4">{t('admin.staff', 'Barbeiro')}</th>
+src/Pages/Admin/Dashboard.jsx:                                <th className="px-6 py-4">{t('common.date_time', 'Data e Hora')}</th>
+src/Pages/Admin/Dashboard.jsx:                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-white text-[10px] font-bold uppercase">{t('home.guest')}</span>
+src/Pages/Admin/Dashboard.jsx:                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">{t('home.guest')}</span>
+src/Pages/Admin/Dashboard.jsx:                            <span className="text-white">{t('admin.inventory_status_label', 'Status do')}</span> {t('inventory.title', 'Estoque')}
+src/Pages/Admin/Dashboard.jsx:                            <Link to="/admin/inventory">{t('admin.manage_inventory', 'Gerenciar Estoque')}</Link>
+src/Pages/Admin/Dashboard.jsx:                            <span className="text-white">{t('admin.schedule', 'Agenda da')}</span> {t('admin.staff', 'Equipe')}
+src/Pages/Admin/Dashboard.jsx:                            <Link to="/admin/staffs">{t('admin.view_team', 'Ver Equipe')}</Link>
+src/Pages/Admin/Inventory.jsx:                        {t('inventory.title', 'Controle de Estoque').split(' ')[0]} <span className="text-champberry">{t('inventory.title').split(' ').slice(1).join(' ')}</span>
+src/Pages/Admin/Inventory.jsx:                    <p className="text-sm text-gray-400 mt-0.5">{t('inventory.subtitle')}</p>
+src/Pages/Admin/Inventory.jsx:                    <Plus className="mr-2 h-4 w-4" /> {t('inventory.new_product')}
+src/Pages/Admin/Inventory.jsx:                    { label: t('inventory.total_items'), value: stats.totalItems, icon: Package, color: 'text-champberry' },
+src/Pages/Admin/Inventory.jsx:                    { label: t('inventory.low_stock'), value: stats.lowStock, icon: AlertTriangle, color: stats.lowStock > 0 ? 'text-amber-500' : 'text-gray-500' },
+src/Pages/Admin/Inventory.jsx:                    { label: t('inventory.cost_value'), value: formatCurrency(stats.totalValue), icon: ArrowUpDown, color: 'text-gray-400' },
+src/Pages/Admin/Inventory.jsx:                    { label: t('inventory.projected_profit'), value: formatCurrency(stats.projectedProfit), icon: TrendingDown, color: 'text-emerald-500' },
+src/Pages/Admin/Inventory.jsx:                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('inventory.catalog')}</CardTitle>
+src/Pages/Admin/Inventory.jsx:                                placeholder={t('common.search')} 
+src/Pages/Admin/Inventory.jsx:                                    <th className="px-6 py-4">{t('inventory.product')}</th>
+src/Pages/Admin/Inventory.jsx:                                    <th className="px-4 py-4">{t('inventory.category')}</th>
+src/Pages/Admin/Inventory.jsx:                                    <th className="px-4 py-4 text-center">{t('inventory.quantity')}</th>
+src/Pages/Admin/Inventory.jsx:                                    <th className="px-6 py-4 text-right">{t('common.actions')}</th>
+src/Pages/Admin/Inventory.jsx:                                            {t('inventory.no_products')}
+src/Pages/Admin/Reports.jsx:                        {t('reports.title', 'Relatórios Financeiros').split(' ')[0]} <span className="text-champberry">{t('reports.title').split(' ').slice(1).join(' ')}</span>
+src/Pages/Admin/Reports.jsx:                    <p className="text-sm text-gray-400 mt-0.5">{t('reports.subtitle')}</p>
+src/Pages/Admin/Reports.jsx:                        <TabsTrigger value="7d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_7_days')}</TabsTrigger>
+src/Pages/Admin/Reports.jsx:                        <TabsTrigger value="30d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_30_days')}</TabsTrigger>
+src/Pages/Admin/Reports.jsx:                        <TabsTrigger value="90d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_90_days')}</TabsTrigger>
+src/Pages/Admin/Reports.jsx:                    { label: t('reports.revenue'), value: formatCurrency(totalRevenue), icon: DollarSign, color: 'text-champberry' },
+src/Pages/Admin/Reports.jsx:                    { label: t('admin.commission'), value: formatCurrency(totalCommission), icon: Users, color: 'text-amber-500' },
+src/Pages/Admin/Reports.jsx:                    { label: t('reports.appointments'), value: totalCompleted, icon: Scissors, color: 'text-blue-500' },
+src/Pages/Admin/Reports.jsx:                    { label: t('reports.avg_ticket'), value: formatCurrency(avgTicket), icon: TrendingUp, color: 'text-emerald-400' },
+src/Pages/Admin/Reports.jsx:                    <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('reports.revenue_over_time')}</CardTitle>
+src/Pages/Admin/Reports.jsx:                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('reports.values_in_days_months', { unit: period === '90d' ? t('reports.values_in_months') : t('reports.values_in_days') })}</p>
+src/Pages/Admin/Reports.jsx:                                    formatter={(v) => [formatCurrency(v), t('reports.revenue')]}
+src/Pages/Admin/Reports.jsx:                            <Scissors className="h-4 w-4 text-champberry" /> {t('reports.top_services')}
+src/Pages/Admin/Reports.jsx:                            <p className="text-sm text-gray-500 text-center py-8">{t('reports.no_data')}</p>
+src/Pages/Admin/Reports.jsx:                            <Users className="h-4 w-4 text-champberry" /> {t('reports.staff_ranking')}
+src/Pages/Admin/Reports.jsx:                            <p className="text-sm text-gray-500 text-center py-8">{t('reports.no_data')}</p>
+src/Pages/Admin/Reports.jsx:                                                `${formatCurrency(v)} · ${entry.payload.count} ${t('reports.appointments').toLowerCase()}`,
+src/Pages/Admin/Reports.jsx:                        <TrendingUp className="h-4 w-4 text-champberry" /> {t('reports.monthly_comparison')}
+src/Pages/Admin/Reports.jsx:                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('reports.current_vs_previous_month')}</p>
+src/Pages/Admin/Reports.jsx:                                        name === 'receita' ? formatCurrency(v) : `${v} ${t('reports.appointments').toLowerCase()}`,
+src/Pages/Admin/Reports.jsx:                                        name === 'receita' ? t('reports.revenue') : t('reports.appointments'),
+src/Pages/Admin/Reports.jsx:                                <Legend formatter={(v) => <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{v === 'receita' ? t('reports.revenue') : t('reports.appointments')}</span>} />
+src/Pages/Admin/Services.jsx:                        {t('admin.management', 'Gestão')} de <span className="text-champberry">{t('nav.services', 'Serviços')}</span>
+src/Pages/Admin/Services.jsx:                    <Plus className="mr-2 h-4 w-4" /> {t('admin.new_service', 'Novo Serviço')}
+src/Pages/Admin/Services.jsx:                        <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('admin.catalog_services', 'Catálogo de Serviços')}</CardTitle>
+src/Pages/Admin/Services.jsx:                                placeholder={t('common.search', 'Buscar...')} 
+src/Pages/Admin/Services.jsx:                                    <th className="px-6 py-4">{t('admin.service_name', 'Serviço')}</th>
+src/Pages/Admin/Services.jsx:                                    <th className="px-4 py-4">{t('inventory.category', 'Categoria')}</th>
+src/Pages/Admin/Services.jsx:                                    <th className="px-4 py-4 text-center">{t('admin.duration_min', 'Duração (min)')}</th>
+src/Pages/Admin/Services.jsx:                                    <th className="px-4 py-4">{t('inventory.sale', 'Preço')}</th>
+src/Pages/Admin/Services.jsx:                                    <th className="px-6 py-4 text-right">{t('common.actions', 'Ações')}</th>
+src/Pages/Admin/Services.jsx:                                        <td className="px-6 py-3"><Input placeholder={t('admin.full_name', 'Nome')} className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, name: e.target.value})} /></td>
+src/Pages/Admin/Services.jsx:                                        <td className="px-4 py-3"><Input placeholder={t('inventory.category', 'Cat')} className="bg-transparent border-white/10 text-xs h-8" onChange={e => setNewService({...newService, category: e.target.value})} /></td>
+src/Pages/Admin/Services.jsx:                                        <td className="px-6 py-4 text-sm font-bold text-white uppercase">{t(`services.items.${s.name}`, s.name)}</td>
+src/Pages/Admin/Services.jsx:                                        <td className="px-4 py-4"><span className="px-2 py-0.5 bg-white/5 rounded text-[10px] font-bold text-gray-400 uppercase">{t(`services.categories.${s.category}`, s.category)}</span></td>
+src/Pages/Admin/Services.jsx:                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-gray-400 hover:bg-white/5" title={t('common.edit')}><Edit2 size={14}/></Button>
+src/Pages/Admin/Services.jsx:                                                <Button size="icon" variant="ghost" className="h-8 w-8 text-rose-500 hover:bg-rose-500/10" onClick={() => handleDelete(s.id)} title={t('common.delete')}><Trash2 size={14}/></Button>
+src/Pages/Admin/Staffs.jsx:        const displayStatus = isActive ? t('home.active', 'Ativo') : t('profile.unavailable', 'Inativo')
+src/Pages/Admin/Staffs.jsx:            message: t('admin.confirm_remove_staff', { name: staff.name }),
+src/Pages/Admin/Staffs.jsx:                showMessage('success', t('admin.staff_removed_success', { name: staff.name }))
+src/Pages/Admin/Staffs.jsx:            showMessage('success', t('admin.status_updated_success'))
+src/Pages/Admin/Staffs.jsx:                        {t('admin.staff')} <span className="text-champberry">{t('admin.management', 'Gestão')}</span>
+src/Pages/Admin/Staffs.jsx:                    <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('admin.manage_team_subtitle')}</p>
+src/Pages/Admin/Staffs.jsx:                    <span>{t('admin.add_member')}</span>
+src/Pages/Admin/Staffs.jsx:                        placeholder={t('admin.search_staff')}
+src/Pages/Admin/Staffs.jsx:                        <h3 className="text-xl font-bold text-white mb-2">{t('admin.no_staff_found')}</h3>
+src/Pages/Admin/Staffs.jsx:                            {t('admin.no_staff_subtitle')}
+src/Pages/Admin/Staffs.jsx:                            {t('admin.clear_filters')}
+src/Pages/Admin/Staffs.jsx:                                        <th className="px-6 py-5">{t('admin.staff_member')}</th>
+src/Pages/Admin/Staffs.jsx:                                        <th className="px-6 py-5">{t('admin.role_expertise')}</th>
+src/Pages/Admin/Staffs.jsx:                                        <th className="px-6 py-5">{t('admin.status', 'Status')}</th>
+src/Pages/Admin/Staffs.jsx:                                        <th className="px-6 py-5">{t('admin.performance')}</th>
+src/Pages/Admin/Staffs.jsx:                                        <th className="px-6 py-5 text-right">{t('common.actions')}</th>
+src/Pages/Admin/Staffs.jsx:                                                        {member.experience} · {member.commission * 100}% {t('admin.commission', 'comissão')}
+src/Pages/Admin/Staffs.jsx:                                                            showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
+src/Pages/Admin/Staffs.jsx:                                                        title={t('admin.copy_booking_link', 'Copiar Link de Agendamento')}
+src/Pages/Admin/Staffs.jsx:                            <span>{t('common.showing')} <span className="text-champberry font-bold">{filteredStaff.length}</span> {t('common.members')}</span>
+src/Pages/Admin/Staffs.jsx:                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.previous')}</button>
+src/Pages/Admin/Staffs.jsx:                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.next')}</button>
+src/Pages/Admin/Staffs.jsx:                        showMessage('success', t('admin.staff_added_success', { name: newMember.name }))
+src/Pages/Admin/Staffs.jsx:                        showMessage('success', t('profile.profile_updated_success'))
+src/Pages/ArtisanProfile.jsx:                                    <p className="font-sans text-champberry text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-1">{t('profile.experience')}</p>
+src/Pages/ArtisanProfile.jsx:                                    <p className="font-serif text-2xl lg:text-3xl text-white">{artisan.experience || "7 Years"} {t('profile.mastery_suffix')}</p>
+src/Pages/ArtisanProfile.jsx:                                {t('profile.description')}
+src/Pages/ArtisanProfile.jsx:                        {t('profile.expert_services').split(' ')[0]} <span className="font-serif text-champberry normal-case tracking-wide">{t('profile.expert_services').split(' ').slice(1).join(' ')}</span>
+src/Pages/Contact.jsx:                    >{t('contact.title')}</h1>
+src/Pages/Contact.jsx:                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight"><span className="text-champberry">{t('contact.ready_for', 'PRONTO PARA')}</span> {t('contact.new_look', 'UM NOVO VISUAL')}</h2>
+src/Pages/Contact.jsx:                        <p className="text-base sm:text-lg text-champberry-muted">{t('contact.subtitle')}</p>
+src/Pages/Home.jsx:            title: t('services.items.haircut_standard', "Corte Clássico"),
+src/Pages/Home.jsx:            description: t('home.service_haircut_desc', "Nossos estilistas podem recomendar o que funcionará perfeitamente para seu tipo de cabelo e formato de rosto."),
+src/Pages/Home.jsx:            title: t('services.items.classic_shave', "Barba e Navalha"),
+src/Pages/Home.jsx:            description: t('home.service_shave_desc', "Estilistas especializados para homens que desejam um barbear feito com precisão e conforto."),
+src/Pages/Home.jsx:            title: t('services.items.facial_bodyshop', "Limpeza Facial e Lavagem"),
+src/Pages/Home.jsx:            description: t('home.service_facial_desc', "O tratamento certo para cabelo e pele com produtos de alta qualidade."),
+src/Pages/Home.jsx:            title: t('services.items.beard_trim', "Aparo de Barba"),
+src/Pages/Home.jsx:            description: t('home.service_beard_desc', "Escultura e condicionamento especializado para manter seus pelos faciais impecáveis."),
+src/Pages/Home.jsx:            title: t('services.items.hair_spa', "Estilização de Cabelo"),
+src/Pages/Home.jsx:            description: t('home.service_styling_desc', "Salão de alto nível com estilistas talentosos para o melhor atendimento ao cliente."),
+src/Pages/Home.jsx:            title: t('services.items.coloring', "Coloração"),
+src/Pages/Home.jsx:            description: t('home.service_coloring_desc', "Quer renovar seu visual com uma nova cor? Deixe-nos personalizar!"),
+src/Pages/Home.jsx:                                    {t('home.since', 'Desde 2011 — Cuidado Masculino Premium')}
+src/Pages/Home.jsx:                                    {t('home.hero_title_1', 'Barbearia')}
+src/Pages/Home.jsx:                                    {t('home.hero_title_2', 'Masculina')}
+src/Pages/Home.jsx:                                    {t('home.hero_title_3', 'Premium')}
+src/Pages/Home.jsx:                                {t('home.hero_desc', 'Onde a precisão encontra a sofisticação. Arte tradicional, estilo moderno.')}
+src/Pages/Home.jsx:                                                {t('nav.book_now', 'AGENDAR HORÁRIO')}
+src/Pages/Home.jsx:                                    {t('nav.services', 'SERVIÇOS')}
+src/Pages/Home.jsx:                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">{t('home.years_of_craft', 'Anos de Arte')}</p>
+src/Pages/Home.jsx:                                { value: '15+', label: t('home.experience_years', 'Anos de Experiência') },
+src/Pages/Home.jsx:                                { value: '5K+', label: t('home.clients_served', 'Clientes Atendidos') },
+src/Pages/Home.jsx:                                { value: '100+', label: t('home.five_star_reviews', 'Avaliações 5 Estrelas') },
+src/Pages/Home.jsx:                                { value: '10', label: t('home.expert_stylists', 'Estilistas Especialistas') }
+src/Pages/Home.jsx:                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">{t('home.experience', 'Experiência')}</p>
+src/Pages/Home.jsx:                                {t('home.about_title', 'Nossa Filosofia')}
+src/Pages/Home.jsx:                                {t('home.about_title_2', 'A Essência do Refinamento')}
+src/Pages/Home.jsx:                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">{t('home.about_desc').charAt(0)}</span>
+src/Pages/Home.jsx:                                    {t('home.about_desc').substring(1)}
+src/Pages/Home.jsx:                                    {t('home.about_desc_2', 'Combinamos perfeitamente a herança da barbearia tradicional com as comodidades sofisticadas de um conceito de salão premium de serviço completo.')}
+src/Pages/Home.jsx:                                    <span className="font-sans text-white/40 text-[9px] tracking-[0.2em] uppercase font-semibold pl-1">{t('home.haircut')}</span>
+src/Pages/Home.jsx:                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.shaving')}</span>
+src/Pages/Home.jsx:                                    <span className="font-sans text-white/40 text-[10px] tracking-[0.2em] uppercase font-semibold pl-1.5">{t('home.facials')}</span>
+src/Pages/Home.jsx:                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.rituals_subtitle', 'Serviços Premium')}</span>
+src/Pages/Home.jsx:                                {t('home.rituals_title', 'Nossos')}{' '}
+src/Pages/Home.jsx:                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>{t('home.rituals_title_2', 'Rituais')}</span>
+src/Pages/Home.jsx:                            {t('home.rituals_desc', 'Cortes de precisão, barbear clássico e serviços de cuidado premium adaptados para o cavalheiro moderno.')}
+src/Pages/Home.jsx:                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">{t('home.gallery_subtitle', 'Nosso Trabalho')}</span>
+src/Pages/Home.jsx:                                {t('home.gallery_title', 'A Galeria da')}{' '}
+src/Pages/Home.jsx:                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>{t('home.gallery_title_2', 'Precisão')}</span>
+src/Pages/Home.jsx:                            {t('home.gallery_desc', 'Preços transparentes para cada serviço. Qualidade premium com valor justo.')}
+src/Pages/Home.jsx:                        <h1 className='text-white font-serif'>{t('home.appointment_title', 'Fazer um')}</h1>
+src/Pages/Home.jsx:                        <h1 className='text-champberry font-sans font-black normal-case text-3xl lg:text-5xl'>{t('home.appointment_subtitle', 'Agendamento')}</h1>
+src/Pages/Home.jsx:                        {t('home.brands_title', 'Marcas de')} <span className="font-sans font-black text-champberry normal-case">{t('home.brands_title_2', 'Confiança')}</span>
+src/Pages/Home.jsx:                    <p className="font-sans font-light text-champberry-muted text-sm tracking-wide">{t('home.brands_desc', 'Produtos premium para resultados excepcionais')}</p>
+src/Pages/Home.jsx:                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.artisans_subtitle')}</span>
+src/Pages/Home.jsx:                            {t('home.artisans_title')} <span className='font-serif text-champberry normal-case tracking-wide'>{t('home.artisans_title_2')}</span>
+src/Pages/Home.jsx:                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>{t('home.gallery_main_title', 'A')} <span className='font-sans font-black text-champberry normal-case tracking-normal'>{t('home.gallery_main_span', 'Galeria')}</span></h1>
+src/Pages/Staff/StaffAppointments.jsx:                        {t('nav.my_appointments').split(' ')[0]} <span className="text-champberry">{t('nav.my_appointments').split(' ').slice(1).join(' ')}</span>
+src/Pages/Staff/StaffAppointments.jsx:                    <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('home.staff_schedule_subtitle')}</p>
+src/Pages/Staff/StaffAppointments.jsx:                            placeholder={t('appointments.placeholders.search')}
+src/Pages/Staff/StaffAppointments.jsx:                                    {cat === 'All' ? t('appointments.status.all') : t(`appointments.status.${cat.toLowerCase().replace(/ /g, '_')}`)}
+src/Pages/Staff/StaffAppointments.jsx:                            <span>{t('appointments.filters.title')}</span>
+src/Pages/Staff/StaffAppointments.jsx:                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">{t('appointments.filters.panel_title')}</h3>
+src/Pages/Staff/StaffAppointments.jsx:                                        {t('appointments.filters.clear_all')}
+src/Pages/Staff/StaffAppointments.jsx:                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.quick_filter')}</label>
+src/Pages/Staff/StaffAppointments.jsx:                                                    {t(`appointments.filters.${preset.toLowerCase().replace(/ /g, '_')}`)}
+src/Pages/Staff/StaffAppointments.jsx:                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.date_range')}</label>
+src/Pages/Staff/StaffAppointments.jsx:                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.time_range')}</label>
+src/Pages/Staff/StaffAppointments.jsx:                        <h3 className="text-xl font-bold text-white mb-2">{t('home.no_appointments_assigned')}</h3>
+src/Pages/Staff/StaffAppointments.jsx:                            {t('home.staff_schedule_subtitle')}
+src/Pages/Staff/StaffAppointments.jsx:                                        <SortableHeader field="name" currentSort={sortConfig} onSort={handleSort}>{t('appointments.client_details')}</SortableHeader>
+src/Pages/Staff/StaffAppointments.jsx:                                        <SortableHeader field="service" currentSort={sortConfig} onSort={handleSort}>{t('appointments.service_info')}</SortableHeader>
+src/Pages/Staff/StaffAppointments.jsx:                                        <SortableHeader field="date" currentSort={sortConfig} onSort={handleSort}>{t('common.date_time')}</SortableHeader>
+src/Pages/Staff/StaffAppointments.jsx:                                        <th className="px-6 py-4 text-right">{t('common.actions')}</th>
+src/Pages/Staff/StaffAppointments.jsx:                                                        <span className="text-gray-500 text-xs">{appointment.phone || t('appointments.no_phone')}</span>
+src/Pages/Staff/StaffAppointments.jsx:                                            <span className="text-gray-400 text-[10px] uppercase font-bold tracking-widest">{t('inventory.service')}</span>
+src/Pages/Staff/StaffAppointments.jsx:                    {t('common.showing')} <span className="text-white">{filteredAndSortedAppointments.length}</span> {t('common.of')} <span className="text-white">{appointments.length}</span> {t('admin.appointments').toLowerCase()}
+src/Pages/Staff/StaffAppointments.jsx:                        {t('common.previous')}
+src/Pages/Staff/StaffAppointments.jsx:                        {t('common.next')}
+src/Pages/Staff/StaffDashboard.jsx:                    {t('home.welcome_back', { name: currentUser?.name || t('home.guest') })}
+src/Pages/Staff/StaffDashboard.jsx:                <p className="text-xs sm:text-sm text-champberry-muted">{t('home.staff_schedule_subtitle')}</p>
+src/Pages/Staff/StaffDashboard.jsx:                    title={t('home.total_assigned')}
+src/Pages/Staff/StaffDashboard.jsx:                    change={myAppointments.length > 0 ? t('home.active') : t('home.none')}
+src/Pages/Staff/StaffDashboard.jsx:                    title={t('home.pending_jobs')}
+src/Pages/Staff/StaffDashboard.jsx:                    change={pendingJobs > 0 ? t('home.needs_action') : t('home.all_clear')}
+src/Pages/Staff/StaffDashboard.jsx:                    title={t('home.completed_jobs')}
+src/Pages/Staff/StaffDashboard.jsx:                    change={t('home.great_work')}
+src/Pages/Staff/StaffDashboard.jsx:                    title={t('home.total_commissions')}
+src/Pages/Staff/StaffDashboard.jsx:                    change={t('home.estimated')}
+src/Pages/Staff/StaffDashboard.jsx:                        <span className="text-white">{t('admin.recent')}</span> {t('admin.appointments')}
+src/Pages/Staff/StaffDashboard.jsx:                            {t('home.view_all_my_appointments')}
+src/Pages/Staff/StaffDashboard.jsx:                                <th className="px-6 py-4">{t('inventory.customer')}</th>
+src/Pages/Staff/StaffDashboard.jsx:                                <th className="px-6 py-4">{t('inventory.service')}</th>
+src/Pages/Staff/StaffDashboard.jsx:                                <th className="px-6 py-4">{t('common.date_time')}</th>
+src/Pages/Staff/StaffDashboard.jsx:                                <th className="px-6 py-4 text-right">{t('common.actions')}</th>
+src/Pages/Staff/StaffDashboard.jsx:                                    <td colSpan="5" className="px-6 py-8 text-center text-[#777]">{t('home.no_appointments_assigned')}</td>
+src/Pages/Staff/StaffDashboard.jsx:                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">{t('home.guest')}</span>
+src/Pages/Staff/StaffDashboard.jsx:                        <div className="text-center text-[#777] py-8">{t('home.no_appointments_assigned')}</div>
+src/Pages/Staff/StaffProfile.jsx:            showMessage('error', t('admin.fill_all_fields'))
+src/Pages/Staff/StaffProfile.jsx:                showMessage('error', t('admin.fill_password_fields'))
+src/Pages/Staff/StaffProfile.jsx:                showMessage('error', t('admin.incorrect_current_password'))
+src/Pages/Staff/StaffProfile.jsx:                showMessage('error', t('admin.password_min_length'))
+src/Pages/Staff/StaffProfile.jsx:                showMessage('error', t('admin.password_mismatch'))
+src/Pages/Staff/StaffProfile.jsx:            showMessage('success', t('profile.profile_updated_success'))
+src/Pages/Staff/StaffProfile.jsx:                    {t('nav.my_profile').split(' ')[0]} <span className="text-champberry">{t('nav.my_profile').split(' ').slice(1).join(' ')}</span>
+src/Pages/Staff/StaffProfile.jsx:                <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('profile.manage_profile_subtitle')}</p>
+src/Pages/Staff/StaffProfile.jsx:                            <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">{t('admin.copy_booking_link', 'Link de Agendamento Personalizado')}</h2>
+src/Pages/Staff/StaffProfile.jsx:                            <p className="text-gray-400 text-xs mt-1">{t('profile.booking_link_desc', 'Use este link para receber agendamentos diretamente para você.')}</p>
+src/Pages/Staff/StaffProfile.jsx:                            showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
+src/Pages/Staff/StaffProfile.jsx:                        {t('common.copy_link', 'Copiar Link')}
+src/Pages/Staff/StaffProfile.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.personal_info')}</h2>
+src/Pages/Staff/StaffProfile.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name')} *</label>
+src/Pages/Staff/StaffProfile.jsx:                                    <p className="text-xs text-champberry-muted ml-1">{t('profile.contact_admin_email')}</p>
+src/Pages/Staff/StaffProfile.jsx:                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number')} *</label>
+src/Pages/Staff/StaffProfile.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.professional_info')}</h2>
+src/Pages/Staff/StaffProfile.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.experience_years')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                            placeholder={t('admin.specialties_placeholder')}
+src/Pages/Staff/StaffProfile.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('profile.availability')}</h2>
+src/Pages/Staff/StaffProfile.jsx:                            <p className="text-xs sm:text-sm text-gray-400">{t('profile.update_availability_desc')}</p>
+src/Pages/Staff/StaffProfile.jsx:                                        <h4 className="text-sm font-bold text-white">{t('profile.weekdays')}</h4>
+src/Pages/Staff/StaffProfile.jsx:                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                        <h4 className="text-sm font-bold text-white">{t('profile.saturday')}</h4>
+src/Pages/Staff/StaffProfile.jsx:                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                            <h4 className="text-sm font-bold text-white">{t('profile.sunday')}</h4>
+src/Pages/Staff/StaffProfile.jsx:                                                <span className="ml-3 text-xs font-medium text-gray-400">{t('profile.available_on_sundays')}</span>
+src/Pages/Staff/StaffProfile.jsx:                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.security')}</h2>
+src/Pages/Staff/StaffProfile.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.current_password')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                        placeholder={t('admin.enter_current_password')}
+src/Pages/Staff/StaffProfile.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.new_password')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                        placeholder={t('admin.enter_new_password')}
+src/Pages/Staff/StaffProfile.jsx:                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.confirm_password')}</label>
+src/Pages/Staff/StaffProfile.jsx:                                        placeholder={t('admin.confirm_new_password')}
+src/Pages/Staff/StaffProfile.jsx:                                {isLoading ? t('common.loading') : t('common.save')}
+src/Pages/Staff/StaffLink.jsx:        showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'))
+src/Pages/Staff/StaffLink.jsx:                    {t('nav.my_link', 'Meu')} <span className="text-champberry">{t('nav.link', 'Link')}</span>
+src/Pages/Staff/StaffLink.jsx:                <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('profile.booking_link_desc', 'Use este link para receber agendamentos diretamente para você.')}</p>
+src/Pages/Staff/StaffLink.jsx:                        <h2 className="text-xl font-bold text-white uppercase tracking-wider">{t('profile.share_link', 'Compartilhe seu Perfil')}</h2>
+src/Pages/Staff/StaffLink.jsx:                            {t('profile.share_link_instruction', 'Envie este link para seus clientes para que eles possam agendar serviços diretamente com você. O sistema identificará automaticamente sua disponibilidade.')}
+src/Pages/Staff/StaffLink.jsx:                            title={t('common.copy_link', 'Copiar Link')}
+src/Pages/Staff/StaffLink.jsx:                            <h3 className="text-white font-bold text-xs uppercase mb-1">{t('profile.automatic_id', 'Identificação Automática')}</h3>
+src/Pages/Staff/StaffLink.jsx:                            <p className="text-[#777] text-[10px]">{t('profile.automatic_id_desc', 'O link contém seu ID único, garantindo que o agendamento seja vinculado a você.')}</p>
+src/Pages/Staff/StaffLink.jsx:                            <h3 className="text-white font-bold text-xs uppercase mb-1">{t('profile.direct_access', 'Acesso Direto')}</h3>
+src/Pages/Staff/StaffLink.jsx:                            <p className="text-[#777] text-[10px]">{t('profile.direct_access_desc', 'O link rola automaticamente para a seção de agendamento na página inicial.')}</p>

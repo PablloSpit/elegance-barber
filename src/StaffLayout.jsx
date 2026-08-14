@@ -7,7 +7,7 @@ import StaffSidebar from './Components/StaffPanel Components/StaffSidebar.jsx'
 import { Menu, Bell } from 'lucide-react'
 
 // Message Component (reused from AdminLayout)
-const Message = ({ type, text, visible, isClosing, onClose }) => {
+const Message = ({ type, text, visible, isClosing, onClose, t }) => {
     const [isAnimating, setIsAnimating] = useState(false)
 
     useLayoutEffect(() => {
@@ -64,7 +64,9 @@ function StaffLayout() {
                 visible={message.visible}
                 isClosing={message.isClosing}
                 onClose={hideMessage}
+                t={t}
             />
+
 
             <StaffSidebar
                 sidebarOpen={sidebarOpen}

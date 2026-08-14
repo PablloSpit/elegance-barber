@@ -28,12 +28,12 @@ function LoginInput() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (currentUser) {
-            setMessage("You are already logged in!")
+            setMessage(t('auth.already_logged_in', "You are already logged in!"))
             return
         }
         const result = await login({ email, password, rememberMe });
         if (result.success) {
-            setMessage("Login successful!")
+            setMessage(t('auth.login_success', "Login successful!"))
             setEmail("")
             setPassword("")
             // Navigation will be handled by the useEffect hook
@@ -55,16 +55,16 @@ function LoginInput() {
                     <div className="remember-forgot flex justify-between items-center mt-4 sm:mt-5 mb-10 mx-1">
                         <label className='flex items-center cursor-pointer'>
                             <input type="checkbox" name="rememberMe" id="rememberMe" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} className='appearance-none w-4 h-4 rounded-full border-4 border-champberry bg-transparent checked:bg-champberry focus:outline-none focus:ring-champberry focus:ring-offset-0 cursor-pointer' />
-                            <span className='text-xs sm:text-sm ml-1.5 text-[#454545] tracking-tight font-bold pb-0.5'>Remember Me</span>
+                            <span className='text-xs sm:text-sm ml-1.5 text-[#454545] tracking-tight font-bold pb-0.5'>{t('auth.remember_me', 'Remember Me')}</span>
                         </label>
-                        <a href="#!" className='text-champberry hover:text-champberry text-xs sm:text-sm font-bold tracking-tight transition-all duration-300 hover:underline'>Forgot Your Password?</a>
+                        <a href="#!" className='text-champberry hover:text-champberry text-xs sm:text-sm font-bold tracking-tight transition-all duration-300 hover:underline'>{t('auth.forgot_password', 'Forgot Your Password?')}</a>
                     </div>
                     <div className="submit-button">
-                        <input type="submit" value="Login" className="w-full border-4 sm:border-5 border-champberry hover:border-white text-white font-black p-2 sm:p-3 px-4 sm:px-6 hover:bg-[#d28127] transition-colors cursor-pointer uppercase text-base sm:text-lg md:text-xl" />
+                        <input type="submit" value={t('common.login', 'Login')} className="w-full border-4 sm:border-5 border-champberry hover:border-white text-white font-black p-2 sm:p-3 px-4 sm:px-6 hover:bg-[#d28127] transition-colors cursor-pointer uppercase text-base sm:text-lg md:text-xl" />
                     </div>
                     {message && <p className="mt-3 text-center text-champberry">{message}</p>}
                     <div className="no-account mt-5 sm:mt-6 md:mt-7">
-                        <p className="text-center font-bold text-xs sm:text-sm md:text-base text-[#454545] tracking-tighter">Don't have an account? <Link to="/register" className='text-champberry'>Sign In</Link></p>
+                        <p className="text-center font-bold text-xs sm:text-sm md:text-base text-[#454545] tracking-tighter">{t('auth.dont_have_account', "Don't have an account?")} <Link to="/register" className='text-champberry'>{t('auth.sign_in', 'Sign In')}</Link></p>
                     </div>
                 </form>
             </div>
