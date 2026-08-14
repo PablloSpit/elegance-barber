@@ -1,6 +1,8 @@
 import { TrendingUp, TrendingDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const StatsCard = ({ title, value, change, positive, icon, color, bg }) => {
+    const { t } = useTranslation()
     return (
         <div
             className="group relative overflow-hidden bg-linear-to-br from-[#1a1a1a] to-[#0f0f0f] p-3 sm:p-4 md:p-6 rounded-2xl border border-white/5 transition-all duration-500 shadow-lg hover:shadow-2xl"

@@ -1,8 +1,10 @@
 import Header from '../Components/Header.jsx'
+import { useTranslation } from 'react-i18next'
 import accountBarber from '../assets/accountbarber.webp'
 import LoginInput from '../Components/LoginInput.jsx'
 
 function Login() {
+    const { t } = useTranslation()
     return (
         <div className="inset-0 overflow-hidden fixed">
             <Header bgImage="bg-[#0F0F0F] relative" />

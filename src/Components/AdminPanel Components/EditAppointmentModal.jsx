@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
 import { useAppointment } from '../../Context/AppointmentContext'
 import { useMessage } from '../../Context/MessageContext'
@@ -30,6 +31,7 @@ const convertToStorageFormat = (dateStr) => {
 }
 
 const EditAppointmentModal = ({ appointment, onClose }) => {
+    const { t } = useTranslation()
     const { updateAppointment } = useAppointment()
     const { getAvailableStaff } = useStaff()
     const dropdownRef = useRef(null)
@@ -193,7 +195,7 @@ const EditAppointmentModal = ({ appointment, onClose }) => {
 
             const response = await updateAppointment(appointment.id, dataToSave)
             if (response.success) {
-                showMessage('success', 'Appointment updated successfully')
+                showMessage('success', t('common.update_success', 'Atualizado com sucesso'))
                 onClose()
             } else {
                 showMessage('error', response.error || 'Failed to update appointment')

@@ -1,4 +1,5 @@
 import Header from '../../Components/Header'
+import { useTranslation } from 'react-i18next'
 import Profile from '../../Components/UserPanel Components/Profile.jsx'
 import Feedback from '../../Components/UserPanel Components/Feedback.jsx'
 import Booking from '../../Components/UserPanel Components/Booking.jsx'
@@ -7,6 +8,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
 import Landing from '../../assets/contact-bg.webp'
 
 function Account() {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
     const [activeTab, setActiveTab] = useState('profile')

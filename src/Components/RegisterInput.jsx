@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../Context/AuthContext.jsx'
 import { useMessage } from '../Context/MessageContext.jsx'
 import { Link } from 'react-router-dom'
 
 function RegisterInput() {
+    const { t } = useTranslation()
     const [fullname, setFullname] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')

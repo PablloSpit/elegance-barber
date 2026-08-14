@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAppointment } from '../../Context/AppointmentContext.jsx'
 import AppointmentCards from './AppointmentCards.jsx'
 
 function Booking() {
+    const { t } = useTranslation()
     const appointmentSectionRef = useRef(null)
     const { displayAppointmentsByUser, appointments } = useAppointment()
     const [userappointments, setUserAppointments] = useState([])

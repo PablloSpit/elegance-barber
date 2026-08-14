@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { services } from '../data/services'
 import { useMessage } from '../Context/MessageContext.jsx'
 import { useAppointment } from '../Context/AppointmentContext.jsx'
 import { useAuth } from '../Context/AuthContext.jsx'
 
 function AppointmentFormContact() {
+    const { t } = useTranslation()
     const { currentUser } = useAuth()
 
     const [isOpen, setIsOpen] = useState(false)

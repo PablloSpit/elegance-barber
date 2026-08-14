@@ -1,4 +1,5 @@
 import { Outlet, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useMessage } from './Context/MessageContext.jsx'
 import { useState, useLayoutEffect } from 'react'
 import { useAuth } from './Context/AuthContext.jsx'
@@ -43,6 +44,7 @@ const Message = ({ type, text, visible, isClosing, onClose }) => {
 }
 
 function StaffLayout() {
+    const { t } = useTranslation()
     const { message, hideMessage } = useMessage()
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [collapsed, setCollapsed] = useState(false)
