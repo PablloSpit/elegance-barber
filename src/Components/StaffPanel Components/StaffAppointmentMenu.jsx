@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
 import {
     CheckCircle2,
     XCircle,
@@ -12,6 +13,7 @@ import { useAppointment } from '../../Context/AppointmentContext'
 import { useMessage } from '../../Context/MessageContext'
 
 const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
+    const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 })
     const [confirmAction, setConfirmAction] = useState(null)
@@ -81,17 +83,16 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
     }, [isOpen])
     const handleStatusChange = async (newStatus, successMsg) => {
         setConfirmAction({
-            message: `Are you sure you want to mark this appointment as ${newStatus}?`,
+            message: t('appointments.actions.confirm_status_change', { status: t(`appointments.status.${newStatus.toLowerCase().replace(/ /g, '_')}`).toLowerCase() }),
             onConfirm: async () => {
                 const result = await updateAppointment(appointment.id, { status: newStatus })
                 if (result.success) {
-                    showMessage('success', successMsg)
+                    showMessage('success', t(`appointments.actions.${newStatus.toLowerCase().replace(/ /g, '_')}_success`))
                 } else {
                     showMessage('error', result.error || 'Failed to update status')
                 }
                 setConfirmAction(null)
             },
-            // ensure Cancel button works without runtime error
             onCancel: () => setConfirmAction(null)
         })
         setIsOpen(false)
@@ -99,11 +100,11 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
 
     const handleCancel = async () => {
         setConfirmAction({
-            message: 'Are you sure you want to cancel this appointment?',
+            message: t('appointments.actions.confirm_cancel'),
             onConfirm: async () => {
                 const result = await cancelAppointment(appointment.id)
                 if (result.success) {
-                    showMessage('success', 'Appointment cancelled successfully')
+                    showMessage('success', t('appointments.actions.cancel_success'))
                 } else {
                     showMessage('error', result.error || 'Failed to cancel appointment')
                 }
@@ -137,22 +138,22 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                     {/* Check In */}
                     {appointment.status !== 'Checked In' && appointment.status !== 'Completed' && appointment.status !== 'Cancelled' && (
                         <button
-                            onClick={() => handleStatusChange('Checked In', 'Client checked in successfully')}
+                            onClick={() => handleStatusChange('Checked In', t('appointments.actions.check_in_success'))}
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
                             <UserCheck size={14} className="text-blue-400" />
-                            Check In Client
+                            {t('appointments.actions.check_in')}
                         </button>
                     )}
 
                     {/* Mark Completed */}
                     {appointment.status !== 'Completed' && appointment.status !== 'Cancelled' && (
                         <button
-                            onClick={() => handleStatusChange('Completed', 'Appointment marked as completed')}
+                            onClick={() => handleStatusChange('Completed', t('appointments.actions.completed_success'))}
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
                             <CheckCircle2 size={14} className="text-emerald-500" />
-                            Mark Completed
+                            {t('appointments.actions.mark_completed')}
                         </button>
                     )}
 
@@ -166,7 +167,7 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors"
                         >
                             <Eye size={14} className="text-[#a1a1aa]" />
-                            View Details
+                            {t('common.view_details')}
                         </button>
                     )}
 
@@ -180,7 +181,7 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
                             <Edit size={14} className="text-champberry" />
-                            Edit Details
+                            {t('appointments.actions.edit_details')}
                         </button>
                     )}
 
@@ -191,7 +192,7 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition-colors"
                         >
                             <XCircle size={14} />
-                            Cancel
+                            {t('appointments.actions.cancel')}
                         </button>
                     )}
                 </div>,
@@ -202,20 +203,20 @@ const StaffAppointmentMenu = ({ appointment, onEdit, onView }) => {
             {confirmAction && createPortal(
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
                     <div className="bg-obsidian-elevated border border-[#333] rounded-xl shadow-2xl p-6 max-w-sm w-full animate-in zoom-in-95 duration-200">
-                        <h3 className="text-white font-bold text-lg mb-2">Confirm Action</h3>
+                        <h3 className="text-white font-bold text-lg mb-2">{t('common.confirm_action')}</h3>
                         <p className="text-gray-400 text-sm mb-6">{confirmAction.message}</p>
                         <div className="flex justify-end gap-3 pointer-events-auto">
                             <button
                                 onClick={() => setConfirmAction(null)}
                                 className="px-4 py-2 text-sm font-bold text-gray-300 hover:text-white bg-transparent border border-[#333] hover:border-gray-500 rounded-lg transition-all"
                             >
-                                No, Keep it
+                                {t('common.no_keep_it')}
                             </button>
                             <button
                                 onClick={confirmAction.onConfirm}
                                 className="px-4 py-2 text-sm font-bold text-black bg-champberry hover:bg-champberry-dark rounded-lg shadow-lg hover:shadow-champberry/20 transition-all cursor-pointer"
                             >
-                                Yes, Proceed
+                                {t('common.yes_proceed')}
                             </button>
                         </div>
                     </div>

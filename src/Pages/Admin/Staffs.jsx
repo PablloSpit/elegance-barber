@@ -177,7 +177,7 @@ const Staffs = () => {
                                     <tr>
                                         <th className="px-6 py-5">{t('admin.staff_member')}</th>
                                         <th className="px-6 py-5">{t('admin.role_expertise')}</th>
-                                        <th className="px-6 py-5">Status</th>
+                                        <th className="px-6 py-5">{t('admin.status', 'Status')}</th>
                                         <th className="px-6 py-5">{t('admin.performance')}</th>
                                         <th className="px-6 py-5 text-right">{t('common.actions')}</th>
                                     </tr>
