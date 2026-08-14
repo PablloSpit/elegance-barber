@@ -32,7 +32,8 @@
     "default_new": "Usar padrão (Novo)",
     "change_photo": "Alterar Foto",
     "upload_photo": "Enviar Foto",
-    "remove": "Remover"
+    "remove": "Remover",
+    "copy_link": "Copiar Link"
   },
   "nav": {
     "home": "Início",
@@ -111,6 +112,8 @@
     "staff_removed_success": "{{name}} foi removido(a) da equipe.",
     "status_updated_success": "Status atualizado com sucesso.",
     "staff_added_success": "{{name}} foi adicionado(a) à equipe.",
+    "copy_booking_link": "Copiar Link de Agendamento",
+    "booking_link_copied": "Link de agendamento copiado!",
     "fill_all_fields": "Por favor, preencha todos os campos obrigatórios",
     "fill_password_fields": "Por favor, preencha os campos de senha",
     "incorrect_current_password": "Senha atual incorreta",
@@ -262,7 +265,8 @@
     "end_time": "Hora de Término",
     "update_availability_desc": "Atualize seu horário de trabalho padrão. Isso afeta quando os clientes podem agendar com você.",
     "profile_updated_success": "Perfil atualizado com sucesso",
-    "contact_admin_email": "Contate o administrador para alterar o e-mail."
+    "contact_admin_email": "Contate o administrador para alterar o e-mail.",
+    "booking_link_desc": "Use este link para receber agendamentos diretamente para você."
   },
   "appointments": {
     "select_services": "SELECIONAR SERVIÇOS",

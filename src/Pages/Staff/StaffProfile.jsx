@@ -186,6 +186,31 @@ function StaffProfile() {
                 <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('profile.manage_profile_subtitle')}</p>
             </div>
 
+            {/* Unique Booking Link Card */}
+            <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl p-4 sm:p-6 mb-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div className="flex items-center gap-3">
+                        <div className="p-3 bg-champberry/10 rounded-xl text-champberry">
+                            <Globe size={24} />
+                        </div>
+                        <div>
+                            <h2 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">{t('admin.copy_booking_link', 'Link de Agendamento Personalizado')}</h2>
+                            <p className="text-gray-400 text-xs mt-1">{t('profile.booking_link_desc', 'Use este link para receber agendamentos diretamente para você.')}</p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => {
+                            const url = `${window.location.origin}/?staff=${currentUser.id}#appointment`;
+                            navigator.clipboard.writeText(url);
+                            showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
+                        }}
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 bg-champberry hover:bg-champberry-dark text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg active:scale-95 cursor-pointer"
+                    >
+                        {t('common.copy_link', 'Copiar Link')}
+                    </button>
+                </div>
+            </div>
+
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                 <div className="p-4 sm:p-6 md:p-8">
                     <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
