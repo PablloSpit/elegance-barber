@@ -114,8 +114,13 @@ export function StaffProvider({ children }) {
     useEffect(() => {
         const fetchStaff = async () => {
             // ensure default staff include auth fields
-            setStaff(defaultStaff);
-            await localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultStaff));
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                setStaff(JSON.parse(stored));
+            } else {
+                setStaff(defaultStaff);
+                await localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultStaff));
+            }
         };
 
         fetchStaff();
@@ -123,11 +128,11 @@ export function StaffProvider({ children }) {
 
     const addNewStaff = async (newMember) => {
         if (!newMember) {
-            return { error: "Invalid staff data provided." };
+            return { error: "Dados de equipe inválidos fornecidos." };
         }
         // require password/auth data for staff accounts (so staff can login)
         if (!newMember.name || !newMember.email || !newMember.phone || !newMember.role || !newMember.specialties || !newMember.password) {
-            return { error: "Please fill in all required fields (password required for staff accounts)." };
+            return { error: "Por favor, preencha todos os campos obrigatórios (senha é necessária para contas de equipe)." };
         }
 
         // ensure no collision with existing staff
@@ -143,7 +148,7 @@ export function StaffProvider({ children }) {
         // also ensure no collision with persisted clients
         const persistedClients = JSON.parse(localStorage.getItem('allUsers') || '[]');
         if (persistedClients.some(u => u.email && u.email.toLowerCase() === newMember.email.toLowerCase())) {
-            return { error: 'A client account already exists with this email. Use a different email.' };
+            return { error: 'Uma conta de cliente já existe com este e-mail. Use um e-mail diferente.' };
         }
 
         const newId = staff.length > 0 ? Math.max(...staff.map(s => s.id)) + 1 : 1;
@@ -161,7 +166,7 @@ export function StaffProvider({ children }) {
         // notify other contexts (AuthContext) to refresh runtime users
         try { window.dispatchEvent(new CustomEvent('staff-added', { detail: staffToAdd })); } catch { /* noop */ }
 
-        return { success: "Staff member added successfully.", member: staffToAdd };
+        return { success: "Membro da equipe adicionado com sucesso.", member: staffToAdd };
     };
 
     const removeStaff = async (staffId) => {
@@ -169,25 +174,25 @@ export function StaffProvider({ children }) {
         setStaff(updatedStaff);
         await localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedStaff));
         try { window.dispatchEvent(new CustomEvent('staff-removed', { detail: staffId })); } catch { /* noop */ }
-        return { success: "Staff member removed successfully." };
+        return { success: "Membro da equipe removido com sucesso." };
     };
 
     const updateStaff = async (staffId, updatedData) => {
         const findStaff = staff.find(member => member.id === staffId);
         if (!findStaff) {
-            return { error: "Staff member not found." };
+            return { error: "Membro da equipe não encontrado." };
         }
 
         // validate uniqueness against other staff
         const conflict = staff.find(m => (m.email.toLowerCase() === (updatedData.email || findStaff.email).toLowerCase() || m.phone === (updatedData.phone || findStaff.phone)) && m.id !== staffId);
         if (conflict) {
-            return { error: 'Another staff member already uses that email or phone.' };
+            return { error: 'Outro membro da equipe já utiliza esse e-mail ou telefone.' };
         }
 
         // validate uniqueness against persisted clients
         const persistedClients = JSON.parse(localStorage.getItem('allUsers') || '[]');
         if (updatedData.email && persistedClients.some(u => u.email && u.email.toLowerCase() === updatedData.email.toLowerCase())) {
-            return { error: 'A client account already exists with this email. Use a different email.' };
+            return { error: 'Uma conta de cliente já existe com este e-mail. Use um e-mail diferente.' };
         }
 
         // merge changes (preserve existing auth fields if not provided)
@@ -200,7 +205,7 @@ export function StaffProvider({ children }) {
         // notify AuthContext and other listeners
         try { window.dispatchEvent(new CustomEvent('staff-updated', { detail: updatedMember })); } catch { /* noop */ }
 
-        return { success: "Staff member updated successfully.", member: updatedMember };
+        return { success: "Membro da equipe atualizado com sucesso.", member: updatedMember };
     };
 
     const getStaffBySpecialty = (specialty) => {
