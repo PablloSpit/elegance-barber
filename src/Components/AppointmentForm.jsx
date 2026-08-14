@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect, memo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { services } from '../data/services.js'
 import { useAppointment } from '../Context/AppointmentContext.jsx'
+import { useStaff } from '../Context/StaffContext.jsx'
 import { useAuth } from '../Context/AuthContext.jsx'
 import { useMessage } from '../Context/MessageContext.jsx'
 import gsap from 'gsap'
@@ -187,9 +189,12 @@ const Step3Details = memo(({
  *  ========================================================================= */
 function Appointment() {
     const { t } = useTranslation()
+    const [searchParams] = useSearchParams()
+    const staffIdParam = searchParams.get('staff')
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
+    const { getStaffById } = useStaff()
 
     // Step State Machine
     const [currentStep, setCurrentStep] = useState(1)
@@ -284,7 +289,8 @@ function Appointment() {
         }
 
         const formData = {
-            name, email, phoneNumber, selectedService, date, time, message, totalPrice
+            name, email, phoneNumber, selectedService, date, time, message, totalPrice,
+            forcedStaffId: staffIdParam ? parseInt(staffIdParam) : null
         }
 
         const result = await bookAppointment(formData)

@@ -64,7 +64,7 @@ const Reports = () => {
     const dayNames = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
     const shortMonths = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
-    const { revenueChart, totalRevenue, totalCompleted, serviceRanking, barberRanking, comparisonData } = useMemo(() => {
+    const { revenueChart, totalRevenue, totalCompleted, serviceRanking, barberRanking, comparisonData, totalCommission, netProfit } = useMemo(() => {
         const days = period === '7d' ? 7 : period === '30d' ? 30 : 90;
 
         let revenueChart = [];
@@ -128,7 +128,14 @@ const Reports = () => {
             { label: shortMonths[now.getMonth()], receita: Math.round(thisMRev), atendimentos: thisMCnt },
         ];
 
-        return { revenueChart, totalRevenue, totalCompleted, serviceRanking, barberRanking, comparisonData };
+        const totalCommission = apts.reduce((s, a) => {
+            const price = (a.services?.price ?? 0) + (a.extra_amount ?? 0);
+            const comm = a.profiles?.commission_percent ? (a.profiles.commission_percent / 100) : 0;
+            return s + (price * comm);
+        }, 0);
+        const netProfit = totalRevenue - totalCommission;
+
+        return { revenueChart, totalRevenue, totalCompleted, serviceRanking, barberRanking, comparisonData, totalCommission, netProfit };
     }, [apts, period]);
 
     const avgTicket = totalCompleted > 0 ? totalRevenue / totalCompleted : 0;
@@ -156,12 +163,13 @@ const Reports = () => {
                 </Tabs>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                 {[
                     { label: t('reports.revenue'), value: formatCurrency(totalRevenue), icon: DollarSign, color: 'text-champberry' },
-                    { label: t('reports.appointments'), value: totalCompleted, icon: Scissors, color: 'text-champberry' },
-                    { label: t('reports.avg_ticket'), value: formatCurrency(avgTicket), icon: TrendingUp, color: 'text-emerald-500' },
-                    { label: t('reports.unique_services'), value: serviceRanking.length, icon: Users, color: 'text-gray-400' },
+                    { label: t('admin.commission'), value: formatCurrency(totalCommission), icon: Users, color: 'text-amber-500' },
+                    { label: 'Lucro Líquido', value: formatCurrency(netProfit), icon: TrendingUp, color: 'text-emerald-500' },
+                    { label: t('reports.appointments'), value: totalCompleted, icon: Scissors, color: 'text-blue-500' },
+                    { label: t('reports.avg_ticket'), value: formatCurrency(avgTicket), icon: TrendingUp, color: 'text-emerald-400' },
                 ].map(({ label, value, icon: Icon, color }) => (
                     <Card key={label} className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                         <CardContent className="p-4">

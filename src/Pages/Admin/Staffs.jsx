@@ -11,7 +11,8 @@ import {
     User,
     Calendar,
     Briefcase,
-    ShieldCheck
+    ShieldCheck,
+    Globe
 } from 'lucide-react'
 import { useStaff } from '../../Context/StaffContext'
 import { useMessage } from '../../Context/MessageContext'
@@ -236,15 +237,28 @@ const Staffs = () => {
                                                 </div>
 
                                             </td>
-                                            <td className="px-6 py-4 text-right relative">
-                                                <StaffMenu
-                                                    staff={member}
-                                                    onCheckAppts={handleCheckAppts}
-                                                    onViewDetails={handleViewDetails}
-                                                    onDelete={handleDelete}
-                                                    onEdit={handleEdit}
-                                                />
-                                            </td>
+                                             <td className="px-6 py-4 text-right relative">
+                                                <div className="flex items-center justify-end gap-2">
+                                                    <button 
+                                                        onClick={() => {
+                                                            const url = `${window.location.origin}/book?staff=${member.id}`;
+                                                            navigator.clipboard.writeText(url);
+                                                            showMessage('success', 'Link de agendamento copiado!');
+                                                        }}
+                                                        className="p-2 text-champberry hover:bg-champberry/10 rounded-lg transition-all"
+                                                        title="Copiar Link de Agendamento"
+                                                    >
+                                                        <Globe size={16} />
+                                                    </button>
+                                                    <StaffMenu
+                                                        staff={member}
+                                                        onCheckAppts={handleCheckAppts}
+                                                        onViewDetails={handleViewDetails}
+                                                        onDelete={handleDelete}
+                                                        onEdit={handleEdit}
+                                                    />
+                                                </div>
+                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
