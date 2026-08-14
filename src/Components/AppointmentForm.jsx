@@ -471,6 +471,8 @@ function Appointment() {
                 </div>
             </div>
         </div>
+        </div>
+    )
     )
 }
 
