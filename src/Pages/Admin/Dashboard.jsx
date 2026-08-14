@@ -248,7 +248,7 @@ function Dashboard() {
                 <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden">
                     <div className="bg-obsidian-surface px-4 sm:px-6 py-4 sm:py-6 border-b border-[#333] flex justify-between items-center gap-3 sm:gap-4">
                         <h2 className="text-lg sm:text-2xl font-extrabold text-champberry flex items-center gap-2">
-                            <span className="text-white">{t('inventory.status', 'Status do')}</span> {t('inventory.title', 'Estoque')}
+                            <span className="text-white">{t('admin.inventory_status_label', 'Status do')}</span> {t('inventory.title', 'Estoque')}
                             {/* <span className="hidden sm:inline-flex text-xs font-bold text-champberry bg-champberry/10 border border-champberry/20 px-2 py-1 rounded-md tracking-wider uppercase">Real-time</span> */}
                         </h2>
                         <button className="px-3 sm:px-4 py-1.5 sm:py-2 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs uppercase tracking-wider rounded-lg shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry cursor-pointer whitespace-nowrap">

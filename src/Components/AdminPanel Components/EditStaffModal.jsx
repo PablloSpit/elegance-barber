@@ -80,7 +80,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
 
         // Validate WebP format
         if (file.type !== 'image/webp') {
-            setError('Only WebP format images are supported. Please select a .webp file.');
+            setError('Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.');
             e.target.value = '';
             return;
         }
@@ -112,7 +112,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
         setIsLoading(true);
 
         if (!formData.name || !formData.email || !formData.phone || !formData.role || !formData.specialties) {
-            setError('Please fill in all required fields');
+            setError('Por favor, preencha todos os campos obrigatórios');
             setIsLoading(false);
             return;
         }

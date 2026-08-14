@@ -80,10 +80,10 @@ const Staffs = () => {
     }
     const handleDelete = (staff) => {
         setConfirmAction({
-            message: `Are you sure you want to remove ${staff.name} from the team?`,
+            message: `Tem certeza que deseja remover ${staff.name} da equipe?`,
             onConfirm: () => {
                 removeStaff(staff.id)
-                showMessage('success', `${staff.name} has been removed from the team.`)
+                showMessage('success', `${staff.name} foi removido(a) da equipe.`)
                 setConfirmAction(null)
             },
             onCancel: () => setConfirmAction(null)
