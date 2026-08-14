@@ -1,11 +1,11 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAppointment } from '../../Context/AppointmentContext'
 import { useAuth } from '../../Context/AuthContext'
 import {
     Search,
     Filter,
     Calendar,
-    Clock,
     X
 } from 'lucide-react'
 import StatusBadge from '../../Components/AdminPanel Components/StatusBadge'
@@ -28,11 +28,21 @@ const parseStoredDate = (dateStr) => {
     return new Date(dateStr)
 }
 
-const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Checked In']
-
 function StaffAppointments() {
+    const { t } = useTranslation()
     const { getAppointmentsForStaff } = useAppointment()
     const { currentUser } = useAuth()
+
+    const categories = useMemo(() => [
+        'All',
+        'Confirmed',
+        'Pending',
+        'Awaiting Confirmation',
+        'Cancelled',
+        'Completed',
+        'Checked In',
+        'Missed'
+    ], [])
 
     // Fetch only this staff's appointments
     const appointments = useMemo(() => {
@@ -212,9 +222,9 @@ function StaffAppointments() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
                 <div>
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                        My <span className="text-champberry">Appointments</span>
+                        {t('nav.my_appointments').split(' ')[0]} <span className="text-champberry">{t('nav.my_appointments').split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-gray-400 text-xs sm:text-sm mt-1">View and manage all your assigned client bookings</p>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('home.staff_schedule_subtitle')}</p>
                 </div>
 
                 {/* Action Toolbar */}
@@ -226,7 +236,7 @@ function StaffAppointments() {
                         </div>
                         <input
                             type="text"
-                            placeholder="Search client, service, ID..."
+                            placeholder={t('appointments.placeholders.search')}
                             className="bg-obsidian-surface border border-[#333] text-white text-xs sm:text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full sm:w-52 md:w-64 pl-9 sm:pl-10 p-2 sm:p-2.5 transition-all outline-none"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -244,7 +254,9 @@ function StaffAppointments() {
                             onChange={(e) => setStatusFilter(e.target.value)}
                         >
                             {categories.map(cat => (
-                                <option key={cat} value={cat}>{cat}</option>
+                                <option key={cat} value={cat}>
+                                    {cat === 'All' ? t('appointments.status.all') : t(`appointments.status.${cat.toLowerCase().replace(/ /g, '_')}`)}
+                                </option>
                             ))}
                         </select>
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-champberry-muted">
@@ -260,7 +272,7 @@ function StaffAppointments() {
                                 } text-xs sm:text-sm rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2 hover:border-champberry hover:text-champberry transition-all outline-none w-full sm:w-auto justify-center font-medium cursor-pointer`}
                         >
                             <Filter size={16} />
-                            <span>Filters</span>
+                            <span>{t('appointments.filters.title')}</span>
                             {hasActiveFilters && (
                                 <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-champberry text-black text-xs font-black rounded-full flex items-center justify-center shadow-lg">
                                     {activeFilterCount}
@@ -272,19 +284,19 @@ function StaffAppointments() {
                         {showFilterPanel && (
                             <div className="absolute top-full mt-2 right-0 left-0 sm:left-auto w-full sm:w-80 bg-obsidian-surface border border-[#333] rounded-lg shadow-2xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
                                 <div className="bg-obsidian-surface px-4 py-3 border-b border-[#333] flex justify-between items-center">
-                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">Filter Appointments</h3>
+                                    <h3 className="text-white font-bold text-sm uppercase tracking-wider">{t('appointments.filters.panel_title')}</h3>
                                     <button
                                         onClick={clearAllFilters}
                                         className="text-xs text-champberry hover:text-white transition-colors font-bold uppercase tracking-wide"
                                     >
-                                        Clear All
+                                        {t('appointments.filters.clear_all')}
                                     </button>
                                 </div>
 
                                 <div className="p-4 space-y-4 max-h-96 overflow-y-auto custom-scrollbar">
                                     {/* Quick Date Presets */}
                                     <div>
-                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">Quick Filter</label>
+                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.quick_filter')}</label>
                                         <div className="grid grid-cols-2 gap-2">
                                             {['Today', 'Tomorrow', 'This Week', 'This Month'].map(preset => (
                                                 <button
@@ -295,7 +307,7 @@ function StaffAppointments() {
                                                         : 'bg-obsidian border-[#333] text-gray-400 hover:border-champberry hover:text-champberry'
                                                         }`}
                                                 >
-                                                    {preset}
+                                                    {t(`appointments.filters.${preset.toLowerCase().replace(/ /g, '_')}`)}
                                                 </button>
                                             ))}
                                         </div>
@@ -303,7 +315,7 @@ function StaffAppointments() {
 
                                     {/* Custom Date Range */}
                                     <div>
-                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">Date Range</label>
+                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.date_range')}</label>
                                         <div className="space-y-2">
                                             <input
                                                 type="date"
@@ -313,7 +325,6 @@ function StaffAppointments() {
                                                     setSelectedPreset(null)
                                                 }}
                                                 className="w-full bg-obsidian border border-[#333] rounded-lg px-3 py-2 text-sm text-white focus:border-champberry focus:ring-1 focus:ring-champberry outline-none transition-all"
-                                                placeholder="From"
                                             />
                                             <input
                                                 type="date"
@@ -323,14 +334,13 @@ function StaffAppointments() {
                                                     setSelectedPreset(null)
                                                 }}
                                                 className="w-full bg-obsidian border border-[#333] rounded-lg px-3 py-2 text-sm text-white focus:border-champberry focus:ring-1 focus:ring-champberry outline-none transition-all"
-                                                placeholder="To"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Time Range */}
                                     <div>
-                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">Time Range</label>
+                                        <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">{t('appointments.filters.time_range')}</label>
                                         <div className="grid grid-cols-2 gap-2">
                                             <input
                                                 type="time"
@@ -347,138 +357,70 @@ function StaffAppointments() {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="bg-obsidian-surface px-4 py-3 border-t border-[#333]">
-                                    <button
-                                        onClick={() => setShowFilterPanel(false)}
-                                        className="w-full bg-champberry hover:bg-champberry-dark text-black cursor-pointer font-black py-2.5 rounded-lg transition-colors text-sm uppercase tracking-wide shadow-lg"
-                                    >
-                                        Apply Filters
-                                    </button>
-                                </div>
                             </div>
                         )}
                     </div>
                 </div>
             </div>
 
-            {/* Active Filter Tags */}
-            {hasActiveFilters && (
-                <div className="flex flex-wrap gap-2 items-center bg-obsidian-surface/30 border border-[#333] rounded-lg p-3">
-                    <span className="text-champberry-muted text-xs font-bold uppercase tracking-wider">Active Filters:</span>
-
-                    {dateFilter.from && (
-                        <span className="bg-obsidian-elevated border border-champberry/50 text-champberry px-3 py-1.5 rounded-full text-xs flex items-center gap-2 font-medium">
-                            <Calendar size={12} />
-                            {dateFilter.from} {dateFilter.to && `→ ${dateFilter.to}`}
-                            <button
-                                onClick={() => { setDateFilter({ from: '', to: '' }); setSelectedPreset(null) }}
-                                className="hover:text-white transition-colors ml-1"
-                            >
-                                <X size={14} />
-                            </button>
-                        </span>
-                    )}
-
-                    {timeFilter.from && (
-                        <span className="bg-obsidian-elevated border border-champberry/50 text-champberry px-3 py-1.5 rounded-full text-xs flex items-center gap-2 font-medium">
-                            <Clock size={12} />
-                            {timeFilter.from} {timeFilter.to && `→ ${timeFilter.to}`}
-                            <button
-                                onClick={() => setTimeFilter({ from: '', to: '' })}
-                                className="hover:text-white transition-colors ml-1"
-                            >
-                                <X size={14} />
-                            </button>
-                        </span>
-                    )}
-
-                    <button
-                        onClick={clearAllFilters}
-                        className="ml-auto text-xs text-white hover:text-champberry transition-colors font-bold uppercase tracking-wide"
-                    >
-                        Clear All
-                    </button>
-                </div>
-            )}
-
-            {/* Appointments Table Card */}
-            <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl relative">
-
+            {/* Table/List View */}
+            <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                 {filteredAndSortedAppointments.length === 0 ? (
                     <div className="flex flex-col items-center justify-center py-20 text-center">
-                        <div className="bg-obsidian-elevated p-4 rounded-full mb-4">
+                        <div className="bg-white/2 p-4 rounded-full mb-4">
                             <Calendar size={48} className="text-[#333]" />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">No Appointments Found</h3>
-                        <p className="text-champberry-muted max-w-md">There are no appointments matching your criteria.</p>
-                        {hasActiveFilters && (
-                            <button
-                                onClick={clearAllFilters}
-                                className="mt-4 px-6 py-2.5 bg-champberry hover:bg-champberry-dark text-black cursor-pointer font-bold rounded-lg text-sm transition-colors uppercase tracking-wide shadow-lg"
-                            >
-                                Clear All Filters
-                            </button>
-                        )}
+                        <h3 className="text-xl font-bold text-white mb-2">{t('home.no_appointments_assigned')}</h3>
+                        <p className="text-champberry-muted max-w-sm mx-auto">
+                            {t('home.staff_schedule_subtitle')}
+                        </p>
                     </div>
                 ) : (
                     <>
-                        {/* Desktop Table - hidden on mobile */}
-                        <div className="hidden lg:block overflow-x-auto overflow-y-auto max-h-[65vh] min-h-100 custom-scrollbar">
+                        {/* Desktop Table */}
+                        <div className="hidden lg:block overflow-x-auto">
                             <table className="w-full text-left border-collapse">
-                                <thead className="bg-obsidian-surface text-[#777] uppercase text-[11px] font-bold tracking-wider border-b border-[#333] sticky top-0 z-10">
+                                <thead className="bg-white/2 text-[#555] uppercase text-[11px] font-bold tracking-wider border-b border-white/5">
                                     <tr>
-                                        <SortableHeader field="id" currentSort={sortConfig} onSort={handleSort}>
-                                            ID
-                                        </SortableHeader>
-                                        <SortableHeader field="name" currentSort={sortConfig} onSort={handleSort}>
-                                            Client Details
-                                        </SortableHeader>
-                                        <SortableHeader field="service" currentSort={sortConfig} onSort={handleSort}>
-                                            Service Info
-                                        </SortableHeader>
-                                        <SortableHeader field="date" currentSort={sortConfig} onSort={handleSort}>
-                                            Date & Time
-                                        </SortableHeader>
-                                        <SortableHeader field="status" currentSort={sortConfig} onSort={handleSort}>
-                                            Status
-                                        </SortableHeader>
-                                        <th className="px-6 py-5 text-right">Actions</th>
+                                        <SortableHeader field="id" currentSort={sortConfig} onSort={handleSort}>ID</SortableHeader>
+                                        <SortableHeader field="name" currentSort={sortConfig} onSort={handleSort}>{t('appointments.client_details')}</SortableHeader>
+                                        <SortableHeader field="service" currentSort={sortConfig} onSort={handleSort}>{t('appointments.service_info')}</SortableHeader>
+                                        <SortableHeader field="date" currentSort={sortConfig} onSort={handleSort}>{t('common.date_time')}</SortableHeader>
+                                        <th className="px-6 py-4">Status</th>
+                                        <th className="px-6 py-4 text-right">{t('common.actions')}</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/5">
                                     {filteredAndSortedAppointments.map((appointment) => (
                                         <tr key={appointment.id} className="hover:bg-white/2 transition-colors group">
-                                            <td className="px-6 py-4 text-[#555] font-mono text-xs">
-                                                #{appointment.id}
+                                            <td className="px-6 py-4">
+                                                <span className="text-gray-500 font-mono text-xs">#{appointment.id}</span>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-3">
-                                                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-champberry to-champberry-dark flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                                                        {appointment.name.charAt(0)}
+                                                    <div className="w-9 h-9 rounded-full bg-linear-to-br from-champberry/20 to-champberry-dark/20 flex items-center justify-center text-champberry font-bold text-sm border border-champberry/20">
+                                                        {appointment.name?.charAt(0)}
                                                     </div>
-                                                    <div>
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="font-bold text-white text-sm">{appointment.name}</div>
-                                                        </div>
-                                                        <div className="text-[#777] text-xs flex items-center gap-1 mt-0.5">
-                                                            {appointment.phone || "No Phone"}
-                                                        </div>
+                                                    <div className="flex flex-col">
+                                                        <span className="font-bold text-white text-sm">{appointment.name}</span>
+                                                        <span className="text-gray-500 text-xs">{appointment.phone || t('appointments.no_phone')}</span>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <div className="text-gray-300 text-sm font-medium">{getAssignedServiceText(appointment)}</div>
-                                                <div className="text-champberry text-xs font-bold mt-1">${getAssignedTotal(appointment)}</div>
+                                                <div className="flex flex-col">
+                                                    <span className="text-white text-xs font-medium max-w-[200px] truncate">
+                                                        {getAssignedServiceText(appointment)}
+                                                    </span>
+                                                    <span className="text-champberry font-bold text-xs mt-0.5">
+                                                        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(getAssignedTotal(appointment))}
+                                                    </span>
+                                                </div>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex flex-col">
-                                                    <div className="flex items-center gap-1.5 text-white text-sm font-medium">
-                                                        <Calendar size={12} className="text-champberry-muted" /> {appointment.date}
-                                                    </div>
-                                                    <div className="flex items-center gap-1.5 text-[#777] text-xs mt-1 pl-0.5">
-                                                        <Clock size={12} /> {appointment.time}
-                                                    </div>
+                                                    <span className="text-white font-medium text-xs">{appointment.date}</span>
+                                                    <span className="text-gray-500 text-[10px] uppercase tracking-wider">{appointment.time}</span>
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4">
@@ -497,63 +439,66 @@ function StaffAppointments() {
                             </table>
                         </div>
 
-                        {/* Mobile Card View - visible below lg */}
-                        <div className="lg:hidden divide-y divide-white/5 max-h-[65vh] overflow-y-auto custom-scrollbar">
+                        {/* Mobile List View */}
+                        <div className="lg:hidden p-3 sm:p-4 space-y-3 sm:space-y-4">
                             {filteredAndSortedAppointments.map((appointment) => (
-                                <div key={appointment.id} className="p-3 sm:p-4 hover:bg-white/2 transition-colors">
-                                    {/* Top row: avatar + name + status + menu */}
-                                    <div className="flex items-start justify-between gap-2 mb-2">
-                                        <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                                            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-linear-to-br from-champberry to-champberry-dark flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg shrink-0">
-                                                {appointment.name.charAt(0)}
+                                <div key={appointment.id} className="bg-obsidian-elevated p-4 rounded-xl border border-white/5 space-y-4">
+                                    <div className="flex justify-between items-start">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-full bg-linear-to-br from-champberry/20 to-champberry-dark/20 flex items-center justify-center text-champberry font-bold border border-champberry/20">
+                                                {appointment.name?.charAt(0)}
                                             </div>
-                                            <div className="min-w-0">
-                                                <div className="font-bold text-white text-xs sm:text-sm truncate">{appointment.name}</div>
-                                                <div className="text-[#777] text-[10px] sm:text-xs">#{appointment.id} · {appointment.phone || "No Phone"}</div>
+                                            <div>
+                                                <h4 className="font-bold text-white text-sm">{appointment.name}</h4>
+                                                <span className="text-xs text-gray-500">#{appointment.id}</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-2 shrink-0">
-                                            <StatusBadge status={appointment.status} />
-                                            <StaffAppointmentMenu
-                                                appointment={appointment}
-                                                onEdit={handleEdit}
-                                                onView={handleView}
-                                            />
+                                        <StatusBadge status={appointment.status} />
+                                    </div>
+
+                                    <div className="py-3 border-y border-white/5 space-y-2">
+                                        <div className="flex items-center gap-2 text-xs text-gray-400">
+                                            <Calendar size={12} className="text-champberry" />
+                                            <span>{appointment.date}</span>
+                                            <span className="text-white/10">|</span>
+                                            <span>{appointment.time}</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-gray-400 text-[10px] uppercase font-bold tracking-widest">{t('inventory.service')}</span>
+                                            <span className="text-white text-sm font-medium">{getAssignedServiceText(appointment)}</span>
                                         </div>
                                     </div>
-                                    {/* Details grid */}
-                                    <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[10px] sm:text-xs ml-10 sm:ml-11.5">
-                                        <div>
-                                            <span className="text-[#555] uppercase tracking-wide font-bold">Services</span>
-                                            <div className="text-gray-300 font-medium mt-0.5 truncate">{getAssignedServiceText(appointment)}</div>
-                                        </div>
-                                        <div>
-                                            <span className="text-[#555] uppercase tracking-wide font-bold">Total</span>
-                                            <div className="text-champberry font-bold mt-0.5">${getAssignedTotal(appointment)}</div>
-                                        </div>
-                                        <div>
-                                            <span className="text-[#555] uppercase tracking-wide font-bold">Date</span>
-                                            <div className="text-white font-medium mt-0.5 flex items-center gap-1">
-                                                <Calendar size={10} className="text-champberry-muted" /> {appointment.date}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <span className="text-[#555] uppercase tracking-wide font-bold">Time</span>
-                                            <div className="text-[#999] font-medium mt-0.5 flex items-center gap-1">
-                                                <Clock size={10} /> {appointment.time}
-                                            </div>
-                                        </div>
+
+                                    <div className="flex justify-between items-center pt-1">
+                                        <span className="text-champberry font-black text-lg">
+                                            {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(getAssignedTotal(appointment))}
+                                        </span>
+                                        <StaffAppointmentMenu
+                                            appointment={appointment}
+                                            onEdit={handleEdit}
+                                            onView={handleView}
+                                        />
                                     </div>
                                 </div>
                             ))}
                         </div>
-
-                        {/* Footer */}
-                        <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
-                            <span>Showing <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> of <span className="text-white font-bold">{appointments.length}</span> entries</span>
-                        </div>
                     </>
                 )}
+            </div>
+
+            {/* Pagination/Summary */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-obsidian-surface/30 p-4 rounded-xl border border-white/5">
+                <div className="text-xs text-gray-500 font-medium">
+                    {t('common.showing')} <span className="text-white">{filteredAndSortedAppointments.length}</span> {t('common.of')} <span className="text-white">{appointments.length}</span> {t('admin.appointments').toLowerCase()}
+                </div>
+                <div className="flex items-center gap-2">
+                    <button className="px-3 py-1.5 text-xs font-bold text-gray-400 border border-white/5 rounded-lg hover:text-white transition-colors disabled:opacity-30" disabled>
+                        {t('common.previous')}
+                    </button>
+                    <button className="px-3 py-1.5 text-xs font-bold text-gray-400 border border-white/5 rounded-lg hover:text-white transition-colors disabled:opacity-30" disabled>
+                        {t('common.next')}
+                    </button>
+                </div>
             </div>
 
             {/* Modals */}
@@ -569,7 +514,7 @@ function StaffAppointments() {
                     onClose={() => setViewingAppointment(null)}
                 />
             )}
-        </div >
+        </div>
     )
 }
 

@@ -6,9 +6,11 @@ import {
     PanelLeftClose,
     PanelLeftOpen
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import NavItem from '../AdminPanel Components/NavItem' // Reusing Admin NavItem
 
 const StaffSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, collapsed, setCollapsed }) => {
+    const { t } = useTranslation()
     return (
         <>
             {/* Mobile Sidebar Overlay */}
@@ -44,22 +46,22 @@ const StaffSidebar = ({ sidebarOpen, setSidebarOpen, handleLogout, currentUser, 
 
                     {/* Navigation */}
                     <nav className={`flex-1 overflow-y-auto py-6 ${collapsed ? 'px-2' : 'px-4'} space-y-2 scrollbar-hide`}>
-                        <NavItem icon={<LayoutDashboard size={20} />} label="Dashboard" to="/staff/dashboard" collapsed={collapsed} />
-                        <NavItem icon={<Calendar size={20} />} label="My Appointments" to="/staff/appointments" collapsed={collapsed} />
-                        <NavItem icon={<User size={20} />} label="Profile" to="/staff/profile" collapsed={collapsed} />
+                        <NavItem icon={<LayoutDashboard size={20} />} label={t('nav.dashboard')} to="/staff/dashboard" collapsed={collapsed} />
+                        <NavItem icon={<Calendar size={20} />} label={t('nav.my_appointments')} to="/staff/appointments" collapsed={collapsed} />
+                        <NavItem icon={<User size={20} />} label={t('nav.profile')} to="/staff/profile" collapsed={collapsed} />
 
                         <div className={`pt-6 pb-2 ${collapsed ? 'text-center' : ''}`}>
-                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>Settings</p>
+                            <p className={`px-4 text-[10px] font-bold text-[#555] uppercase tracking-widest ${collapsed ? 'hidden' : 'block'}`}>{t('common.settings')}</p>
                             {collapsed && <div className="h-px w-8 mx-auto bg-white/5"></div>}
                         </div>
 
                         <button
                             onClick={handleLogout}
                             className={`w-full flex items-center ${collapsed ? 'justify-center px-2' : 'gap-3 px-4'} py-3 text-[#a1a1aa] hover:bg-rose-500/10 hover:text-rose-400 rounded-xl transition-all duration-200 group cursor-pointer border border-transparent hover:border-rose-500/10 mt-2`}
-                            title={collapsed ? "Logout" : ""}
+                            title={collapsed ? t('nav.logout') : ""}
                         >
                             <LogOut size={18} className="group-hover:scale-110 transition-transform" />
-                            {!collapsed && <span className="font-medium text-sm">Logout</span>}
+                            {!collapsed && <span className="font-medium text-sm">{t('nav.logout')}</span>}
                         </button>
                     </nav>
 

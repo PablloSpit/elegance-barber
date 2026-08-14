@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAppointment } from '../../Context/AppointmentContext';
 import { X, Calendar, Briefcase, Mail, Phone, Star, TrendingUp } from 'lucide-react';
 import StatusBadge from './StatusBadge';
 
 const StaffDetailsModal = ({ staff, onClose }) => {
+    const { t } = useTranslation();
     const { appointments } = useAppointment();
 
     // Stats calculations
@@ -81,11 +83,11 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                     {/* Stats Grid */}
                     <div className="grid grid-cols-3 gap-3">
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
-                            <span className="text-champberry-muted text-[10px] uppercase font-bold tracking-wider mb-1">Total Appts</span>
+                             <span className="text-champberry-muted text-[10px] uppercase font-bold tracking-wider mb-1">{t('reports.appointments')}</span>
                             <span className="text-white text-xl font-black">{stats.total}</span>
                         </div>
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
-                            <span className="text-emerald-500/70 text-[10px] uppercase font-bold tracking-wider mb-1">Active</span>
+                            <span className="text-emerald-500/70 text-[10px] uppercase font-bold tracking-wider mb-1">{t('home.active')}</span>
                             <span className="text-emerald-400 text-xl font-black">{stats.active}</span>
                         </div>
                         <div className="bg-obsidian-elevated border border-white/5 p-3 rounded-xl flex flex-col items-center text-center">
@@ -101,7 +103,7 @@ const StaffDetailsModal = ({ staff, onClose }) => {
                     <div className="space-y-4">
                         <div className="bg-obsidian-elevated border border-white/5 p-4 rounded-xl">
                             <h4 className="text-gray-400 text-xs font-bold uppercase mb-3 flex items-center gap-2">
-                                <Briefcase size={14} /> Specialties
+                                <Briefcase size={14} /> Especialidades
                             </h4>
                             <div className="flex flex-wrap gap-2">
                                 {staff.specialties?.map((skill, idx) => (
@@ -114,15 +116,15 @@ const StaffDetailsModal = ({ staff, onClose }) => {
 
                         <div className="bg-obsidian-elevated border border-white/5 p-4 rounded-xl">
                             <h4 className="text-gray-400 text-xs font-bold uppercase mb-3 flex items-center gap-2">
-                                <TrendingUp size={14} /> Performance
+                                <TrendingUp size={14} /> {t('admin.performance')}
                             </h4>
                             <div className="flex justify-between items-center text-sm">
-                                <span className="text-gray-400">Experience</span>
+                                <span className="text-gray-400">{t('admin.experience_years')}</span>
                                 <span className="text-white font-bold">{staff.experience}</span>
                             </div>
                             <div className="w-full h-px bg-white/5 my-2"></div>
                             <div className="flex justify-between items-center text-sm">
-                                <span className="text-gray-400">Commission Rate</span>
+                                <span className="text-gray-400">{t('admin.commission')}</span>
                                 <span className="text-white font-bold">{staff.commission ? `${staff.commission * 100}%` : 'Standard'}</span>
                             </div>
                         </div>

@@ -16,7 +16,23 @@
     "all_rights_reserved": "Todos os direitos reservados.",
     "step": "Passo",
     "login": "Entrar",
-    "back": "Voltar"
+    "back": "Voltar",
+    "view_details": "Ver Detalhes",
+    "confirm_action": "Confirmar Ação",
+    "yes_proceed": "Sim, Prosseguir",
+    "no_keep_it": "Não, Manter",
+    "showing": "Mostrando",
+    "of": "de",
+    "entries": "entradas",
+    "members": "membros",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "separated_by_comma": "Separadas por vírgula",
+    "example": "Exemplo",
+    "default_new": "Usar padrão (Novo)",
+    "change_photo": "Alterar Foto",
+    "upload_photo": "Enviar Foto",
+    "remove": "Remover"
   },
   "nav": {
     "home": "Início",
@@ -34,7 +50,9 @@
     "my_appointments": "Meus Agendamentos",
     "my_account": "Minha Conta",
     "login_register": "Entrar / Cadastrar",
-    "book_appointment_short": "AGENDAR"
+    "book_appointment_short": "AGENDAR",
+    "dashboard": "Dashboard",
+    "profile": "Perfil"
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -86,7 +104,37 @@
     "holiday_mode": "Modo Feriado",
     "holiday_mode_desc": "Bloqueia todos os agendamentos no período selecionado",
     "alert_sounds": "Sons de Alerta",
-    "alert_sounds_desc": "Reproduz som ao receber novos agendamentos"
+    "alert_sounds_desc": "Reproduz som ao receber novos agendamentos",
+    "edit_stylist": "Editar Profissional",
+    "check_appointments": "Ver Agendamentos",
+    "confirm_remove_staff": "Tem certeza que deseja remover {{name}} da equipe?",
+    "staff_removed_success": "{{name}} foi removido(a) da equipe.",
+    "status_updated_success": "Status atualizado com sucesso.",
+    "fill_all_fields": "Por favor, preencha todos os campos obrigatórios",
+    "fill_password_fields": "Por favor, preencha os campos de senha",
+    "incorrect_current_password": "Senha atual incorreta",
+    "password_min_length": "A nova senha deve ter pelo menos 6 caracteres",
+    "personal_info": "Informações Pessoais",
+    "business_rules": "Regras de Negócio",
+    "security": "Segurança",
+    "current_password": "Senha Atual",
+    "new_password": "Nova Senha",
+    "confirm_password": "Confirmar Senha",
+    "enter_current_password": "Digite a senha atual",
+    "enter_new_password": "Digite a nova senha",
+    "confirm_new_password": "Confirme a nova senha",
+    "manage_salon_info": "Gerencie as informações da sua barbearia e regras de negócio",
+    "error_webp_only": "Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.",
+    "profile_picture": "Foto de Perfil",
+    "webp_only_hint": "Apenas formato WebP (.webp)",
+    "password_hint": "Defina uma senha para o login do profissional",
+    "roles": {
+      "senior_barber": "Barbeiro Sênior",
+      "color_specialist": "Especialista em Cor",
+      "junior_barber": "Barbeiro Júnior",
+      "makeup_artist": "Maquiador(a)",
+      "receptionist": "Recepcionista"
+    }
   },
   "inventory": {
     "title": "Controle de Estoque",
@@ -105,7 +153,8 @@
     "sale": "Venda",
     "no_products": "Nenhum produto encontrado",
     "customer": "Cliente",
-    "service": "Serviço"
+    "service": "Serviço",
+    "min_stock": "Mín"
   },
   "reports": {
     "title": "Relatórios Financeiros",
@@ -117,7 +166,15 @@
     "revenue_over_time": "Receita ao Longo do Tempo",
     "top_services": "Top Serviços",
     "staff_ranking": "Ranking de Equipe",
-    "monthly_comparison": "Comparação Mensal"
+    "monthly_comparison": "Comparação Mensal",
+    "last_7_days": "7 dias",
+    "last_30_days": "30 dias",
+    "last_90_days": "90 dias",
+    "values_in_days": "Dias",
+    "values_in_months": "Meses",
+    "values_in_days_months": "Valores em {{unit}}",
+    "no_data": "Sem dados disponíveis",
+    "current_vs_previous_month": "Mês atual vs Anterior"
   },
   "home": {
     "since": "Desde 2011 — Cuidado Masculino Premium",
@@ -166,7 +223,22 @@
     "brands_desc": "Produtos premium para resultados excepcionais",
     "gallery_main_title": "A",
     "gallery_main_span": "Galeria",
-    "mens_salon": "Barbearia Masculina"
+    "mens_salon": "Barbearia Masculina",
+    "welcome_back": "Bem-vindo de volta, {{name}}",
+    "staff_schedule_subtitle": "Aqui está o que está acontecendo com sua agenda hoje.",
+    "total_assigned": "Total Atribuído",
+    "pending_jobs": "Trabalhos Pendentes",
+    "completed_jobs": "Trabalhos Concluídos",
+    "total_commissions": "Total de Comissões Ganhas",
+    "active": "Ativo",
+    "none": "Nenhum",
+    "needs_action": "Precisa de Ação",
+    "all_clear": "Tudo Limpo",
+    "great_work": "Ótimo trabalho!",
+    "estimated": "Estimado",
+    "view_all_my_appointments": "Ver Todos Meus Agendamentos",
+    "no_appointments_assigned": "Nenhum agendamento atribuído a você no momento.",
+    "guest": "Convidado"
   },
   "profile": {
     "experience": "Experiência",
@@ -179,7 +251,17 @@
     "unavailable": "Indisponível",
     "mastery_suffix": "de Maestria",
     "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno.",
-    "security": "Segurança"
+    "security": "Segurança",
+    "manage_profile_subtitle": "Gerencie suas informações pessoais e disponibilidade",
+    "weekdays": "Dias de Semana (Seg-Sex)",
+    "saturday": "Sábado",
+    "sunday": "Domingo",
+    "available_on_sundays": "Disponível aos Domingos",
+    "start_time": "Hora de Início",
+    "end_time": "Hora de Término",
+    "update_availability_desc": "Atualize seu horário de trabalho padrão. Isso afeta quando os clientes podem agendar com você.",
+    "profile_updated_success": "Perfil atualizado com sucesso",
+    "contact_admin_email": "Contate o administrador para alterar o e-mail."
   },
   "appointments": {
     "select_services": "SELECIONAR SERVIÇOS",
@@ -191,6 +273,10 @@
     "final_details": "Detalhes Finais",
     "confirm_booking": "Confirmar Agendamento",
     "success_msg": "Agendamento confirmado! {{summary}}",
+    "client_details": "Detalhes do Cliente",
+    "service_info": "Informação do Serviço",
+    "no_phone": "Sem Telefone",
+    "total": "Total",
     "placeholders": {
       "search": "Buscar cliente, serviço, ID...",
       "name": "NOME",
@@ -205,7 +291,8 @@
       "outside_hours": "Por favor, selecione um horário entre 11:00 e 20:00.",
       "sunday": "Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.",
       "details_required": "Dados pessoais são obrigatórios.",
-      "invalid_phone": "Por favor, insira um número de telefone válido."
+      "invalid_phone": "Por favor, insira um número de telefone válido.",
+      "no_stylist_available": "Nenhum profissional disponível para \"{{service}}\" no horário selecionado."
     },
     "status": {
       "all": "Todos",
@@ -214,7 +301,8 @@
       "awaiting_confirmation": "Aguardando Confirmação",
       "cancelled": "Cancelado",
       "completed": "Finalizado",
-      "missed": "Faltou"
+      "missed": "Faltou",
+      "checked_in": "Check-in Realizado"
     },
     "filters": {
       "title": "Filtros",
@@ -225,15 +313,35 @@
       "tomorrow": "Amanhã",
       "this_week": "Esta Semana",
       "this_month": "Este Mês",
-      "date_range": "Intervalo de Datas"
-    }
+      "date_range": "Intervalo de Datas",
+      "time_range": "Intervalo de Horas",
+      "active_filters": "Filtros Ativos",
+      "apply_filters": "Aplicar Filtros"
+    },
+    "actions": {
+      "check_in": "Realizar Check-in",
+      "mark_completed": "Marcar como Finalizado",
+      "cancel": "Cancelar",
+      "edit_details": "Editar Detalhes",
+      "view_details": "Ver Detalhes",
+      "confirm_status_change": "Tem certeza que deseja marcar este agendamento como {{status}}?",
+      "confirm_cancel": "Tem certeza que deseja cancelar este agendamento?",
+      "cancel_success": "Agendamento cancelado com sucesso",
+      "check_in_success": "Check-in do cliente realizado com sucesso",
+      "completed_success": "Agendamento marcado como finalizado",
+      "confirm_delete": "Tem certeza que deseja excluir este agendamento? Esta ação não pode ser desfeita."
+    },
+    "edit_title": "Editar Agendamento",
+    "view_title": "Detalhes do Agendamento"
   },
   "services": {
     "categories": {
       "haircut_services": "Serviços de Cabelo",
       "skin_face": "Pele e Rosto",
       "wax_design": "Cera e Design",
-      "treatment_style": "Tratamentos e Estilo"
+      "treatment_style": "Tratamentos e Estilo",
+      "Cabelo": "Cabelo",
+      "Barba": "Barba"
     },
     "items": {
       "haircut_standard": "Corte de Cabelo",
@@ -259,7 +367,13 @@
       "deep_conditioning": "Condicionamento Profundo",
       "scalp_treatment": "Tratamento do Couro Cabeludo",
       "hair_straightening": "Alisamento",
-      "special_hairstyles": "Penteados Especiais"
+      "special_hairstyles": "Penteados Especiais",
+      "Corte de Cabelo": "Corte de Cabelo",
+      "Aparo de Barba": "Aparo de Barba",
+      "Corte Clássico": "Corte Clássico",
+      "Barba e Navalha": "Barba e Navalha",
+      "Limpeza Facial e Lavagem": "Limpeza Facial e Lavagem",
+      "Estilização de Cabelo": "Estilização de Cabelo"
     }
   },
   "contact": {
@@ -278,5 +392,13 @@
     "quick_response": "Resposta Rápida",
     "support_24": "Suporte 24/7",
     "chat_now": "Conversar Agora"
+  },
+  "auth": {
+    "already_logged_in": "Você já está logado!",
+    "login_success": "Login realizado com sucesso!",
+    "remember_me": "Lembrar de mim",
+    "forgot_password": "Esqueceu sua senha?",
+    "dont_have_account": "Não tem uma conta?",
+    "sign_in": "Cadastre-se"
   }
 }

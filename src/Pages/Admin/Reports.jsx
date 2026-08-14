@@ -149,9 +149,9 @@ const Reports = () => {
                 </div>
                 <Tabs value={period} onValueChange={v => setPeriod(v)}>
                     <TabsList className="bg-obsidian-surface border border-white/5">
-                        <TabsTrigger value="7d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">7 dias</TabsTrigger>
-                        <TabsTrigger value="30d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">30 dias</TabsTrigger>
-                        <TabsTrigger value="90d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">90 dias</TabsTrigger>
+                        <TabsTrigger value="7d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_7_days')}</TabsTrigger>
+                        <TabsTrigger value="30d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_30_days')}</TabsTrigger>
+                        <TabsTrigger value="90d" className="data-[state=active]:bg-champberry data-[state=active]:text-white">{t('reports.last_90_days')}</TabsTrigger>
                     </TabsList>
                 </Tabs>
             </div>
@@ -178,7 +178,7 @@ const Reports = () => {
             <Card className="bg-obsidian-surface/50 border border-white/5 backdrop-blur-sm shadow-xl">
                 <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">{t('reports.revenue_over_time')}</CardTitle>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">Valores em {period === '90d' ? 'Meses' : 'Dias'}</p>
+                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('reports.values_in_days_months', { unit: period === '90d' ? t('reports.values_in_months') : t('reports.values_in_days') })}</p>
                 </CardHeader>
                 <CardContent>
                     <div className="h-48">
@@ -188,7 +188,7 @@ const Reports = () => {
                                 <YAxis hide />
                                 <Tooltip
                                     contentStyle={customTooltipStyle}
-                                    formatter={(v) => [formatCurrency(v), 'Receita']}
+                                    formatter={(v) => [formatCurrency(v), t('reports.revenue')]}
                                 />
                                 <Bar dataKey="value" fill="#d9822b" radius={[4, 4, 0, 0]} />
                             </BarChart>
@@ -206,7 +206,7 @@ const Reports = () => {
                     </CardHeader>
                     <CardContent>
                         {serviceRanking.length === 0 ? (
-                            <p className="text-sm text-gray-500 text-center py-8">Sem dados disponíveis</p>
+                            <p className="text-sm text-gray-500 text-center py-8">{t('reports.no_data')}</p>
                         ) : (
                             <div className="space-y-3">
                                 {serviceRanking.map((s, i) => {
@@ -237,7 +237,7 @@ const Reports = () => {
                     </CardHeader>
                     <CardContent>
                         {barberRanking.length === 0 ? (
-                            <p className="text-sm text-gray-500 text-center py-8">Sem dados disponíveis</p>
+                            <p className="text-sm text-gray-500 text-center py-8">{t('reports.no_data')}</p>
                         ) : (
                             <div className="h-48">
                                 <ResponsiveContainer width="100%" height="100%">
@@ -248,7 +248,7 @@ const Reports = () => {
                                         <Tooltip
                                             contentStyle={customTooltipStyle}
                                             formatter={(v, _, entry) => [
-                                                `${formatCurrency(v)} · ${entry.payload.count} atendimentos`,
+                                                `${formatCurrency(v)} · ${entry.payload.count} ${t('reports.appointments').toLowerCase()}`,
                                                 entry.payload.name,
                                             ]}
                                         />
@@ -266,7 +266,7 @@ const Reports = () => {
                     <CardTitle className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                         <TrendingUp className="h-4 w-4 text-champberry" /> {t('reports.monthly_comparison')}
                     </CardTitle>
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">Mês atual vs Anterior</p>
+                    <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('reports.current_vs_previous_month')}</p>
                 </CardHeader>
                 <CardContent>
                     <div className="h-52">
@@ -278,11 +278,11 @@ const Reports = () => {
                                 <Tooltip
                                     contentStyle={customTooltipStyle}
                                     formatter={(v, name) => [
-                                        name === 'receita' ? formatCurrency(v) : `${v} atendimentos`,
-                                        name === 'receita' ? 'Receita' : 'Atendimentos',
+                                        name === 'receita' ? formatCurrency(v) : `${v} ${t('reports.appointments').toLowerCase()}`,
+                                        name === 'receita' ? t('reports.revenue') : t('reports.appointments'),
                                     ]}
                                 />
-                                <Legend formatter={(v) => <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{v === 'receita' ? 'Receita' : 'Atendimentos'}</span>} />
+                                <Legend formatter={(v) => <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{v === 'receita' ? t('reports.revenue') : t('reports.appointments')}</span>} />
                                 <Bar yAxisId="left" dataKey="receita" fill="#d9822b" radius={[4, 4, 0, 0]} name="receita" />
                                 <Bar yAxisId="right" dataKey="atendimentos" fill="#b36b24" radius={[4, 4, 0, 0]} name="atendimentos" />
                             </BarChart>

@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, BriefcaseBusiness, Star, ImagePlus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, BriefcaseBusiness, Star, ImagePlus, Edit as EditIcon } from 'lucide-react';
 import { useStaff } from '../../Context/StaffContext';
 
 const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
+    const { t } = useTranslation();
     const { updateStaff } = useStaff();
     const [formData, setFormData] = useState({
         name: '',
@@ -223,7 +225,7 @@ const EditStaffModal = ({ onClose, onStaffUpdated, staffToEdit }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                             Remover
+                                            {t('common.remove', 'Remover')}
                                         </button>
                                     )}
                                     <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useStaff } from '../../Context/StaffContext'
 import { useAuth } from '../../Context/AuthContext'
 import { useMessage } from '../../Context/MessageContext'
@@ -9,10 +10,12 @@ import {
     Phone,
     Briefcase,
     Scissors,
-    Clock
+    Clock,
+    Lock
 } from 'lucide-react'
 
 function StaffProfile() {
+    const { t } = useTranslation()
     const { getStaffById, updateStaff } = useStaff()
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
@@ -49,7 +52,6 @@ function StaffProfile() {
             const saturday = schedule.saturday || { start: "10:00", end: "16:00" };
             const sunday = schedule.sunday || null;
 
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setFormData({
                 name: staffData.name || '',
                 email: staffData.email || '',
@@ -91,7 +93,7 @@ function StaffProfile() {
         setIsLoading(true);
 
         if (!formData.name || !formData.email || !formData.phone) {
-            showMessage('error', 'Please fill in all required fields (Name, Email, Phone)')
+            showMessage('error', t('admin.fill_all_fields'))
             setIsLoading(false);
             return;
         }
@@ -121,22 +123,22 @@ function StaffProfile() {
 
         if (shouldChangePassword) {
             if (!passwordData.currentPassword || !passwordData.newPassword || !passwordData.confirmPassword) {
-                showMessage('error', 'Please fill in all password fields')
+                showMessage('error', t('admin.fill_password_fields'))
                 setIsLoading(false)
                 return
             }
             if (passwordData.currentPassword !== currentUser?.password) {
-                showMessage('error', 'Current password is incorrect')
+                showMessage('error', t('admin.incorrect_current_password'))
                 setIsLoading(false)
                 return
             }
             if (passwordData.newPassword.length < 6) {
-                showMessage('error', 'New password must be at least 6 characters')
+                showMessage('error', t('admin.password_min_length'))
                 setIsLoading(false)
                 return
             }
             if (passwordData.newPassword !== passwordData.confirmPassword) {
-                showMessage('error', 'New password and confirm password do not match')
+                showMessage('error', t('admin.password_mismatch'))
                 setIsLoading(false)
                 return
             }
@@ -161,21 +163,16 @@ function StaffProfile() {
         if (result?.error) {
             showMessage('error', result.error);
         } else {
-            showMessage('success', 'Profile updated successfully')
+            showMessage('success', t('profile.profile_updated_success'))
 
             if (shouldChangePassword) {
                 setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' })
             }
 
-            // Dispatch custom event so AuthContext/other components update
             const event = new CustomEvent('staff-profile-updated', {
                 detail: { ...updatedStaffData, id: currentUser.id }
             });
             window.dispatchEvent(event);
-
-            // Re-login essentially updates our currentUser state if it matches in auth context
-            // actually AuthContext might need to be refreshed if it depends on generic users list
-            // The custom event handles the broad refresh.
         }
     }
 
@@ -184,9 +181,9 @@ function StaffProfile() {
             {/* Header */}
             <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                    My <span className="text-champberry">Profile</span>
+                    {t('nav.my_profile').split(' ')[0]} <span className="text-champberry">{t('nav.my_profile').split(' ').slice(1).join(' ')}</span>
                 </h1>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1">Manage your personal information and availability</p>
+                <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('profile.manage_profile_subtitle')}</p>
             </div>
 
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
@@ -197,12 +194,12 @@ function StaffProfile() {
                         <div className="space-y-4 sm:space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <User className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Personal Information</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.personal_info')}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Full Name *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name')} *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <User size={16} />
@@ -218,7 +215,7 @@ function StaffProfile() {
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Email *</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">E-mail *</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Mail size={16} />
@@ -229,15 +226,14 @@ function StaffProfile() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-3 outline-none transition-all placeholder-gray-700"
-                                            disabled // Email is typically not editable by staff themselves, or if so, requires re-auth
+                                            disabled
                                         />
                                     </div>
-                                    <p className="text-xs text-champberry-muted ml-1">Contact admin to change email.</p>
+                                    <p className="text-xs text-champberry-muted ml-1">{t('profile.contact_admin_email')}</p>
                                 </div>
-
                             </div>
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Phone *</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number')} *</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Phone size={16} />
@@ -257,30 +253,30 @@ function StaffProfile() {
                         <div className="space-y-4 sm:space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <Briefcase className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Professional Info</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.professional_info')}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experience</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.experience_years')}</label>
                                     <select
                                         name="experience"
                                         value={formData.experience}
                                         onChange={handleChange}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all appearance-none cursor-pointer"
                                     >
-                                        <option value="1 year">1 year</option>
-                                        <option value="2 years">2 years</option>
-                                        <option value="3 years">3 years</option>
-                                        <option value="4 years">4 years</option>
-                                        <option value="5 years">5 years</option>
-                                        <option value="7 years">7 years</option>
-                                        <option value="10+ years">10+ years</option>
+                                        <option value="1 ano">1 ano</option>
+                                        <option value="2 anos">2 anos</option>
+                                        <option value="3 anos">3 anos</option>
+                                        <option value="4 anos">4 anos</option>
+                                        <option value="5 anos">5 anos</option>
+                                        <option value="7 anos">7 anos</option>
+                                        <option value="10+ anos">10+ anos</option>
                                     </select>
                                 </div>
 
                                 <div className="space-y-1.5 md:col-span-2">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Specialties</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                             <Scissors size={16} />
@@ -290,31 +286,31 @@ function StaffProfile() {
                                             name="specialties"
                                             value={formData.specialties}
                                             onChange={handleChange}
-                                            placeholder="Haircut, Color, Styling..."
+                                            placeholder={t('admin.specialties_placeholder')}
                                             className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-3 outline-none transition-all placeholder-gray-700"
                                         />
                                     </div>
-                                    <p className="text-xs text-champberry-muted ml-1">Comma separated. Example: Haircut, Color, Styling</p>
+                                    <p className="text-xs text-champberry-muted ml-1">Separado por vírgula. Ex: Corte, Barba, Coloração</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Schedule Configuration */}
+                        {/* Availability Configuration */}
                         <div className="space-y-4 sm:space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <Clock className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Availability</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('profile.availability')}</h2>
                             </div>
 
-                            <p className="text-xs sm:text-sm text-gray-400">Update your default working hours. This affects when clients can book you.</p>
+                            <p className="text-xs sm:text-sm text-gray-400">{t('profile.update_availability_desc')}</p>
 
                             <div className="bg-obsidian-surface p-3 sm:p-4 md:p-6 rounded-xl border border-white/5 space-y-4 sm:space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     <div className="space-y-4">
-                                        <h4 className="text-sm font-bold text-white">Weekdays (Mon-Fri)</h4>
+                                        <h4 className="text-sm font-bold text-white">{t('profile.weekdays')}</h4>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start Time</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
                                                 <input
                                                     type="time"
                                                     name="weekdayStart"
@@ -324,7 +320,7 @@ function StaffProfile() {
                                                 />
                                             </div>
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End Time</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
                                                 <input
                                                     type="time"
                                                     name="weekdayEnd"
@@ -337,10 +333,10 @@ function StaffProfile() {
                                     </div>
 
                                     <div className="space-y-4">
-                                        <h4 className="text-sm font-bold text-white">Saturday</h4>
+                                        <h4 className="text-sm font-bold text-white">{t('profile.saturday')}</h4>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start Time</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
                                                 <input
                                                     type="time"
                                                     name="saturdayStart"
@@ -350,7 +346,7 @@ function StaffProfile() {
                                                 />
                                             </div>
                                             <div className="space-y-1.5">
-                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End Time</label>
+                                                <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
                                                 <input
                                                     type="time"
                                                     name="saturdayEnd"
@@ -361,25 +357,27 @@ function StaffProfile() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="pt-4 border-t border-white/5">
-                                    <label className="flex items-center gap-3 text-sm text-white font-bold cursor-pointer mb-4">
-                                        <input
-                                            type="checkbox"
-                                            name="sundayEnabled"
-                                            checked={formData.sundayEnabled}
-                                            onChange={handleChange}
-                                            className="w-4 h-4 accent-champberry rounded"
-                                        />
-                                        Available on Sundays
-                                    </label>
+                                    <div className="md:col-span-2 space-y-4">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-sm font-bold text-white">{t('profile.sunday')}</h4>
+                                            <label className="relative inline-flex items-center cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    name="sundayEnabled"
+                                                    checked={formData.sundayEnabled}
+                                                    onChange={handleChange}
+                                                    className="sr-only peer"
+                                                />
+                                                <div className="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-champberry"></div>
+                                                <span className="ml-3 text-xs font-medium text-gray-400">{t('profile.available_on_sundays')}</span>
+                                            </label>
+                                        </div>
 
-                                    {formData.sundayEnabled && (
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
-                                            <div className="grid grid-cols-2 gap-4">
+                                        {formData.sundayEnabled && (
+                                            <div className="grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                                                 <div className="space-y-1.5">
-                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">Start Time</label>
+                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.start_time')}</label>
                                                     <input
                                                         type="time"
                                                         name="sundayStart"
@@ -389,7 +387,7 @@ function StaffProfile() {
                                                     />
                                                 </div>
                                                 <div className="space-y-1.5">
-                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">End Time</label>
+                                                    <label className="text-champberry-muted text-[11px] font-semibold uppercase ml-1">{t('profile.end_time')}</label>
                                                     <input
                                                         type="time"
                                                         name="sundayEnd"
@@ -399,74 +397,64 @@ function StaffProfile() {
                                                     />
                                                 </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Security */}
+                        {/* Security Configuration */}
                         <div className="space-y-4 sm:space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
-                                <Clock className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Security</h2>
+                                <Lock className="text-champberry" size={18} />
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.security')}</h2>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Current Password</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.current_password')}</label>
                                     <input
                                         type="password"
                                         name="currentPassword"
                                         value={passwordData.currentPassword}
                                         onChange={handlePasswordChange}
-                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-champberry-muted/70 mt-1"
-                                        placeholder="Enter current password"
+                                        placeholder={t('admin.enter_current_password')}
+                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all"
                                     />
                                 </div>
-
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">New Password</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.new_password')}</label>
                                     <input
                                         type="password"
                                         name="newPassword"
                                         value={passwordData.newPassword}
                                         onChange={handlePasswordChange}
-                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-[777777]/70 mt-1"
-                                        placeholder="Enter new password"
+                                        placeholder={t('admin.enter_new_password')}
+                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all"
                                     />
                                 </div>
-
-                            </div>
-                            <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Confirm Password</label>
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    value={passwordData.confirmPassword}
-                                    onChange={handlePasswordChange}
-                                    className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-champberry-muted/70 mt-1"
-                                    placeholder="Confirm new password"
-                                />
+                                <div className="space-y-1.5">
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.confirm_password')}</label>
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        value={passwordData.confirmPassword}
+                                        onChange={handlePasswordChange}
+                                        placeholder={t('admin.confirm_new_password')}
+                                        className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        {/* Form Actions */}
-                        <div className="pt-4 sm:pt-6 border-t border-[#333] flex flex-col sm:flex-row justify-center sm:justify-end gap-3 sm:gap-4">
-                            <button
-                                type="button"
-                                className="px-5 sm:px-6 py-2 sm:py-2.5 bg-transparent border border-[#333] hover:border-gray-500 text-white text-sm font-bold rounded-xl transition-all order-2 sm:order-1"
-                                onClick={() => window.history.back()}
-                            >
-                                Cancel
-                            </button>
+                        <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-end gap-3 sm:gap-4">
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="px-6 sm:px-8 py-2 sm:py-2.5 bg-champberry hover:bg-champberry-dark text-black text-sm font-black rounded-xl shadow-lg hover:shadow-champberry/20 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 order-1 sm:order-2"
+                                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-champberry hover:bg-champberry-dark text-white px-8 py-3.5 rounded-xl font-black text-sm transition-all shadow-xl hover:shadow-champberry/20 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95"
                             >
-                                <Save size={16} />
-                                {isLoading ? 'Saving...' : 'Save Changes'}
+                                <Save size={18} />
+                                {isLoading ? t('common.loading') : t('common.save')}
                             </button>
                         </div>
                     </form>

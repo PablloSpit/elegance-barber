@@ -1,9 +1,11 @@
 import { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, Lock, ImagePlus } from 'lucide-react';
 import { useStaff } from '../../Context/StaffContext';
 
 const AddStaffModal = ({ onClose, onStaffAdded }) => {
+    const { t } = useTranslation()
     const { addNewStaff } = useStaff()
     const [formData, setFormData] = useState({
         name: '',
@@ -44,7 +46,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
         // Validate WebP format
         if (file.type !== 'image/webp') {
-            setError('Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.');
+            setError(t('admin.error_webp_only', 'Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.'));
             e.target.value = '';
             return;
         }
@@ -76,7 +78,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
         // Basic validation
         if (!formData.name || !formData.email || !formData.phone || !formData.role || !formData.specialties || !formData.password) {
-            setError('Por favor, preencha todos os campos obrigatórios (senha é necessária para contas de equipe)');
+            setError(t('admin.fill_all_fields'));
             return;
         }
 
@@ -155,7 +157,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Profile Picture Upload */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Foto de Perfil (Opcional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.profile_picture', 'Foto de Perfil')} (Opcional)</label>
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16 rounded-full overflow-hidden bg-obsidian-elevated border-2 border-dashed border-[#333] flex items-center justify-center shrink-0 group">
                                     {avatarPreview ? (
@@ -170,7 +172,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         onClick={() => fileInputRef.current?.click()}
                                         className="text-xs font-bold text-champberry hover:text-champberry-dark transition-colors cursor-pointer"
                                     >
-                                        {avatarPreview ? 'Alterar Foto' : 'Enviar Foto'}
+                                        {avatarPreview ? t('common.change_photo', 'Alterar Foto') : t('common.upload_photo', 'Enviar Foto')}
                                     </button>
                                     {avatarPreview && (
                                         <button
@@ -178,10 +180,10 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                             onClick={handleRemoveAvatar}
                                             className="text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors cursor-pointer"
                                         >
-                                            Remover
+                                            {t('common.remove', 'Remover')}
                                         </button>
                                     )}
-                                    <p className="text-[#555] text-[10px]">Apenas formato WebP (.webp)</p>
+                                    <p className="text-[#555] text-[10px]">{t('admin.webp_only_hint', 'Apenas formato WebP (.webp)')}</p>
                                 </div>
                                 <input
                                     ref={fileInputRef}
@@ -196,7 +198,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Name and Role Row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nome Completo</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.full_name')}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <User size={16} />
@@ -213,7 +215,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Cargo / Posição</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.select_role')}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Briefcase size={16} />
@@ -224,12 +226,12 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         onChange={handleChange}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                     >
-                                        <option value="" disabled>Selecionar Cargo</option>
-                                        <option value="Senior Stylist">Barbeiro Sênior</option>
-                                        <option value="Color Specialist">Especialista em Cor</option>
-                                        <option value="Junior Barber">Barbeiro Júnior</option>
-                                        <option value="Makeup Artist">Maquiador(a)</option>
-                                        <option value="Receptionist">Recepcionista</option>
+                                        <option value="" disabled>{t('admin.select_role')}</option>
+                                        <option value="Senior Stylist">{t('admin.roles.senior_barber', 'Barbeiro Sênior')}</option>
+                                        <option value="Color Specialist">{t('admin.roles.color_specialist', 'Especialista em Cor')}</option>
+                                        <option value="Junior Barber">{t('admin.roles.junior_barber', 'Barbeiro Júnior')}</option>
+                                        <option value="Makeup Artist">{t('admin.roles.makeup_artist', 'Maquiador(a)')}</option>
+                                        <option value="Receptionist">{t('admin.roles.receptionist', 'Recepcionista')}</option>
                                     </select>
                                 </div>
                             </div>
@@ -238,7 +240,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Contact Info Row */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Endereço de E-mail</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">E-mail</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Mail size={16} />
@@ -255,7 +257,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Número de Telefone</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.phone_number')}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Phone size={16} />
@@ -275,7 +277,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                         {/* Password (for staff login) */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">Senha da Conta</label>
+                                <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.account_password')}</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                         <Lock size={16} />
@@ -285,7 +287,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                         name="password"
                                         value={formData.password}
                                         onChange={handleChange}
-                                        placeholder="Defina uma senha para o login do profissional"
+                                        placeholder={t('admin.password_hint', 'Defina uma senha para o login do profissional')}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                     />
                                 </div>
@@ -294,7 +296,7 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
 
                         {/* Specialties */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades (Separadas por vírgula)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Especialidades ({t('common.separated_by_comma', 'Separadas por vírgula')})</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                     <Scissors size={16} />
@@ -308,12 +310,12 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                     className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all placeholder-gray-600"
                                 />
                             </div>
-                            <p className="text-[#555] text-xs ml-1">Exemplo: Corte, Cor, Barba</p>
+                            <p className="text-[#555] text-xs ml-1">{t('common.example', 'Exemplo')}: {t('admin.specialties_placeholder')}</p>
                         </div>
 
                         {/* Experience */}
                         <div className="space-y-1.5">
-                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">Experiência (Opcional)</label>
+                            <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('profile.experience')} (Opcional)</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-champberry-muted">
                                     <Briefcase size={16} />
@@ -324,11 +326,11 @@ const AddStaffModal = ({ onClose, onStaffAdded }) => {
                                     onChange={handleChange}
                                     className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full pl-10 p-2.5 outline-none transition-all appearance-none cursor-pointer"
                                 >
-                                     <option value="">Usar padrão (Novo)</option>
-                                     <option value="1 year">1 ano</option>
-                                     <option value="2 years">2 anos</option>
-                                     <option value="3 years">3 anos</option>
-                                     <option value="5 years">5 anos</option>
+                                      <option value="">{t('common.default_new', 'Usar padrão (Novo)')}</option>
+                                      <option value="1 ano">1 ano</option>
+                                      <option value="2 anos">2 anos</option>
+                                      <option value="3 anos">3 anos</option>
+                                      <option value="5 anos">5 anos</option>
                                      <option value="7 years">7 anos</option>
                                     <option value="10+ years">10+ anos</option>
                                 </select>

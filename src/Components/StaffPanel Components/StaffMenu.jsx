@@ -1,8 +1,10 @@
 import { createPortal } from "react-dom";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { MoreVertical, Calendar, User, Trash2, Edit } from "lucide-react";
 
 const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
@@ -68,7 +70,7 @@ const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => 
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors cursor-pointer"
                     >
                         <Calendar size={14} className="text-champberry" />
-                        Check Appointments
+                        {t('admin.check_appointments')}
                     </button>
                     <button
                         onClick={() => {
@@ -78,7 +80,7 @@ const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => 
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors cursor-pointer"
                     >
                         <User size={14} className="text-blue-400" />
-                        View Details
+                        {t('common.view_details')}
                     </button>
                     <button
                         onClick={() => {
@@ -88,7 +90,7 @@ const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => 
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors cursor-pointer"
                     >
                         <Edit size={14} className="text-green-400" />
-                        Edit Stylist
+                        {t('admin.edit_stylist')}
                     </button>
                     <div className="h-px bg-[#333] my-1"></div>
                     <button
@@ -99,7 +101,7 @@ const StaffMenu = ({ staff, onCheckAppts, onViewDetails, onDelete, onEdit }) => 
                         className="w-full text-left px-4 py-2 text-sm text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition-colors cursor-pointer"
                     >
                         <Trash2 size={14} />
-                        Delete
+                        {t('common.delete')}
                     </button>
                 </div>,
                 document.body

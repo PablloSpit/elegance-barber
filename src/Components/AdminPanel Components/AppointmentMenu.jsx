@@ -1,6 +1,6 @@
-
 import { useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
 import {
     Eye,
     Edit,
@@ -12,6 +12,7 @@ import {
 import { useAppointment } from '../../Context/AppointmentContext'
 
 const AppointmentMenu = ({ appointment, onEdit, onView }) => {
+    const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 })
     const menuRef = useRef(null)
@@ -58,21 +59,21 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
     }, [isOpen])
 
     const handleQuickStatusChange = async () => {
-        if (confirm('Tem certeza que deseja confirmar este agendamento?')) {
+        if (confirm(t('appointments.actions.confirm_status_change', { status: t('appointments.status.confirmed').toLowerCase() }))) {
             await updateAppointment(appointment.id, { status: 'Confirmed' })
             setIsOpen(false)
         }
     }
 
     const handleCancel = async () => {
-        if (confirm('Tem certeza que deseja cancelar este agendamento?')) {
+        if (confirm(t('appointments.actions.confirm_cancel'))) {
             await cancelAppointment(appointment.id)
             setIsOpen(false)
         }
     }
 
     const handleDelete = async () => {
-        if (confirm('Tem certeza que deseja excluir este agendamento? Esta ação não pode ser desfeita.')) {
+        if (confirm(t('appointments.actions.confirm_delete'))) {
             await deleteAppointment(appointment.id)
             setIsOpen(false)
         }
@@ -106,7 +107,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                         >
                             <CheckCircle2 size={14} className="text-emerald-500" />
-                            Confirmar Agendamento
+                            {t('appointments.status.confirmed')}
                         </button>
                     )}
 
@@ -119,7 +120,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors"
                     >
                         <Eye size={14} className="text-blue-400" />
-                        Ver Detalhes
+                        {t('common.view_details')}
                     </button>
 
                     {/* Edit Details */}
@@ -131,7 +132,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-[#cbd5e1] hover:bg-white/5 hover:text-white flex items-center gap-2 transition-colors border-b border-[#333]/50"
                     >
                         <Edit size={14} className="text-champberry" />
-                        Editar Detalhes
+                        {t('appointments.actions.edit_details')}
                     </button>
 
                     {/* Danger Zone */}
@@ -141,7 +142,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                             className="w-full text-left px-4 py-2 text-sm text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition-colors"
                         >
                             <XCircle size={14} />
-                            Cancelar
+                            {t('appointments.actions.cancel')}
                         </button>
                     )}
 
@@ -150,7 +151,7 @@ const AppointmentMenu = ({ appointment, onEdit, onView }) => {
                         className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-500/10 flex items-center gap-2 transition-colors"
                     >
                         <Trash2 size={14} />
-                        Excluir
+                        {t('common.delete')}
                     </button>
                 </div>,
                 document.body

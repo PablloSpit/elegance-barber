@@ -57,7 +57,7 @@ const Staffs = () => {
     // Helper for Status Badge    // Helper for Status Badge
     const StatusBadge = ({ status = 'inactive', id, onToggle }) => {
         const isActive = status === 'active'
-        const displayStatus = isActive ? 'Ativo' : 'Inativo'
+        const displayStatus = isActive ? t('home.active', 'Ativo') : t('profile.unavailable', 'Inativo')
 
         return (
             <button
@@ -80,10 +80,10 @@ const Staffs = () => {
     }
     const handleDelete = (staff) => {
         setConfirmAction({
-            message: `Tem certeza que deseja remover ${staff.name} da equipe?`,
+            message: t('admin.confirm_remove_staff', { name: staff.name }),
             onConfirm: () => {
                 removeStaff(staff.id)
-                showMessage('success', `${staff.name} foi removido(a) da equipe.`)
+                showMessage('success', t('admin.staff_removed_success', { name: staff.name }))
                 setConfirmAction(null)
             },
             onCancel: () => setConfirmAction(null)
@@ -92,7 +92,7 @@ const Staffs = () => {
     const handleToggleStatus = async (staffId, newActiveState) => {
         const result = await updateStaff(staffId, { status: newActiveState ? 'active' : 'inactive' })
         if (result.success) {
-            showMessage('success', `Status atualizado com sucesso.`)
+            showMessage('success', t('admin.status_updated_success'))
         } else {
             showMessage('error', result.error)
         }
@@ -177,7 +177,7 @@ const Staffs = () => {
                                     <tr>
                                         <th className="px-6 py-5">{t('admin.staff_member')}</th>
                                         <th className="px-6 py-5">{t('admin.role_expertise')}</th>
-                                        <th className="px-6 py-5">Status</th>
+                                        <th className="px-6 py-5">{t('admin.status', 'Status')}</th>
                                         <th className="px-6 py-5">{t('admin.performance')}</th>
                                         <th className="px-6 py-5 text-right">{t('common.actions')}</th>
                                     </tr>
@@ -231,7 +231,7 @@ const Staffs = () => {
                                                         {member.rating}
                                                     </div>
                                                     <div className="text-xs text-champberry-muted font-medium">
-                                                        {member.experience} · {member.commission * 100}% comissão
+                                                        {member.experience} · {member.commission * 100}% {t('admin.commission', 'comissão')}
                                                     </div>
                                                 </div>
 

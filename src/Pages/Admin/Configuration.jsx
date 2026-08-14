@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../Context/AuthContext'
 import { useMessage } from '../../Context/MessageContext'
 import { Save, User, Mail, Phone, Clock, Calendar, Bell, Globe } from 'lucide-react'
 
 function Configuration() {
+    const { t } = useTranslation()
     const { currentUser, updatedUser } = useAuth()
     const { showMessage } = useMessage()
 
@@ -96,9 +98,9 @@ function Configuration() {
         <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6 lg:space-y-8 px-0 sm:px-2 lg:px-8 py-2 sm:py-4 lg:py-0">
             <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-                    {t('nav.account')} e <span className="text-champberry">Configurações</span>
+                    {t('nav.account')} e <span className="text-champberry">{t('admin.config')}</span>
                 </h1>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1">Gerencie as informações da sua barbearia e regras de negócio</p>
+                <p className="text-gray-400 text-xs sm:text-sm mt-1">{t('admin.manage_salon_info')}</p>
             </div>
 
             <div className="bg-obsidian-surface/50 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
@@ -168,17 +170,17 @@ function Configuration() {
                         <div className="space-y-6 pt-6 border-t border-[#333]">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <Globe className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">Regras de Negócio</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.business_rules')}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Modo Feriado</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.holiday_mode')}</label>
                                     <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
                                         <Calendar className="text-champberry-muted" size={20} />
                                         <div className="flex-1">
-                                        <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode', 'Modo Feriado')}</p>
-                                        <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc', 'Bloqueia todos os agendamentos no período selecionado')}</p>
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc')}</p>
                                         </div>
                                         <input type="checkbox" className="w-5 h-5 accent-champberry cursor-pointer" />
                                     </div>
@@ -189,8 +191,8 @@ function Configuration() {
                                     <div className="flex items-center gap-4 bg-obsidian-elevated p-3 rounded-lg border border-[#333]">
                                         <Bell className="text-champberry-muted" size={20} />
                                         <div className="flex-1">
-                                        <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds', 'Sons de Alerta')}</p>
-                                        <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc', 'Reproduz som ao receber novos agendamentos')}</p>
+                                        <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds')}</p>
+                                        <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc')}</p>
                                         </div>
                                         <input type="checkbox" defaultChecked className="w-5 h-5 accent-champberry cursor-pointer" />
                                     </div>
@@ -206,26 +208,26 @@ function Configuration() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Senha Atual</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.current_password')}</label>
                                     <input
                                         type="password"
                                         name="currentPassword"
                                         value={passwordData.currentPassword}
                                         onChange={handlePasswordChange}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-gray-700"
-                                        placeholder="Digite a senha atual"
+                                        placeholder={t('admin.enter_current_password')}
                                     />
                                 </div>
 
                                 <div className="space-y-1.5">
-                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">Nova Senha</label>
+                                    <label className="text-gray-400 text-xs font-bold uppercase ml-1">{t('admin.new_password')}</label>
                                     <input
                                         type="password"
                                         name="newPassword"
                                         value={passwordData.newPassword}
                                         onChange={handlePasswordChange}
                                         className="bg-obsidian-elevated border border-[#333] text-white text-sm rounded-lg focus:ring-1 focus:ring-champberry focus:border-champberry block w-full p-3 outline-none transition-all placeholder-gray-700"
-                                        placeholder="Digite a nova senha"
+                                        placeholder={t('admin.enter_new_password')}
                                     />
                                 </div>
                             </div>
