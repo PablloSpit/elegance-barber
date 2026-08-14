@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, memo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { services } from '../data/services.js'
 import { useAppointment } from '../Context/AppointmentContext.jsx'
@@ -190,7 +190,13 @@ const Step3Details = memo(({
 function Appointment() {
     const { t } = useTranslation()
     const [searchParams] = useSearchParams()
-    const staffIdParam = searchParams.get('staff')
+    const { staffSlug } = useParams()
+    const { staff } = useStaff()
+    
+    // Identifica o funcionário pelo slug ou pelo parâmetro de busca
+    const staffIdParam = staffSlug 
+        ? staff.find(s => s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-') === staffSlug)?.id
+        : searchParams.get('staff')
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
