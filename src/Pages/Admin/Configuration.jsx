@@ -201,7 +201,7 @@ function Configuration() {
                         <div className="space-y-6">
                             <div className="flex items-center gap-2 sm:gap-3 border-b border-[#333] pb-3">
                                 <Clock className="text-champberry" size={18} />
-                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('admin.professional_info', 'Segurança')}</h2>
+                                <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('profile.security', 'Segurança')}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
