@@ -787,7 +787,7 @@ function Home() {
             <section className="sample-images bg-obsidian-card overflow-hidden">
                 <div className="mx-auto px-4 sm:px-6 md:px-16 pb-20 md:pb-24">
                     <div className="heading w-full text-center mb-14 mt-12">
-                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>The <span className='font-sans font-black text-champberry normal-case tracking-normal'>Gallery</span></h1>
+                        <h1 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase font-serif tracking-tight'>{t('home.gallery_main_title', 'A')} <span className='font-sans font-black text-champberry normal-case tracking-normal'>{t('home.gallery_main_span', 'Galeria')}</span></h1>
                         <hr className='max-w-25 sm:max-w-37.5 mx-auto border-champberry/30 border mt-6 md:mt-8 mb-10' />
                     </div>
                     {/* Responsive Grid: 3 cols mobile, 6 cols desktop */}
