@@ -2,6 +2,7 @@ import { StrictMode, lazy, Suspense } from 'react'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, Navigate } from 'react-router-dom'
 import ReactDOM from "react-dom/client";
 import './index.css'
+import './i18n/config';
 import Layout from './Layout';
 import AdminLayout from './AdminLayout';
 import LoadingSpinner from './Components/LoadingSpinner';

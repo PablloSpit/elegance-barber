@@ -1,0 +1,60 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "search": "Buscar...",
+    "actions": "Ações"
+  },
+  "nav": {
+    "home": "Início",
+    "services": "Serviços",
+    "about": "Sobre",
+    "contact": "Contato",
+    "book": "Agendar",
+    "account": "Minha Conta",
+    "admin": "Painel Admin",
+    "staff": "Painel Staff",
+    "logout": "Sair"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "appointments": "Agendamentos",
+    "inventory": "Estoque",
+    "reports": "Relatórios",
+    "staff": "Equipe",
+    "config": "Configurações"
+  },
+  "inventory": {
+    "title": "Controle de Estoque",
+    "subtitle": "Gerencie seus produtos e insumos",
+    "new_product": "Novo Produto",
+    "total_items": "Itens em Estoque",
+    "low_stock": "Estoque Baixo",
+    "cost_value": "Valor de Custo",
+    "projected_profit": "Lucro Projetado",
+    "catalog": "Catálogo de Produtos",
+    "product": "Produto",
+    "category": "Categoria",
+    "quantity": "Qtd",
+    "cost": "Custo",
+    "sale": "Venda",
+    "no_products": "Nenhum produto encontrado"
+  },
+  "reports": {
+    "title": "Relatórios Financeiros",
+    "subtitle": "Analise o desempenho da sua barbearia",
+    "revenue": "Receita Total",
+    "appointments": "Atendimentos",
+    "avg_ticket": "Ticket Médio",
+    "unique_services": "Serviços Únicos",
+    "revenue_over_time": "Receita ao Longo do Tempo",
+    "top_services": "Top Serviços",
+    "staff_ranking": "Ranking de Equipe",
+    "monthly_comparison": "Comparação Mensal"
+  }
+}
