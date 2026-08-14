@@ -26,7 +26,13 @@
     "entries": "entradas",
     "members": "membros",
     "previous": "Anterior",
-    "next": "Próximo"
+    "next": "Próximo",
+    "separated_by_comma": "Separadas por vírgula",
+    "example": "Exemplo",
+    "default_new": "Usar padrão (Novo)",
+    "change_photo": "Alterar Foto",
+    "upload_photo": "Enviar Foto",
+    "remove": "Remover"
   },
   "nav": {
     "home": "Início",
@@ -117,7 +123,18 @@
     "enter_current_password": "Digite a senha atual",
     "enter_new_password": "Digite a nova senha",
     "confirm_new_password": "Confirme a nova senha",
-    "manage_salon_info": "Gerencie as informações da sua barbearia e regras de negócio"
+    "manage_salon_info": "Gerencie as informações da sua barbearia e regras de negócio",
+    "error_webp_only": "Apenas imagens no formato WebP são suportadas. Por favor, selecione um arquivo .webp.",
+    "profile_picture": "Foto de Perfil",
+    "webp_only_hint": "Apenas formato WebP (.webp)",
+    "password_hint": "Defina uma senha para o login do profissional",
+    "roles": {
+      "senior_barber": "Barbeiro Sênior",
+      "color_specialist": "Especialista em Cor",
+      "junior_barber": "Barbeiro Júnior",
+      "makeup_artist": "Maquiador(a)",
+      "receptionist": "Recepcionista"
+    }
   },
   "inventory": {
     "title": "Controle de Estoque",
