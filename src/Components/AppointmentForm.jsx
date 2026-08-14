@@ -26,8 +26,8 @@ const Step1Selection = memo(({
                     >
                         <span>
                             {selectedService.length === 0
-                                ? 'SELECT SERVICES'
-                                : `${selectedService.length} SERVICE${selectedService.length > 1 ? 'S' : ''} SELECTED`}
+                                ? t('appointments.select_services', 'SELECIONAR SERVIÇOS')
+                                : `${selectedService.length} ${selectedService.length > 1 ? t('appointments.services_selected_plural', 'SERVIÇOS SELECIONADOS') : t('appointments.service_selected_singular', 'SERVIÇO SELECIONADO')}`}
                         </span>
                         <span className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
                     </button>
@@ -38,7 +38,7 @@ const Step1Selection = memo(({
                             {services.map((serviceCategory) => (
                                 <div key={serviceCategory.title}>
                                     <div className="font-extrabold text-champberry bg-[#191919] px-3 md:px-4 py-2 text-xs md:text-sm tracking-wide uppercase">
-                                        {serviceCategory.title}
+                                        {t(`services.categories.${serviceCategory.title}`, serviceCategory.title)}
                                     </div>
                                     {serviceCategory.items.map((service) => {
                                         const isSelected = selectedService.some(s => s.name === service.name)
@@ -52,7 +52,7 @@ const Step1Selection = memo(({
                                                     : 'text-[#bfbdbd] hover:bg-champberry/5 hover:text-white'
                                                     }`}
                                             >
-                                                <span>{service.name} — {service.price}</span>
+                                                <span>{t(`services.items.${service.name}`, service.name)} — {service.price}</span>
                                                 <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champberry bg-champberry text-black' : 'border-[#555]'
                                                     }`}>
                                                     {isSelected && '✓'}

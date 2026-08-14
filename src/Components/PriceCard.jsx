@@ -175,7 +175,7 @@ function PriceCard() {
                                                 Menu
                                             </span>
                                             <h2 className="font-sans text-3xl sm:text-3xl font-black uppercase tracking-wider text-white">
-                                                {card.title}
+                                                {t(`services.categories.${card.title}`, card.title)}
                                             </h2>
                                             <div className="flex items-center justify-center gap-3">
                                                 <div className="w-8 h-px bg-champberry/30"></div>
@@ -241,7 +241,7 @@ function PriceCard() {
                                                                                group-hover/item:bg-champberry transition-colors duration-300" />
                                                                 <span className="font-sans text-sm md:text-lg font-medium text-white/85
                                                                                group-hover/item:text-white transition-colors duration-300 tracking-wide">
-                                                                    {item.name}
+                                                                    {t(`services.items.${item.name}`, item.name)}
                                                                 </span>
                                                             </div>
 
