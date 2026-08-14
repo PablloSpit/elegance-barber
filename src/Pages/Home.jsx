@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { CustomEase } from "gsap/CustomEase"
+import { useTranslation } from 'react-i18next'
 
 gsap.registerPlugin(ScrollTrigger, CustomEase)
 
@@ -41,6 +42,7 @@ import { Link } from 'react-router-dom'
 import { useStaff } from '../Context/StaffContext.jsx'
 
 function Home() {
+    const { t } = useTranslation()
     const heroRef = useRef(null)
     const aboutRef = useRef(null)
 
@@ -394,7 +396,7 @@ function Home() {
                             <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
                                 <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
-                                    Desde 2011 — Cuidado Masculino Premium
+                                    {t('home.since')}
                                 </p>
                             </div>
 
@@ -402,17 +404,17 @@ function Home() {
                             <div data-hero-heading className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
-                                    A Arte do
+                                    {t('home.hero_title_1')}
                                 </h1>
 
                                 {/* Line 2: Massive, dominant */}
                                 <h2 className="font-sans font-black text-white text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[6rem] 2xl:text-[7rem] uppercase leading-[0.9] -tracking-[0.02em] my-2 sm:my-3 md:my-4">
-                                    Masculine
+                                    {t('home.hero_title_2')}
                                 </h2>
 
                                 {/* Line 3 */}
                                 <h3 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1]  uppercase">
-                                    Grooming
+                                    {t('home.hero_title_3', 'Premium')}
                                 </h3>
                             </div>
 
@@ -421,7 +423,7 @@ function Home() {
                                 data-hero-description
                                 className="font-sans font-light text-white/50 text-xs sm:text-sm md:text-base max-w-sm leading-relaxed tracking-wide text-center lg:text-left mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0"
                             >
-                                Where precision meets sophistication. Traditional craft, modern edge.
+                                {t('home.hero_desc')}
                             </p>
 
                             {/* CTA Row */}
@@ -430,7 +432,7 @@ function Home() {
                                     <div data-magnetic className="group relative">
                                         <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
                                             <span data-magnetic-text className="relative z-10 inline-flex items-center gap-2 sm:gap-3">
-                                                Book Now
+                                                {t('nav.book_now')}
                                                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-500 ease-luxury group-hover:translate-x-1" strokeWidth={2} />
                                             </span>
                                         </button>
@@ -438,7 +440,7 @@ function Home() {
                                 </a>
 
                                 <a href="#services" className="group inline-flex items-center gap-2 text-white/40 hover:text-champberry font-sans font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] transition-colors duration-500 ease-luxury">
-                                    Services
+                                    {t('nav.services')}
                                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-500 ease-luxury group-hover:translate-x-1.5" strokeWidth={2} />
                                 </a>
                             </div>
@@ -484,10 +486,10 @@ function Home() {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-12">
                         <div className="grid grid-cols-4">
                             {[
-                                { value: '15+', label: 'Years Experience' },
-                                { value: '5K+', label: 'Gentlemen Served' },
-                                { value: '100+', label: '5-Star Reviews' },
-                                { value: '10', label: 'Expert Stylists' }
+                                { value: '15+', label: t('home.experience_years', 'Anos de Experiência') },
+                                { value: '5K+', label: t('home.clients_served', 'Clientes Atendidos') },
+                                { value: '100+', label: t('home.five_star_reviews', 'Avaliações 5 Estrelas') },
+                                { value: '10', label: t('home.expert_stylists', 'Estilistas Especialistas') }
                             ].map((stat, i) => (
                                 <div
                                     key={i}
@@ -533,7 +535,7 @@ function Home() {
 
                             {/* Tactile Glassmorphism Detail */}
                             <div className="heritage-card absolute -bottom-6 right-0 md:-right-8 lg:-right-12 backdrop-blur-xl bg-obsidian-card/40 border border-white/10 p-6 shadow-2xl z-20 w-48 rounded-sm">
-                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">Heritage</p>
+                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">{t('home.experience')}</p>
                                 <p className="font-serif text-3xl text-white font-light">Est. 2011</p>
                                 <div className="w-12 h-px bg-champberry/30 mt-4"></div>
                             </div>
@@ -543,19 +545,18 @@ function Home() {
                         <div className="md:col-span-12 lg:col-span-6 flex flex-col justify-center mt-12 md:mt-0 md:pl-8 lg:pl-16">
 
                             <h3 className="manifesto-line font-serif italic text-champberry text-2xl lg:text-3xl font-light mb-6">
-                                Our Philosophy
+                                {t('home.about_title')}
                             </h3>
 
                             <h2 className="manifesto-line font-sans font-black text-white text-4xl md:text-5xl lg:text-6xl uppercase mb-10">
-                                The Art of <br />
-                                <span className="font-serif block text-transparent bg-clip-text bg-linear-to-r from-white via-champberry to-white/50 text-5xl tracking-tighter">Masculine Grooming</span>
+                                {t('home.about_title_2')}
                             </h2>
 
                             {/* Brand Manifesto Text with Drop Cap */}
                             <div className="manifesto-content max-w-xl">
                                 <p className="manifesto-line font-sans font-light text-white/70 text-base md:text-lg leading-[1.8] mb-6 tracking-wide">
-                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">E</span>
-                                    legance has been at the forefront of men's grooming, setting the standard for the style-conscious gentleman in Karachi. Our dedication lies in empowering every individual to look and feel exceptional every day, stepping out with enduring confidence.
+                                    <span className="float-left text-6xl font-serif text-champberry pr-3 pb-2 leading-none mt-1">{t('home.about_desc').charAt(0)}</span>
+                                    {t('home.about_desc').substring(1)}
                                 </p>
 
                                 <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
@@ -599,10 +600,10 @@ function Home() {
                     {/* Section Header — Editorial type pairing */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 lg:mb-24 gap-6">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Our Menu</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.rituals_subtitle')}</span>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                Curated{' '}
-                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>Services</span>
+                                {t('home.rituals_title')}{' '}
+                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>{t('home.rituals_title_2')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
@@ -650,10 +651,10 @@ function Home() {
                     {/* Section Header — Editorial type pairing (matches Services section) */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 md:mb-18 gap-6 px-4 md:px-6 lg:px-16 max-w-11/12 mx-auto w-full">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">Our Rates</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">{t('home.gallery_subtitle')}</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                Price{' '}
-                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>List</span>
+                                {t('home.gallery_title')}{' '}
+                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>{t('home.gallery_title_2')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
@@ -728,9 +729,9 @@ function Home() {
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-11/12">
                     <div className="text-center mb-20">
-                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Masters of the Ritual</span>
+                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.artisans_subtitle')}</span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                            Meet Our <span className='font-serif text-champberry normal-case tracking-wide'>Artisans</span>
+                            {t('home.artisans_title')} <span className='font-serif text-champberry normal-case tracking-wide'>{t('home.artisans_title_2')}</span>
                         </h2>
                     </div>
 

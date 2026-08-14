@@ -1,7 +1,9 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 
 function Footer() {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     // Simple function to navigate to section
     const goToSection = (sectionId) => {
@@ -46,7 +48,7 @@ function Footer() {
                             isActive ? 'text-champberry font-bold' : 'text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                         }
                     >
-                        Início
+                        {t('nav.home')}
                     </NavLink>
                     <a
                         href="#"
@@ -56,7 +58,7 @@ function Footer() {
                         }}
                         className='text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                     >
-                        Serviços
+                        {t('nav.services')}
                     </a>
                     <NavLink
                         to="/contact"
@@ -64,7 +66,7 @@ function Footer() {
                             isActive ? 'text-champberry font-bold' : 'text-white hover:text-champberry transition-colors duration-500 ease-luxury'
                         }
                     >
-                        Contato
+                        {t('nav.contact')}
                     </NavLink>
 
                 </div>
@@ -83,7 +85,7 @@ function Footer() {
             </div>
             <div className="bg-obsidian-card text-white py-10 border-t border-white/10">
                 <div className="container mx-auto text-center">
-                    <p className="text-sm">&copy; {new Date().getFullYear()} Elegance. Todos os direitos reservados.</p>
+                    <p className="text-sm">&copy; {new Date().getFullYear()} Elegance. {t('common.all_rights_reserved', 'Todos os direitos reservados.')}</p>
                 </div>
             </div>
         </footer>

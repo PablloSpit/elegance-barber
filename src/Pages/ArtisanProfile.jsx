@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useStaff } from '../Context/StaffContext.jsx';
 import { customerReviews } from '../data/reviews.js';
 import Header from '../Components/Header.jsx';
@@ -20,6 +21,7 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 function ArtisanProfile() {
+    const { t } = useTranslation();
     const { id } = useParams();
     const navigate = useNavigate();
     const { getStaffById, staff } = useStaff();
@@ -158,8 +160,8 @@ function ArtisanProfile() {
                             <div className="absolute inset-0 bg-linear-to-t from-[rgba(15,15,15,0.9)] via-[rgba(15,15,15,0.2)] to-transparent pointer-events-none"></div>
                             <div className="absolute bottom-6 left-6 right-6 transition-transform duration-700 ease-luxury group-hover:-translate-y-2">
                                 <div className="backdrop-blur-md bg-obsidian/40 border border-champberry/20 p-4 rounded-sm shadow-xl group-hover:border-champberry/40 transition-colors duration-700">
-                                    <p className="font-sans text-champberry text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-1">Experience</p>
-                                    <p className="font-serif text-2xl lg:text-3xl text-white">{artisan.experience || "7 Years"} of Mastery</p>
+                                    <p className="font-sans text-champberry text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-1">{t('profile.experience')}</p>
+                                    <p className="font-serif text-2xl lg:text-3xl text-white">{artisan.experience || "7 Years"} {t('profile.mastery_suffix')}</p>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +178,7 @@ function ArtisanProfile() {
                                 </span>
                             </h1>
                             <p className="hero-reveal font-sans font-light text-champberry-muted text-base lg:text-lg max-w-xl leading-relaxed mx-auto lg:mx-0 border-l border-champberry/30 pl-4">
-                                Master of precision and style. Elevating the art of grooming through meticulous attention to detail and a passion for classic techniques blended with modern flair.
+                                {t('profile.description')}
                             </p>
                         </div>
                     </div>
@@ -187,7 +189,7 @@ function ArtisanProfile() {
             <section className="profile-section craft-section bg-obsidian-card py-20 px-4 sm:px-6 lg:px-12 border-y border-white/5 shadow-2xl relative z-10">
                 <div className="container mx-auto max-w-5xl text-center">
                     <h2 className="profile-reveal text-4xl md:text-5xl font-black text-white uppercase tracking-tight font-sans mb-12">
-                        Expert <span className="font-serif text-champberry normal-case tracking-wide">Services</span>
+                        {t('profile.expert_services').split(' ')[0]} <span className="font-serif text-champberry normal-case tracking-wide">{t('profile.expert_services').split(' ').slice(1).join(' ')}</span>
                     </h2>
 
                     <div className="flex flex-wrap justify-center gap-4 lg:gap-6">

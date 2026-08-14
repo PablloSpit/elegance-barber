@@ -8,7 +8,12 @@
     "delete": "Excluir",
     "edit": "Editar",
     "search": "Buscar...",
-    "actions": "Ações"
+    "actions": "Ações",
+    "close": "Fechar",
+    "settings": "Configurações",
+    "date_time": "Data e Hora",
+    "user": "Usuário",
+    "all_rights_reserved": "Todos os direitos reservados."
   },
   "nav": {
     "home": "Início",
@@ -19,7 +24,8 @@
     "account": "Minha Conta",
     "admin": "Painel Admin",
     "staff": "Painel Staff",
-    "logout": "Sair"
+    "logout": "Sair",
+    "book_now": "AGENDAR HORÁRIO"
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -27,10 +33,32 @@
     "inventory": "Estoque",
     "reports": "Relatórios",
     "staff": "Equipe",
-    "config": "Configurações"
+    "staff_management": "Gestão da Equipe",
+    "staff_active": "Barbeiros Ativos",
+    "view_team": "Ver Equipe",
+    "add_member": "Adicionar Novo Membro",
+    "manage_team_subtitle": "Gerencie sua equipe de estilistas e profissionais",
+    "search_staff": "Buscar por nome, e-mail ou cargo...",
+    "no_staff_found": "Nenhum membro da equipe encontrado",
+    "no_staff_subtitle": "Não encontramos nenhum membro da equipe que corresponda aos seus critérios de busca.",
+    "clear_filters": "Limpar Filtros",
+    "staff_member": "Membro da Equipe",
+    "role_expertise": "Cargo e Especialidade",
+    "performance": "Desempenho",
+    "schedule": "Agenda da",
+    "recent": "Recentes",
+    "manage_inventory": "Gerenciar Estoque",
+    "config": "Configuração",
+    "overview": "Visão Geral",
+    "team_management": "Gestão de Equipe",
+    "recent_appointments": "Agendamentos Recentes",
+    "live": "Ao Vivo",
+    "view_all": "Ver Todos",
+    "management": "Gestão"
   },
   "inventory": {
     "title": "Controle de Estoque",
+    "status": "Status do",
     "subtitle": "Gerencie seus produtos e insumos",
     "new_product": "Novo Produto",
     "total_items": "Itens em Estoque",
@@ -43,7 +71,9 @@
     "quantity": "Qtd",
     "cost": "Custo",
     "sale": "Venda",
-    "no_products": "Nenhum produto encontrado"
+    "no_products": "Nenhum produto encontrado",
+    "customer": "Cliente",
+    "service": "Serviço"
   },
   "reports": {
     "title": "Relatórios Financeiros",
@@ -56,5 +86,62 @@
     "top_services": "Top Serviços",
     "staff_ranking": "Ranking de Equipe",
     "monthly_comparison": "Comparação Mensal"
+  },
+  "home": {
+    "since": "Desde 2011 — Cuidado Masculino Premium",
+    "hero_title_1": "Barbearia",
+    "hero_title_2": "Masculina",
+    "hero_title_3": "Premium",
+    "hero_desc": "Onde a precisão encontra a sofisticação. Arte tradicional, estilo moderno.",
+    "about_title": "Nossa Filosofia",
+    "about_title_2": "A Essência do Refinamento",
+    "about_desc": "Elegância tem estado na vanguarda do cuidado masculino, definindo o padrão para o cavalheiro consciente do estilo. Nossa dedicação reside em capacitar cada indivíduo a parecer e se sentir excepcional todos os dias.",
+    "experience": "Experiência",
+    "mastery": "de Maestria",
+    "experience_years": "Anos de Experiência",
+    "clients_served": "Cavalheiros Atendidos",
+    "five_star_reviews": "Avaliações 5 Estrelas",
+    "expert_stylists": "Mestres Estilistas",
+    "artisans_title": "Mestres do",
+    "artisans_title_2": "Ritual",
+    "artisans_subtitle": "Conheça nossos profissionais",
+    "rituals_title": "Nossos",
+    "rituals_title_2": "Rituais",
+    "rituals_subtitle": "Serviços Premium",
+    "gallery_title": "A Galeria da",
+    "gallery_title_2": "Precisão",
+    "gallery_subtitle": "Nosso Trabalho",
+    "testimonials_title": "Vozes do",
+    "testimonials_title_2": "Legado",
+    "testimonials_subtitle": "Depoimentos de Clientes"
+  },
+  "profile": {
+    "experience": "Experiência",
+    "mastery": "de Maestria",
+    "expert_services": "Serviços Especializados",
+    "ritual": "O Ritual",
+    "availability": "Disponibilidade Semanal",
+    "legacy": "O Legado",
+    "testimonials": "Depoimentos de Clientes",
+    "unavailable": "Indisponível",
+    "mastery_suffix": "de Maestria",
+    "description": "Mestre da precisão e estilo. Elevando a arte do cuidado através de atenção meticulosa aos detalhes e uma paixão por técnicas clássicas misturadas com estilo moderno."
+  },
+  "contact": {
+    "title": "Contato",
+    "ready": "PRONTO PARA UM",
+    "ready_for": "PRONTO PARA",
+    "new_look": "NOVO VISUAL",
+    "subtitle": "Agende seu horário ou envie-nos uma mensagem",
+    "make_appointment": "Fazer um Agendamento",
+    "visit_store": "Visite Nossa Loja",
+    "address": "Endereço",
+    "hours": "Horário de Funcionamento",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "whatsapp": "Whatsapp",
+    "quick_response": "Resposta Rápida",
+    "support_24": "Suporte 24/7",
+    "chat_now": "Conversar Agora"
   }
 }
