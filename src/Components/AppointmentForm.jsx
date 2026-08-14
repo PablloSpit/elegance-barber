@@ -306,6 +306,11 @@ function Appointment() {
             setTime('')
             setMessage('')
             setCurrentStep(1)
+            
+            // If it was a staff-specific link, clear the param to avoid confusing the user on next booking
+            if (staffIdParam) {
+                window.history.replaceState({}, '', window.location.pathname);
+            }
         } else {
             showMessage('error', result?.error || 'An error occurred while booking.')
         }
