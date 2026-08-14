@@ -164,7 +164,7 @@ function Dashboard() {
                                             <span className="font-semibold text-white text-sm">
                                                 {appointment.name}
                                                 {appointment.userId == null && (
-                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-white text-[10px] font-bold uppercase">Convidado</span>
+                                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-white text-[10px] font-bold uppercase">{t('home.guest')}</span>
                                                 )}
                                             </span>
                                         </div>
@@ -204,7 +204,7 @@ function Dashboard() {
                                         <h4 className="font-bold text-white text-sm flex items-center gap-2">
                                             <span>{appointment.name}</span>
                                             {appointment.userId == null && (
-                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">Convidado</span>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-champberry text-black text-[10px] font-bold uppercase">{t('home.guest')}</span>
                                             )}
                                         </h4>
                                         <div className="text-xs text-[#777] flex items-center gap-1 mt-0.5">
