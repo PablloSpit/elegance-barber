@@ -8,7 +8,9 @@
     "delete": "Excluir",
     "edit": "Editar",
     "search": "Buscar...",
-    "actions": "Ações"
+    "actions": "Ações",
+    "close": "Fechar",
+    "settings": "Configurações"
   },
   "nav": {
     "home": "Início",
@@ -27,7 +29,12 @@
     "inventory": "Estoque",
     "reports": "Relatórios",
     "staff": "Equipe",
-    "config": "Configurações"
+    "config": "Configuração",
+    "overview": "Visão Geral",
+    "team_management": "Gestão de Equipe",
+    "recent_appointments": "Agendamentos Recentes",
+    "live": "Ao Vivo",
+    "view_all": "Ver Todos"
   },
   "inventory": {
     "title": "Controle de Estoque",
