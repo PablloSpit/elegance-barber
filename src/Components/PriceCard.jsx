@@ -254,7 +254,7 @@ function PriceCard() {
                                                             {/* Price */}
                                                             <span className="font-sans text-md md:text-xl font-bold text-champberry-light
                                                                             group-hover/item:text-champberry transition-colors duration-300">
-                                                                {item.price}
+                                                                {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}
                                                             </span>
                                                         </Motion.div>
                                                     ))}
