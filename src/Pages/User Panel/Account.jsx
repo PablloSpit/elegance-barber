@@ -67,7 +67,7 @@ function Account() {
                             WebkitTextFillColor: 'transparent',
                             color: 'transparent'
                         }}
-                    >My Account</h1>
+                    >Minha Conta</h1>
                 </div>
             </main>
             <section className="bg-obsidian">
