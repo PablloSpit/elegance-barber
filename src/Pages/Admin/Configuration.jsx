@@ -18,22 +18,26 @@ function Configuration() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        holidayMode: false,
+        alertSounds: true
     })
 
     useEffect(() => {
+        const savedConfig = JSON.parse(localStorage.getItem('admin_config') || '{}')
         if (!currentUser) return
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData({
             name: currentUser.name || '',
             email: currentUser.email || '',
-            phone: currentUser.phone || ''
+            phone: currentUser.phone || '',
+            holidayMode: savedConfig.holidayMode || false,
+            alertSounds: savedConfig.alertSounds !== false
         })
     }, [currentUser])
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+        const { name, value, type, checked } = e.target
+        setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
     }
 
     const handlePasswordChange = (e) => {
@@ -79,6 +83,13 @@ function Configuration() {
         }
 
         const result = await updatedUser(updated)
+        
+        // Save business rules to separate config in localStorage for persistence
+        localStorage.setItem('admin_config', JSON.stringify({
+            holidayMode: formData.holidayMode,
+            alertSounds: formData.alertSounds
+        }))
+
         setIsLoading(true)
         
         setTimeout(() => {
@@ -182,7 +193,13 @@ function Configuration() {
                                         <p className="text-xs text-white font-bold uppercase">{t('admin.holiday_mode')}</p>
                                         <p className="text-[10px] text-gray-500">{t('admin.holiday_mode_desc')}</p>
                                         </div>
-                                        <input type="checkbox" className="w-5 h-5 accent-champberry cursor-pointer" />
+                                        <input 
+                                            type="checkbox" 
+                                            name="holidayMode"
+                                            checked={formData.holidayMode}
+                                            onChange={handleChange}
+                                            className="w-5 h-5 accent-champberry cursor-pointer" 
+                                        />
                                     </div>
                                 </div>
 
@@ -194,7 +211,13 @@ function Configuration() {
                                         <p className="text-xs text-white font-bold uppercase">{t('admin.alert_sounds')}</p>
                                         <p className="text-[10px] text-gray-500">{t('admin.alert_sounds_desc')}</p>
                                         </div>
-                                        <input type="checkbox" defaultChecked className="w-5 h-5 accent-champberry cursor-pointer" />
+                                        <input 
+                                            type="checkbox" 
+                                            name="alertSounds"
+                                            checked={formData.alertSounds}
+                                            onChange={handleChange}
+                                            className="w-5 h-5 accent-champberry cursor-pointer" 
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -24,6 +24,12 @@ export function AppointmentProvider({ children }) {
 
     const bookAppointment = async (appointmentData) => {
         try {
+            // Check Holiday Mode
+            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
+            if (config.holidayMode) {
+                return { success: false, error: "O salão está em modo de feriado. Agendamentos temporariamente suspensos." }
+            }
+
             const selectedServices = appointmentData.selectedService // array of { name, price }
 
             // Check if a stylist is already booked at this exact date+time in existing appointments
@@ -36,11 +42,16 @@ export function AppointmentProvider({ children }) {
             // For each service find a free stylist and build assignments
             const assignments = []
             for (const service of selectedServices) {
-                const availableStylists = getAvailableStaff(
+                let availableStylists = getAvailableStaff(
                     appointmentData.date,
                     appointmentData.time,
                     service.name
                 )
+
+                // If a specific staff is requested via link
+                if (appointmentData.forcedStaffId) {
+                    availableStylists = availableStylists.filter(s => s.id === appointmentData.forcedStaffId)
+                }
 
                 // Filter out: already booked elsewhere 
                 const trulyFree = availableStylists.filter(
@@ -50,7 +61,7 @@ export function AppointmentProvider({ children }) {
                 if (trulyFree.length === 0) {
                     return {
                         success: false,
-                        error: `No stylist available for "${service.name}" on the selected date and time. All stylists are already booked at that slot. Please try a different time.`
+                        error: `Nenhum profissional disponível para "${service.name}" na data e hora selecionadas. Por favor, tente outro horário.`
                     }
                 }
 
@@ -84,6 +95,26 @@ export function AppointmentProvider({ children }) {
             const updatedAppointments = [...appointments, newAppointment]
             setAppointments(updatedAppointments)
             await localStorage.setItem("Appointments", JSON.stringify(updatedAppointments))
+
+            // Trigger notification
+            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
+            if (config.alertSounds !== false) {
+                try {
+                    const audio = new Audio('/notification.mp3');
+                    audio.play().catch(() => {});
+                } catch (e) {}
+            }
+            window.dispatchEvent(new CustomEvent('new-appointment', { detail: newAppointment }));
+
+            // Trigger notification
+            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
+            if (config.alertSounds !== false) {
+                try {
+                    const audio = new Audio('/notification.mp3');
+                    audio.play().catch(() => {});
+                } catch (e) {}
+            }
+            window.dispatchEvent(new CustomEvent('new-appointment', { detail: newAppointment }));
 
             return {
                 success: true,

@@ -141,7 +141,7 @@ function StaffAppointments() {
     }, [getAssignedServices])
 
     const getAssignedTotal = useCallback((appointment) =>
-        getAssignedServices(appointment).reduce((sum, s) => sum + parseFloat(s.price?.replace('$', '') || 0), 0),
+        getAssignedServices(appointment).reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '').replace('$', '') || 0)), 0),
         [getAssignedServices])
 
     // Enhanced filter and sort logic - optimized with useMemo
@@ -152,7 +152,8 @@ function StaffAppointments() {
                 appointment.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 appointment.phone?.includes(searchTerm) ||
                 getAssignedServiceText(appointment).toLowerCase().includes(searchTerm.toLowerCase()) ||
-                appointment.id?.toString().includes(searchTerm)
+                appointment.id?.toString().includes(searchTerm) ||
+                appointment.email?.toLowerCase().includes(searchTerm.toLowerCase())
 
             // Status filter
             const matchedStatus = statusFilter === 'All' || appointment.status === statusFilter

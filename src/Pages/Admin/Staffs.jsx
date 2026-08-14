@@ -11,7 +11,8 @@ import {
     User,
     Calendar,
     Briefcase,
-    ShieldCheck
+    ShieldCheck,
+    Globe
 } from 'lucide-react'
 import { useStaff } from '../../Context/StaffContext'
 import { useMessage } from '../../Context/MessageContext'
@@ -236,15 +237,28 @@ const Staffs = () => {
                                                 </div>
 
                                             </td>
-                                            <td className="px-6 py-4 text-right relative">
-                                                <StaffMenu
-                                                    staff={member}
-                                                    onCheckAppts={handleCheckAppts}
-                                                    onViewDetails={handleViewDetails}
-                                                    onDelete={handleDelete}
-                                                    onEdit={handleEdit}
-                                                />
-                                            </td>
+                                             <td className="px-6 py-4 text-right relative">
+                                                <div className="flex items-center justify-end gap-2">
+                                                    <button 
+                                                        onClick={() => {
+                                                            const url = `${window.location.origin}/book?staff=${member.id}`;
+                                                            navigator.clipboard.writeText(url);
+                                                            showMessage('success', 'Link de agendamento copiado!');
+                                                        }}
+                                                        className="p-2 text-champberry hover:bg-champberry/10 rounded-lg transition-all"
+                                                        title="Copiar Link de Agendamento"
+                                                    >
+                                                        <Globe size={16} />
+                                                    </button>
+                                                    <StaffMenu
+                                                        staff={member}
+                                                        onCheckAppts={handleCheckAppts}
+                                                        onViewDetails={handleViewDetails}
+                                                        onDelete={handleDelete}
+                                                        onEdit={handleEdit}
+                                                    />
+                                                </div>
+                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -301,10 +315,10 @@ const Staffs = () => {
 
                         {/* Pagination/Footer */}
                         <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
-                            <span>Showing {filteredStaff.length} members</span>
+                            <span>{t('common.showing')} <span className="text-champberry font-bold">{filteredStaff.length}</span> {t('common.members')}</span>
                             <div className="flex gap-1.5 sm:gap-2">
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Previous</button>
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Next</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.previous')}</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.next')}</button>
                             </div>
                         </div>
                     </>
@@ -328,7 +342,7 @@ const Staffs = () => {
                 <AddStaffModal
                     onClose={() => setIsAddModalOpen(false)}
                     onStaffAdded={(newMember) => {
-                        showMessage('success', `${newMember.name} has been added to the team.`)
+                        showMessage('success', t('admin.staff_added_success', { name: newMember.name }))
                         setIsAddModalOpen(false)
                     }}
                 />
@@ -339,7 +353,7 @@ const Staffs = () => {
                     staffToEdit={editingStaff}
                     onClose={() => setEditingStaff(null)}
                     onStaffUpdated={(updatedMember) => {
-                        showMessage('success', `${updatedMember.name}'s profile has been updated.`)
+                        showMessage('success', t('profile.profile_updated_success'))
                         setEditingStaff(null)
                     }}
                 />

@@ -31,7 +31,7 @@ const parseStoredDate = (dateStr) => {
     return new Date(dateStr)
 }
 
-const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Faltou']
+const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Checked In', 'Missed']
 const categoryMap = {
     'All': 'appointments.status.all',
     'Confirmed': 'appointments.status.confirmed',
@@ -39,7 +39,8 @@ const categoryMap = {
     'Awaiting Confirmation': 'appointments.status.awaiting_confirmation',
     'Cancelled': 'appointments.status.cancelled',
     'Completed': 'appointments.status.completed',
-    'Faltou': 'appointments.status.missed'
+    'Checked In': 'appointments.status.checked_in',
+    'Missed': 'appointments.status.missed'
 }
 
 function Appointments() {
@@ -66,7 +67,7 @@ function Appointments() {
 
     const getTotalPrice = (appointment) => {
         if (Number.isFinite(Number(appointment.totalPrice))) return Number(appointment.totalPrice)
-        return appointment.items?.reduce((sum, item) => sum + parseFloat(item.service.price?.replace('$', '') || 0), 0) || 0
+        return appointment.items?.reduce((sum, item) => sum + (typeof item.service.price === 'number' ? item.service.price : parseFloat(item.service.price?.toString().replace('R$ ', '').replace('$', '') || 0)), 0) || 0
     }
 
     // Derived state - memoized for performance
@@ -690,10 +691,10 @@ function Appointments() {
 
                         {/* Footer / Pagination Placeholder */}
                         <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
-                            <span>Exibindo <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> de <span className="text-white font-bold">{appointments.length}</span></span>
+                            <span>{t('common.showing')} <span className="text-champberry font-bold">{filteredAndSortedAppointments.length}</span> {t('common.of')} <span className="text-white font-bold">{appointments.length}</span></span>
                             <div className="flex gap-1.5 sm:gap-2">
-                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Anterior</button>
-                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length > 10 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>Próximo</button>
+                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>{t('common.previous')}</button>
+                                <button className={`px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 ${filteredAndSortedAppointments.length > 10 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>{t('common.next')}</button>
                             </div>
                         </div>
                     </>

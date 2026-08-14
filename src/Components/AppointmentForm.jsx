@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect, memo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { services } from '../data/services.js'
 import { useAppointment } from '../Context/AppointmentContext.jsx'
+import { useStaff } from '../Context/StaffContext.jsx'
 import { useAuth } from '../Context/AuthContext.jsx'
 import { useMessage } from '../Context/MessageContext.jsx'
 import gsap from 'gsap'
@@ -54,7 +56,7 @@ const Step1Selection = memo(({
                                                     : 'text-[#bfbdbd] hover:bg-champberry/5 hover:text-white'
                                                     }`}
                                             >
-                                                <span>{t(`services.items.${service.name}`, service.name)} — {service.price}</span>
+                                                <span>{t(`services.items.${service.name}`, service.name)} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(service.price)}</span>
                                                 <span className={`shrink-0 w-4 h-4 border-2 rounded-sm flex items-center justify-center text-[10px] transition-colors ${isSelected ? 'border-champberry bg-champberry text-black' : 'border-[#555]'
                                                     }`}>
                                                     {isSelected && '✓'}
@@ -76,7 +78,7 @@ const Step1Selection = memo(({
                                 key={s.name}
                                 className="inline-flex items-center gap-1.5 bg-champberry/15 border border-champberry/40 text-champberry text-xs font-black px-2 py-1 rounded-sm tracking-tight"
                             >
-                                {t(`services.items.${s.name}`, s.name)} — {s.price}
+                                {t(`services.items.${s.name}`, s.name)} — {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(s.price)}
                                 <button
                                     type="button"
                                     onClick={(e) => { e.stopPropagation(); toggleService(s) }}
@@ -187,9 +189,12 @@ const Step3Details = memo(({
  *  ========================================================================= */
 function Appointment() {
     const { t } = useTranslation()
+    const [searchParams] = useSearchParams()
+    const staffIdParam = searchParams.get('staff')
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
+    const { getStaffById } = useStaff()
 
     // Step State Machine
     const [currentStep, setCurrentStep] = useState(1)
@@ -206,7 +211,7 @@ function Appointment() {
     const [time, setTime] = useState('')
     const [message, setMessage] = useState('')
 
-    const totalPrice = selectedService.reduce((sum, s) => sum + parseFloat(s.price.replace('R$ ', '')), 0)
+    const totalPrice = selectedService.reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '') || 0)), 0)
 
     const toggleService = (service) => {
         setSelectedService(prev => {
@@ -284,7 +289,8 @@ function Appointment() {
         }
 
         const formData = {
-            name, email, phoneNumber, selectedService, date, time, message, totalPrice
+            name, email, phoneNumber, selectedService, date, time, message, totalPrice,
+            forcedStaffId: staffIdParam ? parseInt(staffIdParam) : null
         }
 
         const result = await bookAppointment(formData)
