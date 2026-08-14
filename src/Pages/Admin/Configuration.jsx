@@ -44,33 +44,23 @@ function Configuration() {
         if (!currentUser) return
 
         if (!formData.name || !formData.phone) {
-            showMessage('error', 'Please fill in all required fields (Name, Phone)')
-            return
-        }
-
-        const phonePattern = /^(03\d{2}-\d{7}|\+923\d{9})$/
-        if (!phonePattern.test(formData.phone)) {
-            showMessage('error', 'Please enter a valid Pakistani phone number (e.g., 0336-3090793 or +9233363090793).')
+            showMessage('error', t('admin.fill_all_fields', 'Por favor, preencha todos os campos obrigatórios'))
             return
         }
 
         const shouldChangePassword = passwordData.currentPassword || passwordData.newPassword || passwordData.confirmPassword
 
         if (shouldChangePassword) {
-            if (!passwordData.currentPassword || !passwordData.newPassword || !passwordData.confirmPassword) {
-                showMessage('error', 'Please fill in all password fields')
+            if (!passwordData.currentPassword || !passwordData.newPassword) {
+                showMessage('error', t('admin.fill_password_fields', 'Por favor, preencha os campos de senha'))
                 return
             }
             if (passwordData.currentPassword !== currentUser?.password) {
-                showMessage('error', 'Current password is incorrect')
+                showMessage('error', t('admin.incorrect_current_password', 'Senha atual incorreta'))
                 return
             }
             if (passwordData.newPassword.length < 6) {
-                showMessage('error', 'New password must be at least 6 characters')
-                return
-            }
-            if (passwordData.newPassword !== passwordData.confirmPassword) {
-                showMessage('error', 'New password and confirm password do not match')
+                showMessage('error', t('admin.password_min_length', 'A nova senha deve ter pelo menos 6 caracteres'))
                 return
             }
         }
@@ -87,16 +77,19 @@ function Configuration() {
         }
 
         const result = await updatedUser(updated)
-        setIsLoading(false)
-
-        if (result?.success) {
-            showMessage('success', 'Profile updated successfully')
-            if (shouldChangePassword) {
-                setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' })
+        setIsLoading(true)
+        
+        setTimeout(() => {
+            setIsLoading(false)
+            if (result?.success) {
+                showMessage('success', t('common.success_update', 'Configurações atualizadas com sucesso!'))
+                if (shouldChangePassword) {
+                    setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' })
+                }
+            } else {
+                showMessage('error', result?.error || t('common.error_update', 'Falha ao atualizar configurações'))
             }
-        } else {
-            showMessage('error', result?.error || 'Failed to update profile')
-        }
+        }, 1000)
     }
 
     return (
