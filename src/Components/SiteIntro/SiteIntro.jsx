@@ -2,8 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { CustomEase } from 'gsap/CustomEase';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
-gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(CustomEase, MotionPathPlugin);
 
 const SiteIntro = () => {
   const [show, setShow] = useState(false);
@@ -13,7 +14,7 @@ const SiteIntro = () => {
   const topPartRef = useRef(null);
   const bottomPartRef = useRef(null);
   const scissorsRef = useRef(null);
-  const pathRef = useRef(null);
+  const cutGlowRef = useRef(null);
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem('site-intro-seen');
@@ -30,10 +31,9 @@ const SiteIntro = () => {
   useGSAP(() => {
     if (!show) return;
 
-    CustomEase.create("scissorsPath", "0.76, 0, 0.24, 1");
-
     const tl = gsap.timeline({
       onComplete: () => {
+        // Only cleanup if we are still showing (prevents race conditions)
         setShow(false);
         document.body.style.overflow = '';
         sessionStorage.setItem('site-intro-seen', 'true');
@@ -47,7 +47,7 @@ const SiteIntro = () => {
         const val = Math.round(this.progress() * 100);
         setProgress(val);
       },
-      ease: "power2.inOut"
+      ease: "none"
     });
 
     // Wait 200ms at 100%
@@ -61,60 +61,77 @@ const SiteIntro = () => {
     });
 
     // Step 3: Scissors entrance and cut
-    // We'll use a path that goes: left -> center top -> center bottom -> right (irregular)
-    // For simplicity and performance, we'll animate the clip-path of two overlays
-    
     const scissors = scissorsRef.current;
     const topPart = topPartRef.current;
     const bottomPart = bottomPartRef.current;
+    const cutGlow = cutGlowRef.current;
 
-    tl.set(scissors, { opacity: 1, x: '-10%', y: '40%', rotation: -15 });
+    // Define the irregular path
+    // We'll use viewport units for responsiveness
+    const path = [
+      { x: '0vw', y: '40vh' },
+      { x: '25vw', y: '20vh' },
+      { x: '50vw', y: '60vh' },
+      { x: '75vw', y: '30vh' },
+      { x: '110vw', y: '50vh' }
+    ];
 
-    // Cutting animation
+    tl.set(scissors, { opacity: 1, x: '-10vw', y: '40vh', rotation: 0 });
+
+    // Scissor blade animation (opening/closing)
+    const bladeTl = gsap.timeline({ repeat: 8, yoyo: true });
+    bladeTl.to(".blade-top", { rotation: -15, duration: 0.1, ease: "power1.inOut" }, 0);
+    bladeTl.to(".blade-bottom", { rotation: 15, duration: 0.1, ease: "power1.inOut" }, 0);
+
+    tl.add(bladeTl, "cutStart");
+
+    // Motion along path
     tl.to(scissors, {
       duration: 0.7,
       motionPath: {
-        path: [
-          { x: '10vw', y: '40vh' },
-          { x: '40vw', y: '20vh' },
-          { x: '60vw', y: '80vh' },
-          { x: '110vw', y: '50vh' }
-        ],
+        path: path,
         curviness: 1.5,
         autoRotate: true
       },
       ease: "power2.inOut"
-    }, "+=0.1");
+    }, "cutStart");
 
-    // Scissor blade animation (opening/closing)
-    tl.to(".blade-top", { rotation: -20, duration: 0.1, repeat: 5, yoyo: true }, "<");
-    tl.to(".blade-bottom", { rotation: 20, duration: 0.1, repeat: 5, yoyo: true }, "<");
+    // Glow line reveal
+    tl.set(cutGlow, { opacity: 1 }, "cutStart");
+    tl.fromTo(cutGlow, 
+      { scaleX: 0, transformOrigin: "left center" },
+      { scaleX: 1, duration: 0.7, ease: "power2.inOut" },
+      "cutStart"
+    );
 
     // Step 4: Split and Reveal
-    // The cut line is irregular, but for CSS clip-path we'll use a polygon
-    // Or simpler: just slide top and bottom overlays
-    
+    // We use clip-path for a more "torn" look if possible, or just slide
     tl.to(topPart, {
       y: '-100%',
       duration: 0.8,
       ease: "power3.inOut"
-    }, "-=0.2");
+    }, "reveal");
 
     tl.to(bottomPart, {
       y: '100%',
       duration: 0.8,
       ease: "power3.inOut"
-    }, "<");
+    }, "reveal");
 
-    // Reveal Hero elements (micro-animations)
-    // We look for elements in the DOM since this is a global overlay
-    tl.to("#main-hero [data-hero-heading], #main-hero [data-hero-tagline], #main-hero [data-hero-cta]", {
+    tl.to(cutGlow, {
+      opacity: 0,
+      duration: 0.2
+    }, "reveal");
+
+    // Step 5: Reveal Hero elements (micro-animations)
+    // We target the elements by data-hero-* attributes
+    tl.to("[data-hero-tagline], [data-hero-heading], [data-hero-cta]", {
       opacity: 1,
       y: 0,
       duration: 0.8,
       stagger: 0.1,
       ease: "power3.out"
-    }, "-=0.6");
+    }, "reveal+=0.1");
 
   }, { dependencies: [show], scope: containerRef });
 
@@ -126,12 +143,12 @@ const SiteIntro = () => {
       <div 
         ref={topPartRef} 
         className="absolute inset-0 bg-black pointer-events-auto"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}
+        style={{ height: '50.5vh' }}
       ></div>
       <div 
         ref={bottomPartRef} 
         className="absolute inset-0 bg-black pointer-events-auto"
-        style={{ clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)' }}
+        style={{ height: '50.5vh', top: '50vh' }}
       ></div>
 
       {/* Percentage */}
@@ -139,7 +156,7 @@ const SiteIntro = () => {
         ref={percentageRef}
         className="absolute inset-0 flex items-center justify-center z-10"
       >
-        <span className="text-white text-6xl md:text-8xl font-semibold font-sans tabular-nums">
+        <span className="text-white text-7xl md:text-9xl font-semibold font-sans tabular-nums tracking-tighter">
           {progress}%
         </span>
       </div>
@@ -147,26 +164,27 @@ const SiteIntro = () => {
       {/* Scissors SVG */}
       <div 
         ref={scissorsRef}
-        className="absolute w-12 h-12 md:w-16 md:h-16 opacity-0 z-20 pointer-events-none"
-        style={{ top: 0, left: 0 }}
+        className="absolute w-16 h-16 md:w-24 md:h-24 opacity-0 z-20 pointer-events-none"
+        style={{ top: 0, left: 0, marginTop: '-32px', marginLeft: '-32px' }}
       >
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white">
-          <g className="blade-top" style={{ transformOrigin: '40% 50%' }}>
-            <path d="M40 50 L90 35 L90 45 Z" fill="currentColor" />
-            <circle cx="35" cy="40" r="8" stroke="currentColor" strokeWidth="4" />
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+          <g className="blade-top" style={{ transformOrigin: '30% 50%' }}>
+            <path d="M30 50 L95 30 L95 45 Z" fill="currentColor" />
+            <circle cx="20" cy="40" r="10" stroke="currentColor" strokeWidth="4" />
           </g>
-          <g className="blade-bottom" style={{ transformOrigin: '40% 50%' }}>
-            <path d="M40 50 L90 65 L90 55 Z" fill="currentColor" />
-            <circle cx="35" cy="60" r="8" stroke="currentColor" strokeWidth="4" />
+          <g className="blade-bottom" style={{ transformOrigin: '30% 50%' }}>
+            <path d="M30 50 L95 70 L95 55 Z" fill="currentColor" />
+            <circle cx="20" cy="60" r="10" stroke="currentColor" strokeWidth="4" />
           </g>
         </svg>
       </div>
 
-      {/* Cut Line Glow */}
-      <div className="absolute inset-0 z-15 pointer-events-none overflow-hidden">
-         <div className="cut-glow absolute w-full h-[2px] bg-white/30 blur-[1px] opacity-0" 
-              style={{ top: '50%', left: 0, transform: 'translateY(-50%)' }}></div>
-      </div>
+      {/* Cut Glow */}
+      <div 
+        ref={cutGlowRef}
+        className="absolute w-full h-[1px] bg-white opacity-0 z-15 shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+        style={{ top: '50vh', left: 0 }}
+      ></div>
     </div>
   );
 };
