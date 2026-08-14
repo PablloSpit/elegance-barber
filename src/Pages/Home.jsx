@@ -535,7 +535,7 @@ function Home() {
 
                             {/* Tactile Glassmorphism Detail */}
                             <div className="heritage-card absolute -bottom-6 right-0 md:-right-8 lg:-right-12 backdrop-blur-xl bg-obsidian-card/40 border border-white/10 p-6 shadow-2xl z-20 w-48 rounded-sm">
-                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">Heritage</p>
+                                <p className="font-sans text-champberry text-xs tracking-[0.3em] uppercase mb-2 font-bold">{t('home.experience')}</p>
                                 <p className="font-serif text-3xl text-white font-light">Est. 2011</p>
                                 <div className="w-12 h-px bg-champberry/30 mt-4"></div>
                             </div>
@@ -601,10 +601,10 @@ function Home() {
                     {/* Section Header — Editorial type pairing */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 lg:mb-24 gap-6">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Our Menu</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.rituals_subtitle')}</span>
                             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                Curated{' '}
-                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>Services</span>
+                                {t('home.rituals_title')}{' '}
+                                <span className='font-serif font-black text-champberry normal-case tracking-wide'>{t('home.rituals_title_2')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
@@ -652,10 +652,10 @@ function Home() {
                     {/* Section Header — Editorial type pairing (matches Services section) */}
                     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end mb-12 md:mb-18 gap-6 px-4 md:px-6 lg:px-16 max-w-11/12 mx-auto w-full">
                         <div className="text-center md:text-left">
-                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">Our Rates</span>
+                            <span className="font-sans text-champberry/70 tracking-[0.5em] text-[9px] sm:text-xs uppercase mb-3 block">{t('home.gallery_subtitle')}</span>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                                Price{' '}
-                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>List</span>
+                                {t('home.gallery_title')}{' '}
+                                <span className='font-serif tracking-wide uppercase font-black text-champberry '>{t('home.gallery_title_2')}</span>
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
@@ -730,9 +730,9 @@ function Home() {
             >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-11/12">
                     <div className="text-center mb-20">
-                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">Masters of the Ritual</span>
+                        <span className="font-sans text-champberry/70 tracking-[0.5em] text-[10px] sm:text-xs uppercase mb-3 block">{t('home.artisans_subtitle')}</span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none font-sans">
-                            Meet Our <span className='font-serif text-champberry normal-case tracking-wide'>Artisans</span>
+                            {t('home.artisans_title')} <span className='font-serif text-champberry normal-case tracking-wide'>{t('home.artisans_title_2')}</span>
                         </h2>
                     </div>
 
