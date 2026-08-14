@@ -110,6 +110,7 @@
     "confirm_remove_staff": "Tem certeza que deseja remover {{name}} da equipe?",
     "staff_removed_success": "{{name}} foi removido(a) da equipe.",
     "status_updated_success": "Status atualizado com sucesso.",
+    "staff_added_success": "{{name}} foi adicionado(a) à equipe.",
     "fill_all_fields": "Por favor, preencha todos os campos obrigatórios",
     "fill_password_fields": "Por favor, preencha os campos de senha",
     "incorrect_current_password": "Senha atual incorreta",

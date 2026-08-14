@@ -328,7 +328,7 @@ const Staffs = () => {
                 <AddStaffModal
                     onClose={() => setIsAddModalOpen(false)}
                     onStaffAdded={(newMember) => {
-                        showMessage('success', `${newMember.name} has been added to the team.`)
+                        showMessage('success', t('admin.staff_added_success', { name: newMember.name }))
                         setIsAddModalOpen(false)
                     }}
                 />
@@ -339,7 +339,7 @@ const Staffs = () => {
                     staffToEdit={editingStaff}
                     onClose={() => setEditingStaff(null)}
                     onStaffUpdated={(updatedMember) => {
-                        showMessage('success', `${updatedMember.name}'s profile has been updated.`)
+                        showMessage('success', t('profile.profile_updated_success'))
                         setEditingStaff(null)
                     }}
                 />
