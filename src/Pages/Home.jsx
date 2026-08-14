@@ -42,7 +42,7 @@ import { Link } from 'react-router-dom'
 import { useStaff } from '../Context/StaffContext.jsx'
 
 function Home() {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const heroRef = useRef(null)
     const aboutRef = useRef(null)
 
@@ -471,7 +471,7 @@ function Home() {
                                     className="absolute bottom-6 -left-6 lg:-left-14 backdrop-blur-xl bg-obsidian/40 border border-champberry/15 rounded-lg px-5 py-3 shadow-2xl"
                                 >
                                     <p data-magnetic-text className="font-sans text-champberry text-xl font-black leading-tight">15+</p>
-                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">{t('home.years_of_craft', 'Years of Craft')}</p>
+                                    <p data-magnetic-text className="font-sans text-white/40 text-[8px] uppercase tracking-[0.3em] font-semibold">{t('home.years_of_craft', 'Anos de Arte')}</p>
                                 </div>
 
                                 {/* Accent line */}
@@ -560,7 +560,7 @@ function Home() {
                                 </p>
 
                                 <p className="manifesto-line font-sans font-light text-white/50 text-sm md:text-base leading-[1.8] mb-12 tracking-wide pl-4 border-l border-champberry/30">
-                                    {t('home.about_desc_2', 'We seamlessly merge the heritage of traditional barbering with the sophisticated amenities of a premium, full-service salon concept.')}
+                                    {t('home.about_desc_2', 'Combinamos perfeitamente a herança da barbearia tradicional com as comodidades sofisticadas de um conceito de salão premium de serviço completo.')}
                                 </p>
                             </div>
 
@@ -607,7 +607,7 @@ function Home() {
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            {t('home.rituals_desc', 'Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.')}
+                            {t('home.rituals_desc', 'Cortes de precisão, barbear clássico e serviços de cuidado premium adaptados para o cavalheiro moderno.')}
                         </p>
                     </div>
 
@@ -658,7 +658,7 @@ function Home() {
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            {t('home.gallery_desc', 'Transparent pricing for every service. Premium quality at fair value.')}
+                            {t('home.gallery_desc', 'Preços transparentes para cada serviço. Qualidade premium com valor justo.')}
                         </p>
                     </div>
 
