@@ -301,10 +301,10 @@ const Staffs = () => {
 
                         {/* Pagination/Footer */}
                         <div className="bg-obsidian-surface px-3 sm:px-6 py-3 sm:py-4 border-t border-[#333] flex justify-between items-center text-[10px] sm:text-xs text-champberry-muted">
-                            <span>Showing {filteredStaff.length} members</span>
+                            <span>{t('common.showing')} <span className="text-champberry font-bold">{filteredStaff.length}</span> {t('common.members')}</span>
                             <div className="flex gap-1.5 sm:gap-2">
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Previous</button>
-                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">Next</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.previous')}</button>
+                                <button className="px-2 sm:px-3 py-1 bg-obsidian-surface border border-[#333] rounded hover:border-champberry hover:text-champberry transition-colors disabled:opacity-50 cursor-pointer">{t('common.next')}</button>
                             </div>
                         </div>
                     </>
