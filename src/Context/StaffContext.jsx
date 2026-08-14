@@ -142,7 +142,7 @@ export function StaffProvider({ children }) {
         );
 
         if (existingStaff) {
-            return { error: "Staff member with this email or phone already exists." };
+            return { error: "Já existe um membro da equipe com este e-mail ou telefone." };
         }
 
         // also ensure no collision with persisted clients
