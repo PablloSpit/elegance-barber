@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { createPortal } from 'react-dom';
-import { useTranslation } from 'react-i18next';
 import { X, Save, User, Mail, Phone, Briefcase, Scissors, Clock, BriefcaseBusiness, Star, ImagePlus, Edit as EditIcon } from 'lucide-react';
 import { useStaff } from '../../Context/StaffContext';
 
