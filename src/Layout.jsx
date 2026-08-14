@@ -5,6 +5,7 @@ import { useState, useLayoutEffect, useRef } from 'react'
 import { ReactLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import SiteIntro from './Components/SiteIntro/SiteIntro.jsx'
 
 // Message Component
 const Message = ({ type, text, visible, isClosing, onClose }) => {
@@ -71,6 +72,7 @@ function Layout() {
 
     return (
         <ReactLenis root options={{ lerp: 0.1, duration: 1.0, smoothWheel: true }}>
+            <SiteIntro key={location.pathname === '/' ? 'intro' : 'none'} />
             {/* ── Obsidian Curtain (z-index highest) ── */}
             <div
                 ref={curtainRef}
