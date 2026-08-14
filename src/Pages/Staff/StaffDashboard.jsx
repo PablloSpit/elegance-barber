@@ -50,7 +50,7 @@ function StaffDashboard() {
 
     const totalRevenue = useMemo(() => {
         if (!currentUser) return 0
-        return myAppointments.reduce((acc, curr) => {
+        return myAppointments.filter(a => a.status === 'Completed').reduce((acc, curr) => {
             const assignedItems = (curr.items || []).filter(item => {
                 const stylist = item.stylist
                 return stylist && (stylist.id === currentUser.id || stylist.email?.toLowerCase() === currentUser.email?.toLowerCase())
