@@ -348,7 +348,7 @@ function Appointments() {
                                                         setSelectedPreset(null)
                                                     }}
                                                     className="w-full bg-obsidian border border-[#333] rounded-lg px-3 py-2 text-sm text-white focus:border-champberry focus:ring-1 focus:ring-champberry outline-none transition-all"
-                                                    placeholder="From"
+                                                    placeholder="De"
                                                 />
                                             </div>
                                             <div className="relative">
@@ -360,7 +360,7 @@ function Appointments() {
                                                         setSelectedPreset(null)
                                                     }}
                                                     className="w-full bg-obsidian border border-[#333] rounded-lg px-3 py-2 text-sm text-white focus:border-champberry focus:ring-1 focus:ring-champberry outline-none transition-all"
-                                                    placeholder="To"
+                                                    placeholder="Até"
                                                 />
                                             </div>
                                         </div>
@@ -369,7 +369,7 @@ function Appointments() {
                                     {/* Time Range */}
                                     <div>
                                         <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">
-                                            Time Range
+                                            Intervalo de Horário
                                         </label>
                                         <div className="grid grid-cols-2 gap-2">
                                             <input
@@ -391,14 +391,14 @@ function Appointments() {
                                     {uniqueStylists.length > 0 && (
                                         <div>
                                             <label className="text-gray-400 text-xs font-bold uppercase tracking-wide mb-2 block">
-                                                Stylist
+                                                Profissional
                                             </label>
                                             <select
                                                 value={stylistFilter}
                                                 onChange={(e) => setStylistFilter(e.target.value)}
                                                 className="w-full bg-obsidian border border-[#333] rounded-lg px-3 py-2 text-sm text-white focus:border-champberry focus:ring-1 focus:ring-champberry outline-none appearance-none cursor-pointer transition-all"
                                             >
-                                                <option value="all">All Stylists</option>
+                                                <option value="all">Todos os Profissionais</option>
                                                 {uniqueStylists.map(stylist => (
                                                     <option key={stylist} value={stylist}>{stylist}</option>
                                                 ))}
@@ -413,7 +413,7 @@ function Appointments() {
                                         onClick={() => setShowFilterPanel(false)}
                                         className="w-full bg-champberry hover:bg-champberry-dark text-black cursor-pointer font-black py-2.5 rounded-lg transition-colors text-sm uppercase tracking-wide shadow-lg"
                                     >
-                                        Apply Filters
+                                        Aplicar Filtros
                                     </button>
                                 </div>
                             </div>
@@ -426,7 +426,7 @@ function Appointments() {
             {/* Active Filter Tags */}
             {hasActiveFilters && (
                 <div className="flex flex-wrap gap-2 items-center bg-obsidian-surface/30 border border-[#333] rounded-lg p-3">
-                    <span className="text-champberry-muted text-xs font-bold uppercase tracking-wider">Active Filters:</span>
+                    <span className="text-champberry-muted text-xs font-bold uppercase tracking-wider">Filtros Ativos:</span>
 
                     {dateFilter.from && (
                         <span className="bg-obsidian-elevated border border-champberry/50 text-champberry px-3 py-1.5 rounded-full text-xs flex items-center gap-2 font-medium">
@@ -474,7 +474,7 @@ function Appointments() {
                         onClick={clearAllFilters}
                         className="ml-auto text-xs text-white hover:text-champberry transition-colors font-bold uppercase tracking-wide"
                     >
-                        Clear All
+                        Limpar Tudo
                     </button>
                 </div>
             )}
@@ -488,8 +488,8 @@ function Appointments() {
                         <div className="bg-obsidian-elevated p-4 rounded-full mb-4">
                             <Calendar size={48} className="text-[#333]" />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">No Appointments Found</h3>
-                        <p className="text-champberry-muted max-w-md">There are no appointments in the system yet. New bookings will appear here.</p>
+                        <h3 className="text-xl font-bold text-white mb-2">Nenhum Agendamento Encontrado</h3>
+                        <p className="text-champberry-muted max-w-md">Não há agendamentos no sistema ainda. Novas reservas aparecerão aqui.</p>
                     </div>
                 ) : (
                     <>
