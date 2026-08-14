@@ -72,7 +72,7 @@ function Layout() {
 
     return (
         <ReactLenis root options={{ lerp: 0.1, duration: 1.0, smoothWheel: true }}>
-            <SiteIntro />
+            <SiteIntro key={location.pathname === '/' ? 'intro' : 'none'} />
             {/* ── Obsidian Curtain (z-index highest) ── */}
             <div
                 ref={curtainRef}
