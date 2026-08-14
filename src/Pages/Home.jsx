@@ -393,7 +393,7 @@ function Home() {
                         <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start pt-4 lg:pt-14 mb-2 z-10">
 
                             {/* Tagline — horizontal line + text */}
-                            <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
+                            <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10 opacity-0 translate-y-[15px]">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
                                 <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
                                     {t('home.since')}
@@ -401,7 +401,7 @@ function Home() {
                             </div>
 
                             {/* Main Heading — Bold, aggressive spacing */}
-                            <div data-hero-heading className="heading-text text-center lg:text-left mb-4">
+                            <div data-hero-heading className="heading-text text-center lg:text-left mb-4 opacity-0 translate-y-[15px]">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
                                     {t('home.hero_title_1')}
