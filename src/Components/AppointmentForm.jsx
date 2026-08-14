@@ -263,18 +263,46 @@ function Appointment() {
 
     // Step Validation Handlers
     const handleNextStep1 = () => {
-        if (selectedService.length === 0) {
-            showMessage('warning', t('appointments.errors.select_service', 'Por favor, selecione pelo menos um serviço para continuar.'))
+        if (!name || !email || !phoneNumber) {
+            showMessage('error', t('appointments.errors.details_required', 'Dados pessoais são obrigatórios.'))
+            return
+        }
+        const phonePattern = /^(\d{2})?\d{9}$/
+        if (!phonePattern.test(phoneNumber.replace(/\D/g, ''))) {
+            showMessage('error', t('appointments.errors.invalid_phone', 'Por favor, insira um número de telefone válido.'))
             return
         }
         setCurrentStep(2)
     }
 
     const handleNextStep2 = () => {
+        if (selectedService.length === 0) {
+            showMessage('warning', t('appointments.errors.select_service', 'Por favor, selecione pelo menos um serviço para continuar.'))
+            return
+        }
+        setCurrentStep(3)
+    }
+
+    const handleNextStep3 = () => {
         if (!date || !time) {
             showMessage('warning', t('appointments.errors.choose_datetime', 'Por favor, escolha uma data e hora válidas.'))
             return
         }
+        if (date < new Date().toISOString().split('T')[0]) {
+            showMessage('error', t('appointments.errors.past_date', 'Por favor, selecione uma data futura.'))
+            return
+        }
+        if (time < '11:00' || time > '20:00') {
+            showMessage('error', t('appointments.errors.outside_hours', 'Por favor, selecione um horário entre 11:00 e 20:00.'))
+            return
+        }
+        const selectedDate = new Date(date)
+        if (selectedDate.getDay() === 0) {
+            showMessage('error', t('appointments.errors.sunday', 'Agendamentos não podem ser feitos aos domingos. Por favor, selecione outro dia.'))
+            return
+        }
+        setCurrentStep(4)
+    }
         if (date < new Date().toISOString().split('T')[0]) {
             showMessage('error', t('appointments.errors.past_date', 'Por favor, selecione uma data futura.'))
             return
