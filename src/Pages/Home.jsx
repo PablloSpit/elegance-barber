@@ -607,7 +607,7 @@ function Home() {
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.
+                            {t('home.rituals_desc', 'Precision cuts, classic shaves, and premium grooming services tailored for the modern gentleman.')}
                         </p>
                     </div>
 
@@ -658,7 +658,7 @@ function Home() {
                             </h2>
                         </div>
                         <p className="font-sans font-light text-champberry-muted max-w-sm text-right hidden md:block text-sm tracking-wide leading-relaxed">
-                            Transparent pricing for every service. Premium quality at fair value.
+                            {t('home.gallery_desc', 'Transparent pricing for every service. Premium quality at fair value.')}
                         </p>
                     </div>
 
