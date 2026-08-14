@@ -71,6 +71,11 @@ const Router = createBrowserRouter(
             </ProtectedRoute>
           </Suspense>
         } />
+        <Route path='/agendar' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <Home />
+          </Suspense>
+        } />
         <Route path='/agendar/:staffSlug' element={
           <Suspense fallback={<LoadingSpinner />}>
             <Home />

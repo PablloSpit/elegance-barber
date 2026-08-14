@@ -238,12 +238,12 @@ function Configuration() {
                                         
                                         <div className="mt-4 flex items-center gap-3 bg-obsidian border border-[#333] p-3 rounded-lg">
                                             <div className="flex-1 truncate text-champberry-muted text-sm font-mono">
-                                                {`${window.location.origin}/#appointment`}
+                                                {`${window.location.origin}/agendar`}
                                             </div>
                                             <button
                                                 type="button"
                                                 onClick={() => {
-                                                    navigator.clipboard.writeText(`${window.location.origin}/#appointment`);
+                                                    navigator.clipboard.writeText(`${window.location.origin}/agendar`);
                                                     showMessage('success', t('admin.booking_link_copied'));
                                                 }}
                                                 className="p-2 hover:bg-white/5 text-champberry rounded-lg transition-colors cursor-pointer"
