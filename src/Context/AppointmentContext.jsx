@@ -99,7 +99,7 @@ export function AppointmentProvider({ children }) {
             // Trigger notification
             const notificationConfig = JSON.parse(localStorage.getItem('admin_config') || '{}');
 
-            if (config.alertSounds !== false) {
+            if (notificationConfig.alertSounds !== false) {
                 try {
                     const audio = new Audio('/notification.mp3');
                     audio.play().catch(() => {});
