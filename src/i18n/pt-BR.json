@@ -170,8 +170,9 @@
     "last_7_days": "7 dias",
     "last_30_days": "30 dias",
     "last_90_days": "90 dias",
-    "values_in_days": "Valores em Dias",
-    "values_in_months": "Valores em Meses",
+    "values_in_days": "Dias",
+    "values_in_months": "Meses",
+    "values_in_days_months": "Valores em {{unit}}",
     "no_data": "Sem dados disponíveis",
     "current_vs_previous_month": "Mês atual vs Anterior"
   },
