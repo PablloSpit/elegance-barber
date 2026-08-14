@@ -358,21 +358,47 @@ function Appointment() {
     }, [])
 
     return (
-        <div className="w-full relative" ref={containerRef}>
-            {/* Step Progress Indicators */}
-            <div className="flex items-center gap-2 mb-8">
-                {[1, 2, 3, 4].map((num) => (
-                    <div key={num} className="flex-1 flex flex-col gap-2">
-                        <div className={`h-1 w-full transition-colors duration-500 rounded-full ${num <= currentStep ? 'bg-champberry' : 'bg-white/10'}`}></div>
-                        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-500 ${num <= currentStep ? 'text-champberry' : 'text-white/30'}`}>
-                            {t('common.step', 'Passo')} {num}
-                        </span>
-                    </div>
-                ))}
-            </div>
+        <div className="w-full max-w-lg mx-auto bg-obsidian-surface/40 backdrop-blur-xl border-2 md:border-4 border-champberry/20 p-4 md:p-8 shadow-2xl relative overflow-hidden group rounded-2xl" ref={containerRef}>
+            {/* Aesthetic Glow Effects */}
+            <div className="absolute -top-24 -left-24 w-48 h-48 bg-champberry/10 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity pointer-events-none"></div>
+            <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-champberry/5 rounded-full blur-3xl opacity-30 group-hover:opacity-60 transition-opacity pointer-events-none"></div>
+            
+            <div className="relative z-10">
+                <div className="text-center mb-8">
+                    <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter italic">
+                        {t('appointments.title', 'Agendamento')} <span className="text-champberry">{t('appointments.online', 'Online')}</span>
+                    </h2>
+                    <div className="h-1 w-20 bg-linear-to-r from-transparent via-champberry to-transparent mx-auto mt-2 rounded-full shadow-lg shadow-champberry/50"></div>
+                    
+                    {forcedStaff && (
+                        <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-champberry/10 border border-champberry/30 rounded-full text-champberry text-[10px] font-black uppercase tracking-widest animate-in fade-in slide-in-from-top-2 duration-700">
+                            <div className="w-1.5 h-1.5 rounded-full bg-champberry animate-pulse"></div>
+                            {t('appointments.with_professional', 'Profissional')}: {forcedStaff.name}
+                        </div>
+                    )}
+                </div>
 
-            {/* GSAP Animated Step Container */}
-            <div className="relative">
+                {/* Multi-Step Progress Indicator */}
+                <div className="flex justify-between items-center mb-10 px-2 relative">
+                    <div className="absolute top-1/2 left-0 w-full h-px bg-white/5 -z-1"></div>
+                    {[1, 2, 3, 4].map(num => (
+                        <div
+                            key={num}
+                            className={`relative z-10 w-8 md:w-10 h-8 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-black transition-all duration-500 border-2 ${
+                                currentStep >= num 
+                                ? 'bg-champberry border-champberry text-white shadow-lg shadow-champberry/30' 
+                                : 'bg-obsidian border-[#333] text-[#555]'
+                            }`}
+                        >
+                            {num}
+                            {currentStep === num && (
+                                <div className="absolute -inset-2 border border-champberry/30 rounded-full animate-ping opacity-30"></div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="relative">
                 {/* Step 1: Personal Details */}
                 <div className="form-step hidden w-full">
                     <div className="flex flex-col gap-4">

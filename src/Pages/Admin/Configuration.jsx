@@ -230,26 +230,37 @@ function Configuration() {
                                 <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white uppercase tracking-wider">{t('nav.my_link', 'Meu Link')}</h2>
                             </div>
 
-                            <div className="bg-obsidian-elevated p-4 sm:p-6 rounded-xl border border-white/5 space-y-4">
-                                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                                    <div className="flex-1">
-                                        <h3 className="text-white font-bold text-sm uppercase mb-1">{t('admin.main_booking_link', 'Link Principal de Agendamento')}</h3>
-                                        <p className="text-[#777] text-xs">{t('admin.main_booking_link_desc', 'Este link direciona os clientes para a página inicial com o formulário de agendamento aberto.')}</p>
-                                        
-                                        <div className="mt-4 flex items-center gap-3 bg-obsidian border border-[#333] p-3 rounded-lg">
-                                            <div className="flex-1 truncate text-champberry-muted text-sm font-mono">
-                                                {`${window.location.origin}/agendar`}
+                            <div className="bg-obsidian-elevated p-6 rounded-2xl border border-champberry/20 shadow-lg shadow-champberry/5 space-y-6">
+                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                                    <div className="flex-1 space-y-3">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-8 h-8 rounded-lg bg-champberry/10 flex items-center justify-center text-champberry">
+                                                <Globe size={18} />
                                             </div>
-                                            <button
-                                                type="button"
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText(`${window.location.origin}/agendar`);
-                                                    showMessage('success', t('admin.booking_link_copied'));
-                                                }}
-                                                className="p-2 hover:bg-white/5 text-champberry rounded-lg transition-colors cursor-pointer"
-                                            >
-                                                <Copy size={16} />
-                                            </button>
+                                            <h3 className="text-white font-black text-base uppercase tracking-tight">{t('admin.main_booking_link', 'Link de Agendamento Profissional')}</h3>
+                                        </div>
+                                        <p className="text-gray-400 text-xs leading-relaxed max-w-xl">
+                                            {t('admin.main_booking_link_desc', 'Este é o link oficial da barbearia. Compartilhe em suas redes sociais para que os clientes acessem diretamente o fluxo de agendamento em uma página dedicada e elegante.')}
+                                        </p>
+                                        
+                                        <div className="mt-4 group relative">
+                                            <div className="absolute -inset-1 bg-linear-to-r from-champberry/20 to-champberry/5 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                                            <div className="relative flex items-center gap-3 bg-obsidian/80 backdrop-blur-xl border border-champberry/30 p-4 rounded-xl shadow-inner">
+                                                <div className="flex-1 truncate text-champberry font-mono text-sm font-bold tracking-tight">
+                                                    {`${window.location.origin}/agendar`}
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        navigator.clipboard.writeText(`${window.location.origin}/agendar`);
+                                                        showMessage('success', t('admin.booking_link_copied'));
+                                                    }}
+                                                    className="p-2.5 bg-champberry hover:bg-champberry-dark text-white rounded-lg transition-all active:scale-95 shadow-md shadow-champberry/20 cursor-pointer"
+                                                    title={t('common.copy_link', 'Copiar Link')}
+                                                >
+                                                    <Copy size={18} />
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
