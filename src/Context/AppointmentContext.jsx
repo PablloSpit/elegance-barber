@@ -106,16 +106,6 @@ export function AppointmentProvider({ children }) {
             }
             window.dispatchEvent(new CustomEvent('new-appointment', { detail: newAppointment }));
 
-            // Trigger notification
-            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
-            if (config.alertSounds !== false) {
-                try {
-                    const audio = new Audio('/notification.mp3');
-                    audio.play().catch(() => {});
-                } catch (e) {}
-            }
-            window.dispatchEvent(new CustomEvent('new-appointment', { detail: newAppointment }));
-
             return {
                 success: true,
                 assignments: assignments.map(a => ({
