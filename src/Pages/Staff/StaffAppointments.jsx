@@ -152,7 +152,8 @@ function StaffAppointments() {
                 appointment.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 appointment.phone?.includes(searchTerm) ||
                 getAssignedServiceText(appointment).toLowerCase().includes(searchTerm.toLowerCase()) ||
-                appointment.id?.toString().includes(searchTerm)
+                appointment.id?.toString().includes(searchTerm) ||
+                appointment.email?.toLowerCase().includes(searchTerm.toLowerCase())
 
             // Status filter
             const matchedStatus = statusFilter === 'All' || appointment.status === statusFilter
