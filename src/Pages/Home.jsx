@@ -102,10 +102,13 @@ function Home() {
     const { staffSlug } = useParams()
 
     useEffect(() => {
-        if (staffSlug) {
+        if (staffSlug || window.location.pathname === '/agendar') {
             const appointmentSection = document.getElementById('appointment');
             if (appointmentSection) {
-                appointmentSection.scrollIntoView({ behavior: 'smooth' });
+                // Ensure page content is ready before scrolling
+                setTimeout(() => {
+                    appointmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
             }
         } else {
             window.scrollTo(0, 0);
