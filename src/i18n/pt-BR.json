@@ -15,6 +15,7 @@
     "user": "Usuário",
     "all_rights_reserved": "Todos os direitos reservados.",
     "step": "Passo",
+    "login": "Entrar",
     "back": "Voltar"
   },
   "nav": {
@@ -157,7 +158,8 @@
     "brands_title_2": "Confiança",
     "brands_desc": "Produtos premium para resultados excepcionais",
     "gallery_main_title": "A",
-    "gallery_main_span": "Galeria"
+    "gallery_main_span": "Galeria",
+    "mens_salon": "Barbearia Masculina"
   },
   "profile": {
     "experience": "Experiência",

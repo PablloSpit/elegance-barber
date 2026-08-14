@@ -272,7 +272,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                 ) : (
                                     <Link to="/login" className="flex items-center gap-2 border-b border-champberry/80 px-5 py-2 text-white hover:text-champberry hover:border-champberry transition-all duration-300 group">
                                         <i className="fas fa-user text-sm group-hover:text-champberry transition-colors text-champberry"></i>
-                                        <span className="text-xs font-bold tracking-widest uppercase">Login</span>
+                                        <span className="text-xs font-bold tracking-widest uppercase">{t('common.login', 'Entrar')}</span>
                                     </Link>
                                 )}
                             </div>
@@ -295,7 +295,7 @@ function Header({ bgImage = "bg-transparent" }) {
                                 <h2 className="text-3xl font-bold text-white uppercase tracking-wider mb-1">
                                     Elegance
                                 </h2>
-                                <p className="text-champberry text-sm uppercase tracking-widest">Men's Salon</p>
+                                <p className="text-champberry text-sm uppercase tracking-widest">{t('home.mens_salon', 'Barbearia Masculina')}</p>
                             </div>
 
                             {/* Navigation Links with Premium Styling */}
