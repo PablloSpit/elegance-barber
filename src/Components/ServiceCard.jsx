@@ -1,7 +1,9 @@
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import serviceHaircutFallback from '../assets/services/service-haircut.webp'
 
 const ServiceCard = ({ icon, title, description, price, onClick, image }) => {
+    const { t } = useTranslation()
     const handleCardClick = (e) => {
         if (onClick) onClick(e);
         const element = document.getElementById('appointment');
@@ -64,7 +66,7 @@ const ServiceCard = ({ icon, title, description, price, onClick, image }) => {
                             {price}
                         </span>
                         <button className="group/btn flex items-center gap-2 rounded-full bg-black/40 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-champberry border border-champberry hover:border-champberry">
-                            <span>Book Now</span>
+                            <span>{t('nav.book_appointment_short', 'AGENDAR')}</span>
                             <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover/btn:translate-x-1 will-change-transform" />
                         </button>
                     </div>

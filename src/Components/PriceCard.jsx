@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { services } from '../data/services'
@@ -27,6 +28,7 @@ function useBreakpoint(breakpoint = 1024) {
 }
 
 function PriceCard() {
+    const { t } = useTranslation()
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState(1)
     const [isHovered, setIsHovered] = useState(false)
