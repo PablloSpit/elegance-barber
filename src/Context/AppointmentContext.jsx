@@ -97,7 +97,8 @@ export function AppointmentProvider({ children }) {
             await localStorage.setItem("Appointments", JSON.stringify(updatedAppointments))
 
             // Trigger notification
-            const config = JSON.parse(localStorage.getItem('admin_config') || '{}');
+            const notificationConfig = JSON.parse(localStorage.getItem('admin_config') || '{}');
+
             if (config.alertSounds !== false) {
                 try {
                     const audio = new Audio('/notification.mp3');
