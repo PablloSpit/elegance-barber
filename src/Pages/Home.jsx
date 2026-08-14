@@ -394,7 +394,7 @@ function Home() {
                         <div className="w-full lg:w-[50%] flex flex-col items-center lg:items-start pt-4 lg:pt-14 mb-2 z-10">
 
                             {/* Tagline — horizontal line + text */}
-                            <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10 opacity-0 translate-y-[15px]">
+                            <div className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
                                 <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
                                     {t('home.since')}
@@ -402,7 +402,7 @@ function Home() {
                             </div>
 
                             {/* Main Heading — Bold, aggressive spacing */}
-                            <div data-hero-heading className="heading-text text-center lg:text-left mb-4 opacity-0 translate-y-[15px]">
+                            <div className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
                                     {t('home.hero_title_1')}
@@ -421,14 +421,13 @@ function Home() {
 
                             {/* Description */}
                             <p
-                                data-hero-description
                                 className="font-sans font-light text-white/50 text-xs sm:text-sm md:text-base max-w-sm leading-relaxed tracking-wide text-center lg:text-left mb-6 sm:mb-8 lg:mb-10 px-2 sm:px-0"
                             >
                                 {t('home.hero_desc')}
                             </p>
 
                             {/* CTA Row */}
-                            <div data-hero-cta className="flex flex-row items-center gap-4 sm:gap-6 mb-7 md:mb-12 opacity-0 translate-y-[15px]">
+                            <div className="flex flex-row items-center gap-4 sm:gap-6 mb-7 md:mb-12">
                                 <a href="#appointment">
                                     <div data-magnetic className="group relative">
                                         <button className="relative px-7 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 border border-champberry/60 bg-transparent text-champberry font-sans font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] transition-all duration-500 ease-luxury hover:bg-champberry hover:text-white hover:border-champberry overflow-hidden">
