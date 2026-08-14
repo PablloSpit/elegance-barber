@@ -31,7 +31,7 @@ const parseStoredDate = (dateStr) => {
     return new Date(dateStr)
 }
 
-const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Faltou']
+const categories = ['All', 'Confirmed', 'Pending', 'Awaiting Confirmation', 'Cancelled', 'Completed', 'Checked In', 'Missed']
 const categoryMap = {
     'All': 'appointments.status.all',
     'Confirmed': 'appointments.status.confirmed',
@@ -39,7 +39,8 @@ const categoryMap = {
     'Awaiting Confirmation': 'appointments.status.awaiting_confirmation',
     'Cancelled': 'appointments.status.cancelled',
     'Completed': 'appointments.status.completed',
-    'Faltou': 'appointments.status.missed'
+    'Checked In': 'appointments.status.checked_in',
+    'Missed': 'appointments.status.missed'
 }
 
 function Appointments() {
