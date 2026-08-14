@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { CustomEase } from "gsap/CustomEase"
+import { useTranslation } from 'react-i18next'
 
 gsap.registerPlugin(ScrollTrigger, CustomEase)
 
@@ -41,6 +42,7 @@ import { Link } from 'react-router-dom'
 import { useStaff } from '../Context/StaffContext.jsx'
 
 function Home() {
+    const { t } = useTranslation()
     const heroRef = useRef(null)
     const aboutRef = useRef(null)
 
@@ -394,7 +396,7 @@ function Home() {
                             <div data-hero-tagline className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                                 <div className="w-8 sm:w-12 hidden md:flex h-px bg-champberry/50"></div>
                                 <p className="font-sans text-champberry/80 text-[8px] sm:text-[10px] md:text-xs tracking-[0.4em] sm:tracking-[0.5em] uppercase font-semibold">
-                                    Desde 2011 — Cuidado Masculino Premium
+                                    {t('home.since')}
                                 </p>
                             </div>
 
@@ -402,7 +404,7 @@ function Home() {
                             <div data-hero-heading className="heading-text text-center lg:text-left mb-4">
                                 {/* Line 1 */}
                                 <h1 className="font-serif font-bold text-champberry text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] uppercase">
-                                    A Arte do
+                                    {t('home.hero_title_1')}
                                 </h1>
 
                                 {/* Line 2: Massive, dominant */}
