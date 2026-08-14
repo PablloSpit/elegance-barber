@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
 import { useAppointment } from '../../Context/AppointmentContext'
 import { useMessage } from '../../Context/MessageContext'

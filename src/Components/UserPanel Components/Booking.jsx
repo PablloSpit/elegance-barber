@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAppointment } from '../../Context/AppointmentContext.jsx'
 import AppointmentCards from './AppointmentCards.jsx'
 
