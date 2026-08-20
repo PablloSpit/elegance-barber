@@ -118,7 +118,7 @@
     "copy_booking_link": "Copiar Link de Agendamento",
     "booking_link_copied": "Link de agendamento copiado!",
     "main_booking_link": "Link Principal de Agendamento",
-    "main_booking_link_desc": "Este link direciona os clientes para a página exclusiva de agendamento profissional.",
+    "main_booking_link_desc": "Este link direciona os clientes para a página exclusiva de agendamento profissional. Utilize https://elegance-barber.lovable.app/agendar para compartilhar.",
     "individual_links": "Links Individuais",
     "individual_links_desc": "Cada funcionário tem seu próprio link exclusivo. Você pode gerenciá-los na aba 'Equipe'.",
     "view_team_links": "Ver links da equipe",

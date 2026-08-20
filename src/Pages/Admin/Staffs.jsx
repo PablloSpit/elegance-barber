@@ -242,7 +242,7 @@ const Staffs = () => {
                                                     <button 
                                                         onClick={() => {
                                                             const slug = member.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-')
-                                                            const url = `${window.location.origin}/agendar/${slug}`;
+                                                            const url = `https://elegance-barber.lovable.app/agendar/${slug}`;
                                                             navigator.clipboard.writeText(url);
                                                             showMessage('success', t('admin.booking_link_copied', 'Link de agendamento copiado!'));
                                                         }}
