@@ -65,7 +65,7 @@ function LoginInput() {
                     {message && <p className="mt-3 text-center text-champberry font-bold">{message}</p>}
                     
                     <div className="mt-8 p-4 bg-obsidian-elevated/50 rounded-lg border border-champberry/20">
-                        <p className="text-[10px] text-[#454545] font-bold uppercase mb-2 tracking-widest opacity-50">Logins de Demonstração</p>
+                        <p className="text-[10px] text-[#454545] font-bold uppercase mb-2 tracking-widest opacity-50">{t('auth.demo_logins', 'Demo Logins')}</p>
                         <div className="space-y-2">
                             <div className="flex justify-between items-center text-xs">
                                 <span className="text-[#666]">Admin:</span>
