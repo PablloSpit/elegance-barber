@@ -195,19 +195,48 @@ function Appointment() {
     
     // Identifica o funcionário pelo slug ou pelo parâmetro de busca
     const staffIdParam = staffSlug 
-        ? staff.find(s => s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-') === staffSlug)?.id
+        ? staff.find(s => {
+            const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+            return normalizedName === staffSlug;
+          })?.id
         : searchParams.get('staff')
     
     const [forcedStaff, setForcedStaff] = useState(null)
     
     useEffect(() => {
         if (staffIdParam) {
-            const foundStaff = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString())
+            // Se staffIdParam for um ID numérico ou o ID exato (UUID)
+            let foundStaff = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString());
+            
+            // Se não encontrou por ID, mas temos staffSlug (que gerou staffIdParam via busca por nome)
+            if (!foundStaff && staffSlug) {
+                foundStaff = staff.find(s => {
+                    const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+                    return normalizedName === staffSlug;
+                });
+            }
+
             if (foundStaff) {
                 setForcedStaff(foundStaff)
             }
+        } else {
+            setForcedStaff(null)
         }
-    }, [staffIdParam, staff])
+    }, [staffIdParam, staff, staffSlug])
+
+    // Efeito para sincronizar forcedStaff quando o staff context for carregado/atualizado
+    useEffect(() => {
+        if (staffIdParam && !forcedStaff && staff.length > 0) {
+            let found = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString());
+            if (!found && staffSlug) {
+                found = staff.find(s => {
+                    const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+                    return normalizedName === staffSlug;
+                });
+            }
+            if (found) setForcedStaff(found);
+        }
+    }, [staff, staffIdParam, staffSlug, forcedStaff])
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
@@ -319,8 +348,15 @@ function Appointment() {
         }
 
         const formData = {
-            name, email, phoneNumber, selectedService, date, time, message, totalPrice,
-            forcedStaffId: forcedStaff ? forcedStaff.id : (staffIdParam ? parseInt(staffIdParam) : null),
+            name, 
+            email, 
+            phoneNumber, 
+            selectedService, 
+            date, 
+            time, 
+            message, 
+            totalPrice,
+            forcedStaffId: forcedStaff ? forcedStaff.id : (staffIdParam ? (isNaN(parseInt(staffIdParam)) ? staffIdParam : parseInt(staffIdParam)) : null),
             isStaffSpecific: !!(forcedStaff || staffIdParam)
         }
 
