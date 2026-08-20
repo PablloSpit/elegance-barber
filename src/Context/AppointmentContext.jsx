@@ -31,6 +31,8 @@ export function AppointmentProvider({ children }) {
             }
 
             const selectedServices = appointmentData.selectedService // array of { name, price }
+            const isStaffSpecific = appointmentData.isStaffSpecific
+            const forcedStaffId = appointmentData.forcedStaffId
 
             // Check if a stylist is already booked at this exact date+time in existing appointments
             const alreadyBookedAtSlot = (stylistId) =>
@@ -48,9 +50,9 @@ export function AppointmentProvider({ children }) {
                     service.name
                 )
 
-                // If a specific staff is requested via link
-                if (appointmentData.forcedStaffId) {
-                    availableStylists = availableStylists.filter(s => s.id === appointmentData.forcedStaffId)
+                // If a specific staff is requested via link, ONLY allow that staff
+                if (isStaffSpecific && forcedStaffId) {
+                    availableStylists = availableStylists.filter(s => s.id === forcedStaffId || s.id.toString() === forcedStaffId.toString())
                 }
 
                 // Filter out: already booked elsewhere 
@@ -59,9 +61,13 @@ export function AppointmentProvider({ children }) {
                 )
 
                 if (trulyFree.length === 0) {
+                    const errorMsg = isStaffSpecific 
+                        ? `O profissional selecionado não está disponível para "${service.name}" nesta data e hora.`
+                        : `Nenhum profissional disponível para "${service.name}" na data e hora selecionadas.`
+                    
                     return {
                         success: false,
-                        error: `Nenhum profissional disponível para "${service.name}" na data e hora selecionadas. Por favor, tente outro horário.`
+                        error: errorMsg
                     }
                 }
 
