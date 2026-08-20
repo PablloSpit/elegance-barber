@@ -39,8 +39,30 @@ export function AuthProvider({ children }) {
             password: 'admin',
             role: 'admin',
         };
+        
+        // Add default staff login for testing/demo
+        const staffTestUser = {
+            id: 'staff-default',
+            name: 'Barbeiro Exemplo',
+            phone: '11999999999',
+            email: 'staff@elegance.com',
+            password: 'staff',
+            role: 'staff',
+            accountRole: 'staff'
+        };
+
+        let usersModified = false;
         if (!persistedUsers.some(u => u.email === adminTestUser.email)) {
             persistedUsers = [adminTestUser, ...persistedUsers];
+            usersModified = true;
+        }
+
+        if (!persistedStaff.some(s => s.email === staffTestUser.email)) {
+            persistedStaff = [staffTestUser, ...persistedStaff];
+            localStorage.setItem(STAFF_STORAGE_KEY, JSON.stringify(persistedStaff));
+        }
+
+        if (usersModified) {
             localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(persistedUsers));
         }
 

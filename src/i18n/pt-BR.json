@@ -420,6 +420,7 @@
     "remember_me": "Lembrar de mim",
     "forgot_password": "Esqueceu sua senha?",
     "dont_have_account": "Não tem uma conta?",
-    "sign_in": "Cadastre-se"
+    "sign_in": "Cadastre-se",
+    "demo_logins": "Logins de Demonstração"
   }
 }
