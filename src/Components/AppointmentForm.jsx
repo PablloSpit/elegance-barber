@@ -195,7 +195,10 @@ function Appointment() {
     
     // Identifica o funcionário pelo slug ou pelo parâmetro de busca
     const staffIdParam = staffSlug 
-        ? staff.find(s => s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-') === staffSlug)?.id
+        ? staff.find(s => {
+            const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+            return normalizedName === staffSlug;
+          })?.id
         : searchParams.get('staff')
     
     const [forcedStaff, setForcedStaff] = useState(null)
@@ -206,6 +209,8 @@ function Appointment() {
             if (foundStaff) {
                 setForcedStaff(foundStaff)
             }
+        } else {
+            setForcedStaff(null)
         }
     }, [staffIdParam, staff])
     const { currentUser } = useAuth()
