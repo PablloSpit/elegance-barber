@@ -122,7 +122,7 @@ export function StaffProvider({ children }) {
             
             // Se o admin existir como "staff" (Pabllo Spit), garantir que ele esteja na lista de staff para agendamento
             if (adminUser && adminUser.accountRole === 'staff') {
-                if (!staffList.some(s => s.email === adminUser.email)) {
+                if (!staffList.some(s => s.email === adminUser.email || s.id === adminUser.id)) {
                     staffList = [adminUser, ...staffList];
                 }
             }
