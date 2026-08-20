@@ -324,8 +324,15 @@ function Appointment() {
         }
 
         const formData = {
-            name, email, phoneNumber, selectedService, date, time, message, totalPrice,
-            forcedStaffId: forcedStaff ? forcedStaff.id : (staffIdParam ? parseInt(staffIdParam) : null),
+            name, 
+            email, 
+            phoneNumber, 
+            selectedService, 
+            date, 
+            time, 
+            message, 
+            totalPrice,
+            forcedStaffId: forcedStaff ? forcedStaff.id : (staffIdParam ? (isNaN(parseInt(staffIdParam)) ? staffIdParam : parseInt(staffIdParam)) : null),
             isStaffSpecific: !!(forcedStaff || staffIdParam)
         }
 
