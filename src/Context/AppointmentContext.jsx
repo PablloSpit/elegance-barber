@@ -334,12 +334,11 @@ export function AppointmentProvider({ children }) {
         }
     }
 
-    const getAppointmentsForStaff = (staffId) => {
-        const currentStaff = staff.find(s => s.id === Number(staffId));
+    const getAppointmentsForStaff = (staffId, staffEmail) => {
         return appointments.filter(a =>
             a.items?.some(item =>
                 item.stylist?.id === Number(staffId) ||
-                (currentStaff && item.stylist?.email?.toLowerCase() === currentStaff.email.toLowerCase())
+                (staffEmail && item.stylist?.email?.toLowerCase() === staffEmail.toLowerCase())
             )
         )
     };

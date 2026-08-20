@@ -47,7 +47,7 @@ function StaffAppointments() {
     // Fetch only this staff's appointments
     const appointments = useMemo(() => {
         if (!currentUser) return []
-        return getAppointmentsForStaff(currentUser.id)
+        return getAppointmentsForStaff(currentUser.id, currentUser.email)
     }, [currentUser, getAppointmentsForStaff])
 
     const [searchTerm, setSearchTerm] = useState('')
