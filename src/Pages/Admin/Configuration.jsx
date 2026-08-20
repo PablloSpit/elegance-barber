@@ -243,23 +243,52 @@ function Configuration() {
                                             {t('admin.main_booking_link_desc', 'Este é o link oficial da barbearia. Compartilhe em suas redes sociais para que os clientes acessem diretamente o fluxo de agendamento em uma página dedicada e elegante.')}
                                         </p>
                                         
-                                        <div className="mt-4 group relative">
-                                            <div className="absolute -inset-1 bg-linear-to-r from-champberry/20 to-champberry/5 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                                            <div className="relative flex items-center gap-3 bg-obsidian/80 backdrop-blur-xl border border-champberry/30 p-4 rounded-xl shadow-inner">
-                                                <div className="flex-1 truncate text-champberry font-mono text-sm font-bold tracking-tight">
-                                                    {`https://elegance-barber.lovable.app/agendar`}
+                                        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <div className="group relative">
+                                                <div className="absolute -inset-1 bg-linear-to-r from-champberry/20 to-champberry/5 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                                                <div className="relative space-y-2">
+                                                    <label className="text-[10px] text-gray-500 font-bold uppercase ml-1">Link Geral</label>
+                                                    <div className="relative flex items-center gap-3 bg-obsidian/80 backdrop-blur-xl border border-champberry/30 p-4 rounded-xl shadow-inner">
+                                                        <div className="flex-1 truncate text-champberry font-mono text-sm font-bold tracking-tight">
+                                                            {`https://elegance-barber.lovable.app/agendar`}
+                                                        </div>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                navigator.clipboard.writeText(`https://elegance-barber.lovable.app/agendar`);
+                                                                showMessage('success', t('admin.booking_link_copied'));
+                                                            }}
+                                                            className="p-2.5 bg-champberry hover:bg-champberry-dark text-white rounded-lg transition-all active:scale-95 shadow-md shadow-champberry/20 cursor-pointer"
+                                                            title={t('common.copy_link', 'Copiar Link')}
+                                                        >
+                                                            <Copy size={18} />
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => {
-                                                        navigator.clipboard.writeText(`https://elegance-barber.lovable.app/agendar`);
-                                                        showMessage('success', t('admin.booking_link_copied'));
-                                                    }}
-                                                    className="p-2.5 bg-champberry hover:bg-champberry-dark text-white rounded-lg transition-all active:scale-95 shadow-md shadow-champberry/20 cursor-pointer"
-                                                    title={t('common.copy_link', 'Copiar Link')}
-                                                >
-                                                    <Copy size={18} />
-                                                </button>
+                                            </div>
+
+                                            <div className="group relative">
+                                                <div className="absolute -inset-1 bg-linear-to-r from-champberry/20 to-champberry/5 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                                                <div className="relative space-y-2">
+                                                    <label className="text-[10px] text-gray-500 font-bold uppercase ml-1">Meu Link (Rastreável)</label>
+                                                    <div className="relative flex items-center gap-3 bg-obsidian/80 backdrop-blur-xl border border-champberry/30 p-4 rounded-xl shadow-inner">
+                                                        <div className="flex-1 truncate text-champberry font-mono text-sm font-bold tracking-tight">
+                                                            {`https://elegance-barber.lovable.app/agendar/${currentUser?.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-')}`}
+                                                        </div>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                const slug = currentUser?.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+                                                                navigator.clipboard.writeText(`https://elegance-barber.lovable.app/agendar/${slug}`);
+                                                                showMessage('success', t('admin.booking_link_copied'));
+                                                            }}
+                                                            className="p-2.5 bg-champberry hover:bg-champberry-dark text-white rounded-lg transition-all active:scale-95 shadow-md shadow-champberry/20 cursor-pointer"
+                                                            title={t('common.copy_link', 'Copiar Link')}
+                                                        >
+                                                            <Copy size={18} />
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
