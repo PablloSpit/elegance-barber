@@ -29,6 +29,7 @@ const StaffDashboard = lazy(() => import('./Pages/Staff/StaffDashboard'));
 const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
 const StaffProfile = lazy(() => import('./Pages/Staff/StaffProfile'));
 const StaffLink = lazy(() => import('./Pages/Staff/StaffLink'));
+const BookingPage = lazy(() => import('./Pages/BookingPage'));
 
 
 
