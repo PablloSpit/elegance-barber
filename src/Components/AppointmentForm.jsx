@@ -320,7 +320,7 @@ function Appointment() {
 
         const formData = {
             name, email, phoneNumber, selectedService, date, time, message, totalPrice,
-            forcedStaffId: staffIdParam ? parseInt(staffIdParam) : null
+            forcedStaffId: forcedStaff ? forcedStaff.id : (staffIdParam ? parseInt(staffIdParam) : null)
         }
 
         const result = await bookAppointment(formData)
