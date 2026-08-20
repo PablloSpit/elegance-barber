@@ -199,7 +199,7 @@ function Appointment() {
             const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
             return normalizedName === staffSlug;
           })?.id
-        : searchParams.get('staff')
+        : (searchParams.get('staff') || searchParams.get('prof'))
     
     const [forcedStaff, setForcedStaff] = useState(null)
     
@@ -257,7 +257,12 @@ function Appointment() {
     const [time, setTime] = useState('')
     const [message, setMessage] = useState('')
 
-    const totalPrice = selectedService.reduce((sum, s) => sum + (typeof s.price === 'number' ? s.price : parseFloat(s.price?.toString().replace('R$ ', '') || 0)), 0)
+    const totalPrice = selectedService.reduce((sum, s) => {
+        const priceValue = typeof s.price === 'number' 
+            ? s.price 
+            : parseFloat(s.price?.toString().replace('R$ ', '').replace(',', '.') || 0);
+        return sum + priceValue;
+    }, 0)
 
     const toggleService = (service) => {
         setSelectedService(prev => {
