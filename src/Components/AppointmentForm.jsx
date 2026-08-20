@@ -223,6 +223,20 @@ function Appointment() {
             setForcedStaff(null)
         }
     }, [staffIdParam, staff, staffSlug])
+
+    // Efeito para sincronizar forcedStaff quando o staff context for carregado/atualizado
+    useEffect(() => {
+        if (staffIdParam && !forcedStaff && staff.length > 0) {
+            let found = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString());
+            if (!found && staffSlug) {
+                found = staff.find(s => {
+                    const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+                    return normalizedName === staffSlug;
+                });
+            }
+            if (found) setForcedStaff(found);
+        }
+    }, [staff, staffIdParam, staffSlug, forcedStaff])
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
