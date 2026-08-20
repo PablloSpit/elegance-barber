@@ -33,11 +33,26 @@ export function AuthProvider({ children }) {
         // ensure admin exists in persisted users
         const adminTestUser = {
             id: 0,
-            name: 'Admin User',
-            phone: '',
+            name: 'Pabllo Spit',
+            phone: '11999998888',
             email: 'admin@admin.com',
             password: 'admin',
             role: 'admin',
+            accountRole: 'staff',
+            specialties: ["Haircut", "Beard Trim", "Shaving"],
+            rating: 5.0,
+            experience: "15 years",
+            commission: 1.0,
+            status: "active",
+            schedule: {
+                monday: { start: "09:00", end: "20:00" },
+                tuesday: { start: "09:00", end: "20:00" },
+                wednesday: { start: "09:00", end: "20:00" },
+                thursday: { start: "09:00", end: "20:00" },
+                friday: { start: "09:00", end: "20:00" },
+                saturday: { start: "08:00", end: "18:00" },
+                sunday: null
+            }
         };
         
         // Add default staff login for testing/demo

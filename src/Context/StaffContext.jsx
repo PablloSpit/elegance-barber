@@ -115,11 +115,21 @@ export function StaffProvider({ children }) {
         const fetchStaff = async () => {
             // ensure default staff include auth fields
             const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-                setStaff(JSON.parse(stored));
-            } else {
-                setStaff(defaultStaff);
-                await localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultStaff));
+            const persistedUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+            const adminUser = persistedUsers.find(u => u.role === 'admin');
+            
+            let staffList = stored ? JSON.parse(stored) : defaultStaff;
+            
+            // Se o admin existir como "staff" (Pabllo Spit), garantir que ele esteja na lista de staff para agendamento
+            if (adminUser && adminUser.accountRole === 'staff') {
+                if (!staffList.some(s => s.email === adminUser.email)) {
+                    staffList = [adminUser, ...staffList];
+                }
+            }
+
+            setStaff(staffList);
+            if (!stored) {
+                await localStorage.setItem(STORAGE_KEY, JSON.stringify(staffList));
             }
         };
 
