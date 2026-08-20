@@ -45,6 +45,16 @@ const Router = createBrowserRouter(
             <Home />
           </Suspense>
         } />
+        <Route path='/agendar' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <BookingPage />
+          </Suspense>
+        } />
+        <Route path='/agendar/:staffSlug' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <BookingPage />
+          </Suspense>
+        } />
         <Route path='/artisan/:id' element={
           <Suspense fallback={<LoadingSpinner />}>
             <ArtisanProfile />
@@ -70,16 +80,6 @@ const Router = createBrowserRouter(
             <ProtectedRoute requiredRole="client">
               <Account />
             </ProtectedRoute>
-          </Suspense>
-        } />
-        <Route path='/agendar' element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Home />
-          </Suspense>
-        } />
-        <Route path='/agendar/:staffSlug' element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Home />
           </Suspense>
         } />
       </Route>

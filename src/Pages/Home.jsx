@@ -102,18 +102,8 @@ function Home() {
     const { staffSlug } = useParams()
 
     useEffect(() => {
-        if (staffSlug || window.location.pathname === '/agendar') {
-            const appointmentSection = document.getElementById('appointment');
-            if (appointmentSection) {
-                // Ensure page content is ready before scrolling
-                setTimeout(() => {
-                    appointmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }, [staffSlug]);
+        window.scrollTo(0, 0);
+    }, []);
 
     useGSAP(() => {
         // Register the CustomEase for the exact luxury curve mapping

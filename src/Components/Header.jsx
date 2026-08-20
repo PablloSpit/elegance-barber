@@ -43,13 +43,25 @@ function Header({ bgImage = "bg-transparent" }) {
 
     // Simple function to navigate to section
     const goToSection = (sectionId) => {
-        navigate('/')
-        setTimeout(() => {
+        if (sectionId === 'appointment') {
+            navigate('/agendar')
+            return
+        }
+        
+        if (window.location.pathname !== '/') {
+            navigate('/')
+            setTimeout(() => {
+                const section = document.getElementById(sectionId)
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' })
+                }
+            }, 300)
+        } else {
             const section = document.getElementById(sectionId)
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' })
             }
-        }, 200)
+        }
     }
 
     return (
