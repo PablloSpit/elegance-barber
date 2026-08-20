@@ -45,7 +45,7 @@ function StaffDashboard() {
 
     const myAppointments = useMemo(() => {
         if (!currentUser) return []
-        return getAppointmentsForStaff(currentUser.id)
+        return getAppointmentsForStaff(currentUser.id, currentUser.email)
     }, [currentUser, getAppointmentsForStaff])
 
     const totalRevenue = useMemo(() => {
