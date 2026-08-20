@@ -205,14 +205,24 @@ function Appointment() {
     
     useEffect(() => {
         if (staffIdParam) {
-            const foundStaff = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString())
+            // Se staffIdParam for um ID numérico ou o ID exato (UUID)
+            let foundStaff = staff.find(s => s.id === parseInt(staffIdParam) || s.id.toString() === staffIdParam.toString());
+            
+            // Se não encontrou por ID, mas temos staffSlug (que gerou staffIdParam via busca por nome)
+            if (!foundStaff && staffSlug) {
+                foundStaff = staff.find(s => {
+                    const normalizedName = s.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
+                    return normalizedName === staffSlug;
+                });
+            }
+
             if (foundStaff) {
                 setForcedStaff(foundStaff)
             }
         } else {
             setForcedStaff(null)
         }
-    }, [staffIdParam, staff])
+    }, [staffIdParam, staff, staffSlug])
     const { currentUser } = useAuth()
     const { showMessage } = useMessage()
     const { bookAppointment } = useAppointment()
