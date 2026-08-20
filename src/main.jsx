@@ -29,6 +29,7 @@ const StaffDashboard = lazy(() => import('./Pages/Staff/StaffDashboard'));
 const StaffAppointments = lazy(() => import('./Pages/Staff/StaffAppointments'));
 const StaffProfile = lazy(() => import('./Pages/Staff/StaffProfile'));
 const StaffLink = lazy(() => import('./Pages/Staff/StaffLink'));
+const BookingPage = lazy(() => import('./Pages/BookingPage'));
 
 
 
@@ -42,6 +43,16 @@ const Router = createBrowserRouter(
         <Route path='' element={
           <Suspense fallback={<LoadingSpinner />}>
             <Home />
+          </Suspense>
+        } />
+        <Route path='/agendar' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <BookingPage />
+          </Suspense>
+        } />
+        <Route path='/agendar/:staffSlug' element={
+          <Suspense fallback={<LoadingSpinner />}>
+            <BookingPage />
           </Suspense>
         } />
         <Route path='/artisan/:id' element={
@@ -69,16 +80,6 @@ const Router = createBrowserRouter(
             <ProtectedRoute requiredRole="client">
               <Account />
             </ProtectedRoute>
-          </Suspense>
-        } />
-        <Route path='/agendar' element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Home />
-          </Suspense>
-        } />
-        <Route path='/agendar/:staffSlug' element={
-          <Suspense fallback={<LoadingSpinner />}>
-            <Home />
           </Suspense>
         } />
       </Route>
