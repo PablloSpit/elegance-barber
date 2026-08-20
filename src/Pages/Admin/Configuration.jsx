@@ -247,12 +247,12 @@ function Configuration() {
                                             <div className="absolute -inset-1 bg-linear-to-r from-champberry/20 to-champberry/5 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition duration-500"></div>
                                             <div className="relative flex items-center gap-3 bg-obsidian/80 backdrop-blur-xl border border-champberry/30 p-4 rounded-xl shadow-inner">
                                                 <div className="flex-1 truncate text-champberry font-mono text-sm font-bold tracking-tight">
-                                                    {`${window.location.origin}/agendar`}
+                                                    {`https://elegance-barber.lovable.app/agendar`}
                                                 </div>
                                                 <button
                                                     type="button"
                                                     onClick={() => {
-                                                        navigator.clipboard.writeText(`${window.location.origin}/agendar`);
+                                                        navigator.clipboard.writeText(`https://elegance-barber.lovable.app/agendar`);
                                                         showMessage('success', t('admin.booking_link_copied'));
                                                     }}
                                                     className="p-2.5 bg-champberry hover:bg-champberry-dark text-white rounded-lg transition-all active:scale-95 shadow-md shadow-champberry/20 cursor-pointer"

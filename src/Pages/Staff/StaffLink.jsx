@@ -11,7 +11,7 @@ function StaffLink() {
     const [copied, setCopied] = useState(false)
 
     const slug = currentUser?.name ? currentUser.name.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-') : currentUser?.id
-    const bookingLink = `${window.location.origin}/agendar/${slug}`
+    const bookingLink = `https://elegance-barber.lovable.app/agendar/${slug}`
 
     const handleCopy = () => {
         navigator.clipboard.writeText(bookingLink)
