@@ -62,9 +62,24 @@ function LoginInput() {
                     <div className="submit-button">
                         <input type="submit" value={t('common.login', 'Login')} className="w-full border-4 sm:border-5 border-champberry hover:border-white text-white font-black p-2 sm:p-3 px-4 sm:px-6 hover:bg-[#d28127] transition-colors cursor-pointer uppercase text-base sm:text-lg md:text-xl" />
                     </div>
-                    {message && <p className="mt-3 text-center text-champberry">{message}</p>}
+                    {message && <p className="mt-3 text-center text-champberry font-bold">{message}</p>}
+                    
+                    <div className="mt-8 p-4 bg-obsidian-elevated/50 rounded-lg border border-champberry/20">
+                        <p className="text-[10px] text-[#454545] font-bold uppercase mb-2 tracking-widest opacity-50">Logins de Demonstração</p>
+                        <div className="space-y-2">
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-[#666]">Admin:</span>
+                                <code className="text-champberry bg-black/30 px-2 py-0.5 rounded cursor-pointer hover:bg-black/50 transition-colors" onClick={() => {setEmail('admin@admin.com'); setPassword('admin')}}>admin@admin.com / admin</code>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-[#666]">Staff:</span>
+                                <code className="text-champberry bg-black/30 px-2 py-0.5 rounded cursor-pointer hover:bg-black/50 transition-colors" onClick={() => {setEmail('staff@elegance.com'); setPassword('staff')}}>staff@elegance.com / staff</code>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="no-account mt-5 sm:mt-6 md:mt-7">
-                        <p className="text-center font-bold text-xs sm:text-sm md:text-base text-[#454545] tracking-tighter">{t('auth.dont_have_account', "Don't have an account?")} <Link to="/register" className='text-champberry'>{t('auth.sign_in', 'Sign In')}</Link></p>
+                        <p className="text-center font-bold text-xs sm:text-sm md:text-base text-[#454545] tracking-tighter">{t('auth.dont_have_account', "Don't have an account?") } <Link to="/register" className='text-champberry'>{t('auth.sign_in', 'Sign In')}</Link></p>
                     </div>
                 </form>
             </div>
